@@ -77,17 +77,17 @@
             // 
             // buttonSearchByID
             // 
-            this.buttonSearchByID.Location = new System.Drawing.Point(670, 352);
+            this.buttonSearchByID.Location = new System.Drawing.Point(670, 485);
             this.buttonSearchByID.Name = "buttonSearchByID";
             this.buttonSearchByID.Size = new System.Drawing.Size(75, 23);
             this.buttonSearchByID.TabIndex = 43;
-            this.buttonSearchByID.Text = "Buscar";
+            this.buttonSearchByID.Text = "Buscador";
             this.buttonSearchByID.UseVisualStyleBackColor = true;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(586, 307);
+            this.label8.Location = new System.Drawing.Point(281, 307);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(18, 13);
             this.label8.TabIndex = 42;
@@ -95,23 +95,27 @@
             // 
             // textBoxID
             // 
-            this.textBoxID.Location = new System.Drawing.Point(589, 326);
+            this.textBoxID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(47)))), ((int)(((byte)(68)))));
+            this.textBoxID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxID.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxID.Location = new System.Drawing.Point(284, 326);
             this.textBoxID.Name = "textBoxID";
-            this.textBoxID.Size = new System.Drawing.Size(75, 20);
+            this.textBoxID.Size = new System.Drawing.Size(75, 23);
             this.textBoxID.TabIndex = 41;
             // 
             // comboBoxActivated
             // 
+            this.comboBoxActivated.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxActivated.FormattingEnabled = true;
             this.comboBoxActivated.Location = new System.Drawing.Point(12, 420);
             this.comboBoxActivated.Name = "comboBoxActivated";
-            this.comboBoxActivated.Size = new System.Drawing.Size(92, 21);
+            this.comboBoxActivated.Size = new System.Drawing.Size(92, 24);
             this.comboBoxActivated.TabIndex = 40;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(264, 310);
+            this.label7.Location = new System.Drawing.Point(157, 444);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(39, 13);
             this.label7.TabIndex = 39;
@@ -119,9 +123,12 @@
             // 
             // txtBoxClient
             // 
-            this.txtBoxClient.Location = new System.Drawing.Point(267, 326);
+            this.txtBoxClient.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(47)))), ((int)(((byte)(68)))));
+            this.txtBoxClient.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBoxClient.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxClient.Location = new System.Drawing.Point(160, 460);
             this.txtBoxClient.Name = "txtBoxClient";
-            this.txtBoxClient.Size = new System.Drawing.Size(92, 20);
+            this.txtBoxClient.Size = new System.Drawing.Size(92, 23);
             this.txtBoxClient.TabIndex = 38;
             // 
             // label6
@@ -180,35 +187,47 @@
             // 
             // txtBoxCorner
             // 
+            this.txtBoxCorner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(47)))), ((int)(((byte)(68)))));
+            this.txtBoxCorner.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBoxCorner.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoxCorner.Location = new System.Drawing.Point(160, 409);
             this.txtBoxCorner.Name = "txtBoxCorner";
-            this.txtBoxCorner.Size = new System.Drawing.Size(92, 20);
+            this.txtBoxCorner.Size = new System.Drawing.Size(92, 23);
             this.txtBoxCorner.TabIndex = 31;
             // 
             // txtBoxNumber
             // 
+            this.txtBoxNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(47)))), ((int)(((byte)(68)))));
+            this.txtBoxNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBoxNumber.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoxNumber.Location = new System.Drawing.Point(160, 368);
             this.txtBoxNumber.Name = "txtBoxNumber";
-            this.txtBoxNumber.Size = new System.Drawing.Size(92, 20);
+            this.txtBoxNumber.Size = new System.Drawing.Size(92, 23);
             this.txtBoxNumber.TabIndex = 30;
             // 
             // txtBoxStreet
             // 
+            this.txtBoxStreet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(47)))), ((int)(((byte)(68)))));
+            this.txtBoxStreet.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBoxStreet.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoxStreet.Location = new System.Drawing.Point(160, 326);
             this.txtBoxStreet.Name = "txtBoxStreet";
-            this.txtBoxStreet.Size = new System.Drawing.Size(92, 20);
+            this.txtBoxStreet.Size = new System.Drawing.Size(92, 23);
             this.txtBoxStreet.TabIndex = 29;
             // 
             // txtBoxVolume
             // 
+            this.txtBoxVolume.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(47)))), ((int)(((byte)(68)))));
+            this.txtBoxVolume.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBoxVolume.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoxVolume.Location = new System.Drawing.Point(12, 368);
             this.txtBoxVolume.Name = "txtBoxVolume";
-            this.txtBoxVolume.Size = new System.Drawing.Size(92, 20);
+            this.txtBoxVolume.Size = new System.Drawing.Size(92, 23);
             this.txtBoxVolume.TabIndex = 28;
             // 
             // buttonEdit
             // 
-            this.buttonEdit.Location = new System.Drawing.Point(670, 323);
+            this.buttonEdit.Location = new System.Drawing.Point(284, 352);
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Size = new System.Drawing.Size(75, 23);
             this.buttonEdit.TabIndex = 27;
@@ -217,9 +236,9 @@
             // 
             // buttonRefresh
             // 
-            this.buttonRefresh.Location = new System.Drawing.Point(160, 458);
+            this.buttonRefresh.Location = new System.Drawing.Point(7, 487);
             this.buttonRefresh.Name = "buttonRefresh";
-            this.buttonRefresh.Size = new System.Drawing.Size(75, 23);
+            this.buttonRefresh.Size = new System.Drawing.Size(112, 23);
             this.buttonRefresh.TabIndex = 26;
             this.buttonRefresh.Text = "Recargar";
             this.buttonRefresh.UseVisualStyleBackColor = true;
@@ -244,9 +263,12 @@
             // 
             // txtBoxWeight
             // 
+            this.txtBoxWeight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(47)))), ((int)(((byte)(68)))));
+            this.txtBoxWeight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBoxWeight.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoxWeight.Location = new System.Drawing.Point(12, 326);
             this.txtBoxWeight.Name = "txtBoxWeight";
-            this.txtBoxWeight.Size = new System.Drawing.Size(92, 20);
+            this.txtBoxWeight.Size = new System.Drawing.Size(92, 23);
             this.txtBoxWeight.TabIndex = 23;
             // 
             // ProductsManagerForm
