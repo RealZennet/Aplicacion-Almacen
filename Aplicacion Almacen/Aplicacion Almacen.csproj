@@ -93,6 +93,9 @@
     <Compile Include="LoginHttp\ApiResponse.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -122,6 +125,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logoAzulZennet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ZENNETLOGO.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
