@@ -49,11 +49,26 @@ namespace Aplicacion_Almacen.Forms
             }
         }
 
+        private void showProductsForm()
+        {
+            ProductsManagerForm formProductCtl = new ProductsManagerForm();
+            formProductCtl.TopLevel = false;
+            panelFormsLoader.Controls.Add(formProductCtl);
+            formProductCtl.FormBorderStyle = FormBorderStyle.None;
+            formProductCtl.Dock = DockStyle.Fill;
+            panelFormsLoader.Tag = formProductCtl;
+            formProductCtl.BringToFront();
+            formProductCtl.Show();
+        }
+
         private void buttonStoreHouse_Click(object sender, EventArgs e)
         {
             showMenus(panelProductsAndBatchsContainer);
         }
 
-
+        private void buttonProductsManager_Click(object sender, EventArgs e)
+        {
+            showProductsForm();
+        }
     }
 }
