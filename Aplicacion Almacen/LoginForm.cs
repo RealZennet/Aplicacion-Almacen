@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Aplicacion_Almacen.Forms;
+using Aplicacion_Almacen.Login;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,8 +26,17 @@ namespace Aplicacion_Almacen
 
         }
 
+        private ApiResponse deserialize(string jsoncontent)
+        {
+            return JsonConvert.DeserializeObject<ApiResponse>(jsoncontent);
+        }
 
-
+        private void openPrincipalForm()
+        {
+            MainForm mainForm = new MainForm();
+            mainForm.Show();
+            this.Hide();
+        }
 
     }
 }
