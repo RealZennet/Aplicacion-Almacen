@@ -15,6 +15,8 @@ namespace Aplicacion_Almacen.Forms
 {
     public partial class ProductsManagerForm : Form
     {
+
+        public string jsonBody;
         public ProductsManagerForm()
         {
             InitializeComponent();
@@ -91,9 +93,110 @@ namespace Aplicacion_Almacen.Forms
         }
         #endregion getProductsFromAPI
 
+        #region postProductsToAPI
+
+        private bool SendProductDataToApi(string jsonBody)
+        {
+            try
+            {
+                RestClient client = new RestClient("http://localhost:64191");
+                RestRequest request = new RestRequest("/api/v1/productos", Method.Post);
+                request.AddHeader("Accept", "application/json");
+                request.AddHeader("Content-Type", "application/json");
+                request.AddParameter("application/json", jsonBody, ParameterType.RequestBody);
+
+                RestResponse response = client.Execute(request);
+
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("La solicitud al servidor no se completó correctamente. Código de estado: " + response.StatusCode);
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al agregar el producto: " + ex.Message);
+                return false;
+            }
+        }
+
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            jsonBody = "";
+
+            string selectedStatus = comboBoxActivated.SelectedItem as string;
+            int statusValue = selectedStatus == "true" ? 1 : 0;
+            if (ValidateInputsUser() && !string.IsNullOrWhiteSpace(selectedStatus))
+            {
+                ProductInterface product = new ProductInterface
+                {
+                    ProductWeight = Convert.ToInt32(txtBoxWeight.Text),
+                    Volume = Convert.ToInt32(txtBoxVolume.Text),
+                    Street = txtBoxStreet.Text,
+                    DoorNumber = Convert.ToInt32(txtBoxNumber.Text),
+                    Corner = txtBoxCorner.Text,
+                    Customer = txtBoxClient.Text,
+                    ActivatedProduct = Convert.ToBoolean(statusValue)
+                };
+                jsonBody = JsonConvert.SerializeObject(product);
+                RefreshTable();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, completa todos los campos y selecciona el estado del producto.");
+            }
+
+            if (SendProductDataToApi(jsonBody))
+            {
+                RefreshTable();
+                MessageBox.Show("Producto agregado exitosamente.");
+                clearTxtBoxs();
+            }
+            else
+            {
+                MessageBox.Show("Error al agregar el producto. Por favor, verifica los datos ingresados.");
+            }
+        }
+
+        #endregion postProductsToAPI
+
+        #region validationsAndUtils
         private void buttonRefresh_Click(object sender, EventArgs e)
         {
             RefreshTable();
         }
+
+        private bool ValidateInputsUser()
+        {
+
+            if (string.IsNullOrWhiteSpace(txtBoxWeight.Text) ||
+                string.IsNullOrWhiteSpace(txtBoxVolume.Text) ||
+                string.IsNullOrWhiteSpace(txtBoxStreet.Text) ||
+                string.IsNullOrWhiteSpace(txtBoxNumber.Text) ||
+                string.IsNullOrWhiteSpace(txtBoxCorner.Text) ||
+                string.IsNullOrWhiteSpace(txtBoxClient.Text))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        private void clearTxtBoxs()
+        {
+            txtBoxWeight.Clear();
+            txtBoxVolume.Clear();
+            txtBoxStreet.Clear();
+            txtBoxNumber.Clear();
+            txtBoxCorner.Clear();
+            txtBoxClient.Clear();
+        }
+
+        #endregion validationsAndUtils
     }
 }
