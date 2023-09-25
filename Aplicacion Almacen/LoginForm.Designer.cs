@@ -1,6 +1,6 @@
 ﻿namespace Aplicacion_Almacen
 {
-    partial class Form1
+    partial class LoginForm
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -110,6 +110,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Form1";
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
