@@ -32,16 +32,17 @@
             this.buttonStoreHouse = new System.Windows.Forms.Button();
             this.settingsManagerPanel = new System.Windows.Forms.Panel();
             this.buttonLanguage = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelProductsAndBatchsContainer = new System.Windows.Forms.Panel();
             this.buttonAssignProducts = new System.Windows.Forms.Button();
             this.buttonProductsManager = new System.Windows.Forms.Button();
             this.buttonBatchManager = new System.Windows.Forms.Button();
             this.panelFormsLoader = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.buttonTruckerCarryBatch = new System.Windows.Forms.Button();
             this.leftPanelContainer.SuspendLayout();
             this.settingsManagerPanel.SuspendLayout();
-            this.panelProductsAndBatchsContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panelProductsAndBatchsContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // leftPanelContainer
@@ -96,15 +97,27 @@
             this.buttonLanguage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonLanguage.UseVisualStyleBackColor = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox1.Image = global::Aplicacion_Almacen.Properties.Resources.ZENNETLOGO;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(250, 80);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // panelProductsAndBatchsContainer
             // 
             this.panelProductsAndBatchsContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
+            this.panelProductsAndBatchsContainer.Controls.Add(this.buttonTruckerCarryBatch);
             this.panelProductsAndBatchsContainer.Controls.Add(this.buttonAssignProducts);
             this.panelProductsAndBatchsContainer.Controls.Add(this.buttonProductsManager);
             this.panelProductsAndBatchsContainer.Controls.Add(this.buttonBatchManager);
             this.panelProductsAndBatchsContainer.Location = new System.Drawing.Point(0, 131);
             this.panelProductsAndBatchsContainer.Name = "panelProductsAndBatchsContainer";
-            this.panelProductsAndBatchsContainer.Size = new System.Drawing.Size(250, 99);
+            this.panelProductsAndBatchsContainer.Size = new System.Drawing.Size(250, 135);
             this.panelProductsAndBatchsContainer.TabIndex = 0;
             // 
             // buttonAssignProducts
@@ -161,16 +174,19 @@
             this.panelFormsLoader.Size = new System.Drawing.Size(773, 559);
             this.panelFormsLoader.TabIndex = 3;
             // 
-            // pictureBox1
+            // buttonTruckerCarryBatch
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Image = global::Aplicacion_Almacen.Properties.Resources.ZENNETLOGO;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(250, 80);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.buttonTruckerCarryBatch.FlatAppearance.BorderSize = 0;
+            this.buttonTruckerCarryBatch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonTruckerCarryBatch.ForeColor = System.Drawing.Color.Gainsboro;
+            this.buttonTruckerCarryBatch.Location = new System.Drawing.Point(0, 103);
+            this.buttonTruckerCarryBatch.Name = "buttonTruckerCarryBatch";
+            this.buttonTruckerCarryBatch.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.buttonTruckerCarryBatch.Size = new System.Drawing.Size(240, 26);
+            this.buttonTruckerCarryBatch.TabIndex = 6;
+            this.buttonTruckerCarryBatch.Text = "Asignar lote a camionero";
+            this.buttonTruckerCarryBatch.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonTruckerCarryBatch.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -185,8 +201,8 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.leftPanelContainer.ResumeLayout(false);
             this.settingsManagerPanel.ResumeLayout(false);
-            this.panelProductsAndBatchsContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panelProductsAndBatchsContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -203,5 +219,6 @@
         private System.Windows.Forms.Button buttonProductsManager;
         private System.Windows.Forms.Button buttonBatchManager;
         private System.Windows.Forms.Panel panelFormsLoader;
+        private System.Windows.Forms.Button buttonTruckerCarryBatch;
     }
 }

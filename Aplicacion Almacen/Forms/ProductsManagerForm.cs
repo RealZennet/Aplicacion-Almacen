@@ -21,7 +21,7 @@ namespace Aplicacion_Almacen.Forms
         public ProductsManagerForm()
         {
             InitializeComponent();
-            RefreshTable();
+            refreshTable();
             comboBoxActivated.Items.Add("true");
             comboBoxActivated.Items.Add("false");
             comboBoxActivated.SelectedItem = "false";
@@ -92,7 +92,7 @@ namespace Aplicacion_Almacen.Forms
             return table;
         }
 
-        private void RefreshTable()
+        private void refreshTable()
         {
             DataTable table = getDataTable();
             dataGridViewProducts.DataSource = table;
@@ -101,7 +101,7 @@ namespace Aplicacion_Almacen.Forms
 
         #region postProductsToAPI
 
-        private bool SendProductDataToApi(string jsonBody)
+        private bool sendProductDataToApi(string jsonBody)
         {
             try
             {
@@ -138,7 +138,7 @@ namespace Aplicacion_Almacen.Forms
             string selectedStatus = comboBoxActivated.SelectedItem as string;
             int statusValue = selectedStatus == "true" ? 1 : 0;
 
-            if (!ValidateInputsUser() && !string.IsNullOrWhiteSpace(selectedStatus))
+            if (!validateInputsUser() && !string.IsNullOrWhiteSpace(selectedStatus))
             {
                 MessageBox.Show("Por favor, completa todos los campos y selecciona el estado del producto.");
                 return;
@@ -157,9 +157,9 @@ namespace Aplicacion_Almacen.Forms
 
             jsonBody = JsonConvert.SerializeObject(product);
 
-            if (SendProductDataToApi(jsonBody))
+            if (sendProductDataToApi(jsonBody))
             {
-                RefreshTable();
+                refreshTable();
                 MessageBox.Show("Producto agregado exitosamente.");
                 clearTxtBoxs();
             }
@@ -174,7 +174,7 @@ namespace Aplicacion_Almacen.Forms
         #region putProductsToAPI
 
 
-        private bool EditProductInApi(string jsonBody)
+        private bool editProductInApi(string jsonBody)
         {
             try
             {
@@ -217,7 +217,7 @@ namespace Aplicacion_Almacen.Forms
 
             int productIdToEdit = Convert.ToInt32(textBoxID.Text);
 
-            if (!ValidateInputsUser())
+            if (!validateInputsUser())
             {
                 MessageBox.Show("Por favor, completa todos los campos y selecciona el estado del producto.");
                 return;
@@ -226,13 +226,13 @@ namespace Aplicacion_Almacen.Forms
             string selectedStatus = comboBoxActivated.SelectedItem as string;
             int statusValue = selectedStatus == "true" ? 1 : 0;
 
-            ProductInterface product = ProductFromTxtBox(productIdToEdit, statusValue);
+            ProductInterface product = productFromTxtBox(productIdToEdit, statusValue);
 
             jsonBody = JsonConvert.SerializeObject(product);
 
-            if (EditProductInApi(jsonBody))
+            if (editProductInApi(jsonBody))
             {
-                RefreshTable();
+                refreshTable();
                 MessageBox.Show("Producto editado exitosamente.");
                 clearTxtBoxs();
             }
@@ -243,7 +243,7 @@ namespace Aplicacion_Almacen.Forms
 
         }
 
-        private ProductInterface ProductFromTxtBox(int productIdToEdit, int statusValue)
+        private ProductInterface productFromTxtBox(int productIdToEdit, int statusValue)
         {
             return new ProductInterface
             {
@@ -262,7 +262,7 @@ namespace Aplicacion_Almacen.Forms
 
         #region deleteProductsFromAPI
 
-        private bool DeleteProductFromApi(int productId)
+        private bool deleteProductFromApi(int productId)
         {
             try
             {
@@ -299,9 +299,9 @@ namespace Aplicacion_Almacen.Forms
 
             int productIdToDelete = Convert.ToInt32(textBoxID.Text);
 
-            if (DeleteProductFromApi(productIdToDelete))
+            if (deleteProductFromApi(productIdToDelete))
             {
-                RefreshTable();
+                refreshTable();
                 MessageBox.Show("Producto eliminado exitosamente.");
                 clearTxtBoxs();
             }
@@ -316,10 +316,10 @@ namespace Aplicacion_Almacen.Forms
         #region validationsAndUtils
         private void buttonRefresh_Click(object sender, EventArgs e)
         {
-            RefreshTable();
+            refreshTable();
         }
 
-        private bool ValidateInputsUser()
+        private bool validateInputsUser()
         {
 
             if (string.IsNullOrWhiteSpace(txtBoxWeight.Text) ||
