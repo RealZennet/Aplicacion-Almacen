@@ -62,6 +62,7 @@
             this.buttonRefresh.TabIndex = 55;
             this.buttonRefresh.Text = "Recargar";
             this.buttonRefresh.UseVisualStyleBackColor = true;
+            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
             // 
             // buttonDelete
             // 
@@ -71,6 +72,7 @@
             this.buttonDelete.TabIndex = 54;
             this.buttonDelete.Text = "Eliminar";
             this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // buttonAdd
             // 
@@ -80,15 +82,16 @@
             this.buttonAdd.TabIndex = 53;
             this.buttonAdd.Text = "Agregar";
             this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(269, 131);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(101, 13);
+            this.label3.Size = new System.Drawing.Size(42, 13);
             this.label3.TabIndex = 52;
-            this.label3.Text = "ID del lote a asignar";
+            this.label3.Text = "ID Lote";
             // 
             // txtBoxIDBatch
             // 
@@ -102,9 +105,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(269, 59);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(126, 13);
+            this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 50;
-            this.label2.Text = "ID del producto a asignar";
+            this.label2.Text = "ID Camion";
             // 
             // txtBoxIDTruck
             // 
@@ -122,6 +125,7 @@
             this.dataGridViewAssignedBatchToTruck.Name = "dataGridViewAssignedBatchToTruck";
             this.dataGridViewAssignedBatchToTruck.Size = new System.Drawing.Size(231, 410);
             this.dataGridViewAssignedBatchToTruck.TabIndex = 48;
+            this.dataGridViewAssignedBatchToTruck.SelectionChanged += new System.EventHandler(this.dataGridViewAssignedBatchToTruck_SelectionChanged);
             // 
             // dateTimePickerBatchShippingDate
             // 
