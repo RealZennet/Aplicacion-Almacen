@@ -168,16 +168,6 @@ namespace Aplicacion_Almacen.Forms
 
         #region putProductsToAPI
 
-        private void dataGridViewProducts_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dataGridViewProducts.SelectedRows.Count > 0)
-            {
-
-                int productIdToEdit = Convert.ToInt32(dataGridViewProducts.SelectedRows[0].Cells["ID"].Value);
-
-                textBoxID.Text = productIdToEdit.ToString();
-            }
-        }
 
         private bool EditProductInApi(string jsonBody)
         {
@@ -231,17 +221,7 @@ namespace Aplicacion_Almacen.Forms
             string selectedStatus = comboBoxActivated.SelectedItem as string;
             int statusValue = selectedStatus == "true" ? 1 : 0;
 
-            ProductInterface product = new ProductInterface
-            {
-                IDProduct = productIdToEdit,
-                ProductWeight = Convert.ToInt32(txtBoxWeight.Text),
-                Volume = Convert.ToInt32(txtBoxVolume.Text),
-                Street = txtBoxStreet.Text,
-                DoorNumber = Convert.ToInt32(txtBoxNumber.Text),
-                Corner = txtBoxCorner.Text,
-                Customer = txtBoxClient.Text,
-                ActivatedProduct = Convert.ToBoolean(statusValue)
-            };
+            ProductInterface product = ProductFromTxtBox(productIdToEdit, statusValue);
 
             jsonBody = JsonConvert.SerializeObject(product);
 
@@ -258,7 +238,75 @@ namespace Aplicacion_Almacen.Forms
 
         }
 
+        private ProductInterface ProductFromTxtBox(int productIdToEdit, int statusValue)
+        {
+            return new ProductInterface
+            {
+                IDProduct = productIdToEdit,
+                ProductWeight = Convert.ToInt32(txtBoxWeight.Text),
+                Volume = Convert.ToInt32(txtBoxVolume.Text),
+                Street = txtBoxStreet.Text,
+                DoorNumber = Convert.ToInt32(txtBoxNumber.Text),
+                Corner = txtBoxCorner.Text,
+                Customer = txtBoxClient.Text,
+                ActivatedProduct = Convert.ToBoolean(statusValue)
+            };
+        }
+
         #endregion putProductsToAPI
+
+        #region deleteProductsFromAPI
+
+        private bool DeleteProductFromApi(int productId)
+        {
+            try
+            {
+                RestClient client = new RestClient("http://localhost:64191");
+                RestRequest request = new RestRequest($"/api/v1/productos/{productId}", Method.Delete);
+                request.AddHeader("Accept", "application/json");
+
+                RestResponse response = client.Execute(request);
+
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("La solicitud al servidor no se completó correctamente. Código de estado: " + response.StatusCode);
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar el producto: " + ex.Message);
+                return false;
+            }
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBoxID.Text))
+            {
+                MessageBox.Show("Por favor, selecciona una fila para eliminar un producto.");
+                return;
+            }
+
+            int productIdToDelete = Convert.ToInt32(textBoxID.Text);
+
+            if (DeleteProductFromApi(productIdToDelete))
+            {
+                RefreshTable();
+                MessageBox.Show("Producto eliminado exitosamente.");
+                clearTxtBoxs();
+            }
+            else
+            {
+                MessageBox.Show("Error al eliminar el producto. Por favor, verifica los datos ingresados.");
+            }
+        }
+
+        #endregion deleteProductsFromAPI
 
         #region validationsAndUtils
         private void buttonRefresh_Click(object sender, EventArgs e)
@@ -291,6 +339,17 @@ namespace Aplicacion_Almacen.Forms
             txtBoxCorner.Clear();
             txtBoxClient.Clear();
             textBoxID.Clear();
+        }
+
+        private void dataGridViewProducts_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridViewProducts.SelectedRows.Count > 0)
+            {
+
+                int productIdFromDataGrid = Convert.ToInt32(dataGridViewProducts.SelectedRows[0].Cells["ID"].Value);
+
+                textBoxID.Text = productIdFromDataGrid.ToString();
+            }
         }
         #endregion validationsAndUtils
 
