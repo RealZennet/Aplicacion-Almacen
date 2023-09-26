@@ -41,6 +41,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.buttonSearcher = new System.Windows.Forms.Button();
             this.buttonBackToMainMenu = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBatch)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,6 +96,7 @@
             this.buttonAdd.TabIndex = 13;
             this.buttonAdd.Text = "Agregar";
             this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // label2
             // 
@@ -165,12 +167,24 @@
             this.buttonBackToMainMenu.UseVisualStyleBackColor = true;
             this.buttonBackToMainMenu.Click += new System.EventHandler(this.buttonBackToMainMenu_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.label4.Location = new System.Drawing.Point(140, 306);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(52, 17);
+            this.label4.TabIndex = 46;
+            this.label4.Text = "Estado";
+            // 
             // BatchManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(47)))), ((int)(((byte)(68)))));
             this.ClientSize = new System.Drawing.Size(741, 481);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.buttonBackToMainMenu);
             this.Controls.Add(this.buttonSearcher);
             this.Controls.Add(this.label1);
@@ -208,5 +222,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonSearcher;
         private System.Windows.Forms.Button buttonBackToMainMenu;
+        private System.Windows.Forms.Label label4;
     }
 }

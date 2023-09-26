@@ -16,7 +16,8 @@ namespace Aplicacion_Almacen.Forms
     public partial class ProductsManagerForm : Form
     {
 
-        public string jsonBody;
+        private string jsonBody;
+
         public ProductsManagerForm()
         {
             InitializeComponent();

@@ -15,10 +15,13 @@ namespace Aplicacion_Almacen.Forms
 {
     public partial class BatchManagerForm : Form
     {
+
+        private string jsonBody;
+
         public BatchManagerForm()
         {
             InitializeComponent();
-            RefreshTable();
+            refreshTable();
             comboBoxActivated.Items.Add("true");
             comboBoxActivated.Items.Add("false");
             comboBoxActivated.SelectedItem = "false";
@@ -74,11 +77,103 @@ namespace Aplicacion_Almacen.Forms
             return table;
         }
 
-        private void RefreshTable()
+        private void refreshTable()
         {
             DataTable table = getDataTable();
             dataGridViewBatch.DataSource = table;
         }
         #endregion getBatchsFromAPI
+
+        #region postBatchsToAPI
+
+        private bool sendBatchDataToApi(string jsonBody)
+        {
+            try
+            {
+                RestClient client = new RestClient("http://localhost:64191");
+                RestRequest request = new RestRequest("/api/v1/lotes", Method.Post);
+                request.AddHeader("Accept", "application/json");
+                request.AddHeader("Content-Type", "application/json");
+                request.AddParameter("application/json", jsonBody, ParameterType.RequestBody);
+
+                RestResponse response = client.Execute(request);
+
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("La solicitud al servidor no se completó correctamente. Código de estado: " + response.StatusCode);
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al agregar el lote: " + ex.Message);
+                return false;
+            }
+        }
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            jsonBody = "";
+
+            string selectedStatus = comboBoxActivated.SelectedItem as string;
+            int statusValue = selectedStatus == "true" ? 1 : 0;
+
+            if (!validateInputsUser() && !string.IsNullOrWhiteSpace(selectedStatus))
+            {
+                MessageBox.Show("Por favor, completa todos los campos y selecciona el estado del lote.");
+                return;
+            }
+
+            BatchInterface batch = new BatchInterface
+            {
+                IDBatches = Convert.ToInt32(txtBoxIDBatch.Text),
+                IDShipp = Convert.ToInt32(txtBoxIDDestination.Text),
+                ShippingDate = (Convert.ToDateTime(dateTimePickerBatchShippingDate.Text)),
+                ActivedBatch = Convert.ToBoolean(statusValue)
+            };
+
+            jsonBody = JsonConvert.SerializeObject(batch);
+
+            if (sendBatchDataToApi(jsonBody))
+            {
+                refreshTable();
+                MessageBox.Show("Lote agregado exitosamente.");
+                clearTxtBoxs();
+            }
+            else
+            {
+                MessageBox.Show("Error al agregar el lote. Por favor, verifica los datos ingresados.");
+            }
+        }
+
+        #endregion postBatchsToAPI
+
+        #region validationsAndUtils
+
+        private bool validateInputsUser()
+        {
+
+            if (string.IsNullOrWhiteSpace(txtBoxIDBatch.Text) ||
+                string.IsNullOrWhiteSpace(txtBoxIDDestination.Text))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        private void clearTxtBoxs()
+        {
+            txtBoxIDBatch.Clear();
+            txtBoxIDDestination.Clear();
+        }
+
+        #endregion validationsAndUtils
+
+
     }
 }
