@@ -23,6 +23,7 @@ namespace Aplicacion_Almacen.Forms
             RefreshTable();
             comboBoxActivated.Items.Add("true");
             comboBoxActivated.Items.Add("false");
+            comboBoxActivated.SelectedItem = "false";
         }
 
         private void buttonBackToMainMenu_Click(object sender, EventArgs e)
@@ -131,25 +132,25 @@ namespace Aplicacion_Almacen.Forms
 
             string selectedStatus = comboBoxActivated.SelectedItem as string;
             int statusValue = selectedStatus == "true" ? 1 : 0;
-            if (ValidateInputsUser() && !string.IsNullOrWhiteSpace(selectedStatus))
-            {
-                ProductInterface product = new ProductInterface
-                {
-                    ProductWeight = Convert.ToInt32(txtBoxWeight.Text),
-                    Volume = Convert.ToInt32(txtBoxVolume.Text),
-                    Street = txtBoxStreet.Text,
-                    DoorNumber = Convert.ToInt32(txtBoxNumber.Text),
-                    Corner = txtBoxCorner.Text,
-                    Customer = txtBoxClient.Text,
-                    ActivatedProduct = Convert.ToBoolean(statusValue)
-                };
-                jsonBody = JsonConvert.SerializeObject(product);
-                RefreshTable();
-            }
-            else
+
+            if (!ValidateInputsUser() && !string.IsNullOrWhiteSpace(selectedStatus))
             {
                 MessageBox.Show("Por favor, completa todos los campos y selecciona el estado del producto.");
+                return;
             }
+
+            ProductInterface product = new ProductInterface
+            {
+                ProductWeight = Convert.ToInt32(txtBoxWeight.Text),
+                Volume = Convert.ToInt32(txtBoxVolume.Text),
+                Street = txtBoxStreet.Text,
+                DoorNumber = Convert.ToInt32(txtBoxNumber.Text),
+                Corner = txtBoxCorner.Text,
+                Customer = txtBoxClient.Text,
+                ActivatedProduct = Convert.ToBoolean(statusValue)
+            };
+
+            jsonBody = JsonConvert.SerializeObject(product);
 
             if (SendProductDataToApi(jsonBody))
             {
