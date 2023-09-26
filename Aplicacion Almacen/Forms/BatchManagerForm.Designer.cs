@@ -52,9 +52,9 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.label3.Location = new System.Drawing.Point(11, 310);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 17);
+            this.label3.Size = new System.Drawing.Size(73, 17);
             this.label3.TabIndex = 18;
-            this.label3.Text = "ID Producto";
+            this.label3.Text = "ID Destino";
             // 
             // txtBoxIDDestination
             // 
@@ -118,7 +118,7 @@
             this.dataGridViewBatch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewBatch.Location = new System.Drawing.Point(12, 56);
             this.dataGridViewBatch.Name = "dataGridViewBatch";
-            this.dataGridViewBatch.Size = new System.Drawing.Size(597, 169);
+            this.dataGridViewBatch.Size = new System.Drawing.Size(579, 169);
             this.dataGridViewBatch.TabIndex = 11;
             this.dataGridViewBatch.SelectionChanged += new System.EventHandler(this.dataGridViewBatch_SelectionChanged);
             // 

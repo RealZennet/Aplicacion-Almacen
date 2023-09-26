@@ -81,6 +81,12 @@ namespace Aplicacion_Almacen.Forms
             showForm(formBatchCtl);
         }
 
+        private void showAssignProductToBatchForm()
+        {
+            AssignProductsToBatchForm formAssignProducttoBatchCtl = new AssignProductsToBatchForm();
+            showForm(formAssignProducttoBatchCtl);
+        }
+
 
         private void buttonStoreHouse_Click(object sender, EventArgs e)
         {
@@ -95,6 +101,11 @@ namespace Aplicacion_Almacen.Forms
         private void buttonBatchManager_Click(object sender, EventArgs e)
         {
             showBatchForm();
+        }
+
+        private void buttonAssignProducts_Click(object sender, EventArgs e)
+        {
+            showAssignProductToBatchForm();
         }
     }
 }
