@@ -37,14 +37,13 @@
             this.txtBoxIDProduct = new System.Windows.Forms.TextBox();
             this.dataGridViewAssignedProducts = new System.Windows.Forms.DataGridView();
             this.buttonBackToMainMenu = new System.Windows.Forms.Button();
-            this.dateTimePickerBatchShippingDate = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAssignedProducts)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonRefresh
             // 
-            this.buttonRefresh.Location = new System.Drawing.Point(279, 285);
+            this.buttonRefresh.Location = new System.Drawing.Point(272, 214);
             this.buttonRefresh.Name = "buttonRefresh";
             this.buttonRefresh.Size = new System.Drawing.Size(147, 26);
             this.buttonRefresh.TabIndex = 18;
@@ -54,7 +53,7 @@
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(358, 253);
+            this.buttonDelete.Location = new System.Drawing.Point(351, 182);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(68, 26);
             this.buttonDelete.TabIndex = 17;
@@ -64,7 +63,7 @@
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(279, 253);
+            this.buttonAdd.Location = new System.Drawing.Point(272, 182);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(68, 26);
             this.buttonAdd.TabIndex = 16;
@@ -75,7 +74,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(276, 202);
+            this.label3.Location = new System.Drawing.Point(269, 131);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(101, 13);
             this.label3.TabIndex = 15;
@@ -83,7 +82,7 @@
             // 
             // txtBoxIDBatch
             // 
-            this.txtBoxIDBatch.Location = new System.Drawing.Point(279, 227);
+            this.txtBoxIDBatch.Location = new System.Drawing.Point(272, 156);
             this.txtBoxIDBatch.Name = "txtBoxIDBatch";
             this.txtBoxIDBatch.Size = new System.Drawing.Size(61, 20);
             this.txtBoxIDBatch.TabIndex = 14;
@@ -93,9 +92,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(269, 59);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 13);
+            this.label2.Size = new System.Drawing.Size(126, 13);
             this.label2.TabIndex = 13;
-            this.label2.Text = "ID Lote";
+            this.label2.Text = "ID del producto a asignar";
             // 
             // txtBoxIDProduct
             // 
@@ -127,23 +126,12 @@
             this.buttonBackToMainMenu.UseVisualStyleBackColor = true;
             this.buttonBackToMainMenu.Click += new System.EventHandler(this.buttonBackToMainMenu_Click);
             // 
-            // dateTimePickerBatchShippingDate
+            // textBox1
             // 
-            this.dateTimePickerBatchShippingDate.Location = new System.Drawing.Point(272, 157);
-            this.dateTimePickerBatchShippingDate.Name = "dateTimePickerBatchShippingDate";
-            this.dateTimePickerBatchShippingDate.Size = new System.Drawing.Size(216, 20);
-            this.dateTimePickerBatchShippingDate.TabIndex = 49;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.label1.Location = new System.Drawing.Point(269, 126);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 17);
-            this.label1.TabIndex = 48;
-            this.label1.Text = "Fecha de salida";
+            this.textBox1.Location = new System.Drawing.Point(382, 156);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(37, 20);
+            this.textBox1.TabIndex = 47;
             // 
             // AssignProductsToBatchForm
             // 
@@ -151,8 +139,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(47)))), ((int)(((byte)(68)))));
             this.ClientSize = new System.Drawing.Size(741, 481);
-            this.Controls.Add(this.dateTimePickerBatchShippingDate);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.buttonBackToMainMenu);
             this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.buttonDelete);
@@ -182,7 +169,6 @@
         private System.Windows.Forms.TextBox txtBoxIDProduct;
         private System.Windows.Forms.DataGridView dataGridViewAssignedProducts;
         private System.Windows.Forms.Button buttonBackToMainMenu;
-        private System.Windows.Forms.DateTimePicker dateTimePickerBatchShippingDate;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
