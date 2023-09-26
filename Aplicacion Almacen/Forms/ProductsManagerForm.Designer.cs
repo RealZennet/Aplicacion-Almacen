@@ -75,6 +75,7 @@
             this.dataGridViewProducts.Name = "dataGridViewProducts";
             this.dataGridViewProducts.Size = new System.Drawing.Size(732, 248);
             this.dataGridViewProducts.TabIndex = 1;
+            this.dataGridViewProducts.SelectionChanged += new System.EventHandler(this.dataGridViewProducts_SelectionChanged);
             // 
             // buttonSearchByID
             // 
@@ -234,6 +235,7 @@
             this.buttonEdit.TabIndex = 27;
             this.buttonEdit.Text = "Edit";
             this.buttonEdit.UseVisualStyleBackColor = true;
+            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
             // buttonRefresh
             // 

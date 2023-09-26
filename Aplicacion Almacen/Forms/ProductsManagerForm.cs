@@ -166,6 +166,100 @@ namespace Aplicacion_Almacen.Forms
 
         #endregion postProductsToAPI
 
+        #region putProductsToAPI
+
+        private void dataGridViewProducts_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridViewProducts.SelectedRows.Count > 0)
+            {
+
+                int productIdToEdit = Convert.ToInt32(dataGridViewProducts.SelectedRows[0].Cells["ID"].Value);
+
+                textBoxID.Text = productIdToEdit.ToString();
+            }
+        }
+
+        private bool EditProductInApi(string jsonBody)
+        {
+            try
+            {
+                int productIdToEdit = JsonConvert.DeserializeObject<ProductInterface>(jsonBody).IDProduct;
+
+                RestClient client = new RestClient("http://localhost:64191");
+                RestRequest request = new RestRequest($"/api/v1/productos/{productIdToEdit}", Method.Put);
+                request.AddHeader("Accept", "application/json");
+                request.AddHeader("Content-Type", "application/json");
+                request.AddParameter("application/json", jsonBody, ParameterType.RequestBody);
+
+                RestResponse response = client.Execute(request);
+
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("La solicitud al servidor no se completó correctamente. Código de estado: " + response.StatusCode);
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al editar el producto: " + ex.Message);
+                return false;
+            }
+        }
+
+        private void buttonEdit_Click(object sender, EventArgs e)
+        {
+            jsonBody = "";
+
+            if (string.IsNullOrEmpty(textBoxID.Text))
+            {
+                MessageBox.Show("Por favor, selecciona una fila para editar un producto.");
+                return;
+            }
+
+            int productIdToEdit = Convert.ToInt32(textBoxID.Text);
+
+            if (!ValidateInputsUser())
+            {
+                MessageBox.Show("Por favor, completa todos los campos y selecciona el estado del producto.");
+                return;
+            }
+
+            string selectedStatus = comboBoxActivated.SelectedItem as string;
+            int statusValue = selectedStatus == "true" ? 1 : 0;
+
+            ProductInterface product = new ProductInterface
+            {
+                IDProduct = productIdToEdit,
+                ProductWeight = Convert.ToInt32(txtBoxWeight.Text),
+                Volume = Convert.ToInt32(txtBoxVolume.Text),
+                Street = txtBoxStreet.Text,
+                DoorNumber = Convert.ToInt32(txtBoxNumber.Text),
+                Corner = txtBoxCorner.Text,
+                Customer = txtBoxClient.Text,
+                ActivatedProduct = Convert.ToBoolean(statusValue)
+            };
+
+            jsonBody = JsonConvert.SerializeObject(product);
+
+            if (EditProductInApi(jsonBody))
+            {
+                RefreshTable();
+                MessageBox.Show("Producto editado exitosamente.");
+                clearTxtBoxs();
+            }
+            else
+            {
+                MessageBox.Show("Error al editar el producto. Por favor, verifica los datos ingresados.");
+            }
+
+        }
+
+        #endregion putProductsToAPI
+
         #region validationsAndUtils
         private void buttonRefresh_Click(object sender, EventArgs e)
         {
@@ -196,8 +290,10 @@ namespace Aplicacion_Almacen.Forms
             txtBoxNumber.Clear();
             txtBoxCorner.Clear();
             txtBoxClient.Clear();
+            textBoxID.Clear();
         }
-
         #endregion validationsAndUtils
+
     }
+
 }
