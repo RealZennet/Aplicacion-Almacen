@@ -85,6 +85,7 @@
             this.buttonSearchByID.TabIndex = 43;
             this.buttonSearchByID.Text = "Buscador";
             this.buttonSearchByID.UseVisualStyleBackColor = true;
+            this.buttonSearchByID.Click += new System.EventHandler(this.buttonSearchByID_Click);
             // 
             // label8
             // 

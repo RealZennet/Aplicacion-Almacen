@@ -83,6 +83,12 @@
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ProductManagerSearcher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProductManagerSearcher.Designer.cs">
+      <DependentUpon>ProductManagerSearcher.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ProductsManagerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +108,9 @@
     <Compile Include="StoreHouseRequests\ProductInterface.cs" />
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProductManagerSearcher.resx">
+      <DependentUpon>ProductManagerSearcher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ProductsManagerForm.resx">
       <DependentUpon>ProductsManagerForm.cs</DependentUpon>

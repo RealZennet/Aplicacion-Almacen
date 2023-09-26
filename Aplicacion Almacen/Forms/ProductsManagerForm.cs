@@ -353,6 +353,13 @@ namespace Aplicacion_Almacen.Forms
         }
         #endregion validationsAndUtils
 
+        #region searcher
+        private void buttonSearchByID_Click(object sender, EventArgs e)
+        {
+            ProductManagerSearcher searcherForm = new ProductManagerSearcher();
+            searcherForm.Show();
+        }
+        #endregion searcher
     }
 
 }
