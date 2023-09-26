@@ -61,6 +61,18 @@ namespace Aplicacion_Almacen.Forms
             formProductCtl.Show();
         }
 
+        private void showBatchForm()
+        {
+            BatchManagerForm formBatchCtl = new BatchManagerForm();
+            formBatchCtl.TopLevel = false;
+            panelFormsLoader.Controls.Add(formBatchCtl);
+            formBatchCtl.FormBorderStyle = FormBorderStyle.None;
+            formBatchCtl.Dock = DockStyle.Fill;
+            panelFormsLoader.Tag = formBatchCtl;
+            formBatchCtl.BringToFront();
+            formBatchCtl.Show();
+        }
+
         private void buttonStoreHouse_Click(object sender, EventArgs e)
         {
             showMenus(panelProductsAndBatchsContainer);
@@ -69,6 +81,11 @@ namespace Aplicacion_Almacen.Forms
         private void buttonProductsManager_Click(object sender, EventArgs e)
         {
             showProductsForm();
+        }
+
+        private void buttonBatchManager_Click(object sender, EventArgs e)
+        {
+            showBatchForm();
         }
     }
 }

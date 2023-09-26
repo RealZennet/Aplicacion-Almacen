@@ -160,6 +160,7 @@
             this.buttonBatchManager.Text = "Gestionar Lotes";
             this.buttonBatchManager.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonBatchManager.UseVisualStyleBackColor = true;
+            this.buttonBatchManager.Click += new System.EventHandler(this.buttonBatchManager_Click);
             // 
             // panelFormsLoader
             // 

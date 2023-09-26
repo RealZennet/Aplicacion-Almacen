@@ -40,6 +40,7 @@
             this.txtBoxIDBatch = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonSearcher = new System.Windows.Forms.Button();
+            this.buttonBackToMainMenu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBatch)).BeginInit();
             this.SuspendLayout();
             // 
@@ -113,7 +114,7 @@
             this.dataGridViewBatch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewBatch.Location = new System.Drawing.Point(12, 56);
             this.dataGridViewBatch.Name = "dataGridViewBatch";
-            this.dataGridViewBatch.Size = new System.Drawing.Size(698, 169);
+            this.dataGridViewBatch.Size = new System.Drawing.Size(452, 169);
             this.dataGridViewBatch.TabIndex = 11;
             // 
             // comboBoxActivated
@@ -152,12 +153,25 @@
             this.buttonSearcher.Text = "Buscador";
             this.buttonSearcher.UseVisualStyleBackColor = true;
             // 
+            // buttonBackToMainMenu
+            // 
+            this.buttonBackToMainMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonBackToMainMenu.ForeColor = System.Drawing.Color.Olive;
+            this.buttonBackToMainMenu.Location = new System.Drawing.Point(14, 12);
+            this.buttonBackToMainMenu.Name = "buttonBackToMainMenu";
+            this.buttonBackToMainMenu.Size = new System.Drawing.Size(113, 23);
+            this.buttonBackToMainMenu.TabIndex = 45;
+            this.buttonBackToMainMenu.Text = "Volver";
+            this.buttonBackToMainMenu.UseVisualStyleBackColor = true;
+            this.buttonBackToMainMenu.Click += new System.EventHandler(this.buttonBackToMainMenu_Click);
+            // 
             // BatchManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(47)))), ((int)(((byte)(68)))));
             this.ClientSize = new System.Drawing.Size(741, 481);
+            this.Controls.Add(this.buttonBackToMainMenu);
             this.Controls.Add(this.buttonSearcher);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtBoxIDBatch);
@@ -193,5 +207,6 @@
         private System.Windows.Forms.TextBox txtBoxIDBatch;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonSearcher;
+        private System.Windows.Forms.Button buttonBackToMainMenu;
     }
 }
