@@ -35,11 +35,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtBoxIDBatch = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtBoxIDProduct = new System.Windows.Forms.TextBox();
-            this.dataGridViewAssignedProducts = new System.Windows.Forms.DataGridView();
+            this.txtBoxIDTruck = new System.Windows.Forms.TextBox();
+            this.dataGridViewAssignedBatchToTruck = new System.Windows.Forms.DataGridView();
             this.dateTimePickerBatchShippingDate = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAssignedProducts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAssignedBatchToTruck)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonBackToMainMenu
@@ -52,6 +52,7 @@
             this.buttonBackToMainMenu.TabIndex = 56;
             this.buttonBackToMainMenu.Text = "Volver";
             this.buttonBackToMainMenu.UseVisualStyleBackColor = true;
+            this.buttonBackToMainMenu.Click += new System.EventHandler(this.buttonBackToMainMenu_Click);
             // 
             // buttonRefresh
             // 
@@ -105,22 +106,22 @@
             this.label2.TabIndex = 50;
             this.label2.Text = "ID del producto a asignar";
             // 
-            // txtBoxIDProduct
+            // txtBoxIDTruck
             // 
-            this.txtBoxIDProduct.Location = new System.Drawing.Point(272, 89);
-            this.txtBoxIDProduct.Name = "txtBoxIDProduct";
-            this.txtBoxIDProduct.Size = new System.Drawing.Size(61, 20);
-            this.txtBoxIDProduct.TabIndex = 49;
+            this.txtBoxIDTruck.Location = new System.Drawing.Point(272, 89);
+            this.txtBoxIDTruck.Name = "txtBoxIDTruck";
+            this.txtBoxIDTruck.Size = new System.Drawing.Size(61, 20);
+            this.txtBoxIDTruck.TabIndex = 49;
             // 
-            // dataGridViewAssignedProducts
+            // dataGridViewAssignedBatchToTruck
             // 
-            this.dataGridViewAssignedProducts.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(47)))), ((int)(((byte)(68)))));
-            this.dataGridViewAssignedProducts.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridViewAssignedProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewAssignedProducts.Location = new System.Drawing.Point(12, 59);
-            this.dataGridViewAssignedProducts.Name = "dataGridViewAssignedProducts";
-            this.dataGridViewAssignedProducts.Size = new System.Drawing.Size(231, 410);
-            this.dataGridViewAssignedProducts.TabIndex = 48;
+            this.dataGridViewAssignedBatchToTruck.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(47)))), ((int)(((byte)(68)))));
+            this.dataGridViewAssignedBatchToTruck.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewAssignedBatchToTruck.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewAssignedBatchToTruck.Location = new System.Drawing.Point(12, 59);
+            this.dataGridViewAssignedBatchToTruck.Name = "dataGridViewAssignedBatchToTruck";
+            this.dataGridViewAssignedBatchToTruck.Size = new System.Drawing.Size(231, 410);
+            this.dataGridViewAssignedBatchToTruck.TabIndex = 48;
             // 
             // dateTimePickerBatchShippingDate
             // 
@@ -155,12 +156,12 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtBoxIDBatch);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtBoxIDProduct);
-            this.Controls.Add(this.dataGridViewAssignedProducts);
+            this.Controls.Add(this.txtBoxIDTruck);
+            this.Controls.Add(this.dataGridViewAssignedBatchToTruck);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AssignBatchToTruck";
             this.Text = "AssignBatchToTruck";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAssignedProducts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAssignedBatchToTruck)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -174,8 +175,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtBoxIDBatch;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtBoxIDProduct;
-        private System.Windows.Forms.DataGridView dataGridViewAssignedProducts;
+        private System.Windows.Forms.TextBox txtBoxIDTruck;
+        private System.Windows.Forms.DataGridView dataGridViewAssignedBatchToTruck;
         private System.Windows.Forms.DateTimePicker dateTimePickerBatchShippingDate;
         private System.Windows.Forms.Label label1;
     }

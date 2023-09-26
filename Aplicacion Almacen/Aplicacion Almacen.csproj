@@ -129,6 +129,7 @@
     <Compile Include="LoginRequests\ApiResponse.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StoreHouseRequests\AssignedBatchToTruckInterface.cs" />
     <Compile Include="StoreHouseRequests\AssignProductsToBatchInterface.cs" />
     <Compile Include="StoreHouseRequests\BatchInterface.cs" />
     <Compile Include="StoreHouseRequests\ProductInterface.cs" />
