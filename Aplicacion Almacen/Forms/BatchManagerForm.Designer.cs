@@ -78,6 +78,7 @@
             this.buttonRefresh.TabIndex = 15;
             this.buttonRefresh.Text = "Recargar";
             this.buttonRefresh.UseVisualStyleBackColor = true;
+            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
             // 
             // buttonDelete
             // 
@@ -87,6 +88,7 @@
             this.buttonDelete.TabIndex = 14;
             this.buttonDelete.Text = "Eliminar";
             this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // buttonAdd
             // 
@@ -116,8 +118,9 @@
             this.dataGridViewBatch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewBatch.Location = new System.Drawing.Point(12, 56);
             this.dataGridViewBatch.Name = "dataGridViewBatch";
-            this.dataGridViewBatch.Size = new System.Drawing.Size(452, 169);
+            this.dataGridViewBatch.Size = new System.Drawing.Size(597, 169);
             this.dataGridViewBatch.TabIndex = 11;
+            this.dataGridViewBatch.SelectionChanged += new System.EventHandler(this.dataGridViewBatch_SelectionChanged);
             // 
             // comboBoxActivated
             // 

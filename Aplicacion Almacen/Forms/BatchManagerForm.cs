@@ -152,6 +152,59 @@ namespace Aplicacion_Almacen.Forms
 
         #endregion postBatchsToAPI
 
+        #region deleteBatchFromAPI
+
+        private bool deleteProductFromApi(int batchId)
+        {
+            try
+            {
+                RestClient client = new RestClient("http://localhost:64191");
+                RestRequest request = new RestRequest($"/api/v1/lotes/{batchId}", Method.Delete);
+                request.AddHeader("Accept", "application/json");
+
+                RestResponse response = client.Execute(request);
+
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("La solicitud al servidor no se completó correctamente. Código de estado: " + response.StatusCode);
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar el lote: " + ex.Message);
+                return false;
+            }
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtBoxIDBatch.Text))
+            {
+                MessageBox.Show("Por favor, selecciona una fila para eliminar un lote.");
+                return;
+            }
+
+            int batchIdToDelete = Convert.ToInt32(txtBoxIDBatch.Text);
+
+            if (deleteProductFromApi(batchIdToDelete))
+            {
+                refreshTable();
+                MessageBox.Show("Lote eliminado exitosamente.");
+                clearTxtBoxs();
+            }
+            else
+            {
+                MessageBox.Show("Error al eliminar el lote. Por favor, verifica los datos ingresados.");
+            }
+        }
+
+        #endregion deleteBatchFromAPI
+
         #region validationsAndUtils
 
         private bool validateInputsUser()
@@ -170,6 +223,22 @@ namespace Aplicacion_Almacen.Forms
         {
             txtBoxIDBatch.Clear();
             txtBoxIDDestination.Clear();
+        }
+
+        private void buttonRefresh_Click(object sender, EventArgs e)
+        {
+            refreshTable();
+        }
+
+        private void dataGridViewBatch_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridViewBatch.SelectedRows.Count > 0)
+            {
+
+                int batchIdFromDataGrid = Convert.ToInt32(dataGridViewBatch.SelectedRows[0].Cells["ID"].Value);
+
+                txtBoxIDBatch.Text = batchIdFromDataGrid.ToString();
+            }
         }
 
         #endregion validationsAndUtils
