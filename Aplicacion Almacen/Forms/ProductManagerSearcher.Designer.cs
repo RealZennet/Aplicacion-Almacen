@@ -33,6 +33,7 @@
             this.buttonClose = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxID = new System.Windows.Forms.TextBox();
+            this.panelSlide = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSearcher)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,12 +87,23 @@
             this.textBoxID.Size = new System.Drawing.Size(75, 23);
             this.textBoxID.TabIndex = 42;
             // 
+            // panelSlide
+            // 
+            this.panelSlide.Location = new System.Drawing.Point(3, 3);
+            this.panelSlide.Name = "panelSlide";
+            this.panelSlide.Size = new System.Drawing.Size(432, 32);
+            this.panelSlide.TabIndex = 43;
+            this.panelSlide.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelSlide_MouseDown);
+            this.panelSlide.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelSlide_MouseMove);
+            this.panelSlide.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panelSlide_MouseUp);
+            // 
             // ProductManagerSearcher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(47)))), ((int)(((byte)(68)))));
             this.ClientSize = new System.Drawing.Size(483, 182);
+            this.Controls.Add(this.panelSlide);
             this.Controls.Add(this.textBoxID);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonClose);
@@ -100,6 +112,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ProductManagerSearcher";
             this.Text = "ProductManagerSearcher";
+            this.Load += new System.EventHandler(this.ProductManagerSearcher_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSearcher)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -113,5 +126,6 @@
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxID;
+        private System.Windows.Forms.Panel panelSlide;
     }
 }

@@ -15,6 +15,9 @@ namespace Aplicacion_Almacen.Forms
 {
     public partial class ProductManagerSearcher : Form
     {
+
+        public int m, x, y;
+
         public ProductManagerSearcher()
         {
             InitializeComponent();
@@ -24,6 +27,30 @@ namespace Aplicacion_Almacen.Forms
         {
             this.Close();
         }
+
+        private void ProductManagerSearcher_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        #region slidePanel
+
+        private void panelSlide_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (m == 1)
+            {
+                this.SetDesktopLocation(MousePosition.X - x, MousePosition.Y - y);
+            }
+        }
+
+        private void panelSlide_MouseDown(object sender, MouseEventArgs e)
+        {
+            m = 1;
+            x = e.X;
+            y = e.Y;
+        }
+
+        #endregion slidePanel
 
         private static void fillDataTable(DataTable table, ProductInterface product)
         {
@@ -38,6 +65,12 @@ namespace Aplicacion_Almacen.Forms
             rows["Activado"] = product.ActivatedProduct;
             table.Rows.Add(rows);
         }
+
+        private void panelSlide_MouseUp(object sender, MouseEventArgs e)
+        {
+            m = 0;
+        }
+
 
         private RestResponse getProductByIdFromApi(int productId)
         {
@@ -92,5 +125,7 @@ namespace Aplicacion_Almacen.Forms
                 MessageBox.Show("ID de producto inválido. Ingresa un número válido.");
             }
         }
+
+
     }
 }
