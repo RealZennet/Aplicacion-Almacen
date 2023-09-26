@@ -34,11 +34,11 @@
             this.buttonLanguage = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelProductsAndBatchsContainer = new System.Windows.Forms.Panel();
+            this.buttonTruckerCarryBatch = new System.Windows.Forms.Button();
             this.buttonAssignProducts = new System.Windows.Forms.Button();
             this.buttonProductsManager = new System.Windows.Forms.Button();
             this.buttonBatchManager = new System.Windows.Forms.Button();
             this.panelFormsLoader = new System.Windows.Forms.Panel();
-            this.buttonTruckerCarryBatch = new System.Windows.Forms.Button();
             this.leftPanelContainer.SuspendLayout();
             this.settingsManagerPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -120,6 +120,20 @@
             this.panelProductsAndBatchsContainer.Size = new System.Drawing.Size(250, 135);
             this.panelProductsAndBatchsContainer.TabIndex = 0;
             // 
+            // buttonTruckerCarryBatch
+            // 
+            this.buttonTruckerCarryBatch.FlatAppearance.BorderSize = 0;
+            this.buttonTruckerCarryBatch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonTruckerCarryBatch.ForeColor = System.Drawing.Color.Gainsboro;
+            this.buttonTruckerCarryBatch.Location = new System.Drawing.Point(0, 103);
+            this.buttonTruckerCarryBatch.Name = "buttonTruckerCarryBatch";
+            this.buttonTruckerCarryBatch.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.buttonTruckerCarryBatch.Size = new System.Drawing.Size(240, 26);
+            this.buttonTruckerCarryBatch.TabIndex = 6;
+            this.buttonTruckerCarryBatch.Text = "Asignar lote a camionero";
+            this.buttonTruckerCarryBatch.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonTruckerCarryBatch.UseVisualStyleBackColor = true;
+            // 
             // buttonAssignProducts
             // 
             this.buttonAssignProducts.FlatAppearance.BorderSize = 0;
@@ -173,20 +187,6 @@
             this.panelFormsLoader.Name = "panelFormsLoader";
             this.panelFormsLoader.Size = new System.Drawing.Size(773, 559);
             this.panelFormsLoader.TabIndex = 3;
-            // 
-            // buttonTruckerCarryBatch
-            // 
-            this.buttonTruckerCarryBatch.FlatAppearance.BorderSize = 0;
-            this.buttonTruckerCarryBatch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonTruckerCarryBatch.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonTruckerCarryBatch.Location = new System.Drawing.Point(0, 103);
-            this.buttonTruckerCarryBatch.Name = "buttonTruckerCarryBatch";
-            this.buttonTruckerCarryBatch.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.buttonTruckerCarryBatch.Size = new System.Drawing.Size(240, 26);
-            this.buttonTruckerCarryBatch.TabIndex = 6;
-            this.buttonTruckerCarryBatch.Text = "Asignar lote a camionero";
-            this.buttonTruckerCarryBatch.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonTruckerCarryBatch.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
