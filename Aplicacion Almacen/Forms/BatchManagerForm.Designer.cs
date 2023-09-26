@@ -205,6 +205,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "BatchManagerForm";
             this.Text = "BatchManagerForm";
+            this.Load += new System.EventHandler(this.BatchManagerForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBatch)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

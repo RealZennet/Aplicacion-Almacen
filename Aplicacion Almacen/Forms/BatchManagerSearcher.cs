@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Aplicacion_Almacen.StoreHouseRequests;
+using Newtonsoft.Json;
+using RestSharp;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -43,6 +46,68 @@ namespace Aplicacion_Almacen.Forms
         private void buttonClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void buttonSearchBatchByID_Click(object sender, EventArgs e)
+        {
+            if (int.TryParse(textBoxID.Text, out int searchID))
+            {
+                RestResponse response = getBatchByIdFromApi(searchID);
+
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    DataTable table = new DataTable();
+                    table.Columns.Add("ID", typeof(int));
+                    table.Columns.Add("Fecha de creacion", typeof(DateTime));
+                    table.Columns.Add("ID Destino", typeof(int));
+                    table.Columns.Add("Fecha Envio", typeof(DateTime));
+                    table.Columns.Add("Activado", typeof(bool));
+
+                    BatchInterface batch = JsonConvert.DeserializeObject<BatchInterface>(response.Content);
+                    fillDataTable(table, batch);
+
+                    dataGridViewSearcher.DataSource = table;
+
+                    MessageBox.Show("Lote encontrado.");
+                }
+                else
+                {
+                    MessageBox.Show("Lote no encontrado.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("ID de lote inválido. Ingresa un número válido.");
+            }
+        }
+
+        private static void fillDataTable(DataTable table, BatchInterface batch)
+        {
+            DataRow rows = table.NewRow();
+            rows["ID"] = batch.IDBatches;
+            rows["Fecha de creacion"] = batch.DateOfCreation;
+            rows["ID Destino"] = batch.IDShipp;
+            rows["Fecha Envio"] = batch.ShippingDate;
+            rows["Activado"] = batch.ActivedBatch;
+            table.Rows.Add(rows);
+        }
+
+        private RestResponse getBatchByIdFromApi(int batchId)
+        {
+            try
+            {
+                RestClient client = new RestClient("http://localhost:64191");
+                RestRequest request = new RestRequest($"/api/v1/lotes/{batchId}", Method.Get);
+                request.AddHeader("Accept", "application/json");
+
+                RestResponse response = client.Execute(request);
+                return response;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener el lote con ID: " + ex.Message);
+                return null;
+            }
         }
 
 

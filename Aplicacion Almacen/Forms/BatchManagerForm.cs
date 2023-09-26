@@ -249,5 +249,10 @@ namespace Aplicacion_Almacen.Forms
             BatchManagerSearcher searcherForm = new BatchManagerSearcher();
             searcherForm.Show();
         }
+
+        private void BatchManagerForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

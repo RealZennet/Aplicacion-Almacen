@@ -49,29 +49,38 @@ namespace Aplicacion_Almacen.Forms
             }
         }
 
+        private Form currentForm = null;
+
+        private void showForm(Form newForm)
+        {
+            if (currentForm != null)
+            {
+                panelFormsLoader.Controls.Remove(currentForm);
+                currentForm.Dispose();
+            }
+
+            currentForm = newForm;
+            newForm.TopLevel = false;
+            panelFormsLoader.Controls.Add(newForm);
+            newForm.FormBorderStyle = FormBorderStyle.None;
+            newForm.Dock = DockStyle.Fill;
+            panelFormsLoader.Tag = newForm;
+            newForm.BringToFront();
+            newForm.Show();
+        }
+
         private void showProductsForm()
         {
             ProductsManagerForm formProductCtl = new ProductsManagerForm();
-            formProductCtl.TopLevel = false;
-            panelFormsLoader.Controls.Add(formProductCtl);
-            formProductCtl.FormBorderStyle = FormBorderStyle.None;
-            formProductCtl.Dock = DockStyle.Fill;
-            panelFormsLoader.Tag = formProductCtl;
-            formProductCtl.BringToFront();
-            formProductCtl.Show();
+            showForm(formProductCtl);
         }
 
         private void showBatchForm()
         {
             BatchManagerForm formBatchCtl = new BatchManagerForm();
-            formBatchCtl.TopLevel = false;
-            panelFormsLoader.Controls.Add(formBatchCtl);
-            formBatchCtl.FormBorderStyle = FormBorderStyle.None;
-            formBatchCtl.Dock = DockStyle.Fill;
-            panelFormsLoader.Tag = formBatchCtl;
-            formBatchCtl.BringToFront();
-            formBatchCtl.Show();
+            showForm(formBatchCtl);
         }
+
 
         private void buttonStoreHouse_Click(object sender, EventArgs e)
         {

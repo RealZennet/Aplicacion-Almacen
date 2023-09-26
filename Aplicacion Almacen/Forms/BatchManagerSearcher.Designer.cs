@@ -86,6 +86,7 @@
             this.buttonSearchBatchByID.TabIndex = 45;
             this.buttonSearchBatchByID.Text = "Buscar";
             this.buttonSearchBatchByID.UseVisualStyleBackColor = true;
+            this.buttonSearchBatchByID.Click += new System.EventHandler(this.buttonSearchBatchByID_Click);
             // 
             // dataGridViewSearcher
             // 
