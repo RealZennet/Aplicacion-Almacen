@@ -71,6 +71,10 @@ namespace Aplicacion_Almacen.Forms
             m = 0;
         }
 
+        private void panelSlide_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
 
         private RestResponse getProductByIdFromApi(int productId)
         {
