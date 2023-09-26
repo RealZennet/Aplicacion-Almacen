@@ -35,6 +35,11 @@ namespace Aplicacion_Almacen.Forms
         #region getBatchsFromAPI
         private List<BatchInterface> deserializeBatch(string content)
         {
+            if (content == null)
+            {
+                return null;
+            }
+
             return JsonConvert.DeserializeObject<List<BatchInterface>>(content);
         }
 

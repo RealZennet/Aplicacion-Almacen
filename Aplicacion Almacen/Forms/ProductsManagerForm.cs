@@ -40,6 +40,10 @@ namespace Aplicacion_Almacen.Forms
         #region getProductsFromAPI
         private List<ProductInterface> deserializeProduct(string content)
         {
+            if (content == null)
+            {
+                return null;
+            }
             return JsonConvert.DeserializeObject<List<ProductInterface>>(content);
         }
 
