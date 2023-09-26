@@ -157,6 +157,7 @@
             this.buttonSearcher.TabIndex = 44;
             this.buttonSearcher.Text = "Buscador";
             this.buttonSearcher.UseVisualStyleBackColor = true;
+            this.buttonSearcher.Click += new System.EventHandler(this.buttonSearcher_Click);
             // 
             // buttonBackToMainMenu
             // 

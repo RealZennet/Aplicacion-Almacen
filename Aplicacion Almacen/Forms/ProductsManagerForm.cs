@@ -348,7 +348,6 @@ namespace Aplicacion_Almacen.Forms
             {
 
                 int productIdFromDataGrid = Convert.ToInt32(dataGridViewProducts.SelectedRows[0].Cells["ID"].Value);
-
                 textBoxID.Text = productIdFromDataGrid.ToString();
             }
         }
