@@ -143,6 +143,61 @@ namespace Aplicacion_Almacen.Forms
 
         #endregion postAssignedProductToAPI
 
+        #region deleteAssignedProductToAPI
+
+        private bool deleteAssignedProductToBatchFromApi(int assignedProductId)
+        {
+            try
+            {
+                RestClient client = new RestClient("http://localhost:64191");
+                RestRequest request = new RestRequest($"/api/v1/integrarpaquetes/{assignedProductId}", Method.Delete);
+                request.AddHeader("Accept", "application/json");
+
+                RestResponse response = client.Execute(request);
+
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("La solicitud al servidor no se completó correctamente. Código de estado: " + response.StatusCode);
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar el producto: " + ex.Message);
+                return false;
+            }
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewAssignedProducts.SelectedRows.Count > 0)
+            {
+                int assignedProductIdToDelete = Convert.ToInt32(dataGridViewAssignedProducts.SelectedRows[0].Cells["ID Producto"].Value);
+
+                if (deleteAssignedProductToBatchFromApi(assignedProductIdToDelete))
+                {
+                    refreshTable();
+                    MessageBox.Show($"Producto asignado con ID {assignedProductIdToDelete} eliminado exitosamente.");
+                    clearTxtBoxs();
+                }
+                else
+                {
+                    MessageBox.Show("Error al eliminar el producto. Por favor, verifica los datos ingresados.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecciona una fila para eliminar un producto asignado.");
+            }
+        }
+
+
+        #endregion deleteAssignedProductToAPI
+
         #region validationsAndUtils
 
         private bool validateInputsUser()
@@ -161,6 +216,16 @@ namespace Aplicacion_Almacen.Forms
         {
             txtBoxIDBatch.Clear();
             txtBoxIDProduct.Clear();
+        }
+
+        private void buttonRefresh_Click(object sender, EventArgs e)
+        {
+            refreshTable();
+        }
+
+        private void dataGridViewAssignedProducts_SelectionChanged(object sender, EventArgs e)
+        {
+
         }
 
         #endregion validationsAndUtils

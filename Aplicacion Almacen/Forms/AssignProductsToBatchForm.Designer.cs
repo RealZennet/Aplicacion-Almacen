@@ -37,6 +37,7 @@
             this.txtBoxIDProduct = new System.Windows.Forms.TextBox();
             this.dataGridViewAssignedProducts = new System.Windows.Forms.DataGridView();
             this.buttonBackToMainMenu = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAssignedProducts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,6 +49,7 @@
             this.buttonRefresh.TabIndex = 18;
             this.buttonRefresh.Text = "Recargar";
             this.buttonRefresh.UseVisualStyleBackColor = true;
+            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
             // 
             // buttonDelete
             // 
@@ -57,6 +59,7 @@
             this.buttonDelete.TabIndex = 17;
             this.buttonDelete.Text = "Eliminar";
             this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // buttonAdd
             // 
@@ -109,6 +112,7 @@
             this.dataGridViewAssignedProducts.Name = "dataGridViewAssignedProducts";
             this.dataGridViewAssignedProducts.Size = new System.Drawing.Size(231, 410);
             this.dataGridViewAssignedProducts.TabIndex = 11;
+            this.dataGridViewAssignedProducts.SelectionChanged += new System.EventHandler(this.dataGridViewAssignedProducts_SelectionChanged);
             // 
             // buttonBackToMainMenu
             // 
@@ -122,12 +126,20 @@
             this.buttonBackToMainMenu.UseVisualStyleBackColor = true;
             this.buttonBackToMainMenu.Click += new System.EventHandler(this.buttonBackToMainMenu_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(382, 156);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(37, 20);
+            this.textBox1.TabIndex = 47;
+            // 
             // AssignProductsToBatchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(47)))), ((int)(((byte)(68)))));
             this.ClientSize = new System.Drawing.Size(741, 481);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.buttonBackToMainMenu);
             this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.buttonDelete);
@@ -157,5 +169,6 @@
         private System.Windows.Forms.TextBox txtBoxIDProduct;
         private System.Windows.Forms.DataGridView dataGridViewAssignedProducts;
         private System.Windows.Forms.Button buttonBackToMainMenu;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
