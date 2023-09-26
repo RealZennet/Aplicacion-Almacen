@@ -88,6 +88,12 @@ namespace Aplicacion_Almacen.Forms
         }
 
 
+        private void showAssignedBatchToTruckForm()
+        {
+            AssignBatchToTruck formAssignBatchToTruckCtl = new AssignBatchToTruck();
+            showForm(formAssignBatchToTruckCtl);
+        }
+
         private void buttonStoreHouse_Click(object sender, EventArgs e)
         {
             showMenus(panelProductsAndBatchsContainer);
@@ -106,6 +112,11 @@ namespace Aplicacion_Almacen.Forms
         private void buttonAssignProducts_Click(object sender, EventArgs e)
         {
             showAssignProductToBatchForm();
+        }
+
+        private void buttonTruckerCarryBatch_Click(object sender, EventArgs e)
+        {
+            showAssignedBatchToTruckForm();
         }
     }
 }

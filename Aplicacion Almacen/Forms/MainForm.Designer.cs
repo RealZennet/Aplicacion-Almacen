@@ -133,6 +133,7 @@
             this.buttonTruckerCarryBatch.Text = "Asignar lote a camionero";
             this.buttonTruckerCarryBatch.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonTruckerCarryBatch.UseVisualStyleBackColor = true;
+            this.buttonTruckerCarryBatch.Click += new System.EventHandler(this.buttonTruckerCarryBatch_Click);
             // 
             // buttonAssignProducts
             // 
