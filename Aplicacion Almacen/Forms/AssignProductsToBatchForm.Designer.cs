@@ -32,7 +32,7 @@
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtBoxIDLote = new System.Windows.Forms.TextBox();
+            this.txtBoxIDBatch = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtBoxIDProduct = new System.Windows.Forms.TextBox();
             this.dataGridViewAssignedProducts = new System.Windows.Forms.DataGridView();
@@ -66,6 +66,7 @@
             this.buttonAdd.TabIndex = 16;
             this.buttonAdd.Text = "Agregar";
             this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // label3
             // 
@@ -76,12 +77,12 @@
             this.label3.TabIndex = 15;
             this.label3.Text = "ID del lote a asignar";
             // 
-            // txtBoxIDLote
+            // txtBoxIDBatch
             // 
-            this.txtBoxIDLote.Location = new System.Drawing.Point(272, 156);
-            this.txtBoxIDLote.Name = "txtBoxIDLote";
-            this.txtBoxIDLote.Size = new System.Drawing.Size(61, 20);
-            this.txtBoxIDLote.TabIndex = 14;
+            this.txtBoxIDBatch.Location = new System.Drawing.Point(272, 156);
+            this.txtBoxIDBatch.Name = "txtBoxIDBatch";
+            this.txtBoxIDBatch.Size = new System.Drawing.Size(61, 20);
+            this.txtBoxIDBatch.TabIndex = 14;
             // 
             // label2
             // 
@@ -132,7 +133,7 @@
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtBoxIDLote);
+            this.Controls.Add(this.txtBoxIDBatch);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtBoxIDProduct);
             this.Controls.Add(this.dataGridViewAssignedProducts);
@@ -151,7 +152,7 @@
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtBoxIDLote;
+        private System.Windows.Forms.TextBox txtBoxIDBatch;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtBoxIDProduct;
         private System.Windows.Forms.DataGridView dataGridViewAssignedProducts;
