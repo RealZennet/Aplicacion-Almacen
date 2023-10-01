@@ -259,5 +259,11 @@ namespace Aplicacion_Almacen.Forms
         {
 
         }
+
+        private void buttonDestinationList_Click(object sender, EventArgs e)
+        {
+            DestinationListForm getAllDestinationsForm = new DestinationListForm();
+            getAllDestinationsForm.Show();
+        }
     }
 }

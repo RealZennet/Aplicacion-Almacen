@@ -101,6 +101,12 @@
     <Compile Include="Forms\BatchManagerSearcher.Designer.cs">
       <DependentUpon>BatchManagerSearcher.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\DestinationListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DestinationListForm.Designer.cs">
+      <DependentUpon>DestinationListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +138,7 @@
     <Compile Include="StoreHouseRequests\AssignedBatchToTruckInterface.cs" />
     <Compile Include="StoreHouseRequests\AssignProductsToBatchInterface.cs" />
     <Compile Include="StoreHouseRequests\BatchInterface.cs" />
+    <Compile Include="StoreHouseRequests\DestinationInterface.cs" />
     <Compile Include="StoreHouseRequests\ProductInterface.cs" />
     <EmbeddedResource Include="Forms\AssignBatchToTruck.resx">
       <DependentUpon>AssignBatchToTruck.cs</DependentUpon>
@@ -144,6 +151,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\BatchManagerSearcher.resx">
       <DependentUpon>BatchManagerSearcher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DestinationListForm.resx">
+      <DependentUpon>DestinationListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

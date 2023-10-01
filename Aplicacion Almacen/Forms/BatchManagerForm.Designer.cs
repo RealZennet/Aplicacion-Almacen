@@ -42,6 +42,7 @@
             this.buttonSearcher = new System.Windows.Forms.Button();
             this.buttonBackToMainMenu = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.buttonDestinationList = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBatch)).BeginInit();
             this.SuspendLayout();
             // 
@@ -182,12 +183,23 @@
             this.label4.TabIndex = 46;
             this.label4.Text = "Estado";
             // 
+            // buttonDestinationList
+            // 
+            this.buttonDestinationList.Location = new System.Drawing.Point(539, 440);
+            this.buttonDestinationList.Name = "buttonDestinationList";
+            this.buttonDestinationList.Size = new System.Drawing.Size(92, 23);
+            this.buttonDestinationList.TabIndex = 47;
+            this.buttonDestinationList.Text = "Ver destinos";
+            this.buttonDestinationList.UseVisualStyleBackColor = true;
+            this.buttonDestinationList.Click += new System.EventHandler(this.buttonDestinationList_Click);
+            // 
             // BatchManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(47)))), ((int)(((byte)(68)))));
             this.ClientSize = new System.Drawing.Size(741, 481);
+            this.Controls.Add(this.buttonDestinationList);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.buttonBackToMainMenu);
             this.Controls.Add(this.buttonSearcher);
@@ -228,5 +240,6 @@
         private System.Windows.Forms.Button buttonSearcher;
         private System.Windows.Forms.Button buttonBackToMainMenu;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button buttonDestinationList;
     }
 }

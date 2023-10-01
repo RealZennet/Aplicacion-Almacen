@@ -125,7 +125,7 @@ namespace Aplicacion_Almacen.Forms
             {
                 IDBatch = Convert.ToInt32(txtBoxIDBatch.Text),
                 IDTruck = Convert.ToInt32(txtBoxIDTruck.Text),
-                ShippDate = shippDate 
+                ShippDate = shippDate
             };
 
             jsonBody = JsonConvert.SerializeObject(batchAssigned);
