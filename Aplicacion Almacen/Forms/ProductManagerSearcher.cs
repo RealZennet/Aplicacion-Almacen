@@ -1,4 +1,5 @@
-﻿using Aplicacion_Almacen.StoreHouseRequests;
+﻿using Aplicacion_Almacen.Languages;
+using Aplicacion_Almacen.StoreHouseRequests;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -99,7 +100,7 @@ namespace Aplicacion_Almacen.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al obtener el producto por ID: " + ex.Message);
+                MessageBox.Show(Messages.Error + " : " + ex.Message);
                 return null;
             }
         }
@@ -127,16 +128,16 @@ namespace Aplicacion_Almacen.Forms
 
                     dataGridViewSearcher.DataSource = table;
 
-                    MessageBox.Show("Producto encontrado.");
+                    MessageBox.Show(Messages.ProductFound);
                 }
                 else
                 {
-                    MessageBox.Show("Producto no encontrado.");
+                    MessageBox.Show(Messages.ProductNotFound);
                 }
             }
             else
             {
-                MessageBox.Show("ID de producto inválido. Ingresa un número válido.");
+                MessageBox.Show(Messages.Error);
             }
         }
 

@@ -124,6 +124,15 @@ namespace Aplicacion_Almacen.Languages {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Porfavor Completa Todos Los Campos Y Estados.
+        /// </summary>
+        internal static string CompleteAllBoxAndStatus {
+            get {
+                return ResourceManager.GetString("CompleteAllBoxAndStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Esquina.
         /// </summary>
         internal static string Corner {
@@ -192,6 +201,24 @@ namespace Aplicacion_Almacen.Languages {
         internal static string Edit {
             get {
                 return ResourceManager.GetString("Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Error.
+        /// </summary>
+        internal static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Error De Sintaxis.
+        /// </summary>
+        internal static string ErrorSyntaxis {
+            get {
+                return ResourceManager.GetString("ErrorSyntaxis", resourceCulture);
             }
         }
         
@@ -295,6 +322,15 @@ namespace Aplicacion_Almacen.Languages {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Producto Encontrado.
+        /// </summary>
+        internal static string ProductFound {
+            get {
+                return ResourceManager.GetString("ProductFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a ID Producto.
         /// </summary>
         internal static string ProductID {
@@ -309,6 +345,15 @@ namespace Aplicacion_Almacen.Languages {
         internal static string ProductIDToAssign {
             get {
                 return ResourceManager.GetString("ProductIDToAssign", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Producto No Encontrado.
+        /// </summary>
+        internal static string ProductNotFound {
+            get {
+                return ResourceManager.GetString("ProductNotFound", resourceCulture);
             }
         }
         
@@ -376,6 +421,15 @@ namespace Aplicacion_Almacen.Languages {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Por favor, selecciona una fila para editar un producto.
+        /// </summary>
+        internal static string SelectAnIndex {
+            get {
+                return ResourceManager.GetString("SelectAnIndex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Estado.
         /// </summary>
         internal static string Status {
@@ -399,6 +453,15 @@ namespace Aplicacion_Almacen.Languages {
         internal static string Street {
             get {
                 return ResourceManager.GetString("Street", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Accion exitosa.
+        /// </summary>
+        internal static string Successfull {
+            get {
+                return ResourceManager.GetString("Successfull", resourceCulture);
             }
         }
         

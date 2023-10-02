@@ -246,4 +246,25 @@
   <data name="ProductID" xml:space="preserve">
     <value>Product ID</value>
   </data>
+  <data name="CompleteAllBoxAndStatus" xml:space="preserve">
+    <value>Please, Complete All Box And Status</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="ErrorSyntaxis" xml:space="preserve">
+    <value>Error Check Syntaxis</value>
+  </data>
+  <data name="ProductFound" xml:space="preserve">
+    <value>Product Found</value>
+  </data>
+  <data name="ProductNotFound" xml:space="preserve">
+    <value>Producto Not Found</value>
+  </data>
+  <data name="SelectAnIndex" xml:space="preserve">
+    <value>Please, Select an index.</value>
+  </data>
+  <data name="Successfull" xml:space="preserve">
+    <value>Action Success</value>
+  </data>
 </root>

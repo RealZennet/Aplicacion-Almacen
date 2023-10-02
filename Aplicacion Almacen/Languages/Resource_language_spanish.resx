@@ -246,4 +246,25 @@
   <data name="ProductID" xml:space="preserve">
     <value>ID Producto</value>
   </data>
+  <data name="CompleteAllBoxAndStatus" xml:space="preserve">
+    <value>Porfavor Completa Todos Los Campos Y Estados</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="ErrorSyntaxis" xml:space="preserve">
+    <value>Error De Sintaxis</value>
+  </data>
+  <data name="ProductFound" xml:space="preserve">
+    <value>Producto Encontrado</value>
+  </data>
+  <data name="ProductNotFound" xml:space="preserve">
+    <value>Producto No Encontrado</value>
+  </data>
+  <data name="SelectAnIndex" xml:space="preserve">
+    <value>Por favor, selecciona una fila para editar un producto</value>
+  </data>
+  <data name="Successfull" xml:space="preserve">
+    <value>Accion exitosa</value>
+  </data>
 </root>

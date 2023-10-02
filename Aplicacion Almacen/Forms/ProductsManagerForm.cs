@@ -1,4 +1,5 @@
-﻿using Aplicacion_Almacen.StoreHouseRequests;
+﻿using Aplicacion_Almacen.Languages;
+using Aplicacion_Almacen.StoreHouseRequests;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -29,10 +30,10 @@ namespace Aplicacion_Almacen.Forms
             MainForm mainForm = Application.OpenForms.OfType<MainForm>().FirstOrDefault();
             if (mainForm != null)
             {
-                mainForm.LanguageChanged += UpdateLanguage;
+                mainForm.LanguageChanged += updateLanguage;
             }
         }
-        private void UpdateLanguage()
+        private void updateLanguage()
         {
             buttonAdd.Text = LanguageManager.GetString("Add");
             buttonEdit.Text = LanguageManager.GetString("Edit");
@@ -146,13 +147,13 @@ namespace Aplicacion_Almacen.Forms
                 }
                 else
                 {
-                    MessageBox.Show("La solicitud al servidor no se completó correctamente. Código de estado: " + response.StatusCode);
+                    MessageBox.Show(Messages.Error + " " + response.StatusCode);
                     return false;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al agregar el producto: " + ex.Message);
+                MessageBox.Show(Messages.Error + " : " + ex.Message);
                 return false;
             }
         }
@@ -167,7 +168,7 @@ namespace Aplicacion_Almacen.Forms
 
             if (!validateInputsUser() && !string.IsNullOrWhiteSpace(selectedStatus))
             {
-                MessageBox.Show("Por favor, completa todos los campos y selecciona el estado del producto.");
+                MessageBox.Show(Messages.CompleteAllBoxAndStatus);
                 return;
             }
 
@@ -187,12 +188,12 @@ namespace Aplicacion_Almacen.Forms
             if (sendProductDataToApi(jsonBody))
             {
                 refreshTable();
-                MessageBox.Show("Producto agregado exitosamente.");
+                MessageBox.Show(Messages.Successful);
                 clearTxtBoxs();
             }
             else
             {
-                MessageBox.Show("Error al agregar el producto. Por favor, verifica los datos ingresados.");
+                MessageBox.Show(Messages.Error + " " + Messages.CompleteAllBoxAndStatus);
             }
         }
 
@@ -221,13 +222,13 @@ namespace Aplicacion_Almacen.Forms
                 }
                 else
                 {
-                    MessageBox.Show("La solicitud al servidor no se completó correctamente. Código de estado: " + response.StatusCode);
+                    MessageBox.Show(Messages.Error + " : " + response.StatusCode);
                     return false;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al editar el producto: " + ex.Message);
+                MessageBox.Show(Messages.Error + " : " + ex.Message);
                 return false;
             }
         }
@@ -238,7 +239,7 @@ namespace Aplicacion_Almacen.Forms
 
             if (string.IsNullOrEmpty(textBoxID.Text))
             {
-                MessageBox.Show("Por favor, selecciona una fila para editar un producto.");
+                MessageBox.Show(Messages.SelectAnIndex);
                 return;
             }
 
@@ -246,7 +247,7 @@ namespace Aplicacion_Almacen.Forms
 
             if (!validateInputsUser())
             {
-                MessageBox.Show("Por favor, completa todos los campos y selecciona el estado del producto.");
+                MessageBox.Show(Messages.CompleteAllBoxAndStatus);
                 return;
             }
 
@@ -260,12 +261,12 @@ namespace Aplicacion_Almacen.Forms
             if (editProductInApi(jsonBody))
             {
                 refreshTable();
-                MessageBox.Show("Producto editado exitosamente.");
+                MessageBox.Show(Messages.Successful);
                 clearTxtBoxs();
             }
             else
             {
-                MessageBox.Show("Error al editar el producto. Por favor, verifica los datos ingresados.");
+                MessageBox.Show(Messages.Error + ", " + Messages.CompleteAllBoxAndStatus);
             }
 
         }
@@ -305,13 +306,13 @@ namespace Aplicacion_Almacen.Forms
                 }
                 else
                 {
-                    MessageBox.Show("La solicitud al servidor no se completó correctamente. Código de estado: " + response.StatusCode);
+                    MessageBox.Show(Messages.Error + " : " + response.StatusCode);
                     return false;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al eliminar el producto: " + ex.Message);
+                MessageBox.Show(Messages.Error + " : " + ex.Message);
                 return false;
             }
         }
@@ -320,7 +321,7 @@ namespace Aplicacion_Almacen.Forms
         {
             if (string.IsNullOrEmpty(textBoxID.Text))
             {
-                MessageBox.Show("Por favor, selecciona una fila para eliminar un producto.");
+                MessageBox.Show(Messages.SelectAnIndex);
                 return;
             }
 
@@ -329,12 +330,12 @@ namespace Aplicacion_Almacen.Forms
             if (deleteProductFromApi(productIdToDelete))
             {
                 refreshTable();
-                MessageBox.Show("Producto eliminado exitosamente.");
+                MessageBox.Show(Messages.Successful);
                 clearTxtBoxs();
             }
             else
             {
-                MessageBox.Show("Error al eliminar el producto. Por favor, verifica los datos ingresados.");
+                MessageBox.Show(Messages.Error + " " + Messages.CompleteAllBoxAndStatus);
             }
         }
 

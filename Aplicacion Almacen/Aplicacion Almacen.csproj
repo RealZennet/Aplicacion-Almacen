@@ -126,6 +126,7 @@
       <DependentUpon>ProductsManagerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Languages\LanguageManager.cs" />
+    <Compile Include="Languages\Messages.cs" />
     <Compile Include="Languages\Resource_language_english.Designer.cs">
       <DependentUpon>Resource_language_english.resx</DependentUpon>
       <AutoGen>True</AutoGen>
