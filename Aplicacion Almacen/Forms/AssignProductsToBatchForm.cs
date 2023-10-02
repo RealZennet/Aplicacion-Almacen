@@ -69,8 +69,8 @@ namespace Aplicacion_Almacen.Forms
         private static void fillDataTable(DataTable table, AssignProductsToBatchInterface assignedproduct)
         {
             DataRow rows = table.NewRow();
-            rows["ID Lote"] = assignedproduct.IDBatch;
-            rows["ID Producto"] = assignedproduct.IDProduct;
+            rows[LanguageManager.GetString("LotID")] = assignedproduct.IDBatch;
+            rows["ID Product"] = assignedproduct.IDProduct;
             table.Rows.Add(rows);
         }
 
@@ -79,8 +79,8 @@ namespace Aplicacion_Almacen.Forms
             RestResponse response = getAssignedProductsToBatchsFromApi();
 
             DataTable table = new DataTable();
-            table.Columns.Add("ID Lote", typeof(int));
-            table.Columns.Add("ID Producto", typeof(int));
+            table.Columns.Add(LanguageManager.GetString("LotID"), typeof(int));
+            table.Columns.Add("ID Product", typeof(int));
 
             foreach (AssignProductsToBatchInterface batch in deserializeAssignedProductToBatch(response.Content))
             {
@@ -193,7 +193,7 @@ namespace Aplicacion_Almacen.Forms
         {
             if (dataGridViewAssignedProducts.SelectedRows.Count > 0)
             {
-                int assignedProductIdToDelete = Convert.ToInt32(dataGridViewAssignedProducts.SelectedRows[0].Cells["ID Producto"].Value);
+                int assignedProductIdToDelete = Convert.ToInt32(dataGridViewAssignedProducts.SelectedRows[0].Cells["ID Product"].Value);
 
                 if (deleteAssignedProductToBatchFromApi(assignedProductIdToDelete))
                 {

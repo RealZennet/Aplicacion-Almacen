@@ -243,4 +243,7 @@
   <data name="DateOfShipment" xml:space="preserve">
     <value>Fecha de envio</value>
   </data>
+  <data name="ProductID" xml:space="preserve">
+    <value>ID Producto</value>
+  </data>
 </root>

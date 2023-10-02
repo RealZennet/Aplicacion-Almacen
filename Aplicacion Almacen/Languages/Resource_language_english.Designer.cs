@@ -295,6 +295,15 @@ namespace Aplicacion_Almacen.Languages {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Product ID.
+        /// </summary>
+        internal static string ProductID {
+            get {
+                return ResourceManager.GetString("ProductID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a ID Product to assign.
         /// </summary>
         internal static string ProductIDToAssign {

@@ -66,13 +66,13 @@ namespace Aplicacion_Almacen.Forms
         {
             DataRow rows = table.NewRow();
             rows["ID"] = product.IDProduct;
-            rows["Peso"] = product.ProductWeight;
-            rows["Volumen"] = product.Volume;
-            rows["Calle"] = product.Street;
-            rows["Numero Direccion"] = product.DoorNumber;
-            rows["Esquina"] = product.Corner;
-            rows["Cliente"] = product.Customer;
-            rows["Activado"] = product.ActivatedProduct;
+            rows[LanguageManager.GetString("Weight")] = product.ProductWeight;
+            rows[LanguageManager.GetString("Volume")] = product.Volume;
+            rows[LanguageManager.GetString("Street")] = product.Street;
+            rows[LanguageManager.GetString("Number")] = product.DoorNumber;
+            rows[LanguageManager.GetString("Corner")] = product.Corner;
+            rows[LanguageManager.GetString("Customer")] = product.Customer;
+            rows[LanguageManager.GetString("Activated")] = product.ActivatedProduct;
             table.Rows.Add(rows);
         }
 
@@ -114,13 +114,13 @@ namespace Aplicacion_Almacen.Forms
                 {
                     DataTable table = new DataTable();
                     table.Columns.Add("ID", typeof(int));
-                    table.Columns.Add("Peso", typeof(string));
-                    table.Columns.Add("Volumen", typeof(int));
-                    table.Columns.Add("Calle", typeof(string));
-                    table.Columns.Add("Numero Direccion", typeof(int));
-                    table.Columns.Add("Esquina", typeof(string));
-                    table.Columns.Add("Cliente", typeof(string));
-                    table.Columns.Add("Activado", typeof(bool));
+                    table.Columns.Add(LanguageManager.GetString("Weight"), typeof(string));
+                    table.Columns.Add(LanguageManager.GetString("Volume"), typeof(int));
+                    table.Columns.Add(LanguageManager.GetString("Street"), typeof(string));
+                    table.Columns.Add(LanguageManager.GetString("Number"), typeof(int));
+                    table.Columns.Add(LanguageManager.GetString("Corner"), typeof(string));
+                    table.Columns.Add(LanguageManager.GetString("Customer"), typeof(string));
+                    table.Columns.Add(LanguageManager.GetString("Activated"), typeof(bool));
 
                     ProductInterface product = JsonConvert.DeserializeObject<ProductInterface>(response.Content);
                     fillDataTable(table, product);

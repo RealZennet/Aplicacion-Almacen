@@ -69,10 +69,10 @@ namespace Aplicacion_Almacen.Forms
                 {
                     DataTable table = new DataTable();
                     table.Columns.Add("ID", typeof(int));
-                    table.Columns.Add("Fecha de creacion", typeof(DateTime));
-                    table.Columns.Add("ID Destino", typeof(int));
-                    table.Columns.Add("Fecha Envio", typeof(DateTime));
-                    table.Columns.Add("Activado", typeof(bool));
+                    table.Columns.Add(LanguageManager.GetString("DateOfCreation"), typeof(DateTime));
+                    table.Columns.Add(LanguageManager.GetString("IDDestination"), typeof(int));
+                    table.Columns.Add(LanguageManager.GetString("DateOfShipment"), typeof(DateTime));
+                    table.Columns.Add(LanguageManager.GetString("Activated"), typeof(bool));
 
                     BatchInterface batch = JsonConvert.DeserializeObject<BatchInterface>(response.Content);
                     fillDataTable(table, batch);
@@ -96,10 +96,10 @@ namespace Aplicacion_Almacen.Forms
         {
             DataRow rows = table.NewRow();
             rows["ID"] = batch.IDBatches;
-            rows["Fecha de creacion"] = batch.DateOfCreation;
-            rows["ID Destino"] = batch.IDShipp;
-            rows["Fecha Envio"] = batch.ShippingDate;
-            rows["Activado"] = batch.ActivedBatch;
+            rows[LanguageManager.GetString("DateOfCreation")] = batch.DateOfCreation;
+            rows[LanguageManager.GetString("IDDestination")] = batch.IDShipp;
+            rows[LanguageManager.GetString("DateOfShipment")] = batch.ShippingDate;
+            rows[LanguageManager.GetString("Activated")] = batch.ActivedBatch;
             table.Rows.Add(rows);
         }
 
