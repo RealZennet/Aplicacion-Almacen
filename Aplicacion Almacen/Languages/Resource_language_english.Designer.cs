@@ -340,6 +340,15 @@ namespace Aplicacion_Almacen.Languages {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Search.
+        /// </summary>
+        internal static string SearchProductByID {
+            get {
+                return ResourceManager.GetString("SearchProductByID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Status.
         /// </summary>
         internal static string Status {

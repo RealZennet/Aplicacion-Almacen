@@ -15,12 +15,22 @@ namespace Aplicacion_Almacen.Forms
 {
     public partial class ProductManagerSearcher : Form
     {
-
+        public event Action LanguageChaned;
         public int m, x, y;
 
         public ProductManagerSearcher()
         {
             InitializeComponent();
+            MainForm mainForm = Application.OpenForms.OfType<MainForm>().FirstOrDefault();
+            if (mainForm != null)
+            {
+                mainForm.LanguageChanged += UpdateLanguage;
+            }
+        }
+
+        private void UpdateLanguage()
+        {
+            buttonSearchProductByID.Text = LanguageManager.GetString("Search");
         }
 
         private void buttonClose_Click(object sender, EventArgs e)

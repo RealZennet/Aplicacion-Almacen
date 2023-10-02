@@ -16,7 +16,23 @@ namespace Aplicacion_Almacen.Forms
     public partial class BatchManagerSearcher : Form
     {
 
+        public event Action LanguageChanged;
         public int m, x, y;
+
+        public BatchManagerSearcher()
+        {
+            InitializeComponent();
+            MainForm mainForm = Application.OpenForms.OfType<MainForm>().FirstOrDefault();
+            if (mainForm != null)
+            {
+                mainForm.LanguageChanged += UpdateLanguage;
+            }
+        }
+
+        private void UpdateLanguage()
+        {
+            buttonSearchBatchByID.Text = LanguageManager.GetString("Search");
+        }
 
         private void panelSlide_MouseDown(object sender, MouseEventArgs e)
         {
@@ -36,11 +52,6 @@ namespace Aplicacion_Almacen.Forms
         private void panelSlide_MouseUp(object sender, MouseEventArgs e)
         {
             m = 0;
-        }
-
-        public BatchManagerSearcher()
-        {
-            InitializeComponent();
         }
 
         private void buttonClose_Click(object sender, EventArgs e)

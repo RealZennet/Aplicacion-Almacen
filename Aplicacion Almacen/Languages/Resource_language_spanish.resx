@@ -210,6 +210,9 @@
   <data name="Searcher" xml:space="preserve">
     <value>Buscador</value>
   </data>
+  <data name="SearchProductByID" xml:space="preserve">
+    <value>Buscar</value>
+  </data>
   <data name="Status" xml:space="preserve">
     <value>Estado</value>
   </data>

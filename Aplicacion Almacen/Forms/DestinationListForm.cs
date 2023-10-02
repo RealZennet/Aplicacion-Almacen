@@ -27,6 +27,7 @@ namespace Aplicacion_Almacen.Forms
         {
 
         }
+
         private List<DestinationInterface> deserialize(string content)
         {
             if (content == null)
