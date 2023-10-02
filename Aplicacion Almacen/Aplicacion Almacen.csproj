@@ -125,6 +125,16 @@
     <Compile Include="Forms\ProductsManagerForm.Designer.cs">
       <DependentUpon>ProductsManagerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Languages\Resource_language_english.Designer.cs">
+      <DependentUpon>Resource_language_english.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Languages\Resource_language_spanish.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource_language_spanish.resx</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -163,6 +173,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ProductsManagerForm.resx">
       <DependentUpon>ProductsManagerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\Resource_language_english.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource_language_english.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\Resource_language_spanish.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource_language_spanish.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

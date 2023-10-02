@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Aplicacion_Almacen.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -117,6 +118,29 @@ namespace Aplicacion_Almacen.Forms
         private void buttonTruckerCarryBatch_Click(object sender, EventArgs e)
         {
             showAssignedBatchToTruckForm();
+        }
+
+        private void buttonEnglishLanguage_Click(object sender, EventArgs e)
+        {
+            #region leftpanelmenu
+            buttonStoreHouse.Text = Languages.Resource_language_english.ProductAndLotDistribution;
+            buttonProductsManager.Text = Languages.Resource_language_english.ManageProducts;
+            buttonBatchManager.Text = Languages.Resource_language_english.ManageLots;
+            buttonAssignProducts.Text = Languages.Resource_language_english.AssignProducts;
+            buttonTruckerCarryBatch.Text = Languages.Resource_language_english.AssignLotToTrucker;
+            #endregion leftpanelmenu
+        }
+
+        private void buttonLanguageSpanish_Click(object sender, EventArgs e)
+        {
+            #region leftpanelmenu
+            buttonStoreHouse.Text = Languages.Resource_language_spanish.ProductAndLotDistribution;
+            buttonProductsManager.Text = Languages.Resource_language_spanish.ManageProducts;
+            buttonBatchManager.Text = Languages.Resource_language_spanish.ManageLots;
+            buttonAssignProducts.Text = Languages.Resource_language_spanish.AssignProducts;
+            buttonTruckerCarryBatch.Text = Languages.Resource_language_spanish.AssignLotToTrucker;
+            #endregion leftpanelmenu
+
         }
     }
 }
