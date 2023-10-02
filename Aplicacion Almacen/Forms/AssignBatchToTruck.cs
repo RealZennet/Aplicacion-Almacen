@@ -1,4 +1,5 @@
-﻿using Aplicacion_Almacen.StoreHouseRequests;
+﻿using Aplicacion_Almacen.Languages;
+using Aplicacion_Almacen.StoreHouseRequests;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -116,13 +117,13 @@ namespace Aplicacion_Almacen.Forms
                 }
                 else
                 {
-                    MessageBox.Show("La solicitud al servidor no se completó correctamente. Código de estado: " + response.StatusCode);
+                    MessageBox.Show(Messages.Error + " : " + response.StatusCode);
                     return false;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al asignar el lote al camion, error - > " + ex.Message);
+                MessageBox.Show(Messages.Error + " - > " + ex.Message);
                 return false;
             }
         }
@@ -133,7 +134,7 @@ namespace Aplicacion_Almacen.Forms
 
             if (!validateInputsUser())
             {
-                MessageBox.Show("Por favor, completa todos los campos.");
+                MessageBox.Show(Messages.CompleteAllBoxAndStatus);
                 return;
             }
 
@@ -151,12 +152,12 @@ namespace Aplicacion_Almacen.Forms
             if (sendAssignedBatchDataToApi(jsonBody))
             {
                 refreshTable();
-                MessageBox.Show("Lote vinculado al camión exitosamente.");
+                MessageBox.Show(Messages.Successful);
                 clearTxtsBoxes();
             }
             else
             {
-                MessageBox.Show("Error al vincular el lote. Por favor, verifica los datos ingresados.");
+                MessageBox.Show(Messages.Error + " " + Messages.CompleteAllBoxAndStatus);
             }
         }
 
@@ -180,13 +181,13 @@ namespace Aplicacion_Almacen.Forms
                 }
                 else
                 {
-                    MessageBox.Show("La solicitud al servidor no se completó correctamente. Código de estado: " + response.StatusCode);
+                    MessageBox.Show(Messages.Error + " : " + response.StatusCode);
                     return false;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al des-asignar el lote: " + ex.Message);
+                MessageBox.Show(Messages.Error + " : " + ex.Message);
                 return false;
             }
         }
@@ -195,7 +196,7 @@ namespace Aplicacion_Almacen.Forms
         {
             if (string.IsNullOrEmpty(txtBoxIDBatch.Text))
             {
-                MessageBox.Show("Por favor, selecciona una fila para des-asignar un lote.");
+                MessageBox.Show(Messages.SelectAnIndex);
                 return;
             }
 
@@ -204,12 +205,12 @@ namespace Aplicacion_Almacen.Forms
             if (deleteAssignedBatchFromApi(batchIdToDelete))
             {
                 refreshTable();
-                MessageBox.Show("Lote des-asignado exitosamente.");
+                MessageBox.Show(Messages.Successful);
                 clearTxtsBoxes();
             }
             else
             {
-                MessageBox.Show("Error al des-asignar el lote. Por favor, verifica los datos ingresados.");
+                MessageBox.Show(Messages.Error + " " + Messages.VerifyData);
             }
         }
 

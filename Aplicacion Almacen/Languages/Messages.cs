@@ -13,7 +13,7 @@ namespace Aplicacion_Almacen.Languages
         public static string Error => LanguageManager.GetString("Error");
         public static string ErrorSyntax => LanguageManager.GetString("ErrorSyntax");
         public static string CompleteAllBoxAndStatus => LanguageManager.GetString("CompleteAllBoxAndStatus");
-        public static string Successful => LanguageManager.GetString("Successful");
+        public static string Successful => LanguageManager.GetString("Successfull");
         public static string SelectAnIndex => LanguageManager.GetString("SelectAnIndex");
         public static string LotFound => LanguageManager.GetString("LotFound");
         public static string LotNotFound => LanguageManager.GetString("LotNotFound");
