@@ -33,17 +33,20 @@
             this.settingsManagerPanel = new System.Windows.Forms.Panel();
             this.buttonEnglishLanguage = new System.Windows.Forms.Button();
             this.buttonLanguageSpanish = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelProductsAndBatchsContainer = new System.Windows.Forms.Panel();
             this.buttonTruckerCarryBatch = new System.Windows.Forms.Button();
             this.buttonAssignProducts = new System.Windows.Forms.Button();
             this.buttonProductsManager = new System.Windows.Forms.Button();
             this.buttonBatchManager = new System.Windows.Forms.Button();
             this.panelFormsLoader = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panelSlidePanelMainForm = new System.Windows.Forms.Panel();
+            this.buttonCloseMainMenu = new System.Windows.Forms.Button();
+            this.buttonMinimize = new System.Windows.Forms.Button();
             this.leftPanelContainer.SuspendLayout();
             this.settingsManagerPanel.SuspendLayout();
-            this.panelProductsAndBatchsContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panelProductsAndBatchsContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // leftPanelContainer
@@ -114,6 +117,17 @@
             this.buttonLanguageSpanish.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonLanguageSpanish.UseVisualStyleBackColor = true;
             this.buttonLanguageSpanish.Click += new System.EventHandler(this.buttonLanguageSpanish_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox1.Image = global::Aplicacion_Almacen.Properties.Resources.ZENNETLOGO;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(250, 80);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // panelProductsAndBatchsContainer
             // 
@@ -196,16 +210,39 @@
             this.panelFormsLoader.Size = new System.Drawing.Size(773, 559);
             this.panelFormsLoader.TabIndex = 3;
             // 
-            // pictureBox1
+            // panelSlidePanelMainForm
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Image = global::Aplicacion_Almacen.Properties.Resources.ZENNETLOGO;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(250, 80);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.panelSlidePanelMainForm.Location = new System.Drawing.Point(256, 0);
+            this.panelSlidePanelMainForm.Name = "panelSlidePanelMainForm";
+            this.panelSlidePanelMainForm.Size = new System.Drawing.Size(671, 35);
+            this.panelSlidePanelMainForm.TabIndex = 4;
+            this.panelSlidePanelMainForm.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelSlidePanelMainForm_MouseDown);
+            this.panelSlidePanelMainForm.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelSlidePanelMainForm_MouseMove);
+            this.panelSlidePanelMainForm.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panelSlidePanelMainForm_MouseUp);
+            // 
+            // buttonCloseMainMenu
+            // 
+            this.buttonCloseMainMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCloseMainMenu.ForeColor = System.Drawing.Color.Olive;
+            this.buttonCloseMainMenu.Location = new System.Drawing.Point(963, 9);
+            this.buttonCloseMainMenu.Name = "buttonCloseMainMenu";
+            this.buttonCloseMainMenu.Size = new System.Drawing.Size(20, 23);
+            this.buttonCloseMainMenu.TabIndex = 57;
+            this.buttonCloseMainMenu.Text = "X";
+            this.buttonCloseMainMenu.UseVisualStyleBackColor = true;
+            this.buttonCloseMainMenu.Click += new System.EventHandler(this.buttonCloseMainMenu_Click);
+            // 
+            // buttonMinimize
+            // 
+            this.buttonMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMinimize.ForeColor = System.Drawing.Color.Olive;
+            this.buttonMinimize.Location = new System.Drawing.Point(989, 9);
+            this.buttonMinimize.Name = "buttonMinimize";
+            this.buttonMinimize.Size = new System.Drawing.Size(20, 23);
+            this.buttonMinimize.TabIndex = 58;
+            this.buttonMinimize.Text = "_";
+            this.buttonMinimize.UseVisualStyleBackColor = true;
+            this.buttonMinimize.Click += new System.EventHandler(this.buttonMinimize_Click);
             // 
             // MainForm
             // 
@@ -213,15 +250,19 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(47)))), ((int)(((byte)(68)))));
             this.ClientSize = new System.Drawing.Size(1021, 568);
+            this.Controls.Add(this.buttonMinimize);
+            this.Controls.Add(this.buttonCloseMainMenu);
+            this.Controls.Add(this.panelSlidePanelMainForm);
             this.Controls.Add(this.panelFormsLoader);
             this.Controls.Add(this.leftPanelContainer);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainForm";
             this.Text = "Aplicacion Almacen";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.leftPanelContainer.ResumeLayout(false);
             this.settingsManagerPanel.ResumeLayout(false);
-            this.panelProductsAndBatchsContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panelProductsAndBatchsContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -240,5 +281,8 @@
         private System.Windows.Forms.Panel panelFormsLoader;
         private System.Windows.Forms.Button buttonTruckerCarryBatch;
         private System.Windows.Forms.Button buttonEnglishLanguage;
+        private System.Windows.Forms.Panel panelSlidePanelMainForm;
+        private System.Windows.Forms.Button buttonCloseMainMenu;
+        private System.Windows.Forms.Button buttonMinimize;
     }
 }

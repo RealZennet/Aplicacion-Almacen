@@ -93,6 +93,11 @@ namespace Aplicacion_Almacen.Forms
             }
         }
 
+        private void panelSlide_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private static void fillDataTable(DataTable table, BatchInterface batch)
         {
             DataRow rows = table.NewRow();
