@@ -48,6 +48,7 @@ namespace Aplicacion_Almacen.Forms
             labelStreet.Text = LanguageManager.GetString("Street");
             labelVolume.Text = LanguageManager.GetString("Volume");
             labelWeight.Text = LanguageManager.GetString("Weight");
+
         }
 
         private void buttonBackToMainMenu_Click(object sender, EventArgs e)
@@ -81,17 +82,18 @@ namespace Aplicacion_Almacen.Forms
 
         private static void fillDataTable(DataTable table, ProductInterface product)
         {
-            DataRow rows = table.NewRow();
-            rows["ID"] = product.IDProduct;
-            rows["Peso"] = product.ProductWeight;
-            rows["Volumen"] = product.Volume;
-            rows["Calle"] = product.Street;
-            rows["Numero Direccion"] = product.DoorNumber;
-            rows["Esquina"] = product.Corner;
-            rows["Cliente"] = product.Customer;
-            rows["Activado"] = product.ActivatedProduct;
-            table.Rows.Add(rows);
+            DataRow row = table.NewRow();
+            row["ID"] = product.IDProduct;
+            row[LanguageManager.GetString("Weight")] = product.ProductWeight;
+            row[LanguageManager.GetString("Volume")] = product.Volume;
+            row[LanguageManager.GetString("Street")] = product.Street;
+            row[LanguageManager.GetString("Number")] = product.DoorNumber;
+            row[LanguageManager.GetString("Corner")] = product.Corner;
+            row[LanguageManager.GetString("Customer")] = product.Customer;
+            row[LanguageManager.GetString("Activated")] = product.ActivatedProduct;
+            table.Rows.Add(row);
         }
+
 
         private DataTable getDataTable()
         {
@@ -99,13 +101,13 @@ namespace Aplicacion_Almacen.Forms
 
             DataTable table = new DataTable();
             table.Columns.Add("ID", typeof(int));
-            table.Columns.Add("Peso", typeof(string));
-            table.Columns.Add("Volumen", typeof(int));
-            table.Columns.Add("Calle", typeof(string));
-            table.Columns.Add("Numero Direccion", typeof(int));
-            table.Columns.Add("Esquina", typeof(string));
-            table.Columns.Add("Cliente", typeof(string));
-            table.Columns.Add("Activado", typeof(bool));
+            table.Columns.Add(LanguageManager.GetString("Weight"), typeof(string));
+            table.Columns.Add(LanguageManager.GetString("Volume"), typeof(int));
+            table.Columns.Add(LanguageManager.GetString("Street"), typeof(string));
+            table.Columns.Add(LanguageManager.GetString("Number"), typeof(int));
+            table.Columns.Add(LanguageManager.GetString("Corner"), typeof(string));
+            table.Columns.Add(LanguageManager.GetString("Customer"), typeof(string));
+            table.Columns.Add(LanguageManager.GetString("Activated"), typeof(bool));
 
             foreach (ProductInterface product in deserializeProduct(response.Content))
             {
@@ -115,11 +117,13 @@ namespace Aplicacion_Almacen.Forms
             return table;
         }
 
+
         private void refreshTable()
         {
             DataTable table = getDataTable();
             dataGridViewProducts.DataSource = table;
         }
+
         #endregion getProductsFromAPI
 
         #region postProductsToAPI

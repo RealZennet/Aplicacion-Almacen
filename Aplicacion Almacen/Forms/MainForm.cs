@@ -150,6 +150,5 @@ namespace Aplicacion_Almacen.Forms
             buttonTruckerCarryBatch.Text = LanguageManager.GetString("AssignLotToTrucker");
         }
 
-
     }
 }

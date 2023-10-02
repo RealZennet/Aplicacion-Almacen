@@ -124,20 +124,20 @@ namespace Aplicacion_Almacen.Languages {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Cliente.
-        /// </summary>
-        internal static string Client {
-            get {
-                return ResourceManager.GetString("Client", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Busca una cadena traducida similar a Esquina.
         /// </summary>
         internal static string Corner {
             get {
                 return ResourceManager.GetString("Corner", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Cliente.
+        /// </summary>
+        internal static string Customer {
+            get {
+                return ResourceManager.GetString("Customer", resourceCulture);
             }
         }
         

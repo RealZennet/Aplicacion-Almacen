@@ -138,7 +138,7 @@
   <data name="ChangeStatus" xml:space="preserve">
     <value>Cambio de estado</value>
   </data>
-  <data name="Client" xml:space="preserve">
+  <data name="Customer" xml:space="preserve">
     <value>Cliente</value>
   </data>
   <data name="Corner" xml:space="preserve">
