@@ -1,4 +1,5 @@
-﻿using Aplicacion_Almacen.StoreHouseRequests;
+﻿using Aplicacion_Almacen.Languages;
+using Aplicacion_Almacen.StoreHouseRequests;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -130,13 +131,13 @@ namespace Aplicacion_Almacen.Forms
                 }
                 else
                 {
-                    MessageBox.Show("La solicitud al servidor no se completó correctamente. Código de estado: " + response.StatusCode);
+                    MessageBox.Show(Messages.Error + " : " + response.StatusCode);
                     return false;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al agregar el lote: " + ex.Message);
+                MessageBox.Show(Messages.Error + " : " + ex.Message);
                 return false;
             }
         }
@@ -150,7 +151,7 @@ namespace Aplicacion_Almacen.Forms
 
             if (!validateInputsUser() && !string.IsNullOrWhiteSpace(selectedStatus))
             {
-                MessageBox.Show("Por favor, completa todos los campos y selecciona el estado del lote.");
+                MessageBox.Show(Messages.Error + " " + Messages.CompleteAllBoxAndStatus);
                 return;
             }
 
@@ -167,12 +168,12 @@ namespace Aplicacion_Almacen.Forms
             if (sendBatchDataToApi(jsonBody))
             {
                 refreshTable();
-                MessageBox.Show("Lote agregado exitosamente.");
+                MessageBox.Show(Messages.Successful);
                 clearTxtBoxs();
             }
             else
             {
-                MessageBox.Show("Error al agregar el lote. Por favor, verifica los datos ingresados.");
+                MessageBox.Show(Messages.Error + " " + Messages.CompleteAllBoxAndStatus);
             }
         }
 
@@ -196,13 +197,13 @@ namespace Aplicacion_Almacen.Forms
                 }
                 else
                 {
-                    MessageBox.Show("La solicitud al servidor no se completó correctamente. Código de estado: " + response.StatusCode);
+                    MessageBox.Show(Messages.Error + " : " + response.StatusCode);
                     return false;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al eliminar el lote: " + ex.Message);
+                MessageBox.Show(Messages.Error + " : " + ex.Message);
                 return false;
             }
         }
@@ -211,7 +212,7 @@ namespace Aplicacion_Almacen.Forms
         {
             if (string.IsNullOrEmpty(txtBoxIDBatch.Text))
             {
-                MessageBox.Show("Por favor, selecciona una fila para eliminar un lote.");
+                MessageBox.Show(Messages.SelectAnIndex);
                 return;
             }
 
@@ -220,12 +221,12 @@ namespace Aplicacion_Almacen.Forms
             if (deleteProductFromApi(batchIdToDelete))
             {
                 refreshTable();
-                MessageBox.Show("Lote eliminado exitosamente.");
+                MessageBox.Show(Messages.Successful);
                 clearTxtBoxs();
             }
             else
             {
-                MessageBox.Show("Error al eliminar el lote. Por favor, verifica los datos ingresados.");
+                MessageBox.Show(Messages.Error + " " + Messages.CompleteAllBoxAndStatus);
             }
         }
 

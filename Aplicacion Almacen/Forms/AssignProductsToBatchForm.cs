@@ -1,4 +1,5 @@
-﻿using Aplicacion_Almacen.StoreHouseRequests;
+﻿using Aplicacion_Almacen.Languages;
+using Aplicacion_Almacen.StoreHouseRequests;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -117,13 +118,13 @@ namespace Aplicacion_Almacen.Forms
                 }
                 else
                 {
-                    MessageBox.Show("La solicitud al servidor no se completó correctamente. Código de estado: " + response.StatusCode);
+                    MessageBox.Show(Messages.Error + " : " + response.StatusCode);
                     return false;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al asignar un producto: " + ex.Message);
+                MessageBox.Show(Messages.Error + " : " + ex.Message);
                 return false;
             }
         }
@@ -134,7 +135,7 @@ namespace Aplicacion_Almacen.Forms
 
             if (!validateInputsUser())
             {
-                MessageBox.Show("Por favor, completa todos los campos");
+                MessageBox.Show(Messages.CompleteAllBoxAndStatus);
                 return;
             }
 
@@ -149,12 +150,12 @@ namespace Aplicacion_Almacen.Forms
             if (sendAssignedProductToBatchDataToApi(jsonBody))
             {
                 refreshTable();
-                MessageBox.Show($"Producto {this.txtBoxIDProduct.Text} asignado exitosamente al lote {this.txtBoxIDBatch.Text}.");
+                MessageBox.Show(Messages.Successful);
                 clearTxtBoxs();
             }
             else
             {
-                MessageBox.Show("Error al asignado el producto. Por favor, verifica los datos ingresados.");
+                MessageBox.Show(Messages.Error + ", " + Messages.CompleteAllBoxAndStatus);
             }
         }
 
@@ -178,13 +179,13 @@ namespace Aplicacion_Almacen.Forms
                 }
                 else
                 {
-                    MessageBox.Show("La solicitud al servidor no se completó correctamente. Código de estado: " + response.StatusCode);
+                    MessageBox.Show(Messages.Error + " : " + response.StatusCode);
                     return false;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al eliminar el producto: " + ex.Message);
+                MessageBox.Show(Messages.Error + " : " + ex.Message);
                 return false;
             }
         }
@@ -198,17 +199,17 @@ namespace Aplicacion_Almacen.Forms
                 if (deleteAssignedProductToBatchFromApi(assignedProductIdToDelete))
                 {
                     refreshTable();
-                    MessageBox.Show($"Producto asignado con ID {assignedProductIdToDelete} eliminado exitosamente.");
+                    MessageBox.Show(Messages.Successful);
                     clearTxtBoxs();
                 }
                 else
                 {
-                    MessageBox.Show("Error al eliminar el producto. Por favor, verifica los datos ingresados.");
+                    MessageBox.Show(Messages.Error + " " + Messages.VerifyData);
                 }
             }
             else
             {
-                MessageBox.Show("Por favor, selecciona una fila para eliminar un producto asignado.");
+                MessageBox.Show(Messages.SelectAnIndex);
             }
         }
 

@@ -250,6 +250,24 @@ namespace Aplicacion_Almacen.Languages {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Invalid ID.
+        /// </summary>
+        internal static string InvalidID {
+            get {
+                return ResourceManager.GetString("InvalidID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Lot found.
+        /// </summary>
+        internal static string LotFound {
+            get {
+                return ResourceManager.GetString("LotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a ID Lot.
         /// </summary>
         internal static string LotID {
@@ -264,6 +282,15 @@ namespace Aplicacion_Almacen.Languages {
         internal static string LotIDToAssign {
             get {
                 return ResourceManager.GetString("LotIDToAssign", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Lot not found.
+        /// </summary>
+        internal static string LotNotFound {
+            get {
+                return ResourceManager.GetString("LotNotFound", resourceCulture);
             }
         }
         
@@ -480,6 +507,24 @@ namespace Aplicacion_Almacen.Languages {
         internal static string TrucksAndLots {
             get {
                 return ResourceManager.GetString("TrucksAndLots", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a User not found.
+        /// </summary>
+        internal static string UserFound {
+            get {
+                return ResourceManager.GetString("UserFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Please entered data.
+        /// </summary>
+        internal static string VerifyInformation {
+            get {
+                return ResourceManager.GetString("VerifyInformation", resourceCulture);
             }
         }
         

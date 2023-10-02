@@ -267,4 +267,19 @@
   <data name="Successfull" xml:space="preserve">
     <value>Action Success</value>
   </data>
+  <data name="LotFound" xml:space="preserve">
+    <value>Lot found</value>
+  </data>
+  <data name="LotNotFound" xml:space="preserve">
+    <value>Lot not found</value>
+  </data>
+  <data name="UserFound" xml:space="preserve">
+    <value>User not found</value>
+  </data>
+  <data name="InvalidID" xml:space="preserve">
+    <value>Invalid ID</value>
+  </data>
+  <data name="VerifyInformation" xml:space="preserve">
+    <value>Please entered data</value>
+  </data>
 </root>

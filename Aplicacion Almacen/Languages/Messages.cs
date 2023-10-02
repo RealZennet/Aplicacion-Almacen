@@ -15,6 +15,12 @@ namespace Aplicacion_Almacen.Languages
         public static string CompleteAllBoxAndStatus => LanguageManager.GetString("CompleteAllBoxAndStatus");
         public static string Successful => LanguageManager.GetString("Successful");
         public static string SelectAnIndex => LanguageManager.GetString("SelectAnIndex");
+        public static string LotFound => LanguageManager.GetString("LotFound");
+        public static string LotNotFound => LanguageManager.GetString("LotNotFound");
+        public static string UserFound => LanguageManager.GetString("UserFound");
+        public static string UserNotFound => LanguageManager.GetString("UserNotFound");
+        public static string InvalidID => LanguageManager.GetString("InvalidID");
+        public static string VerifyData => LanguageManager.GetString("VerifyData");
     }
 
 }

@@ -1,4 +1,5 @@
-﻿using Aplicacion_Almacen.StoreHouseRequests;
+﻿using Aplicacion_Almacen.Languages;
+using Aplicacion_Almacen.StoreHouseRequests;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -79,16 +80,16 @@ namespace Aplicacion_Almacen.Forms
 
                     dataGridViewSearcher.DataSource = table;
 
-                    MessageBox.Show("Lote encontrado.");
+                    MessageBox.Show(Messages.LotFound);
                 }
                 else
                 {
-                    MessageBox.Show("Lote no encontrado.");
+                    MessageBox.Show(Messages.LotNotFound);
                 }
             }
             else
             {
-                MessageBox.Show("ID de lote inválido. Ingresa un número válido.");
+                MessageBox.Show(Messages.InvalidID);
             }
         }
 
@@ -116,7 +117,7 @@ namespace Aplicacion_Almacen.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al obtener el lote con ID: " + ex.Message);
+                MessageBox.Show(Messages.Error + " " + Messages.InvalidID + " " + ex.Message);
                 return null;
             }
         }

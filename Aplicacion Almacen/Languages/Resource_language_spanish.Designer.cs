@@ -250,6 +250,24 @@ namespace Aplicacion_Almacen.Languages {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a ID No valido.
+        /// </summary>
+        internal static string InvalidID {
+            get {
+                return ResourceManager.GetString("InvalidID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Lote encontrado.
+        /// </summary>
+        internal static string LotFound {
+            get {
+                return ResourceManager.GetString("LotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a ID Lote.
         /// </summary>
         internal static string LotID {
@@ -264,6 +282,15 @@ namespace Aplicacion_Almacen.Languages {
         internal static string LotIDToAssign {
             get {
                 return ResourceManager.GetString("LotIDToAssign", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Lote no encontrado.
+        /// </summary>
+        internal static string LotNotFound {
+            get {
+                return ResourceManager.GetString("LotNotFound", resourceCulture);
             }
         }
         
@@ -421,7 +448,7 @@ namespace Aplicacion_Almacen.Languages {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Por favor, selecciona una fila para editar un producto.
+        ///   Busca una cadena traducida similar a Por favor, selecciona una fila.
         /// </summary>
         internal static string SelectAnIndex {
             get {
@@ -480,6 +507,33 @@ namespace Aplicacion_Almacen.Languages {
         internal static string TrucksAndLots {
             get {
                 return ResourceManager.GetString("TrucksAndLots", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Usuario encontrado.
+        /// </summary>
+        internal static string UserFound {
+            get {
+                return ResourceManager.GetString("UserFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Usuario no encontrado.
+        /// </summary>
+        internal static string UserNotFound {
+            get {
+                return ResourceManager.GetString("UserNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Verifica la informacion ingresada.
+        /// </summary>
+        internal static string VerifyData {
+            get {
+                return ResourceManager.GetString("VerifyData", resourceCulture);
             }
         }
         

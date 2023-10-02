@@ -262,9 +262,27 @@
     <value>Producto No Encontrado</value>
   </data>
   <data name="SelectAnIndex" xml:space="preserve">
-    <value>Por favor, selecciona una fila para editar un producto</value>
+    <value>Por favor, selecciona una fila</value>
   </data>
   <data name="Successfull" xml:space="preserve">
     <value>Accion exitosa</value>
+  </data>
+  <data name="LotFound" xml:space="preserve">
+    <value>Lote encontrado</value>
+  </data>
+  <data name="LotNotFound" xml:space="preserve">
+    <value>Lote no encontrado</value>
+  </data>
+  <data name="UserFound" xml:space="preserve">
+    <value>Usuario encontrado</value>
+  </data>
+  <data name="UserNotFound" xml:space="preserve">
+    <value>Usuario no encontrado</value>
+  </data>
+  <data name="InvalidID" xml:space="preserve">
+    <value>ID No valido</value>
+  </data>
+  <data name="VerifyData" xml:space="preserve">
+    <value>Verifica la informacion ingresada</value>
   </data>
 </root>
