@@ -16,13 +16,31 @@ namespace Aplicacion_Almacen.Forms
 {
     public partial class AssignBatchToTruck : Form
     {
-
+        public event Action LanguageChanged;
         private string jsonBody;
 
         public AssignBatchToTruck()
         {
             InitializeComponent();
             refreshTable();
+            MainForm mainForm = Application.OpenForms.OfType<MainForm>().FirstOrDefault();
+            if (mainForm != null)
+            {
+                mainForm.LanguageChanged += UpdateLanguage;
+            }
+        }
+
+        private void UpdateLanguage()
+        {
+            buttonAdd.Text = LanguageManager.GetString("Add");
+            buttonDelete.Text = LanguageManager.GetString("Delete");
+            buttonRefresh.Text = LanguageManager.GetString("Refresh");
+            buttonBackToMainMenu.Text = LanguageManager.GetString("Back");
+
+            labelTruckID.Text = LanguageManager.GetString("IDTruck");
+            labelEstimatedDate.Text = LanguageManager.GetString("EstimatedDate");
+            labelIDBatch.Text = LanguageManager.GetString("LotID");
+
         }
 
         private void buttonBackToMainMenu_Click(object sender, EventArgs e)

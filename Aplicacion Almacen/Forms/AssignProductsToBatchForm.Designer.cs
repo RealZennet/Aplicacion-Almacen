@@ -31,9 +31,9 @@
             this.buttonRefresh = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelIDLotToAssign = new System.Windows.Forms.Label();
             this.txtBoxIDBatch = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelAssignProductToLot = new System.Windows.Forms.Label();
             this.txtBoxIDProduct = new System.Windows.Forms.TextBox();
             this.dataGridViewAssignedProducts = new System.Windows.Forms.DataGridView();
             this.buttonBackToMainMenu = new System.Windows.Forms.Button();
@@ -71,14 +71,14 @@
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
-            // label3
+            // labelIDLotToAssign
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(269, 131);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(101, 13);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "ID del lote a asignar";
+            this.labelIDLotToAssign.AutoSize = true;
+            this.labelIDLotToAssign.Location = new System.Drawing.Point(269, 131);
+            this.labelIDLotToAssign.Name = "labelIDLotToAssign";
+            this.labelIDLotToAssign.Size = new System.Drawing.Size(101, 13);
+            this.labelIDLotToAssign.TabIndex = 15;
+            this.labelIDLotToAssign.Text = "ID del lote a asignar";
             // 
             // txtBoxIDBatch
             // 
@@ -87,14 +87,14 @@
             this.txtBoxIDBatch.Size = new System.Drawing.Size(61, 20);
             this.txtBoxIDBatch.TabIndex = 14;
             // 
-            // label2
+            // labelAssignProductToLot
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(269, 59);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(126, 13);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "ID del producto a asignar";
+            this.labelAssignProductToLot.AutoSize = true;
+            this.labelAssignProductToLot.Location = new System.Drawing.Point(269, 59);
+            this.labelAssignProductToLot.Name = "labelAssignProductToLot";
+            this.labelAssignProductToLot.Size = new System.Drawing.Size(126, 13);
+            this.labelAssignProductToLot.TabIndex = 13;
+            this.labelAssignProductToLot.Text = "ID del producto a asignar";
             // 
             // txtBoxIDProduct
             // 
@@ -144,9 +144,9 @@
             this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonAdd);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.labelIDLotToAssign);
             this.Controls.Add(this.txtBoxIDBatch);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.labelAssignProductToLot);
             this.Controls.Add(this.txtBoxIDProduct);
             this.Controls.Add(this.dataGridViewAssignedProducts);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -163,9 +163,9 @@
         private System.Windows.Forms.Button buttonRefresh;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonAdd;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelIDLotToAssign;
         private System.Windows.Forms.TextBox txtBoxIDBatch;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelAssignProductToLot;
         private System.Windows.Forms.TextBox txtBoxIDProduct;
         private System.Windows.Forms.DataGridView dataGridViewAssignedProducts;
         private System.Windows.Forms.Button buttonBackToMainMenu;

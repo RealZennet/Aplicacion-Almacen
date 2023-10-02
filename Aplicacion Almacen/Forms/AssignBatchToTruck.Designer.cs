@@ -32,13 +32,13 @@
             this.buttonRefresh = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelIDBatch = new System.Windows.Forms.Label();
             this.txtBoxIDBatch = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelTruckID = new System.Windows.Forms.Label();
             this.txtBoxIDTruck = new System.Windows.Forms.TextBox();
             this.dataGridViewAssignedBatchToTruck = new System.Windows.Forms.DataGridView();
             this.dateTimePickerBatchShippingDate = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelEstimatedDate = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAssignedBatchToTruck)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,14 +84,14 @@
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
-            // label3
+            // labelIDBatch
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(269, 131);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 13);
-            this.label3.TabIndex = 52;
-            this.label3.Text = "ID Lote";
+            this.labelIDBatch.AutoSize = true;
+            this.labelIDBatch.Location = new System.Drawing.Point(269, 131);
+            this.labelIDBatch.Name = "labelIDBatch";
+            this.labelIDBatch.Size = new System.Drawing.Size(42, 13);
+            this.labelIDBatch.TabIndex = 52;
+            this.labelIDBatch.Text = "ID Lote";
             // 
             // txtBoxIDBatch
             // 
@@ -100,14 +100,14 @@
             this.txtBoxIDBatch.Size = new System.Drawing.Size(61, 20);
             this.txtBoxIDBatch.TabIndex = 51;
             // 
-            // label2
+            // labelTruckID
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(269, 59);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 13);
-            this.label2.TabIndex = 50;
-            this.label2.Text = "ID Camion";
+            this.labelTruckID.AutoSize = true;
+            this.labelTruckID.Location = new System.Drawing.Point(269, 59);
+            this.labelTruckID.Name = "labelTruckID";
+            this.labelTruckID.Size = new System.Drawing.Size(56, 13);
+            this.labelTruckID.TabIndex = 50;
+            this.labelTruckID.Text = "ID Camion";
             // 
             // txtBoxIDTruck
             // 
@@ -134,16 +134,16 @@
             this.dateTimePickerBatchShippingDate.Size = new System.Drawing.Size(216, 20);
             this.dateTimePickerBatchShippingDate.TabIndex = 58;
             // 
-            // label1
+            // labelEstimatedDate
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.label1.Location = new System.Drawing.Point(425, 58);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(181, 17);
-            this.label1.TabIndex = 57;
-            this.label1.Text = "Fecha estimada de entrega";
+            this.labelEstimatedDate.AutoSize = true;
+            this.labelEstimatedDate.BackColor = System.Drawing.Color.Transparent;
+            this.labelEstimatedDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.labelEstimatedDate.Location = new System.Drawing.Point(425, 58);
+            this.labelEstimatedDate.Name = "labelEstimatedDate";
+            this.labelEstimatedDate.Size = new System.Drawing.Size(181, 17);
+            this.labelEstimatedDate.TabIndex = 57;
+            this.labelEstimatedDate.Text = "Fecha estimada de entrega";
             // 
             // AssignBatchToTruck
             // 
@@ -152,14 +152,14 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(47)))), ((int)(((byte)(68)))));
             this.ClientSize = new System.Drawing.Size(741, 481);
             this.Controls.Add(this.dateTimePickerBatchShippingDate);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelEstimatedDate);
             this.Controls.Add(this.buttonBackToMainMenu);
             this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonAdd);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.labelIDBatch);
             this.Controls.Add(this.txtBoxIDBatch);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.labelTruckID);
             this.Controls.Add(this.txtBoxIDTruck);
             this.Controls.Add(this.dataGridViewAssignedBatchToTruck);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -176,12 +176,12 @@
         private System.Windows.Forms.Button buttonRefresh;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonAdd;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelIDBatch;
         private System.Windows.Forms.TextBox txtBoxIDBatch;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelTruckID;
         private System.Windows.Forms.TextBox txtBoxIDTruck;
         private System.Windows.Forms.DataGridView dataGridViewAssignedBatchToTruck;
         private System.Windows.Forms.DateTimePicker dateTimePickerBatchShippingDate;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelEstimatedDate;
     }
 }

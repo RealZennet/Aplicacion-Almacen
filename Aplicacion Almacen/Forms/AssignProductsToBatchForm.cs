@@ -15,13 +15,30 @@ namespace Aplicacion_Almacen.Forms
 {
     public partial class AssignProductsToBatchForm : Form
     {
-
+        public event Action LanguageChanged;
         private string jsonBody;
 
         public AssignProductsToBatchForm()
         {
             InitializeComponent();
             refreshTable();
+            MainForm mainForm = Application.OpenForms.OfType<MainForm>().FirstOrDefault();
+            if (mainForm != null)
+            {
+                mainForm.LanguageChanged += UpdateLanguage;
+            }
+        }
+
+        private void UpdateLanguage()
+        {
+            buttonAdd.Text = LanguageManager.GetString("Add");
+            buttonDelete.Text = LanguageManager.GetString("Delete");
+            buttonRefresh.Text = LanguageManager.GetString("Refresh");
+            buttonBackToMainMenu.Text = LanguageManager.GetString("Back");
+
+            labelIDLotToAssign.Text = LanguageManager.GetString("LotIDToAssign");
+            labelAssignProductToLot.Text = LanguageManager.GetString("ProductIDToAssign");
+
         }
 
         private void buttonBackToMainMenu_Click(object sender, EventArgs e)
