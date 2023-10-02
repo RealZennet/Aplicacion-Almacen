@@ -28,34 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelIDDestination = new System.Windows.Forms.Label();
             this.txtBoxIDDestination = new System.Windows.Forms.TextBox();
             this.dateTimePickerBatchShippingDate = new System.Windows.Forms.DateTimePicker();
             this.buttonRefresh = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelEstimatedDate = new System.Windows.Forms.Label();
             this.dataGridViewBatch = new System.Windows.Forms.DataGridView();
             this.comboBoxActivated = new System.Windows.Forms.ComboBox();
             this.txtBoxIDBatch = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelLot = new System.Windows.Forms.Label();
             this.buttonSearcher = new System.Windows.Forms.Button();
             this.buttonBackToMainMenu = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
+            this.labelEstatus = new System.Windows.Forms.Label();
             this.buttonDestinationList = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBatch)).BeginInit();
             this.SuspendLayout();
             // 
-            // label3
+            // labelIDDestination
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.label3.Location = new System.Drawing.Point(11, 310);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 17);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "ID Destino";
+            this.labelIDDestination.AutoSize = true;
+            this.labelIDDestination.BackColor = System.Drawing.Color.Transparent;
+            this.labelIDDestination.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.labelIDDestination.Location = new System.Drawing.Point(11, 310);
+            this.labelIDDestination.Name = "labelIDDestination";
+            this.labelIDDestination.Size = new System.Drawing.Size(73, 17);
+            this.labelIDDestination.TabIndex = 18;
+            this.labelIDDestination.Text = "ID Destino";
             // 
             // txtBoxIDDestination
             // 
@@ -101,16 +101,16 @@
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
-            // label2
+            // labelEstimatedDate
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.label2.Location = new System.Drawing.Point(11, 233);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(181, 17);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Fecha estimada de entrega";
+            this.labelEstimatedDate.AutoSize = true;
+            this.labelEstimatedDate.BackColor = System.Drawing.Color.Transparent;
+            this.labelEstimatedDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.labelEstimatedDate.Location = new System.Drawing.Point(11, 233);
+            this.labelEstimatedDate.Name = "labelEstimatedDate";
+            this.labelEstimatedDate.Size = new System.Drawing.Size(181, 17);
+            this.labelEstimatedDate.TabIndex = 12;
+            this.labelEstimatedDate.Text = "Fecha estimada de entrega";
             // 
             // dataGridViewBatch
             // 
@@ -139,16 +139,16 @@
             this.txtBoxIDBatch.Size = new System.Drawing.Size(50, 20);
             this.txtBoxIDBatch.TabIndex = 42;
             // 
-            // label1
+            // labelLot
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.label1.Location = new System.Drawing.Point(11, 366);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 17);
-            this.label1.TabIndex = 43;
-            this.label1.Text = "ID Lote";
+            this.labelLot.AutoSize = true;
+            this.labelLot.BackColor = System.Drawing.Color.Transparent;
+            this.labelLot.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.labelLot.Location = new System.Drawing.Point(11, 366);
+            this.labelLot.Name = "labelLot";
+            this.labelLot.Size = new System.Drawing.Size(53, 17);
+            this.labelLot.TabIndex = 43;
+            this.labelLot.Text = "ID Lote";
             // 
             // buttonSearcher
             // 
@@ -172,16 +172,16 @@
             this.buttonBackToMainMenu.UseVisualStyleBackColor = true;
             this.buttonBackToMainMenu.Click += new System.EventHandler(this.buttonBackToMainMenu_Click);
             // 
-            // label4
+            // labelEstatus
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.label4.Location = new System.Drawing.Point(140, 306);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(52, 17);
-            this.label4.TabIndex = 46;
-            this.label4.Text = "Estado";
+            this.labelEstatus.AutoSize = true;
+            this.labelEstatus.BackColor = System.Drawing.Color.Transparent;
+            this.labelEstatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.labelEstatus.Location = new System.Drawing.Point(140, 306);
+            this.labelEstatus.Name = "labelEstatus";
+            this.labelEstatus.Size = new System.Drawing.Size(52, 17);
+            this.labelEstatus.TabIndex = 46;
+            this.labelEstatus.Text = "Estado";
             // 
             // buttonDestinationList
             // 
@@ -200,19 +200,19 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(47)))), ((int)(((byte)(68)))));
             this.ClientSize = new System.Drawing.Size(741, 481);
             this.Controls.Add(this.buttonDestinationList);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.labelEstatus);
             this.Controls.Add(this.buttonBackToMainMenu);
             this.Controls.Add(this.buttonSearcher);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelLot);
             this.Controls.Add(this.txtBoxIDBatch);
             this.Controls.Add(this.comboBoxActivated);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.labelIDDestination);
             this.Controls.Add(this.txtBoxIDDestination);
             this.Controls.Add(this.dateTimePickerBatchShippingDate);
             this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonAdd);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.labelEstimatedDate);
             this.Controls.Add(this.dataGridViewBatch);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "BatchManagerForm";
@@ -226,20 +226,20 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelIDDestination;
         private System.Windows.Forms.TextBox txtBoxIDDestination;
         private System.Windows.Forms.DateTimePicker dateTimePickerBatchShippingDate;
         private System.Windows.Forms.Button buttonRefresh;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonAdd;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelEstimatedDate;
         private System.Windows.Forms.DataGridView dataGridViewBatch;
         private System.Windows.Forms.ComboBox comboBoxActivated;
         private System.Windows.Forms.TextBox txtBoxIDBatch;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelLot;
         private System.Windows.Forms.Button buttonSearcher;
         private System.Windows.Forms.Button buttonBackToMainMenu;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelEstatus;
         private System.Windows.Forms.Button buttonDestinationList;
     }
 }

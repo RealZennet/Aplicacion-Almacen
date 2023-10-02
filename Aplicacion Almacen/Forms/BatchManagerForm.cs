@@ -15,7 +15,7 @@ namespace Aplicacion_Almacen.Forms
 {
     public partial class BatchManagerForm : Form
     {
-
+        public event Action LanguageChanged;
         private string jsonBody;
 
         public BatchManagerForm()
@@ -25,6 +25,27 @@ namespace Aplicacion_Almacen.Forms
             comboBoxActivated.Items.Add("true");
             comboBoxActivated.Items.Add("false");
             comboBoxActivated.SelectedItem = "false";
+            MainForm mainForm = Application.OpenForms.OfType<MainForm>().FirstOrDefault();
+            if (mainForm != null)
+            {
+                mainForm.LanguageChanged += UpdateLanguage;
+            }
+        }
+
+        private void UpdateLanguage()
+        {
+            buttonAdd.Text = LanguageManager.GetString("Add");
+            buttonDestinationList.Text = LanguageManager.GetString("ViewDestinations");
+            buttonDelete.Text = LanguageManager.GetString("Delete");
+            buttonRefresh.Text = LanguageManager.GetString("Refresh");
+            buttonBackToMainMenu.Text = LanguageManager.GetString("Back");
+            buttonSearcher.Text = LanguageManager.GetString("Searcher");
+
+            labelEstatus.Text = LanguageManager.GetString("Status");
+            labelEstimatedDate.Text = LanguageManager.GetString("EstimatedDate");
+            labelLot.Text = LanguageManager.GetString("LotID");
+            labelIDDestination.Text = LanguageManager.GetString("IDDestination");
+          
         }
 
         private void buttonBackToMainMenu_Click(object sender, EventArgs e)
