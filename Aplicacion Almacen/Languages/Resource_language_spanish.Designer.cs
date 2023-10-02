@@ -142,6 +142,24 @@ namespace Aplicacion_Almacen.Languages {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Fecha de creacion.
+        /// </summary>
+        internal static string DateOfCreation {
+            get {
+                return ResourceManager.GetString("DateOfCreation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Fecha de envio.
+        /// </summary>
+        internal static string DateOfShipment {
+            get {
+                return ResourceManager.GetString("DateOfShipment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Eliminar.
         /// </summary>
         internal static string Delete {

@@ -237,4 +237,10 @@
   <data name="Weight" xml:space="preserve">
     <value>Peso</value>
   </data>
+  <data name="DateOfCreation" xml:space="preserve">
+    <value>Fecha de creacion</value>
+  </data>
+  <data name="DateOfShipment" xml:space="preserve">
+    <value>Fecha de envio</value>
+  </data>
 </root>

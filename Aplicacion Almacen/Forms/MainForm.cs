@@ -19,7 +19,8 @@ namespace Aplicacion_Almacen.Forms
         public MainForm()
         {
             InitializeComponent();
-            LanguageManager.Initialize(typeof(Languages.Resource_language_english));
+            LanguageManager.Initialize(typeof(Languages.Resource_language_spanish));
+            UpdateUI();
             customMenus();
             
         }
