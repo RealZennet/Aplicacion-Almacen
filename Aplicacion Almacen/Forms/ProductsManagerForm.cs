@@ -16,6 +16,7 @@ namespace Aplicacion_Almacen.Forms
     public partial class ProductsManagerForm : Form
     {
 
+        public event Action LanguageChanged;
         private string jsonBody;
 
         public ProductsManagerForm()
@@ -25,6 +26,28 @@ namespace Aplicacion_Almacen.Forms
             comboBoxActivated.Items.Add("true");
             comboBoxActivated.Items.Add("false");
             comboBoxActivated.SelectedItem = "false";
+            MainForm mainForm = Application.OpenForms.OfType<MainForm>().FirstOrDefault();
+            if (mainForm != null)
+            {
+                mainForm.LanguageChanged += UpdateLanguage;
+            }
+        }
+        private void UpdateLanguage()
+        {
+            buttonAdd.Text = LanguageManager.GetString("Add");
+            buttonEdit.Text = LanguageManager.GetString("Edit");
+            buttonDelete.Text = LanguageManager.GetString("Delete");
+            buttonRefresh.Text = LanguageManager.GetString("Refresh");
+            buttonBackToMainMenu.Text = LanguageManager.GetString("Back");
+            buttonSearchByID.Text = LanguageManager.GetString("Searcher");
+
+            labelActivated.Text = LanguageManager.GetString("Activated");
+            labelCorner.Text = LanguageManager.GetString("Corner");
+            labelCustomer.Text = LanguageManager.GetString("Customer");
+            labelNumber.Text = LanguageManager.GetString("Number");
+            labelStreet.Text = LanguageManager.GetString("Street");
+            labelVolume.Text = LanguageManager.GetString("Volume");
+            labelWeight.Text = LanguageManager.GetString("Weight");
         }
 
         private void buttonBackToMainMenu_Click(object sender, EventArgs e)

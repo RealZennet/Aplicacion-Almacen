@@ -13,10 +13,15 @@ namespace Aplicacion_Almacen.Forms
 {
     public partial class MainForm : Form
     {
+
+        public event Action LanguageChanged;
+
         public MainForm()
         {
             InitializeComponent();
+            LanguageManager.Initialize(typeof(Languages.Resource_language_english));
             customMenus();
+            
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -122,25 +127,29 @@ namespace Aplicacion_Almacen.Forms
 
         private void buttonEnglishLanguage_Click(object sender, EventArgs e)
         {
-            #region leftpanelmenu
-            buttonStoreHouse.Text = Languages.Resource_language_english.ProductAndLotDistribution;
-            buttonProductsManager.Text = Languages.Resource_language_english.ManageProducts;
-            buttonBatchManager.Text = Languages.Resource_language_english.ManageLots;
-            buttonAssignProducts.Text = Languages.Resource_language_english.AssignProducts;
-            buttonTruckerCarryBatch.Text = Languages.Resource_language_english.AssignLotToTrucker;
-            #endregion leftpanelmenu
+            LanguageManager.Initialize(typeof(Languages.Resource_language_english));
+            UpdateUI();
+
+            LanguageChanged?.Invoke();
         }
 
         private void buttonLanguageSpanish_Click(object sender, EventArgs e)
         {
-            #region leftpanelmenu
-            buttonStoreHouse.Text = Languages.Resource_language_spanish.ProductAndLotDistribution;
-            buttonProductsManager.Text = Languages.Resource_language_spanish.ManageProducts;
-            buttonBatchManager.Text = Languages.Resource_language_spanish.ManageLots;
-            buttonAssignProducts.Text = Languages.Resource_language_spanish.AssignProducts;
-            buttonTruckerCarryBatch.Text = Languages.Resource_language_spanish.AssignLotToTrucker;
-            #endregion leftpanelmenu
-
+            LanguageManager.Initialize(typeof(Languages.Resource_language_spanish));
+            UpdateUI();
+            LanguageChanged?.Invoke();
         }
+
+        private void UpdateUI()
+        {
+            MainForm.ActiveForm.Text = LanguageManager.GetString("AppStoreHouseTitle");
+            buttonStoreHouse.Text = LanguageManager.GetString("ProductAndLotDistribution");
+            buttonAssignProducts.Text = LanguageManager.GetString("AssignProducts");
+            buttonProductsManager.Text = LanguageManager.GetString("ManageProducts");
+            buttonBatchManager.Text = LanguageManager.GetString("ManageLots");
+            buttonTruckerCarryBatch.Text = LanguageManager.GetString("AssignLotToTrucker");
+        }
+
+
     }
 }

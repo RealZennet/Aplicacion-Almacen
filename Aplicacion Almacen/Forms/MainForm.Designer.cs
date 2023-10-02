@@ -216,7 +216,7 @@
             this.Controls.Add(this.panelFormsLoader);
             this.Controls.Add(this.leftPanelContainer);
             this.Name = "MainForm";
-            this.Text = "Almacen";
+            this.Text = "Aplicacion Almacen";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.leftPanelContainer.ResumeLayout(false);
             this.settingsManagerPanel.ResumeLayout(false);

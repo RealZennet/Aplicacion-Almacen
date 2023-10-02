@@ -61,6 +61,15 @@ namespace Aplicacion_Almacen.Languages {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Activated.
+        /// </summary>
+        internal static string Activated {
+            get {
+                return ResourceManager.GetString("Activated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Add.
         /// </summary>
         internal static string Add {
@@ -72,9 +81,9 @@ namespace Aplicacion_Almacen.Languages {
         /// <summary>
         ///   Busca una cadena traducida similar a StoreHouse Application.
         /// </summary>
-        internal static string AppStoreHouseTitleSpanish {
+        internal static string AppStoreHouseTitle {
             get {
-                return ResourceManager.GetString("AppStoreHouseTitleSpanish", resourceCulture);
+                return ResourceManager.GetString("AppStoreHouseTitle", resourceCulture);
             }
         }
         

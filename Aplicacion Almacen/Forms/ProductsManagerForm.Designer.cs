@@ -31,17 +31,17 @@
             this.buttonBackToMainMenu = new System.Windows.Forms.Button();
             this.dataGridViewProducts = new System.Windows.Forms.DataGridView();
             this.buttonSearchByID = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
+            this.labelID = new System.Windows.Forms.Label();
             this.textBoxID = new System.Windows.Forms.TextBox();
             this.comboBoxActivated = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.labelCustomer = new System.Windows.Forms.Label();
             this.txtBoxClient = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelCorner = new System.Windows.Forms.Label();
+            this.labelNumber = new System.Windows.Forms.Label();
+            this.labelStreet = new System.Windows.Forms.Label();
+            this.labelActivated = new System.Windows.Forms.Label();
+            this.labelVolume = new System.Windows.Forms.Label();
+            this.labelWeight = new System.Windows.Forms.Label();
             this.txtBoxCorner = new System.Windows.Forms.TextBox();
             this.txtBoxNumber = new System.Windows.Forms.TextBox();
             this.txtBoxStreet = new System.Windows.Forms.TextBox();
@@ -87,14 +87,14 @@
             this.buttonSearchByID.UseVisualStyleBackColor = true;
             this.buttonSearchByID.Click += new System.EventHandler(this.buttonSearchByID_Click);
             // 
-            // label8
+            // labelID
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(281, 307);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(18, 13);
-            this.label8.TabIndex = 42;
-            this.label8.Text = "ID";
+            this.labelID.AutoSize = true;
+            this.labelID.Location = new System.Drawing.Point(281, 307);
+            this.labelID.Name = "labelID";
+            this.labelID.Size = new System.Drawing.Size(18, 13);
+            this.labelID.TabIndex = 42;
+            this.labelID.Text = "ID";
             // 
             // textBoxID
             // 
@@ -115,14 +115,14 @@
             this.comboBoxActivated.Size = new System.Drawing.Size(92, 24);
             this.comboBoxActivated.TabIndex = 40;
             // 
-            // label7
+            // labelCustomer
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(157, 444);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(39, 13);
-            this.label7.TabIndex = 39;
-            this.label7.Text = "Cliente";
+            this.labelCustomer.AutoSize = true;
+            this.labelCustomer.Location = new System.Drawing.Point(157, 444);
+            this.labelCustomer.Name = "labelCustomer";
+            this.labelCustomer.Size = new System.Drawing.Size(39, 13);
+            this.labelCustomer.TabIndex = 39;
+            this.labelCustomer.Text = "Cliente";
             // 
             // txtBoxClient
             // 
@@ -134,59 +134,59 @@
             this.txtBoxClient.Size = new System.Drawing.Size(92, 23);
             this.txtBoxClient.TabIndex = 38;
             // 
-            // label6
+            // labelCorner
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(157, 393);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(45, 13);
-            this.label6.TabIndex = 37;
-            this.label6.Text = "Esquina";
+            this.labelCorner.AutoSize = true;
+            this.labelCorner.Location = new System.Drawing.Point(157, 393);
+            this.labelCorner.Name = "labelCorner";
+            this.labelCorner.Size = new System.Drawing.Size(45, 13);
+            this.labelCorner.TabIndex = 37;
+            this.labelCorner.Text = "Esquina";
             // 
-            // label5
+            // labelNumber
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(157, 352);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 13);
-            this.label5.TabIndex = 36;
-            this.label5.Text = "Numero";
+            this.labelNumber.AutoSize = true;
+            this.labelNumber.Location = new System.Drawing.Point(157, 352);
+            this.labelNumber.Name = "labelNumber";
+            this.labelNumber.Size = new System.Drawing.Size(44, 13);
+            this.labelNumber.TabIndex = 36;
+            this.labelNumber.Text = "Numero";
             // 
-            // label4
+            // labelStreet
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(157, 307);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(30, 13);
-            this.label4.TabIndex = 35;
-            this.label4.Text = "Calle";
+            this.labelStreet.AutoSize = true;
+            this.labelStreet.Location = new System.Drawing.Point(157, 307);
+            this.labelStreet.Name = "labelStreet";
+            this.labelStreet.Size = new System.Drawing.Size(30, 13);
+            this.labelStreet.TabIndex = 35;
+            this.labelStreet.Text = "Calle";
             // 
-            // label3
+            // labelActivated
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 393);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 13);
-            this.label3.TabIndex = 34;
-            this.label3.Text = "Activado:";
+            this.labelActivated.AutoSize = true;
+            this.labelActivated.Location = new System.Drawing.Point(9, 393);
+            this.labelActivated.Name = "labelActivated";
+            this.labelActivated.Size = new System.Drawing.Size(52, 13);
+            this.labelActivated.TabIndex = 34;
+            this.labelActivated.Text = "Activado:";
             // 
-            // label2
+            // labelVolume
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 352);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 13);
-            this.label2.TabIndex = 33;
-            this.label2.Text = "Volumen";
+            this.labelVolume.AutoSize = true;
+            this.labelVolume.Location = new System.Drawing.Point(12, 352);
+            this.labelVolume.Name = "labelVolume";
+            this.labelVolume.Size = new System.Drawing.Size(48, 13);
+            this.labelVolume.TabIndex = 33;
+            this.labelVolume.Text = "Volumen";
             // 
-            // label1
+            // labelWeight
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 307);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 13);
-            this.label1.TabIndex = 32;
-            this.label1.Text = "Peso";
+            this.labelWeight.AutoSize = true;
+            this.labelWeight.Location = new System.Drawing.Point(12, 307);
+            this.labelWeight.Name = "labelWeight";
+            this.labelWeight.Size = new System.Drawing.Size(31, 13);
+            this.labelWeight.TabIndex = 32;
+            this.labelWeight.Text = "Peso";
             // 
             // txtBoxCorner
             // 
@@ -285,17 +285,17 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(47)))), ((int)(((byte)(68)))));
             this.ClientSize = new System.Drawing.Size(757, 520);
             this.Controls.Add(this.buttonSearchByID);
-            this.Controls.Add(this.label8);
+            this.Controls.Add(this.labelID);
             this.Controls.Add(this.textBoxID);
             this.Controls.Add(this.comboBoxActivated);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.labelCustomer);
             this.Controls.Add(this.txtBoxClient);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelCorner);
+            this.Controls.Add(this.labelNumber);
+            this.Controls.Add(this.labelStreet);
+            this.Controls.Add(this.labelActivated);
+            this.Controls.Add(this.labelVolume);
+            this.Controls.Add(this.labelWeight);
             this.Controls.Add(this.txtBoxCorner);
             this.Controls.Add(this.txtBoxNumber);
             this.Controls.Add(this.txtBoxStreet);
@@ -322,17 +322,17 @@
         private System.Windows.Forms.Button buttonBackToMainMenu;
         private System.Windows.Forms.DataGridView dataGridViewProducts;
         private System.Windows.Forms.Button buttonSearchByID;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label labelID;
         private System.Windows.Forms.TextBox textBoxID;
         private System.Windows.Forms.ComboBox comboBoxActivated;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label labelCustomer;
         private System.Windows.Forms.TextBox txtBoxClient;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelCorner;
+        private System.Windows.Forms.Label labelNumber;
+        private System.Windows.Forms.Label labelStreet;
+        private System.Windows.Forms.Label labelActivated;
+        private System.Windows.Forms.Label labelVolume;
+        private System.Windows.Forms.Label labelWeight;
         private System.Windows.Forms.TextBox txtBoxCorner;
         private System.Windows.Forms.TextBox txtBoxNumber;
         private System.Windows.Forms.TextBox txtBoxStreet;
