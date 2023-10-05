@@ -22,23 +22,29 @@ namespace Aplicacion_Almacen.APIRequests
                 RestClient client = new RestClient(baseUrl);
                 RestRequest request = new RestRequest("/api/v1/productos", Method.Get);
                 request.AddHeader("Accept", "application/json");
-
                 RestResponse response = client.Execute(request);
 
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
-                    return JsonConvert.DeserializeObject<List<ProductInterface>>(response.Content);
+                    // Intenta deserializar la respuesta
+                    List<ProductInterface> products = JsonConvert.DeserializeObject<List<ProductInterface>>(response.Content);
+                    return products;
                 }
                 else
                 {
-                    return new List<ProductInterface>();
+                    // Maneja el caso en que la solicitud no fue exitosa
+                    Console.WriteLine("Error al obtener productos: " + response.StatusCode);
+                    return null; // O lanza una excepción si prefieres
                 }
             }
             catch (Exception ex)
             {
-                return new List<ProductInterface>();
+                // Maneja otras excepciones aquí
+                Console.WriteLine("Error en la solicitud: " + ex.Message);
+                return null; // O lanza una excepción si prefieres
             }
         }
+
 
 
         public bool DeleteProduct(int productId)
