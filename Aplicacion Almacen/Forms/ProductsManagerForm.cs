@@ -1,4 +1,5 @@
-﻿using Aplicacion_Almacen.Languages;
+﻿using Aplicacion_Almacen.APIRequests;
+using Aplicacion_Almacen.Languages;
 using Aplicacion_Almacen.StoreHouseRequests;
 using Newtonsoft.Json;
 using RestSharp;
@@ -16,6 +17,7 @@ namespace Aplicacion_Almacen.Forms
 {
     public partial class ProductsManagerForm : Form
     {
+        private ApiRequestProduct apiRequests;
 
         public event Action LanguageChanged;
         private string jsonBody;
@@ -32,6 +34,9 @@ namespace Aplicacion_Almacen.Forms
             {
                 mainForm.LanguageChanged += updateLanguage;
             }
+
+            apiRequests = new ApiRequestProduct("http://localhost:64191");
+
         }
         private void updateLanguage()
         {
@@ -183,9 +188,7 @@ namespace Aplicacion_Almacen.Forms
                 ActivatedProduct = Convert.ToBoolean(statusValue)
             };
 
-            jsonBody = JsonConvert.SerializeObject(product);
-
-            if (sendProductDataToApi(jsonBody))
+            if (apiRequests.AddProduct(product))
             {
                 refreshTable();
                 MessageBox.Show(Messages.Successful);
@@ -256,9 +259,7 @@ namespace Aplicacion_Almacen.Forms
 
             ProductInterface product = productFromTxtBox(productIdToEdit, statusValue);
 
-            jsonBody = JsonConvert.SerializeObject(product);
-
-            if (editProductInApi(jsonBody))
+            if (apiRequests.UpdateProduct(product))
             {
                 refreshTable();
                 MessageBox.Show(Messages.Successful);
@@ -270,6 +271,7 @@ namespace Aplicacion_Almacen.Forms
             }
 
         }
+
 
         private ProductInterface productFromTxtBox(int productIdToEdit, int statusValue)
         {
@@ -316,7 +318,6 @@ namespace Aplicacion_Almacen.Forms
                 return false;
             }
         }
-
         private void buttonDelete_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(textBoxID.Text))

@@ -214,8 +214,6 @@ namespace Aplicacion_Almacen.Forms
             }
         }
 
-
-
         #endregion deleteAssignedBatchToAPI
 
         #region utils
