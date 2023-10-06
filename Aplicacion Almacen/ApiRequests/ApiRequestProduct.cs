@@ -90,6 +90,33 @@ namespace Aplicacion_Almacen.APIRequests
             }
         }
 
+        public ProductInterface GetProductById(int productId)
+        {
+            try
+            {
+                RestClient client = new RestClient(baseUrl);
+                RestRequest request = new RestRequest($"/api/v1/productos/{productId}", Method.Get);
+                request.AddHeader("Accept", "application/json");
+
+                RestResponse response = client.Execute(request);
+
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    ProductInterface product = JsonConvert.DeserializeObject<ProductInterface>(response.Content);
+                    return product;
+                }
+                else
+                {
+                    throw new Exception("Error al obtener el producto por ID: " + response.StatusCode);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error en la solicitud: " + ex.Message);
+            }
+        }
+
+
         public bool UpdateProduct(ProductInterface product)
         {
             try

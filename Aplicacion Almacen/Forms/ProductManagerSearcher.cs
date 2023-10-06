@@ -1,4 +1,5 @@
-﻿using Aplicacion_Almacen.Languages;
+﻿using Aplicacion_Almacen.APIRequests;
+using Aplicacion_Almacen.Languages;
 using Aplicacion_Almacen.StoreHouseRequests;
 using Newtonsoft.Json;
 using RestSharp;
@@ -18,6 +19,7 @@ namespace Aplicacion_Almacen.Forms
     {
         public event Action LanguageChaned;
         public int m, x, y;
+        private ApiRequestProduct apiRequests;
 
         public ProductManagerSearcher()
         {
@@ -27,6 +29,7 @@ namespace Aplicacion_Almacen.Forms
             {
                 mainForm.LanguageChanged += UpdateLanguage;
             }
+            apiRequests = new ApiRequestProduct("http://localhost:64191");
         }
 
         private void UpdateLanguage()
@@ -109,9 +112,9 @@ namespace Aplicacion_Almacen.Forms
         {
             if (int.TryParse(textBoxID.Text, out int searchID))
             {
-                RestResponse response = getProductByIdFromApi(searchID);
+                ProductInterface product = apiRequests.GetProductById(searchID);
 
-                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                if (product != null)
                 {
                     DataTable table = new DataTable();
                     table.Columns.Add("ID", typeof(int));
@@ -123,7 +126,6 @@ namespace Aplicacion_Almacen.Forms
                     table.Columns.Add(LanguageManager.GetString("Customer"), typeof(string));
                     table.Columns.Add(LanguageManager.GetString("Activated"), typeof(bool));
 
-                    ProductInterface product = JsonConvert.DeserializeObject<ProductInterface>(response.Content);
                     fillDataTable(table, product);
 
                     dataGridViewSearcher.DataSource = table;
@@ -140,6 +142,7 @@ namespace Aplicacion_Almacen.Forms
                 MessageBox.Show(Messages.Error);
             }
         }
+
 
 
     }
