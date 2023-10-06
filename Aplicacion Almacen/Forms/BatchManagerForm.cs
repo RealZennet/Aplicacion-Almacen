@@ -215,7 +215,6 @@ namespace Aplicacion_Almacen.Forms
             }
         }
 
-
         #endregion validationsAndUtils
 
         private void buttonSearcher_Click(object sender, EventArgs e)
