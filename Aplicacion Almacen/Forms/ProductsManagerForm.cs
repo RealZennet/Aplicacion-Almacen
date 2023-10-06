@@ -134,36 +134,6 @@ namespace Aplicacion_Almacen.Forms
 
         #region postProductsToAPI
 
-        private bool sendProductDataToApi(string jsonBody)
-        {
-            try
-            {
-                RestClient client = new RestClient("http://localhost:64191");
-                RestRequest request = new RestRequest("/api/v1/productos", Method.Post);
-                request.AddHeader("Accept", "application/json");
-                request.AddHeader("Content-Type", "application/json");
-                request.AddParameter("application/json", jsonBody, ParameterType.RequestBody);
-
-                RestResponse response = client.Execute(request);
-
-                if (response.StatusCode == System.Net.HttpStatusCode.OK)
-                {
-                    return true;
-                }
-                else
-                {
-                    MessageBox.Show(Messages.Error + " " + response.StatusCode);
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(Messages.Error + " : " + ex.Message);
-                return false;
-            }
-        }
-
-
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             jsonBody = "";
@@ -202,40 +172,6 @@ namespace Aplicacion_Almacen.Forms
 
         #endregion postProductsToAPI
 
-        #region putProductsToAPI
-
-
-        private bool editProductInApi(string jsonBody)
-        {
-            try
-            {
-                int productIdToEdit = JsonConvert.DeserializeObject<ProductInterface>(jsonBody).IDProduct;
-
-                RestClient client = new RestClient("http://localhost:64191");
-                RestRequest request = new RestRequest($"/api/v1/productos/{productIdToEdit}", Method.Put);
-                request.AddHeader("Accept", "application/json");
-                request.AddHeader("Content-Type", "application/json");
-                request.AddParameter("application/json", jsonBody, ParameterType.RequestBody);
-
-                RestResponse response = client.Execute(request);
-
-                if (response.StatusCode == System.Net.HttpStatusCode.OK)
-                {
-                    return true;
-                }
-                else
-                {
-                    MessageBox.Show(Messages.Error + " : " + response.StatusCode);
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(Messages.Error + " : " + ex.Message);
-                return false;
-            }
-        }
-
         private void buttonEdit_Click(object sender, EventArgs e)
         {
             jsonBody = "";
@@ -272,7 +208,6 @@ namespace Aplicacion_Almacen.Forms
 
         }
 
-
         private ProductInterface productFromTxtBox(int productIdToEdit, int statusValue)
         {
             return new ProductInterface
@@ -287,8 +222,6 @@ namespace Aplicacion_Almacen.Forms
                 ActivatedProduct = Convert.ToBoolean(statusValue)
             };
         }
-
-        #endregion putProductsToAPI
 
         #region deleteProductsFromAPI
 

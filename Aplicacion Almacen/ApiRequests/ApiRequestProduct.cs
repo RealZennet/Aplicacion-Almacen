@@ -26,22 +26,19 @@ namespace Aplicacion_Almacen.APIRequests
 
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
-                    // Intenta deserializar la respuesta
                     List<ProductInterface> products = JsonConvert.DeserializeObject<List<ProductInterface>>(response.Content);
                     return products;
                 }
                 else
                 {
-                    // Maneja el caso en que la solicitud no fue exitosa
                     Console.WriteLine("Error al obtener productos: " + response.StatusCode);
-                    return null; // O lanza una excepción si prefieres
+                    return null;
                 }
             }
             catch (Exception ex)
             {
-                // Maneja otras excepciones aquí
                 Console.WriteLine("Error en la solicitud: " + ex.Message);
-                return null; // O lanza una excepción si prefieres
+                return null;
             }
         }
 
@@ -68,7 +65,6 @@ namespace Aplicacion_Almacen.APIRequests
                 return false;
             }
         }
-
 
         public bool AddProduct(ProductInterface product)
         {
