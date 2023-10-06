@@ -1,4 +1,5 @@
-﻿using Aplicacion_Almacen.Languages;
+﻿using Aplicacion_Almacen.ApiRequests;
+using Aplicacion_Almacen.Languages;
 using Aplicacion_Almacen.StoreHouseRequests;
 using Newtonsoft.Json;
 using RestSharp;
@@ -18,6 +19,7 @@ namespace Aplicacion_Almacen.Forms
     {
         public event Action LanguageChanged;
         private string jsonBody;
+        private ApiRequestAssignProductToBatch apiRequests;
 
         public AssignProductsToBatchForm()
         {
@@ -28,6 +30,7 @@ namespace Aplicacion_Almacen.Forms
             {
                 mainForm.LanguageChanged += UpdateLanguage;
             }
+            apiRequests = new ApiRequestAssignProductToBatch("http://localhost:64191");
         }
 
         private void UpdateLanguage()
@@ -100,35 +103,6 @@ namespace Aplicacion_Almacen.Forms
 
         #region postAssignedProductToAPI
 
-        private bool sendAssignedProductToBatchDataToApi(string jsonBody)
-        {
-            try
-            {
-                RestClient client = new RestClient("http://localhost:64191");
-                RestRequest request = new RestRequest("/api/v1/integrarpaquetes", Method.Post);
-                request.AddHeader("Accept", "application/json");
-                request.AddHeader("Content-Type", "application/json");
-                request.AddParameter("application/json", jsonBody, ParameterType.RequestBody);
-
-                RestResponse response = client.Execute(request);
-
-                if (response.StatusCode == System.Net.HttpStatusCode.OK)
-                {
-                    return true;
-                }
-                else
-                {
-                    MessageBox.Show(Messages.Error + " : " + response.StatusCode);
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(Messages.Error + " : " + ex.Message);
-                return false;
-            }
-        }
-
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             jsonBody = "";
@@ -145,9 +119,7 @@ namespace Aplicacion_Almacen.Forms
                 IDBatch = Convert.ToInt32(txtBoxIDBatch.Text)
             };
 
-            jsonBody = JsonConvert.SerializeObject(batch);
-
-            if (sendAssignedProductToBatchDataToApi(jsonBody))
+            if (apiRequests.AddAssignedProduct(batch))
             {
                 refreshTable();
                 MessageBox.Show(Messages.Successful);
@@ -163,40 +135,13 @@ namespace Aplicacion_Almacen.Forms
 
         #region deleteAssignedProductToAPI
 
-        private bool deleteAssignedProductToBatchFromApi(int assignedProductId)
-        {
-            try
-            {
-                RestClient client = new RestClient("http://localhost:64191");
-                RestRequest request = new RestRequest($"/api/v1/integrarpaquetes/{assignedProductId}", Method.Delete);
-                request.AddHeader("Accept", "application/json");
-
-                RestResponse response = client.Execute(request);
-
-                if (response.StatusCode == System.Net.HttpStatusCode.OK)
-                {
-                    return true;
-                }
-                else
-                {
-                    MessageBox.Show(Messages.Error + " : " + response.StatusCode);
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(Messages.Error + " : " + ex.Message);
-                return false;
-            }
-        }
-
         private void buttonDelete_Click(object sender, EventArgs e)
         {
             if (dataGridViewAssignedProducts.SelectedRows.Count > 0)
             {
                 int assignedProductIdToDelete = Convert.ToInt32(dataGridViewAssignedProducts.SelectedRows[0].Cells["ID Product"].Value);
 
-                if (deleteAssignedProductToBatchFromApi(assignedProductIdToDelete))
+                if (apiRequests.DeleteAssignedProductToBatch(assignedProductIdToDelete))
                 {
                     refreshTable();
                     MessageBox.Show(Messages.Successful);
