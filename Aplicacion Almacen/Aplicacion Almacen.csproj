@@ -77,6 +77,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiRequests\ApiRequestBatch.cs" />
+    <Compile Include="ApiRequests\ApiRequestDestinationList.cs" />
     <Compile Include="ApiRequests\ApiRequestLogin.cs" />
     <Compile Include="ApiRequests\ApiRequestProduct.cs" />
     <Compile Include="Forms\AssignBatchToTruck.cs">

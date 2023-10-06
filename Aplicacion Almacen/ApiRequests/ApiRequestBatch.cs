@@ -3,30 +3,33 @@ using Newtonsoft.Json;
 using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Aplicacion_Almacen.APIRequests
+namespace Aplicacion_Almacen.ApiRequests
 {
-    public class ApiRequestProduct
+    public class ApiRequestBatch
     {
         private readonly string baseUrl;
 
-        public ApiRequestProduct(string baseUrl)
+        public ApiRequestBatch(string baseUrl)
         {
             this.baseUrl = baseUrl;
         }
 
-        public List<ProductInterface> GetProducts()
+        public List<BatchInterface> GetProducts()
         {
             try
             {
                 RestClient client = new RestClient(baseUrl);
-                RestRequest request = new RestRequest("/api/v1/productos", Method.Get);
+                RestRequest request = new RestRequest("/api/v1/lotes", Method.Get);
                 request.AddHeader("Accept", "application/json");
                 RestResponse response = client.Execute(request);
 
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
-                    return JsonConvert.DeserializeObject<List<ProductInterface>>(response.Content);
+                    return JsonConvert.DeserializeObject<List<BatchInterface>>(response.Content);
                 }
                 else
                 {
@@ -39,12 +42,12 @@ namespace Aplicacion_Almacen.APIRequests
             }
         }
 
-        public bool DeleteProduct(int productId)
+        public bool DeleteBatch(int batchId)
         {
             try
             {
                 RestClient client = new RestClient(baseUrl);
-                RestRequest request = new RestRequest($"/api/v1/productos/{productId}", Method.Delete);
+                RestRequest request = new RestRequest($"/api/v1/lotes/{batchId}", Method.Delete);
                 request.AddHeader("Accept", "application/json");
 
                 RestResponse response = client.Execute(request);
@@ -61,15 +64,15 @@ namespace Aplicacion_Almacen.APIRequests
             }
         }
 
-        public bool AddProduct(ProductInterface product)
+        public bool AddBatch(BatchInterface batch)
         {
             try
             {
                 RestClient client = new RestClient(baseUrl);
-                RestRequest request = new RestRequest("/api/v1/productos", Method.Post);
+                RestRequest request = new RestRequest("/api/v1/lotes", Method.Post);
                 request.AddHeader("Accept", "application/json");
                 request.AddHeader("Content-Type", "application/json");
-                request.AddJsonBody(product);
+                request.AddJsonBody(batch);
 
                 RestResponse response = client.Execute(request);
 
@@ -81,46 +84,46 @@ namespace Aplicacion_Almacen.APIRequests
             }
             catch (Exception ex)
             {
-                return false;
+                throw new Exception("Error" + ex.Message);
             }
         }
 
-        public ProductInterface GetProductById(int productId)
+        public BatchInterface GetBatchById(int batchId)
         {
             try
             {
                 RestClient client = new RestClient(baseUrl);
-                RestRequest request = new RestRequest($"/api/v1/productos/{productId}", Method.Get);
+                RestRequest request = new RestRequest($"/api/v1/lotes/{batchId}", Method.Get);
                 request.AddHeader("Accept", "application/json");
 
                 RestResponse response = client.Execute(request);
 
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
-                    ProductInterface product = JsonConvert.DeserializeObject<ProductInterface>(response.Content);
-                    return product;
+                    BatchInterface batch = JsonConvert.DeserializeObject<BatchInterface>(response.Content);
+                    return batch;
                 }
                 else
                 {
-                    throw new Exception("Error al obtener el producto por ID: " + response.StatusCode);
+                    throw new Exception("Error: " + response.StatusCode);
                 }
             }
             catch (Exception ex)
             {
-                throw new Exception("Error en la solicitud: " + ex.Message);
+                throw new Exception("Error: " + ex.Message);
             }
         }
 
 
-        public bool UpdateProduct(ProductInterface product)
+        public bool UpdateBatch(BatchInterface batch)
         {
             try
             {
                 RestClient client = new RestClient(baseUrl);
-                RestRequest request = new RestRequest($"/api/v1/productos/{product.IDProduct}", Method.Put);
+                RestRequest request = new RestRequest($"/api/v1/lotes/{batch.IDBatches}", Method.Put);
                 request.AddHeader("Accept", "application/json");
                 request.AddHeader("Content-Type", "application/json");
-                request.AddJsonBody(product);
+                request.AddJsonBody(batch);
 
                 RestResponse response = client.Execute(request);
 
@@ -132,10 +135,8 @@ namespace Aplicacion_Almacen.APIRequests
             }
             catch (Exception ex)
             {
-                return false;
+                throw new Exception("Error" + ex.Message);
             }
         }
-
-
     }
 }

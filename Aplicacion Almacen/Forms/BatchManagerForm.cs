@@ -1,4 +1,5 @@
-﻿using Aplicacion_Almacen.Languages;
+﻿using Aplicacion_Almacen.ApiRequests;
+using Aplicacion_Almacen.Languages;
 using Aplicacion_Almacen.StoreHouseRequests;
 using Newtonsoft.Json;
 using RestSharp;
@@ -18,6 +19,7 @@ namespace Aplicacion_Almacen.Forms
     {
         public event Action LanguageChanged;
         private string jsonBody;
+        private ApiRequestBatch apiRequests;
 
         public BatchManagerForm()
         {
@@ -31,6 +33,7 @@ namespace Aplicacion_Almacen.Forms
             {
                 mainForm.LanguageChanged += UpdateLanguage;
             }
+            apiRequests = new ApiRequestBatch("http://localhost:64191");
         }
 
         private void UpdateLanguage()
@@ -113,35 +116,6 @@ namespace Aplicacion_Almacen.Forms
 
         #region postBatchsToAPI
 
-        private bool sendBatchDataToApi(string jsonBody)
-        {
-            try
-            {
-                RestClient client = new RestClient("http://localhost:64191");
-                RestRequest request = new RestRequest("/api/v1/lotes", Method.Post);
-                request.AddHeader("Accept", "application/json");
-                request.AddHeader("Content-Type", "application/json");
-                request.AddParameter("application/json", jsonBody, ParameterType.RequestBody);
-
-                RestResponse response = client.Execute(request);
-
-                if (response.StatusCode == System.Net.HttpStatusCode.OK)
-                {
-                    return true;
-                }
-                else
-                {
-                    MessageBox.Show(Messages.Error + " : " + response.StatusCode);
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(Messages.Error + " : " + ex.Message);
-                return false;
-            }
-        }
-
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             jsonBody = "";
@@ -165,7 +139,7 @@ namespace Aplicacion_Almacen.Forms
 
             jsonBody = JsonConvert.SerializeObject(batch);
 
-            if (sendBatchDataToApi(jsonBody))
+            if (apiRequests.AddBatch(batch))
             {
                 refreshTable();
                 MessageBox.Show(Messages.Successful);
@@ -181,33 +155,6 @@ namespace Aplicacion_Almacen.Forms
 
         #region deleteBatchFromAPI
 
-        private bool deleteProductFromApi(int batchId)
-        {
-            try
-            {
-                RestClient client = new RestClient("http://localhost:64191");
-                RestRequest request = new RestRequest($"/api/v1/lotes/{batchId}", Method.Delete);
-                request.AddHeader("Accept", "application/json");
-
-                RestResponse response = client.Execute(request);
-
-                if (response.StatusCode == System.Net.HttpStatusCode.OK)
-                {
-                    return true;
-                }
-                else
-                {
-                    MessageBox.Show(Messages.Error + " : " + response.StatusCode);
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(Messages.Error + " : " + ex.Message);
-                return false;
-            }
-        }
-
         private void buttonDelete_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtBoxIDBatch.Text))
@@ -218,7 +165,7 @@ namespace Aplicacion_Almacen.Forms
 
             int batchIdToDelete = Convert.ToInt32(txtBoxIDBatch.Text);
 
-            if (deleteProductFromApi(batchIdToDelete))
+            if (apiRequests.DeleteBatch(batchIdToDelete))
             {
                 refreshTable();
                 MessageBox.Show(Messages.Successful);

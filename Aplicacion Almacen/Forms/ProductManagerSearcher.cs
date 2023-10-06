@@ -90,24 +90,6 @@ namespace Aplicacion_Almacen.Forms
 
         }
 
-        private RestResponse getProductByIdFromApi(int productId)
-        {
-            try
-            {
-                RestClient client = new RestClient("http://localhost:64191");
-                RestRequest request = new RestRequest($"/api/v1/productos/{productId}", Method.Get);
-                request.AddHeader("Accept", "application/json");
-
-                RestResponse response = client.Execute(request);
-                return response;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(Messages.Error + " : " + ex.Message);
-                return null;
-            }
-        }
-
         private void buttonSearchProductByID_Click(object sender, EventArgs e)
         {
             if (int.TryParse(textBoxID.Text, out int searchID))
