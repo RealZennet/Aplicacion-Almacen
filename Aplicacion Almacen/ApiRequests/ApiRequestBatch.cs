@@ -18,7 +18,7 @@ namespace Aplicacion_Almacen.ApiRequests
             this.baseUrl = baseUrl;
         }
 
-        public List<BatchInterface> GetProducts()
+        public List<BatchInterface> GetBatchs()
         {
             try
             {

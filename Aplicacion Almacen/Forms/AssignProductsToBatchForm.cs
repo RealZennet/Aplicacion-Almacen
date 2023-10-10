@@ -81,7 +81,7 @@ namespace Aplicacion_Almacen.Forms
             foreach (AssignProductsToBatchInterface batch in batchAssigned)
             {
                 DataRow row = table.NewRow();
-                row["ID Lote"] = batch.IDBatch;
+                row[LanguageManager.GetString("LotID")] = batch.IDBatch;
                 row["ID Product"] = batch.IDProduct;
                 table.Rows.Add(row);
             }

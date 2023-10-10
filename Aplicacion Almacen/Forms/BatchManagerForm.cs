@@ -90,7 +90,8 @@ namespace Aplicacion_Almacen.Forms
 
         private DataTable getDataTable()
         {
-            RestResponse response = getBatchsFromApi();
+            ApiRequestBatch apiRequest = new ApiRequestBatch("http://localhost:64191");
+            List<BatchInterface> batchCreated = apiRequest.GetBatchs();
 
             DataTable table = new DataTable();
             table.Columns.Add("ID", typeof(int));
@@ -99,11 +100,16 @@ namespace Aplicacion_Almacen.Forms
             table.Columns.Add(LanguageManager.GetString("DateOfShipment"), typeof(DateTime));
             table.Columns.Add(LanguageManager.GetString("Activated"), typeof(bool));
 
-            foreach (BatchInterface batch in deserializeBatch(response.Content))
+            foreach (BatchInterface batch in batchCreated)
             {
-                fillDataTable(table, batch);
+                DataRow row = table.NewRow();
+                row["ID"] = batch.IDBatches;
+                row[LanguageManager.GetString("DateOfCreation")] = batch.DateOfCreation;
+                row[LanguageManager.GetString("IDDestination")] = batch.IDShipp;
+                row[LanguageManager.GetString("DateOfShipment")] = batch.ShippingDate;
+                row[LanguageManager.GetString("Activated")] = batch.ActivedBatch;
+                table.Rows.Add(row);
             }
-
             return table;
         }
 
