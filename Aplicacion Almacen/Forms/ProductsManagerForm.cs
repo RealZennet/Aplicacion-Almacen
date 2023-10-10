@@ -322,7 +322,7 @@ namespace Aplicacion_Almacen.Forms
         #region searcher
         private void buttonSearchByID_Click(object sender, EventArgs e)
         {
-            ProductManagerSearcher searcherForm = new ProductManagerSearcher();
+            ProductManagerSearcherForm searcherForm = new ProductManagerSearcherForm();
             searcherForm.Show();
         }
         #endregion searcher

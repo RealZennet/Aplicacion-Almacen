@@ -15,14 +15,14 @@ using System.Windows.Forms;
 
 namespace Aplicacion_Almacen.Forms
 {
-    public partial class BatchManagerSearcher : Form
+    public partial class BatchManagerSearcherForm : Form
     {
 
         public event Action LanguageChanged;
         public int m, x, y;
         private ApiRequestBatch apiRequests;
 
-        public BatchManagerSearcher()
+        public BatchManagerSearcherForm()
         {
             InitializeComponent();
             MainForm mainForm = Application.OpenForms.OfType<MainForm>().FirstOrDefault();

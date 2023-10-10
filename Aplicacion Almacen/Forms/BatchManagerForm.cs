@@ -219,7 +219,7 @@ namespace Aplicacion_Almacen.Forms
 
         private void buttonSearcher_Click(object sender, EventArgs e)
         {
-            BatchManagerSearcher searcherForm = new BatchManagerSearcher();
+            BatchManagerSearcherForm searcherForm = new BatchManagerSearcherForm();
             searcherForm.Show();
         }
 

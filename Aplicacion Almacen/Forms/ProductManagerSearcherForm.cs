@@ -15,13 +15,13 @@ using System.Windows.Forms;
 
 namespace Aplicacion_Almacen.Forms
 {
-    public partial class ProductManagerSearcher : Form
+    public partial class ProductManagerSearcherForm : Form
     {
         public event Action LanguageChaned;
         public int m, x, y;
         private ApiRequestProduct apiRequests;
 
-        public ProductManagerSearcher()
+        public ProductManagerSearcherForm()
         {
             InitializeComponent();
             MainForm mainForm = Application.OpenForms.OfType<MainForm>().FirstOrDefault();

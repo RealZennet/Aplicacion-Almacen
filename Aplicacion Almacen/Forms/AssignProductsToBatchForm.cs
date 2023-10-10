@@ -61,15 +61,6 @@ namespace Aplicacion_Almacen.Forms
             return JsonConvert.DeserializeObject<List<AssignProductsToBatchInterface>>(content);
         }
 
-        private static RestResponse getAssignedProductsToBatchsFromApi()
-        {
-            RestClient client = new RestClient("http://localhost:64191");
-            RestRequest request = new RestRequest("/api/v1/integrarpaquetes", Method.Get);
-            request.AddHeader("Accept", "application/json");
-            RestResponse response = client.Execute(request);
-            return response;
-        }
-
         private static void fillDataTable(DataTable table, AssignProductsToBatchInterface assignedproduct)
         {
             DataRow rows = table.NewRow();
@@ -80,17 +71,20 @@ namespace Aplicacion_Almacen.Forms
 
         private DataTable getDataTable()
         {
-            RestResponse response = getAssignedProductsToBatchsFromApi();
+            ApiRequestAssignProductToBatch apiRequest = new ApiRequestAssignProductToBatch("http://localhost:64191");
+            List<AssignProductsToBatchInterface> batchAssigned = apiRequest.GetAssignedProductsToBatch();
 
             DataTable table = new DataTable();
             table.Columns.Add(LanguageManager.GetString("LotID"), typeof(int));
             table.Columns.Add("ID Product", typeof(int));
 
-            foreach (AssignProductsToBatchInterface batch in deserializeAssignedProductToBatch(response.Content))
+            foreach (AssignProductsToBatchInterface batch in batchAssigned)
             {
-                fillDataTable(table, batch);
+                DataRow row = table.NewRow();
+                row["ID Lote"] = batch.IDBatch;
+                row["ID Product"] = batch.IDProduct;
+                table.Rows.Add(row);
             }
-
             return table;
         }
 

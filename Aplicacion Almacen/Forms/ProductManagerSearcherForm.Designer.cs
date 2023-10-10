@@ -1,6 +1,6 @@
 ﻿namespace Aplicacion_Almacen.Forms
 {
-    partial class ProductManagerSearcher
+    partial class ProductManagerSearcherForm
     {
         /// <summary>
         /// Required designer variable.

@@ -16,13 +16,13 @@ using System.Windows.Forms;
 
 namespace Aplicacion_Almacen.Forms
 {
-    public partial class AssignBatchToTruck : Form
+    public partial class AssignBatchToTruckForm : Form
     {
         public event Action LanguageChanged;
         private string jsonBody;
         private ApiRequestAssignBatchToTruck apiRequests;
 
-        public AssignBatchToTruck()
+        public AssignBatchToTruckForm()
         {
             InitializeComponent();
             refreshTable();
