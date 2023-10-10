@@ -63,15 +63,6 @@ namespace Aplicacion_Almacen.Forms
             return JsonConvert.DeserializeObject<List<AssignedBatchToTruckInterface>>(content);
         }
 
-        private static RestResponse getBatchsFromApi()
-        {
-            RestClient client = new RestClient("http://localhost:64191");
-            RestRequest request = new RestRequest("/api/v1/camionllevalotes", Method.Get);
-            request.AddHeader("Accept", "application/json");
-            RestResponse response = client.Execute(request);
-            return response;
-        }
-
         private static void fillDataTable(DataTable table, AssignedBatchToTruckInterface assignedBatch)
         {
             DataRow rows = table.NewRow();
@@ -83,18 +74,21 @@ namespace Aplicacion_Almacen.Forms
 
         private DataTable getDataTable()
         {
-            RestResponse response = getBatchsFromApi();
+            ApiRequestAssignBatchToTruck apiRequest = new ApiRequestAssignBatchToTruck("http://localhost:64191");
 
+            List<AssignedBatchToTruckInterface> batchAssigned = apiRequest.GetAssignedBatchToTruck();
             DataTable table = new DataTable();
             table.Columns.Add("ID Lote", typeof(int));
             table.Columns.Add("ID Camion", typeof(int));
             table.Columns.Add("Fecha Entrega", typeof(DateTime));
-
-            foreach (AssignedBatchToTruckInterface batchAssigned in deserializeAssignedBatch(response.Content))
+            foreach (AssignedBatchToTruckInterface batch in batchAssigned)
             {
-                fillDataTable(table, batchAssigned);
+                DataRow row = table.NewRow();
+                row["ID Lote"] = batch.IDBatch;
+                row["ID Camion"] = batch.IDTruck;
+                row["Fecha Entrega"] = batch.ShippDate;
+                table.Rows.Add(row);
             }
-
             return table;
         }
 
