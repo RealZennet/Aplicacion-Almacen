@@ -65,34 +65,41 @@ namespace Aplicacion_Almacen.Forms
 
         private void buttonSearchBatchByID_Click(object sender, EventArgs e)
         {
-            if (int.TryParse(textBoxID.Text, out int searchID))
+            try
             {
-                BatchInterface batch = apiRequests.GetBatchById(searchID);
-
-                if (batch != null)
+                if (int.TryParse(textBoxID.Text, out int searchID))
                 {
-                    DataTable table = new DataTable();
-                    table.Columns.Add("ID", typeof(int));
-                    table.Columns.Add(LanguageManager.GetString("DateOfCreation"), typeof(DateTime));
-                    table.Columns.Add(LanguageManager.GetString("IDDestination"), typeof(int));
-                    table.Columns.Add(LanguageManager.GetString("DateOfShipment"), typeof(DateTime));
-                    table.Columns.Add(LanguageManager.GetString("Activated"), typeof(bool));
+                    BatchInterface batch = apiRequests.GetBatchById(searchID);
 
-                    fillDataTable(table, batch);
+                    if (batch != null)
+                    {
+                        DataTable table = new DataTable();
+                        table.Columns.Add("ID", typeof(int));
+                        table.Columns.Add(LanguageManager.GetString("DateOfCreation"), typeof(DateTime));
+                        table.Columns.Add(LanguageManager.GetString("IDDestination"), typeof(int));
+                        table.Columns.Add(LanguageManager.GetString("DateOfShipment"), typeof(DateTime));
+                        table.Columns.Add(LanguageManager.GetString("Activated"), typeof(bool));
 
-                    dataGridViewSearcher.DataSource = table;
+                        fillDataTable(table, batch);
 
-                    MessageBox.Show(Messages.LotFound);
+                        dataGridViewSearcher.DataSource = table;
+
+                        MessageBox.Show(Messages.LotFound);
+                    }
+                    else
+                    {
+                        MessageBox.Show(Messages.LotNotFound);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show(Messages.LotNotFound);
+                    MessageBox.Show(Messages.InvalidID);
                 }
-            }
-            else
+            }catch(Exception ex)
             {
-                MessageBox.Show(Messages.InvalidID);
+                MessageBox.Show(ex.Message);
             }
+            
         }
 
 

@@ -1,4 +1,5 @@
-﻿using Aplicacion_Almacen.StoreHouseRequests;
+﻿using Aplicacion_Almacen.Languages;
+using Aplicacion_Almacen.StoreHouseRequests;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -102,12 +103,12 @@ namespace Aplicacion_Almacen.APIRequests
                 }
                 else
                 {
-                    throw new Exception("Error al obtener el producto por ID: " + response.StatusCode);
+                    throw new Exception(Messages.Error + " : " + response.StatusCode);
                 }
             }
             catch (Exception ex)
             {
-                throw new Exception("Error en la solicitud: " + ex.Message);
+                throw new Exception(Messages.Error + " : " + ex.Message);
             }
         }
 

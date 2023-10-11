@@ -68,15 +68,6 @@ namespace Aplicacion_Almacen.Forms
             return JsonConvert.DeserializeObject<List<BatchInterface>>(content);
         }
 
-        private static RestResponse getBatchsFromApi()
-        {
-            RestClient client = new RestClient("http://localhost:64191");
-            RestRequest request = new RestRequest("/api/v1/lotes", Method.Get);
-            request.AddHeader("Accept", "application/json");
-            RestResponse response = client.Execute(request);
-            return response;
-        }
-
         private static void fillDataTable(DataTable table, BatchInterface batch)
         {
             DataRow rows = table.NewRow();

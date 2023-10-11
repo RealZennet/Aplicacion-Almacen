@@ -92,40 +92,46 @@ namespace Aplicacion_Almacen.Forms
 
         private void buttonSearchProductByID_Click(object sender, EventArgs e)
         {
-            if (int.TryParse(textBoxID.Text, out int searchID))
+            try
             {
-                ProductInterface product = apiRequests.GetProductById(searchID);
-
-                if (product != null)
+                if (int.TryParse(textBoxID.Text, out int searchID))
                 {
-                    DataTable table = new DataTable();
-                    table.Columns.Add("ID", typeof(int));
-                    table.Columns.Add(LanguageManager.GetString("Weight"), typeof(string));
-                    table.Columns.Add(LanguageManager.GetString("Volume"), typeof(int));
-                    table.Columns.Add(LanguageManager.GetString("Street"), typeof(string));
-                    table.Columns.Add(LanguageManager.GetString("Number"), typeof(int));
-                    table.Columns.Add(LanguageManager.GetString("Corner"), typeof(string));
-                    table.Columns.Add(LanguageManager.GetString("Customer"), typeof(string));
-                    table.Columns.Add(LanguageManager.GetString("Activated"), typeof(bool));
+                    ProductInterface product = apiRequests.GetProductById(searchID);
 
-                    fillDataTable(table, product);
+                    if (product != null)
+                    {
+                        DataTable table = new DataTable();
+                        table.Columns.Add("ID", typeof(int));
+                        table.Columns.Add(LanguageManager.GetString("Weight"), typeof(string));
+                        table.Columns.Add(LanguageManager.GetString("Volume"), typeof(int));
+                        table.Columns.Add(LanguageManager.GetString("Street"), typeof(string));
+                        table.Columns.Add(LanguageManager.GetString("Number"), typeof(int));
+                        table.Columns.Add(LanguageManager.GetString("Corner"), typeof(string));
+                        table.Columns.Add(LanguageManager.GetString("Customer"), typeof(string));
+                        table.Columns.Add(LanguageManager.GetString("Activated"), typeof(bool));
 
-                    dataGridViewSearcher.DataSource = table;
+                        fillDataTable(table, product);
 
-                    MessageBox.Show(Messages.ProductFound);
+                        dataGridViewSearcher.DataSource = table;
+
+                        MessageBox.Show(Messages.ProductFound);
+                    }
+                    else
+                    {
+                        MessageBox.Show(Messages.ProductNotFound);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show(Messages.ProductNotFound);
+                    MessageBox.Show(Messages.Error);
                 }
-            }
-            else
+            }catch (Exception ex)
             {
-                MessageBox.Show(Messages.Error);
+                MessageBox.Show(ex.Message);
             }
+
+            
         }
-
-
 
     }
 }
