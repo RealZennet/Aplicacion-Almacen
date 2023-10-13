@@ -9,6 +9,7 @@ namespace Aplicacion_Almacen.StoreHouseRequests
     public class BatchInterface
     {
         public int IDBatches { get; set; }
+        public string Email { get; set; }
         public DateTime DateOfCreation { get; set; }
         public DateTime ShippingDate { get; set; }
         public int IDShipp { get; set; }
