@@ -1,4 +1,5 @@
-﻿using Aplicacion_Almacen.Languages;
+﻿using Aplicacion_Almacen.ApiRequests;
+using Aplicacion_Almacen.Languages;
 using Aplicacion_Almacen.StoreHouseRequests;
 using Newtonsoft.Json;
 using RestSharp;
@@ -14,13 +15,14 @@ using System.Windows.Forms;
 
 namespace Aplicacion_Almacen.Forms
 {
-    public partial class BatchManagerSearcher : Form
+    public partial class BatchManagerSearcherForm : Form
     {
 
         public event Action LanguageChanged;
         public int m, x, y;
+        private ApiRequestBatch apiRequests;
 
-        public BatchManagerSearcher()
+        public BatchManagerSearcherForm()
         {
             InitializeComponent();
             MainForm mainForm = Application.OpenForms.OfType<MainForm>().FirstOrDefault();
@@ -28,6 +30,7 @@ namespace Aplicacion_Almacen.Forms
             {
                 mainForm.LanguageChanged += UpdateLanguage;
             }
+            apiRequests = new ApiRequestBatch("http://localhost:64191");
         }
 
         private void UpdateLanguage()
@@ -62,36 +65,43 @@ namespace Aplicacion_Almacen.Forms
 
         private void buttonSearchBatchByID_Click(object sender, EventArgs e)
         {
-            if (int.TryParse(textBoxID.Text, out int searchID))
+            try
             {
-                RestResponse response = getBatchByIdFromApi(searchID);
-
-                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                if (int.TryParse(textBoxID.Text, out int searchID))
                 {
-                    DataTable table = new DataTable();
-                    table.Columns.Add("ID", typeof(int));
-                    table.Columns.Add(LanguageManager.GetString("DateOfCreation"), typeof(DateTime));
-                    table.Columns.Add(LanguageManager.GetString("IDDestination"), typeof(int));
-                    table.Columns.Add(LanguageManager.GetString("DateOfShipment"), typeof(DateTime));
-                    table.Columns.Add(LanguageManager.GetString("Activated"), typeof(bool));
+                    BatchInterface batch = apiRequests.GetBatchById(searchID);
 
-                    BatchInterface batch = JsonConvert.DeserializeObject<BatchInterface>(response.Content);
-                    fillDataTable(table, batch);
+                    if (batch != null)
+                    {
+                        DataTable table = new DataTable();
+                        table.Columns.Add("ID", typeof(int));
+                        table.Columns.Add(LanguageManager.GetString("DateOfCreation"), typeof(DateTime));
+                        table.Columns.Add(LanguageManager.GetString("IDDestination"), typeof(int));
+                        table.Columns.Add(LanguageManager.GetString("DateOfShipment"), typeof(DateTime));
+                        table.Columns.Add(LanguageManager.GetString("Activated"), typeof(bool));
 
-                    dataGridViewSearcher.DataSource = table;
+                        fillDataTable(table, batch);
 
-                    MessageBox.Show(Messages.LotFound);
+                        dataGridViewSearcher.DataSource = table;
+
+                        MessageBox.Show(Messages.LotFound);
+                    }
+                    else
+                    {
+                        MessageBox.Show(Messages.LotNotFound);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show(Messages.LotNotFound);
+                    MessageBox.Show(Messages.InvalidID);
                 }
-            }
-            else
+            }catch(Exception ex)
             {
-                MessageBox.Show(Messages.InvalidID);
+                MessageBox.Show(ex.Message);
             }
+            
         }
+
 
         private void panelSlide_Paint(object sender, PaintEventArgs e)
         {
@@ -107,24 +117,6 @@ namespace Aplicacion_Almacen.Forms
             rows[LanguageManager.GetString("DateOfShipment")] = batch.ShippingDate;
             rows[LanguageManager.GetString("Activated")] = batch.ActivedBatch;
             table.Rows.Add(rows);
-        }
-
-        private RestResponse getBatchByIdFromApi(int batchId)
-        {
-            try
-            {
-                RestClient client = new RestClient("http://localhost:64191");
-                RestRequest request = new RestRequest($"/api/v1/lotes/{batchId}", Method.Get);
-                request.AddHeader("Accept", "application/json");
-
-                RestResponse response = client.Execute(request);
-                return response;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(Messages.Error + " " + Messages.InvalidID + " " + ex.Message);
-                return null;
-            }
         }
 
 

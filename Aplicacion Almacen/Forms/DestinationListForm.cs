@@ -1,4 +1,5 @@
-﻿using Aplicacion_Almacen.StoreHouseRequests;
+﻿using Aplicacion_Almacen.ApiRequests;
+using Aplicacion_Almacen.StoreHouseRequests;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -16,6 +17,7 @@ namespace Aplicacion_Almacen.Forms
     public partial class DestinationListForm : Form
     {
         public int m, x, y;
+        private ApiRequestDestinationList apiRequests;
 
         public DestinationListForm()
         {
@@ -25,7 +27,7 @@ namespace Aplicacion_Almacen.Forms
 
         private void DestinationListForm_Load(object sender, EventArgs e)
         {
-
+            apiRequests = new ApiRequestDestinationList("http://localhost:64191");
         }
 
         private List<DestinationInterface> deserialize(string content)

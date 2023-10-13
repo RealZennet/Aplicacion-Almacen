@@ -114,7 +114,7 @@ namespace Aplicacion_Almacen.Forms
 
         private void showAssignedBatchToTruckForm()
         {
-            AssignBatchToTruck formAssignBatchToTruckCtl = new AssignBatchToTruck();
+            AssignBatchToTruckForm formAssignBatchToTruckCtl = new AssignBatchToTruckForm();
             showForm(formAssignBatchToTruckCtl);
         }
 

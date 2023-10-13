@@ -1,4 +1,5 @@
-﻿using Aplicacion_Almacen.Languages;
+﻿using Aplicacion_Almacen.APIRequests;
+using Aplicacion_Almacen.Languages;
 using Aplicacion_Almacen.StoreHouseRequests;
 using Newtonsoft.Json;
 using RestSharp;
@@ -16,6 +17,7 @@ namespace Aplicacion_Almacen.Forms
 {
     public partial class ProductsManagerForm : Form
     {
+        private ApiRequestProduct apiRequests;
 
         public event Action LanguageChanged;
         private string jsonBody;
@@ -32,6 +34,9 @@ namespace Aplicacion_Almacen.Forms
             {
                 mainForm.LanguageChanged += updateLanguage;
             }
+
+            apiRequests = new ApiRequestProduct("http://localhost:64191");
+
         }
         private void updateLanguage()
         {
@@ -129,36 +134,6 @@ namespace Aplicacion_Almacen.Forms
 
         #region postProductsToAPI
 
-        private bool sendProductDataToApi(string jsonBody)
-        {
-            try
-            {
-                RestClient client = new RestClient("http://localhost:64191");
-                RestRequest request = new RestRequest("/api/v1/productos", Method.Post);
-                request.AddHeader("Accept", "application/json");
-                request.AddHeader("Content-Type", "application/json");
-                request.AddParameter("application/json", jsonBody, ParameterType.RequestBody);
-
-                RestResponse response = client.Execute(request);
-
-                if (response.StatusCode == System.Net.HttpStatusCode.OK)
-                {
-                    return true;
-                }
-                else
-                {
-                    MessageBox.Show(Messages.Error + " " + response.StatusCode);
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(Messages.Error + " : " + ex.Message);
-                return false;
-            }
-        }
-
-
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             jsonBody = "";
@@ -183,9 +158,7 @@ namespace Aplicacion_Almacen.Forms
                 ActivatedProduct = Convert.ToBoolean(statusValue)
             };
 
-            jsonBody = JsonConvert.SerializeObject(product);
-
-            if (sendProductDataToApi(jsonBody))
+            if (apiRequests.AddProduct(product))
             {
                 refreshTable();
                 MessageBox.Show(Messages.Successful);
@@ -198,40 +171,6 @@ namespace Aplicacion_Almacen.Forms
         }
 
         #endregion postProductsToAPI
-
-        #region putProductsToAPI
-
-
-        private bool editProductInApi(string jsonBody)
-        {
-            try
-            {
-                int productIdToEdit = JsonConvert.DeserializeObject<ProductInterface>(jsonBody).IDProduct;
-
-                RestClient client = new RestClient("http://localhost:64191");
-                RestRequest request = new RestRequest($"/api/v1/productos/{productIdToEdit}", Method.Put);
-                request.AddHeader("Accept", "application/json");
-                request.AddHeader("Content-Type", "application/json");
-                request.AddParameter("application/json", jsonBody, ParameterType.RequestBody);
-
-                RestResponse response = client.Execute(request);
-
-                if (response.StatusCode == System.Net.HttpStatusCode.OK)
-                {
-                    return true;
-                }
-                else
-                {
-                    MessageBox.Show(Messages.Error + " : " + response.StatusCode);
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(Messages.Error + " : " + ex.Message);
-                return false;
-            }
-        }
 
         private void buttonEdit_Click(object sender, EventArgs e)
         {
@@ -256,9 +195,7 @@ namespace Aplicacion_Almacen.Forms
 
             ProductInterface product = productFromTxtBox(productIdToEdit, statusValue);
 
-            jsonBody = JsonConvert.SerializeObject(product);
-
-            if (editProductInApi(jsonBody))
+            if (apiRequests.UpdateProduct(product))
             {
                 refreshTable();
                 MessageBox.Show(Messages.Successful);
@@ -285,8 +222,6 @@ namespace Aplicacion_Almacen.Forms
                 ActivatedProduct = Convert.ToBoolean(statusValue)
             };
         }
-
-        #endregion putProductsToAPI
 
         #region deleteProductsFromAPI
 
@@ -316,7 +251,6 @@ namespace Aplicacion_Almacen.Forms
                 return false;
             }
         }
-
         private void buttonDelete_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(textBoxID.Text))
@@ -388,7 +322,7 @@ namespace Aplicacion_Almacen.Forms
         #region searcher
         private void buttonSearchByID_Click(object sender, EventArgs e)
         {
-            ProductManagerSearcher searcherForm = new ProductManagerSearcher();
+            ProductManagerSearcherForm searcherForm = new ProductManagerSearcherForm();
             searcherForm.Show();
         }
         #endregion searcher

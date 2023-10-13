@@ -77,11 +77,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\AssignBatchToTruck.cs">
+    <Compile Include="ApiRequests\ApiRequestAssignBatchToTruck.cs" />
+    <Compile Include="ApiRequests\ApiRequestAssignProductToBatch.cs" />
+    <Compile Include="ApiRequests\ApiRequestBatch.cs" />
+    <Compile Include="ApiRequests\ApiRequestDestinationList.cs" />
+    <Compile Include="ApiRequests\ApiRequestLogin.cs" />
+    <Compile Include="ApiRequests\ApiRequestProduct.cs" />
+    <Compile Include="Forms\AssignBatchToTruckForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AssignBatchToTruck.Designer.cs">
-      <DependentUpon>AssignBatchToTruck.cs</DependentUpon>
+    <Compile Include="Forms\AssignBatchToTruckForm.Designer.cs">
+      <DependentUpon>AssignBatchToTruckForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\AssignProductsToBatchForm.cs">
       <SubType>Form</SubType>
@@ -95,11 +101,11 @@
     <Compile Include="Forms\BatchManagerForm.Designer.cs">
       <DependentUpon>BatchManagerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\BatchManagerSearcher.cs">
+    <Compile Include="Forms\BatchManagerSearcherForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\BatchManagerSearcher.Designer.cs">
-      <DependentUpon>BatchManagerSearcher.cs</DependentUpon>
+    <Compile Include="Forms\BatchManagerSearcherForm.Designer.cs">
+      <DependentUpon>BatchManagerSearcherForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\DestinationListForm.cs">
       <SubType>Form</SubType>
@@ -113,11 +119,11 @@
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ProductManagerSearcher.cs">
+    <Compile Include="Forms\ProductManagerSearcherForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ProductManagerSearcher.Designer.cs">
-      <DependentUpon>ProductManagerSearcher.cs</DependentUpon>
+    <Compile Include="Forms\ProductManagerSearcherForm.Designer.cs">
+      <DependentUpon>ProductManagerSearcherForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ProductsManagerForm.cs">
       <SubType>Form</SubType>
@@ -152,8 +158,8 @@
     <Compile Include="StoreHouseRequests\BatchInterface.cs" />
     <Compile Include="StoreHouseRequests\DestinationInterface.cs" />
     <Compile Include="StoreHouseRequests\ProductInterface.cs" />
-    <EmbeddedResource Include="Forms\AssignBatchToTruck.resx">
-      <DependentUpon>AssignBatchToTruck.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\AssignBatchToTruckForm.resx">
+      <DependentUpon>AssignBatchToTruckForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AssignProductsToBatchForm.resx">
       <DependentUpon>AssignProductsToBatchForm.cs</DependentUpon>
@@ -161,8 +167,8 @@
     <EmbeddedResource Include="Forms\BatchManagerForm.resx">
       <DependentUpon>BatchManagerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\BatchManagerSearcher.resx">
-      <DependentUpon>BatchManagerSearcher.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\BatchManagerSearcherForm.resx">
+      <DependentUpon>BatchManagerSearcherForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DestinationListForm.resx">
       <DependentUpon>DestinationListForm.cs</DependentUpon>
@@ -170,8 +176,8 @@
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ProductManagerSearcher.resx">
-      <DependentUpon>ProductManagerSearcher.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ProductManagerSearcherForm.resx">
+      <DependentUpon>ProductManagerSearcherForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ProductsManagerForm.resx">
       <DependentUpon>ProductsManagerForm.cs</DependentUpon>

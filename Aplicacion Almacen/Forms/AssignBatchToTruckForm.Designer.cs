@@ -1,6 +1,6 @@
 ﻿namespace Aplicacion_Almacen.Forms
 {
-    partial class AssignBatchToTruck
+    partial class AssignBatchToTruckForm
     {
         /// <summary>
         /// Required designer variable.
