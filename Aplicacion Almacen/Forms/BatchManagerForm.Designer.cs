@@ -43,6 +43,9 @@
             this.buttonBackToMainMenu = new System.Windows.Forms.Button();
             this.labelEstatus = new System.Windows.Forms.Label();
             this.buttonDestinationList = new System.Windows.Forms.Button();
+            this.dateTimePickerBatchManagementTime = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtBoxEmail = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBatch)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,7 +69,7 @@
             // 
             // dateTimePickerBatchShippingDate
             // 
-            this.dateTimePickerBatchShippingDate.Location = new System.Drawing.Point(14, 264);
+            this.dateTimePickerBatchShippingDate.Location = new System.Drawing.Point(12, 253);
             this.dateTimePickerBatchShippingDate.Name = "dateTimePickerBatchShippingDate";
             this.dateTimePickerBatchShippingDate.Size = new System.Drawing.Size(216, 20);
             this.dateTimePickerBatchShippingDate.TabIndex = 16;
@@ -193,12 +196,41 @@
             this.buttonDestinationList.UseVisualStyleBackColor = true;
             this.buttonDestinationList.Click += new System.EventHandler(this.buttonDestinationList_Click);
             // 
+            // dateTimePickerBatchManagementTime
+            // 
+            this.dateTimePickerBatchManagementTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimePickerBatchManagementTime.Location = new System.Drawing.Point(12, 279);
+            this.dateTimePickerBatchManagementTime.Name = "dateTimePickerBatchManagementTime";
+            this.dateTimePickerBatchManagementTime.Size = new System.Drawing.Size(218, 20);
+            this.dateTimePickerBatchManagementTime.TabIndex = 85;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.label5.Location = new System.Drawing.Point(135, 355);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(42, 17);
+            this.label5.TabIndex = 88;
+            this.label5.Text = "Email";
+            // 
+            // txtBoxEmail
+            // 
+            this.txtBoxEmail.Location = new System.Drawing.Point(138, 375);
+            this.txtBoxEmail.Name = "txtBoxEmail";
+            this.txtBoxEmail.Size = new System.Drawing.Size(92, 20);
+            this.txtBoxEmail.TabIndex = 87;
+            // 
             // BatchManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(47)))), ((int)(((byte)(68)))));
             this.ClientSize = new System.Drawing.Size(741, 481);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtBoxEmail);
+            this.Controls.Add(this.dateTimePickerBatchManagementTime);
             this.Controls.Add(this.buttonDestinationList);
             this.Controls.Add(this.labelEstatus);
             this.Controls.Add(this.buttonBackToMainMenu);
@@ -241,5 +273,8 @@
         private System.Windows.Forms.Button buttonBackToMainMenu;
         private System.Windows.Forms.Label labelEstatus;
         private System.Windows.Forms.Button buttonDestinationList;
+        private System.Windows.Forms.DateTimePicker dateTimePickerBatchManagementTime;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtBoxEmail;
     }
 }

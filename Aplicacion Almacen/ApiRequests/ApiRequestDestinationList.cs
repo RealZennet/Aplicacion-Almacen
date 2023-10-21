@@ -39,7 +39,7 @@ namespace Aplicacion_Almacen.ApiRequests
             }
             catch (Exception ex)
             {
-                throw new Exception("Error en la solicitud: " + ex.Message);
+                throw new Exception("Error: " + ex.Message);
             }
         }
     }

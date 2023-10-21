@@ -106,13 +106,15 @@ namespace Aplicacion_Almacen.Forms
                 return;
             }
 
-            DateTime shippDate = dateTimePickerBatchShippingDate.Value;
+            DateTime separateddate = dateTimePickerBatchShippingDate.Value.Date;
+            DateTime separatedtime = dateTimePickerAssignBatchToTruckManagementTime.Value;
+            DateTime dateandtime = separateddate.Add(separatedtime.TimeOfDay);
 
             AssignedBatchToTruckInterface batchAssigned = new AssignedBatchToTruckInterface
             {
                 IDBatch = Convert.ToInt32(txtBoxIDBatch.Text),
                 IDTruck = Convert.ToInt32(txtBoxIDTruck.Text),
-                ShippDate = shippDate
+                ShippDate = dateandtime
             };
 
             if (apiRequests.AddAssignedBatchToTruck(batchAssigned))

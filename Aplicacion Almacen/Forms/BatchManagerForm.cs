@@ -72,6 +72,7 @@ namespace Aplicacion_Almacen.Forms
         {
             DataRow rows = table.NewRow();
             rows["ID"] = batch.IDBatches;
+            rows["Email"] = batch.Email;
             rows[LanguageManager.GetString("DateOfCreation")] = batch.DateOfCreation;
             rows[LanguageManager.GetString("IDDestination")] = batch.IDShipp;
             rows[LanguageManager.GetString("DateOfShipment")] = batch.ShippingDate;
@@ -86,6 +87,7 @@ namespace Aplicacion_Almacen.Forms
 
             DataTable table = new DataTable();
             table.Columns.Add("ID", typeof(int));
+            table.Columns.Add("Email", typeof(string));
             table.Columns.Add(LanguageManager.GetString("DateOfCreation"), typeof(DateTime));
             table.Columns.Add(LanguageManager.GetString("IDDestination"), typeof(int));
             table.Columns.Add(LanguageManager.GetString("DateOfShipment"), typeof(DateTime));
@@ -95,6 +97,7 @@ namespace Aplicacion_Almacen.Forms
             {
                 DataRow row = table.NewRow();
                 row["ID"] = batch.IDBatches;
+                row["Email"] = batch.Email;
                 row[LanguageManager.GetString("DateOfCreation")] = batch.DateOfCreation;
                 row[LanguageManager.GetString("IDDestination")] = batch.IDShipp;
                 row[LanguageManager.GetString("DateOfShipment")] = batch.ShippingDate;
@@ -126,11 +129,15 @@ namespace Aplicacion_Almacen.Forms
                 return;
             }
 
+            DateTime separateddate = dateTimePickerBatchShippingDate.Value.Date;
+            DateTime separatedtime = dateTimePickerBatchManagementTime.Value;
+            DateTime dateandtime = separateddate.Add(separatedtime.TimeOfDay);
+
             BatchInterface batch = new BatchInterface
             {
-                IDBatches = Convert.ToInt32(txtBoxIDBatch.Text),
                 IDShipp = Convert.ToInt32(txtBoxIDDestination.Text),
-                ShippingDate = (Convert.ToDateTime(dateTimePickerBatchShippingDate.Text)),
+                Email = txtBoxEmail.Text,
+                ShippingDate = Convert.ToDateTime(dateandtime),
                 ActivedBatch = Convert.ToBoolean(statusValue)
             };
 
@@ -181,7 +188,7 @@ namespace Aplicacion_Almacen.Forms
         private bool validateInputsUser()
         {
 
-            if (string.IsNullOrWhiteSpace(txtBoxIDBatch.Text) ||
+            if (string.IsNullOrWhiteSpace(txtBoxEmail.Text) ||
                 string.IsNullOrWhiteSpace(txtBoxIDDestination.Text))
             {
                 return false;

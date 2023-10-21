@@ -54,8 +54,8 @@ namespace Aplicacion_Almacen.Forms
             DataRow rows = table.NewRow();
             rows["ID"] = destination.IDDestination;
             rows["Calle"] = destination.StreetDestination;
-            rows["Numero"] = destination.DoorNumber;
-            rows["Esquina"] = destination.CornerDestination;
+            rows["Numero Destino"] = destination.DoorNumber;
+            rows["Esquina Destino"] = destination.CornerDestination;
             rows["Fecha estimada"] = destination.EstimatedDate;
             rows["Activado"] = destination.ActivedDestination;
             table.Rows.Add(rows);
@@ -68,8 +68,8 @@ namespace Aplicacion_Almacen.Forms
             DataTable table = new DataTable();
             table.Columns.Add("ID", typeof(int));
             table.Columns.Add("Calle", typeof(string));
-            table.Columns.Add("Numero", typeof(string));
-            table.Columns.Add("Esquina", typeof(string));
+            table.Columns.Add("Numero Destino", typeof(string));
+            table.Columns.Add("Esquina Destino", typeof(string));
             table.Columns.Add("Fecha estimada", typeof(DateTime));
             table.Columns.Add("Activado", typeof(bool));
 
