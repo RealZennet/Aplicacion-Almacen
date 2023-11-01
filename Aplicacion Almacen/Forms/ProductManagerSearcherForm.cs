@@ -1,4 +1,5 @@
-﻿using Aplicacion_Almacen.Languages;
+﻿using Aplicacion_Almacen.APIRequests;
+using Aplicacion_Almacen.Languages;
 using Aplicacion_Almacen.StoreHouseRequests;
 using Newtonsoft.Json;
 using RestSharp;
@@ -14,12 +15,13 @@ using System.Windows.Forms;
 
 namespace Aplicacion_Almacen.Forms
 {
-    public partial class ProductManagerSearcher : Form
+    public partial class ProductManagerSearcherForm : Form
     {
         public event Action LanguageChaned;
         public int m, x, y;
+        private ApiRequestProduct apiRequests;
 
-        public ProductManagerSearcher()
+        public ProductManagerSearcherForm()
         {
             InitializeComponent();
             MainForm mainForm = Application.OpenForms.OfType<MainForm>().FirstOrDefault();
@@ -27,6 +29,7 @@ namespace Aplicacion_Almacen.Forms
             {
                 mainForm.LanguageChanged += UpdateLanguage;
             }
+            apiRequests = new ApiRequestProduct("http://localhost:64191");
         }
 
         private void UpdateLanguage()
@@ -87,60 +90,48 @@ namespace Aplicacion_Almacen.Forms
 
         }
 
-        private RestResponse getProductByIdFromApi(int productId)
+        private void buttonSearchProductByID_Click(object sender, EventArgs e)
         {
             try
             {
-                RestClient client = new RestClient("http://localhost:64191");
-                RestRequest request = new RestRequest($"/api/v1/productos/{productId}", Method.Get);
-                request.AddHeader("Accept", "application/json");
-
-                RestResponse response = client.Execute(request);
-                return response;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(Messages.Error + " : " + ex.Message);
-                return null;
-            }
-        }
-
-        private void buttonSearchProductByID_Click(object sender, EventArgs e)
-        {
-            if (int.TryParse(textBoxID.Text, out int searchID))
-            {
-                RestResponse response = getProductByIdFromApi(searchID);
-
-                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                if (int.TryParse(textBoxID.Text, out int searchID))
                 {
-                    DataTable table = new DataTable();
-                    table.Columns.Add("ID", typeof(int));
-                    table.Columns.Add(LanguageManager.GetString("Weight"), typeof(string));
-                    table.Columns.Add(LanguageManager.GetString("Volume"), typeof(int));
-                    table.Columns.Add(LanguageManager.GetString("Street"), typeof(string));
-                    table.Columns.Add(LanguageManager.GetString("Number"), typeof(int));
-                    table.Columns.Add(LanguageManager.GetString("Corner"), typeof(string));
-                    table.Columns.Add(LanguageManager.GetString("Customer"), typeof(string));
-                    table.Columns.Add(LanguageManager.GetString("Activated"), typeof(bool));
+                    ProductInterface product = apiRequests.GetProductById(searchID);
 
-                    ProductInterface product = JsonConvert.DeserializeObject<ProductInterface>(response.Content);
-                    fillDataTable(table, product);
+                    if (product != null)
+                    {
+                        DataTable table = new DataTable();
+                        table.Columns.Add("ID", typeof(int));
+                        table.Columns.Add(LanguageManager.GetString("Weight"), typeof(string));
+                        table.Columns.Add(LanguageManager.GetString("Volume"), typeof(int));
+                        table.Columns.Add(LanguageManager.GetString("Street"), typeof(string));
+                        table.Columns.Add(LanguageManager.GetString("Number"), typeof(int));
+                        table.Columns.Add(LanguageManager.GetString("Corner"), typeof(string));
+                        table.Columns.Add(LanguageManager.GetString("Customer"), typeof(string));
+                        table.Columns.Add(LanguageManager.GetString("Activated"), typeof(bool));
 
-                    dataGridViewSearcher.DataSource = table;
+                        fillDataTable(table, product);
 
-                    MessageBox.Show(Messages.ProductFound);
+                        dataGridViewSearcher.DataSource = table;
+
+                        MessageBox.Show(Messages.ProductFound);
+                    }
+                    else
+                    {
+                        MessageBox.Show(Messages.ProductNotFound);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show(Messages.ProductNotFound);
+                    MessageBox.Show(Messages.Error);
                 }
-            }
-            else
+            }catch (Exception ex)
             {
-                MessageBox.Show(Messages.Error);
+                MessageBox.Show(ex.Message);
             }
-        }
 
+            
+        }
 
     }
 }

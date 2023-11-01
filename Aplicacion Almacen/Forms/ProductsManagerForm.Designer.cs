@@ -51,6 +51,7 @@
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.txtBoxWeight = new System.Windows.Forms.TextBox();
+            this.buttonViewMap = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProducts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -278,12 +279,23 @@
             this.txtBoxWeight.Size = new System.Drawing.Size(92, 23);
             this.txtBoxWeight.TabIndex = 23;
             // 
+            // buttonViewMap
+            // 
+            this.buttonViewMap.Location = new System.Drawing.Point(572, 485);
+            this.buttonViewMap.Name = "buttonViewMap";
+            this.buttonViewMap.Size = new System.Drawing.Size(92, 23);
+            this.buttonViewMap.TabIndex = 90;
+            this.buttonViewMap.Text = "Ver Mapa";
+            this.buttonViewMap.UseVisualStyleBackColor = true;
+            this.buttonViewMap.Click += new System.EventHandler(this.buttonViewMap_Click);
+            // 
             // ProductsManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(47)))), ((int)(((byte)(68)))));
             this.ClientSize = new System.Drawing.Size(757, 520);
+            this.Controls.Add(this.buttonViewMap);
             this.Controls.Add(this.buttonSearchByID);
             this.Controls.Add(this.labelID);
             this.Controls.Add(this.textBoxID);
@@ -342,5 +354,6 @@
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.TextBox txtBoxWeight;
+        private System.Windows.Forms.Button buttonViewMap;
     }
 }

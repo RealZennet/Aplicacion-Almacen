@@ -1,4 +1,5 @@
-﻿using Aplicacion_Almacen.StoreHouseRequests;
+﻿using Aplicacion_Almacen.ApiRequests;
+using Aplicacion_Almacen.StoreHouseRequests;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -16,6 +17,7 @@ namespace Aplicacion_Almacen.Forms
     public partial class DestinationListForm : Form
     {
         public int m, x, y;
+        private ApiRequestDestinationList apiRequests;
 
         public DestinationListForm()
         {
@@ -25,7 +27,7 @@ namespace Aplicacion_Almacen.Forms
 
         private void DestinationListForm_Load(object sender, EventArgs e)
         {
-
+            apiRequests = new ApiRequestDestinationList("http://localhost:64191");
         }
 
         private List<DestinationInterface> deserialize(string content)
@@ -52,8 +54,8 @@ namespace Aplicacion_Almacen.Forms
             DataRow rows = table.NewRow();
             rows["ID"] = destination.IDDestination;
             rows["Calle"] = destination.StreetDestination;
-            rows["Numero"] = destination.DoorNumber;
-            rows["Esquina"] = destination.CornerDestination;
+            rows["Numero Destino"] = destination.DoorNumber;
+            rows["Esquina Destino"] = destination.CornerDestination;
             rows["Fecha estimada"] = destination.EstimatedDate;
             rows["Activado"] = destination.ActivedDestination;
             table.Rows.Add(rows);
@@ -66,8 +68,8 @@ namespace Aplicacion_Almacen.Forms
             DataTable table = new DataTable();
             table.Columns.Add("ID", typeof(int));
             table.Columns.Add("Calle", typeof(string));
-            table.Columns.Add("Numero", typeof(string));
-            table.Columns.Add("Esquina", typeof(string));
+            table.Columns.Add("Numero Destino", typeof(string));
+            table.Columns.Add("Esquina Destino", typeof(string));
             table.Columns.Add("Fecha estimada", typeof(DateTime));
             table.Columns.Add("Activado", typeof(bool));
 

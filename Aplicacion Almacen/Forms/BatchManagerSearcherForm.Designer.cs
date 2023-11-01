@@ -1,6 +1,6 @@
 ﻿namespace Aplicacion_Almacen.Forms
 {
-    partial class BatchManagerSearcher
+    partial class BatchManagerSearcherForm
     {
         /// <summary>
         /// Required designer variable.

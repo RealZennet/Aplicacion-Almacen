@@ -1,6 +1,6 @@
 ﻿namespace Aplicacion_Almacen.Forms
 {
-    partial class AssignBatchToTruck
+    partial class AssignBatchToTruckForm
     {
         /// <summary>
         /// Required designer variable.
@@ -39,6 +39,7 @@
             this.dataGridViewAssignedBatchToTruck = new System.Windows.Forms.DataGridView();
             this.dateTimePickerBatchShippingDate = new System.Windows.Forms.DateTimePicker();
             this.labelEstimatedDate = new System.Windows.Forms.Label();
+            this.dateTimePickerAssignBatchToTruckManagementTime = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAssignedBatchToTruck)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,7 +57,7 @@
             // 
             // buttonRefresh
             // 
-            this.buttonRefresh.Location = new System.Drawing.Point(272, 214);
+            this.buttonRefresh.Location = new System.Drawing.Point(333, 215);
             this.buttonRefresh.Name = "buttonRefresh";
             this.buttonRefresh.Size = new System.Drawing.Size(147, 26);
             this.buttonRefresh.TabIndex = 55;
@@ -66,7 +67,7 @@
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(351, 182);
+            this.buttonDelete.Location = new System.Drawing.Point(412, 183);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(68, 26);
             this.buttonDelete.TabIndex = 54;
@@ -76,7 +77,7 @@
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(272, 182);
+            this.buttonAdd.Location = new System.Drawing.Point(333, 183);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(68, 26);
             this.buttonAdd.TabIndex = 53;
@@ -87,7 +88,7 @@
             // labelIDBatch
             // 
             this.labelIDBatch.AutoSize = true;
-            this.labelIDBatch.Location = new System.Drawing.Point(269, 131);
+            this.labelIDBatch.Location = new System.Drawing.Point(330, 132);
             this.labelIDBatch.Name = "labelIDBatch";
             this.labelIDBatch.Size = new System.Drawing.Size(42, 13);
             this.labelIDBatch.TabIndex = 52;
@@ -95,7 +96,7 @@
             // 
             // txtBoxIDBatch
             // 
-            this.txtBoxIDBatch.Location = new System.Drawing.Point(272, 156);
+            this.txtBoxIDBatch.Location = new System.Drawing.Point(333, 157);
             this.txtBoxIDBatch.Name = "txtBoxIDBatch";
             this.txtBoxIDBatch.Size = new System.Drawing.Size(61, 20);
             this.txtBoxIDBatch.TabIndex = 51;
@@ -103,7 +104,7 @@
             // labelTruckID
             // 
             this.labelTruckID.AutoSize = true;
-            this.labelTruckID.Location = new System.Drawing.Point(269, 59);
+            this.labelTruckID.Location = new System.Drawing.Point(330, 60);
             this.labelTruckID.Name = "labelTruckID";
             this.labelTruckID.Size = new System.Drawing.Size(56, 13);
             this.labelTruckID.TabIndex = 50;
@@ -111,7 +112,7 @@
             // 
             // txtBoxIDTruck
             // 
-            this.txtBoxIDTruck.Location = new System.Drawing.Point(272, 89);
+            this.txtBoxIDTruck.Location = new System.Drawing.Point(333, 90);
             this.txtBoxIDTruck.Name = "txtBoxIDTruck";
             this.txtBoxIDTruck.Size = new System.Drawing.Size(61, 20);
             this.txtBoxIDTruck.TabIndex = 49;
@@ -123,13 +124,13 @@
             this.dataGridViewAssignedBatchToTruck.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewAssignedBatchToTruck.Location = new System.Drawing.Point(12, 59);
             this.dataGridViewAssignedBatchToTruck.Name = "dataGridViewAssignedBatchToTruck";
-            this.dataGridViewAssignedBatchToTruck.Size = new System.Drawing.Size(231, 410);
+            this.dataGridViewAssignedBatchToTruck.Size = new System.Drawing.Size(312, 410);
             this.dataGridViewAssignedBatchToTruck.TabIndex = 48;
             this.dataGridViewAssignedBatchToTruck.SelectionChanged += new System.EventHandler(this.dataGridViewAssignedBatchToTruck_SelectionChanged);
             // 
             // dateTimePickerBatchShippingDate
             // 
-            this.dateTimePickerBatchShippingDate.Location = new System.Drawing.Point(428, 89);
+            this.dateTimePickerBatchShippingDate.Location = new System.Drawing.Point(489, 90);
             this.dateTimePickerBatchShippingDate.Name = "dateTimePickerBatchShippingDate";
             this.dateTimePickerBatchShippingDate.Size = new System.Drawing.Size(216, 20);
             this.dateTimePickerBatchShippingDate.TabIndex = 58;
@@ -139,18 +140,27 @@
             this.labelEstimatedDate.AutoSize = true;
             this.labelEstimatedDate.BackColor = System.Drawing.Color.Transparent;
             this.labelEstimatedDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.labelEstimatedDate.Location = new System.Drawing.Point(425, 58);
+            this.labelEstimatedDate.Location = new System.Drawing.Point(486, 59);
             this.labelEstimatedDate.Name = "labelEstimatedDate";
             this.labelEstimatedDate.Size = new System.Drawing.Size(181, 17);
             this.labelEstimatedDate.TabIndex = 57;
             this.labelEstimatedDate.Text = "Fecha estimada de entrega";
             // 
-            // AssignBatchToTruck
+            // dateTimePickerAssignBatchToTruckManagementTime
+            // 
+            this.dateTimePickerAssignBatchToTruckManagementTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimePickerAssignBatchToTruckManagementTime.Location = new System.Drawing.Point(489, 116);
+            this.dateTimePickerAssignBatchToTruckManagementTime.Name = "dateTimePickerAssignBatchToTruckManagementTime";
+            this.dateTimePickerAssignBatchToTruckManagementTime.Size = new System.Drawing.Size(218, 20);
+            this.dateTimePickerAssignBatchToTruckManagementTime.TabIndex = 86;
+            // 
+            // AssignBatchToTruckForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(47)))), ((int)(((byte)(68)))));
             this.ClientSize = new System.Drawing.Size(741, 481);
+            this.Controls.Add(this.dateTimePickerAssignBatchToTruckManagementTime);
             this.Controls.Add(this.dateTimePickerBatchShippingDate);
             this.Controls.Add(this.labelEstimatedDate);
             this.Controls.Add(this.buttonBackToMainMenu);
@@ -163,7 +173,7 @@
             this.Controls.Add(this.txtBoxIDTruck);
             this.Controls.Add(this.dataGridViewAssignedBatchToTruck);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "AssignBatchToTruck";
+            this.Name = "AssignBatchToTruckForm";
             this.Text = "AssignBatchToTruck";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAssignedBatchToTruck)).EndInit();
             this.ResumeLayout(false);
@@ -183,5 +193,6 @@
         private System.Windows.Forms.DataGridView dataGridViewAssignedBatchToTruck;
         private System.Windows.Forms.DateTimePicker dateTimePickerBatchShippingDate;
         private System.Windows.Forms.Label labelEstimatedDate;
+        private System.Windows.Forms.DateTimePicker dateTimePickerAssignBatchToTruckManagementTime;
     }
 }

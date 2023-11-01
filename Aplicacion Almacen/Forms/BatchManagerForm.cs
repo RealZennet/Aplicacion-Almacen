@@ -1,4 +1,5 @@
-﻿using Aplicacion_Almacen.Languages;
+﻿using Aplicacion_Almacen.ApiRequests;
+using Aplicacion_Almacen.Languages;
 using Aplicacion_Almacen.StoreHouseRequests;
 using Newtonsoft.Json;
 using RestSharp;
@@ -18,6 +19,7 @@ namespace Aplicacion_Almacen.Forms
     {
         public event Action LanguageChanged;
         private string jsonBody;
+        private ApiRequestBatch apiRequests;
 
         public BatchManagerForm()
         {
@@ -31,6 +33,7 @@ namespace Aplicacion_Almacen.Forms
             {
                 mainForm.LanguageChanged += UpdateLanguage;
             }
+            apiRequests = new ApiRequestBatch("http://localhost:64191");
         }
 
         private void UpdateLanguage()
@@ -41,6 +44,7 @@ namespace Aplicacion_Almacen.Forms
             buttonRefresh.Text = LanguageManager.GetString("Refresh");
             buttonBackToMainMenu.Text = LanguageManager.GetString("Back");
             buttonSearcher.Text = LanguageManager.GetString("Searcher");
+            buttonViewMap.Text = LanguageManager.GetString("ViewMap");
 
             labelEstatus.Text = LanguageManager.GetString("Status");
             labelEstimatedDate.Text = LanguageManager.GetString("EstimatedDate");
@@ -65,19 +69,11 @@ namespace Aplicacion_Almacen.Forms
             return JsonConvert.DeserializeObject<List<BatchInterface>>(content);
         }
 
-        private static RestResponse getBatchsFromApi()
-        {
-            RestClient client = new RestClient("http://localhost:64191");
-            RestRequest request = new RestRequest("/api/v1/lotes", Method.Get);
-            request.AddHeader("Accept", "application/json");
-            RestResponse response = client.Execute(request);
-            return response;
-        }
-
         private static void fillDataTable(DataTable table, BatchInterface batch)
         {
             DataRow rows = table.NewRow();
             rows["ID"] = batch.IDBatches;
+            rows["Email"] = batch.Email;
             rows[LanguageManager.GetString("DateOfCreation")] = batch.DateOfCreation;
             rows[LanguageManager.GetString("IDDestination")] = batch.IDShipp;
             rows[LanguageManager.GetString("DateOfShipment")] = batch.ShippingDate;
@@ -87,20 +83,28 @@ namespace Aplicacion_Almacen.Forms
 
         private DataTable getDataTable()
         {
-            RestResponse response = getBatchsFromApi();
+            ApiRequestBatch apiRequest = new ApiRequestBatch("http://localhost:64191");
+            List<BatchInterface> batchCreated = apiRequest.GetBatchs();
 
             DataTable table = new DataTable();
             table.Columns.Add("ID", typeof(int));
+            table.Columns.Add("Email", typeof(string));
             table.Columns.Add(LanguageManager.GetString("DateOfCreation"), typeof(DateTime));
             table.Columns.Add(LanguageManager.GetString("IDDestination"), typeof(int));
             table.Columns.Add(LanguageManager.GetString("DateOfShipment"), typeof(DateTime));
             table.Columns.Add(LanguageManager.GetString("Activated"), typeof(bool));
 
-            foreach (BatchInterface batch in deserializeBatch(response.Content))
+            foreach (BatchInterface batch in batchCreated)
             {
-                fillDataTable(table, batch);
+                DataRow row = table.NewRow();
+                row["ID"] = batch.IDBatches;
+                row["Email"] = batch.Email;
+                row[LanguageManager.GetString("DateOfCreation")] = batch.DateOfCreation;
+                row[LanguageManager.GetString("IDDestination")] = batch.IDShipp;
+                row[LanguageManager.GetString("DateOfShipment")] = batch.ShippingDate;
+                row[LanguageManager.GetString("Activated")] = batch.ActivedBatch;
+                table.Rows.Add(row);
             }
-
             return table;
         }
 
@@ -112,35 +116,6 @@ namespace Aplicacion_Almacen.Forms
         #endregion getBatchsFromAPI
 
         #region postBatchsToAPI
-
-        private bool sendBatchDataToApi(string jsonBody)
-        {
-            try
-            {
-                RestClient client = new RestClient("http://localhost:64191");
-                RestRequest request = new RestRequest("/api/v1/lotes", Method.Post);
-                request.AddHeader("Accept", "application/json");
-                request.AddHeader("Content-Type", "application/json");
-                request.AddParameter("application/json", jsonBody, ParameterType.RequestBody);
-
-                RestResponse response = client.Execute(request);
-
-                if (response.StatusCode == System.Net.HttpStatusCode.OK)
-                {
-                    return true;
-                }
-                else
-                {
-                    MessageBox.Show(Messages.Error + " : " + response.StatusCode);
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(Messages.Error + " : " + ex.Message);
-                return false;
-            }
-        }
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
@@ -155,17 +130,21 @@ namespace Aplicacion_Almacen.Forms
                 return;
             }
 
+            DateTime separateddate = dateTimePickerBatchShippingDate.Value.Date;
+            DateTime separatedtime = dateTimePickerBatchManagementTime.Value;
+            DateTime dateandtime = separateddate.Add(separatedtime.TimeOfDay);
+
             BatchInterface batch = new BatchInterface
             {
-                IDBatches = Convert.ToInt32(txtBoxIDBatch.Text),
                 IDShipp = Convert.ToInt32(txtBoxIDDestination.Text),
-                ShippingDate = (Convert.ToDateTime(dateTimePickerBatchShippingDate.Text)),
+                Email = txtBoxEmail.Text,
+                ShippingDate = Convert.ToDateTime(dateandtime),
                 ActivedBatch = Convert.ToBoolean(statusValue)
             };
 
             jsonBody = JsonConvert.SerializeObject(batch);
 
-            if (sendBatchDataToApi(jsonBody))
+            if (apiRequests.AddBatch(batch))
             {
                 refreshTable();
                 MessageBox.Show(Messages.Successful);
@@ -181,33 +160,6 @@ namespace Aplicacion_Almacen.Forms
 
         #region deleteBatchFromAPI
 
-        private bool deleteProductFromApi(int batchId)
-        {
-            try
-            {
-                RestClient client = new RestClient("http://localhost:64191");
-                RestRequest request = new RestRequest($"/api/v1/lotes/{batchId}", Method.Delete);
-                request.AddHeader("Accept", "application/json");
-
-                RestResponse response = client.Execute(request);
-
-                if (response.StatusCode == System.Net.HttpStatusCode.OK)
-                {
-                    return true;
-                }
-                else
-                {
-                    MessageBox.Show(Messages.Error + " : " + response.StatusCode);
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(Messages.Error + " : " + ex.Message);
-                return false;
-            }
-        }
-
         private void buttonDelete_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtBoxIDBatch.Text))
@@ -218,7 +170,7 @@ namespace Aplicacion_Almacen.Forms
 
             int batchIdToDelete = Convert.ToInt32(txtBoxIDBatch.Text);
 
-            if (deleteProductFromApi(batchIdToDelete))
+            if (apiRequests.DeleteBatch(batchIdToDelete))
             {
                 refreshTable();
                 MessageBox.Show(Messages.Successful);
@@ -237,7 +189,7 @@ namespace Aplicacion_Almacen.Forms
         private bool validateInputsUser()
         {
 
-            if (string.IsNullOrWhiteSpace(txtBoxIDBatch.Text) ||
+            if (string.IsNullOrWhiteSpace(txtBoxEmail.Text) ||
                 string.IsNullOrWhiteSpace(txtBoxIDDestination.Text))
             {
                 return false;
@@ -268,12 +220,11 @@ namespace Aplicacion_Almacen.Forms
             }
         }
 
-
         #endregion validationsAndUtils
 
         private void buttonSearcher_Click(object sender, EventArgs e)
         {
-            BatchManagerSearcher searcherForm = new BatchManagerSearcher();
+            BatchManagerSearcherForm searcherForm = new BatchManagerSearcherForm();
             searcherForm.Show();
         }
 
@@ -286,6 +237,12 @@ namespace Aplicacion_Almacen.Forms
         {
             DestinationListForm getAllDestinationsForm = new DestinationListForm();
             getAllDestinationsForm.Show();
+        }
+
+        private void buttonViewMap_Click(object sender, EventArgs e)
+        {
+            MapForm viewMap = new MapForm();
+            viewMap.Show();
         }
     }
 }

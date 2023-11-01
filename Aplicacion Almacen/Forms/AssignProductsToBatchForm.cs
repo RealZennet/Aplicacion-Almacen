@@ -1,4 +1,5 @@
-﻿using Aplicacion_Almacen.Languages;
+﻿using Aplicacion_Almacen.ApiRequests;
+using Aplicacion_Almacen.Languages;
 using Aplicacion_Almacen.StoreHouseRequests;
 using Newtonsoft.Json;
 using RestSharp;
@@ -18,6 +19,7 @@ namespace Aplicacion_Almacen.Forms
     {
         public event Action LanguageChanged;
         private string jsonBody;
+        private ApiRequestAssignProductToBatch apiRequests;
 
         public AssignProductsToBatchForm()
         {
@@ -28,6 +30,7 @@ namespace Aplicacion_Almacen.Forms
             {
                 mainForm.LanguageChanged += UpdateLanguage;
             }
+            apiRequests = new ApiRequestAssignProductToBatch("http://localhost:64191");
         }
 
         private void UpdateLanguage()
@@ -58,15 +61,6 @@ namespace Aplicacion_Almacen.Forms
             return JsonConvert.DeserializeObject<List<AssignProductsToBatchInterface>>(content);
         }
 
-        private static RestResponse getAssignedProductsToBatchsFromApi()
-        {
-            RestClient client = new RestClient("http://localhost:64191");
-            RestRequest request = new RestRequest("/api/v1/integrarpaquetes", Method.Get);
-            request.AddHeader("Accept", "application/json");
-            RestResponse response = client.Execute(request);
-            return response;
-        }
-
         private static void fillDataTable(DataTable table, AssignProductsToBatchInterface assignedproduct)
         {
             DataRow rows = table.NewRow();
@@ -77,17 +71,20 @@ namespace Aplicacion_Almacen.Forms
 
         private DataTable getDataTable()
         {
-            RestResponse response = getAssignedProductsToBatchsFromApi();
+            ApiRequestAssignProductToBatch apiRequest = new ApiRequestAssignProductToBatch("http://localhost:64191");
+            List<AssignProductsToBatchInterface> batchAssigned = apiRequest.GetAssignedProductsToBatch();
 
             DataTable table = new DataTable();
             table.Columns.Add(LanguageManager.GetString("LotID"), typeof(int));
             table.Columns.Add("ID Product", typeof(int));
 
-            foreach (AssignProductsToBatchInterface batch in deserializeAssignedProductToBatch(response.Content))
+            foreach (AssignProductsToBatchInterface batch in batchAssigned)
             {
-                fillDataTable(table, batch);
+                DataRow row = table.NewRow();
+                row[LanguageManager.GetString("LotID")] = batch.IDBatch;
+                row["ID Product"] = batch.IDProduct;
+                table.Rows.Add(row);
             }
-
             return table;
         }
 
@@ -99,35 +96,6 @@ namespace Aplicacion_Almacen.Forms
         #endregion getBatchsFromAPI
 
         #region postAssignedProductToAPI
-
-        private bool sendAssignedProductToBatchDataToApi(string jsonBody)
-        {
-            try
-            {
-                RestClient client = new RestClient("http://localhost:64191");
-                RestRequest request = new RestRequest("/api/v1/integrarpaquetes", Method.Post);
-                request.AddHeader("Accept", "application/json");
-                request.AddHeader("Content-Type", "application/json");
-                request.AddParameter("application/json", jsonBody, ParameterType.RequestBody);
-
-                RestResponse response = client.Execute(request);
-
-                if (response.StatusCode == System.Net.HttpStatusCode.OK)
-                {
-                    return true;
-                }
-                else
-                {
-                    MessageBox.Show(Messages.Error + " : " + response.StatusCode);
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(Messages.Error + " : " + ex.Message);
-                return false;
-            }
-        }
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
@@ -145,9 +113,7 @@ namespace Aplicacion_Almacen.Forms
                 IDBatch = Convert.ToInt32(txtBoxIDBatch.Text)
             };
 
-            jsonBody = JsonConvert.SerializeObject(batch);
-
-            if (sendAssignedProductToBatchDataToApi(jsonBody))
+            if (apiRequests.AddAssignedProduct(batch))
             {
                 refreshTable();
                 MessageBox.Show(Messages.Successful);
@@ -163,40 +129,13 @@ namespace Aplicacion_Almacen.Forms
 
         #region deleteAssignedProductToAPI
 
-        private bool deleteAssignedProductToBatchFromApi(int assignedProductId)
-        {
-            try
-            {
-                RestClient client = new RestClient("http://localhost:64191");
-                RestRequest request = new RestRequest($"/api/v1/integrarpaquetes/{assignedProductId}", Method.Delete);
-                request.AddHeader("Accept", "application/json");
-
-                RestResponse response = client.Execute(request);
-
-                if (response.StatusCode == System.Net.HttpStatusCode.OK)
-                {
-                    return true;
-                }
-                else
-                {
-                    MessageBox.Show(Messages.Error + " : " + response.StatusCode);
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(Messages.Error + " : " + ex.Message);
-                return false;
-            }
-        }
-
         private void buttonDelete_Click(object sender, EventArgs e)
         {
             if (dataGridViewAssignedProducts.SelectedRows.Count > 0)
             {
                 int assignedProductIdToDelete = Convert.ToInt32(dataGridViewAssignedProducts.SelectedRows[0].Cells["ID Product"].Value);
 
-                if (deleteAssignedProductToBatchFromApi(assignedProductIdToDelete))
+                if (apiRequests.DeleteAssignedProductToBatch(assignedProductIdToDelete))
                 {
                     refreshTable();
                     MessageBox.Show(Messages.Successful);

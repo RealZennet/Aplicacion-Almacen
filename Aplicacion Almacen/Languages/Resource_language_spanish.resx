@@ -285,4 +285,7 @@
   <data name="VerifyData" xml:space="preserve">
     <value>Verifica la informacion ingresada</value>
   </data>
+  <data name="ViewMap" xml:space="preserve">
+    <value>View Map</value>
+  </data>
 </root>

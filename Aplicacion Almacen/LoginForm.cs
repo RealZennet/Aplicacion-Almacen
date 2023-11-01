@@ -1,4 +1,5 @@
-﻿using Aplicacion_Almacen.Forms;
+﻿using Aplicacion_Almacen.ApiRequests;
+using Aplicacion_Almacen.Forms;
 using Aplicacion_Almacen.Login;
 using Newtonsoft.Json;
 using RestSharp;
@@ -18,13 +19,14 @@ namespace Aplicacion_Almacen
 {
     public partial class LoginForm : Form
     {
-
+        private readonly ApiRequestLogin authService;
         private int m, x, y;
 
         public LoginForm()
         {
             InitializeComponent();
             roundedCircleForm();
+            authService = new ApiRequestLogin("http://localhost:52231");
 
         }
 
@@ -61,52 +63,23 @@ namespace Aplicacion_Almacen
             this.Hide();
         }
 
-        private RestResponse Authenticate()
-        {
-            ApiRequest requestBody = new ApiRequest()
-            {
-                Username = textBox1.Text,
-                Password = textBox2.Text
-            };
-
-            string requestBodyJson = JsonConvert.SerializeObject(requestBody);
-
-            RestClient client = new RestClient("http://localhost:52231");
-
-            RestRequest request = new RestRequest("/api/v1/login", Method.Post);
-            request.RequestFormat = DataFormat.Json;
-            request.AddJsonBody(requestBodyJson);
-            request.AddHeader("Accept", "application/json");
-            request.AddHeader("Content-Type", "application/json");
-
-            RestResponse response = client.Execute(request);
-            return response;
-        }
-
-
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             try
             {
-                RestResponse response = Authenticate();
-                if (response.StatusCode == HttpStatusCode.Unauthorized)
-                {
-                    MessageBox.Show("Login Invalido");
-                }
-                if (response.StatusCode == HttpStatusCode.OK)
-                {
-                    ApiResponse apiResponse = this.deserialize(response.Content);
-                    string result = apiResponse.resultado;
-                    string tipo = apiResponse.tipo;
+                ApiResponse apiResponse = authService.Authenticate(textBox1.Text, textBox2.Text);
 
-                    if (result == "OK" && tipo == "operario")
-                    {
-                        openPrincipalForm();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error de autenticacion");
-                    }
+                if (apiResponse == null)
+                {
+                    MessageBox.Show("Error de autenticación");
+                }
+                else if (apiResponse.resultado == "OK" && apiResponse.tipo == "operario")
+                {
+                    openPrincipalForm();
+                }
+                else
+                {
+                    MessageBox.Show("Error de autenticación");
                 }
             }
             catch (Exception ex)
