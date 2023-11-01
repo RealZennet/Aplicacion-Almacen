@@ -326,6 +326,12 @@ namespace Aplicacion_Almacen.Forms
             searcherForm.Show();
         }
         #endregion searcher
+
+        private void buttonViewMap_Click(object sender, EventArgs e)
+        {
+            MapForm viewMap = new MapForm();
+            viewMap.Show();
+        }
     }
 
 }
