@@ -44,6 +44,7 @@ namespace Aplicacion_Almacen.Forms
             buttonRefresh.Text = LanguageManager.GetString("Refresh");
             buttonBackToMainMenu.Text = LanguageManager.GetString("Back");
             buttonSearcher.Text = LanguageManager.GetString("Searcher");
+            buttonViewMap.Text = LanguageManager.GetString("ViewMap");
 
             labelEstatus.Text = LanguageManager.GetString("Status");
             labelEstimatedDate.Text = LanguageManager.GetString("EstimatedDate");

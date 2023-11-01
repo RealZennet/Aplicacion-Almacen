@@ -547,6 +547,15 @@ namespace Aplicacion_Almacen.Languages {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a View Map.
+        /// </summary>
+        internal static string ViewMap {
+            get {
+                return ResourceManager.GetString("ViewMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Volumen.
         /// </summary>
         internal static string Volume {

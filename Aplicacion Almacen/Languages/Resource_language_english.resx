@@ -282,4 +282,7 @@
   <data name="VerifyInformation" xml:space="preserve">
     <value>Please entered data</value>
   </data>
+  <data name="ViewMap" xml:space="preserve">
+    <value>View Map</value>
+  </data>
 </root>
