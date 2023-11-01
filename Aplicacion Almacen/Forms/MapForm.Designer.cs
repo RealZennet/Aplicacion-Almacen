@@ -30,6 +30,7 @@
         {
             this.panelSlide = new System.Windows.Forms.Panel();
             this.buttonClose = new System.Windows.Forms.Button();
+            this.webBrowser = new System.Windows.Forms.WebBrowser();
             this.SuspendLayout();
             // 
             // panelSlide
@@ -38,6 +39,9 @@
             this.panelSlide.Name = "panelSlide";
             this.panelSlide.Size = new System.Drawing.Size(662, 34);
             this.panelSlide.TabIndex = 88;
+            this.panelSlide.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelSlide_MouseDown);
+            this.panelSlide.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelSlide_MouseMove);
+            this.panelSlide.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panelSlide_MouseUp);
             // 
             // buttonClose
             // 
@@ -47,13 +51,24 @@
             this.buttonClose.TabIndex = 87;
             this.buttonClose.Text = "X";
             this.buttonClose.UseVisualStyleBackColor = true;
+            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
+            // 
+            // webBrowser
+            // 
+            this.webBrowser.Location = new System.Drawing.Point(5, 52);
+            this.webBrowser.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser.Name = "webBrowser";
+            this.webBrowser.Size = new System.Drawing.Size(693, 274);
+            this.webBrowser.TabIndex = 89;
+            this.webBrowser.Url = new System.Uri("https://www.bing.com/maps", System.UriKind.Absolute);
             // 
             // MapForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(47)))), ((int)(((byte)(68)))));
-            this.ClientSize = new System.Drawing.Size(706, 274);
+            this.ClientSize = new System.Drawing.Size(710, 338);
+            this.Controls.Add(this.webBrowser);
             this.Controls.Add(this.panelSlide);
             this.Controls.Add(this.buttonClose);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -67,5 +82,6 @@
 
         private System.Windows.Forms.Panel panelSlide;
         private System.Windows.Forms.Button buttonClose;
+        private System.Windows.Forms.WebBrowser webBrowser;
     }
 }

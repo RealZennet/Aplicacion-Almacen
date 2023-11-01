@@ -232,6 +232,7 @@
             this.buttonViewMap.TabIndex = 89;
             this.buttonViewMap.Text = "Ver Mapa";
             this.buttonViewMap.UseVisualStyleBackColor = true;
+            this.buttonViewMap.Click += new System.EventHandler(this.buttonViewMap_Click);
             // 
             // BatchManagerForm
             // 

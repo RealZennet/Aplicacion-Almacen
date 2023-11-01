@@ -237,5 +237,11 @@ namespace Aplicacion_Almacen.Forms
             DestinationListForm getAllDestinationsForm = new DestinationListForm();
             getAllDestinationsForm.Show();
         }
+
+        private void buttonViewMap_Click(object sender, EventArgs e)
+        {
+            MapForm viewMap = new MapForm();
+            viewMap.Show();
+        }
     }
 }
