@@ -46,6 +46,7 @@ namespace Aplicacion_Almacen.Forms
             buttonRefresh.Text = LanguageManager.GetString("Refresh");
             buttonBackToMainMenu.Text = LanguageManager.GetString("Back");
             buttonSearchByID.Text = LanguageManager.GetString("Searcher");
+            buttonViewMap.Text = LanguageManager.GetString("ViewMap");
 
             labelActivated.Text = LanguageManager.GetString("Activated");
             labelCorner.Text = LanguageManager.GetString("Corner");
@@ -326,6 +327,12 @@ namespace Aplicacion_Almacen.Forms
             searcherForm.Show();
         }
         #endregion searcher
+
+        private void buttonViewMap_Click(object sender, EventArgs e)
+        {
+            MapForm viewMap = new MapForm();
+            viewMap.Show();
+        }
     }
 
 }

@@ -46,6 +46,7 @@
             this.dateTimePickerBatchManagementTime = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.txtBoxEmail = new System.Windows.Forms.TextBox();
+            this.buttonViewMap = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBatch)).BeginInit();
             this.SuspendLayout();
             // 
@@ -117,6 +118,7 @@
             // 
             // dataGridViewBatch
             // 
+            this.dataGridViewBatch.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.dataGridViewBatch.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(47)))), ((int)(((byte)(68)))));
             this.dataGridViewBatch.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewBatch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -222,12 +224,23 @@
             this.txtBoxEmail.Size = new System.Drawing.Size(92, 20);
             this.txtBoxEmail.TabIndex = 87;
             // 
+            // buttonViewMap
+            // 
+            this.buttonViewMap.Location = new System.Drawing.Point(441, 440);
+            this.buttonViewMap.Name = "buttonViewMap";
+            this.buttonViewMap.Size = new System.Drawing.Size(92, 23);
+            this.buttonViewMap.TabIndex = 89;
+            this.buttonViewMap.Text = "Ver Mapa";
+            this.buttonViewMap.UseVisualStyleBackColor = true;
+            this.buttonViewMap.Click += new System.EventHandler(this.buttonViewMap_Click);
+            // 
             // BatchManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(47)))), ((int)(((byte)(68)))));
             this.ClientSize = new System.Drawing.Size(741, 481);
+            this.Controls.Add(this.buttonViewMap);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtBoxEmail);
             this.Controls.Add(this.dateTimePickerBatchManagementTime);
@@ -276,5 +289,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerBatchManagementTime;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtBoxEmail;
+        private System.Windows.Forms.Button buttonViewMap;
     }
 }
