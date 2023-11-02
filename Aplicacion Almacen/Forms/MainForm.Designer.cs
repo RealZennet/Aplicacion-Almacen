@@ -43,10 +43,12 @@
             this.panelSlidePanelMainForm = new System.Windows.Forms.Panel();
             this.buttonCloseMainMenu = new System.Windows.Forms.Button();
             this.buttonMinimize = new System.Windows.Forms.Button();
+            this.labelUserID = new System.Windows.Forms.Label();
             this.leftPanelContainer.SuspendLayout();
             this.settingsManagerPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelProductsAndBatchsContainer.SuspendLayout();
+            this.panelFormsLoader.SuspendLayout();
             this.SuspendLayout();
             // 
             // leftPanelContainer
@@ -205,6 +207,7 @@
             // 
             this.panelFormsLoader.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelFormsLoader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(47)))), ((int)(((byte)(68)))));
+            this.panelFormsLoader.Controls.Add(this.labelUserID);
             this.panelFormsLoader.Location = new System.Drawing.Point(256, 41);
             this.panelFormsLoader.Name = "panelFormsLoader";
             this.panelFormsLoader.Size = new System.Drawing.Size(773, 559);
@@ -244,6 +247,15 @@
             this.buttonMinimize.UseVisualStyleBackColor = true;
             this.buttonMinimize.Click += new System.EventHandler(this.buttonMinimize_Click);
             // 
+            // labelUserID
+            // 
+            this.labelUserID.AutoSize = true;
+            this.labelUserID.Location = new System.Drawing.Point(57, 39);
+            this.labelUserID.Name = "labelUserID";
+            this.labelUserID.Size = new System.Drawing.Size(21, 13);
+            this.labelUserID.TabIndex = 0;
+            this.labelUserID.Text = "ID:";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -263,6 +275,8 @@
             this.settingsManagerPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelProductsAndBatchsContainer.ResumeLayout(false);
+            this.panelFormsLoader.ResumeLayout(false);
+            this.panelFormsLoader.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -284,5 +298,6 @@
         private System.Windows.Forms.Panel panelSlidePanelMainForm;
         private System.Windows.Forms.Button buttonCloseMainMenu;
         private System.Windows.Forms.Button buttonMinimize;
+        private System.Windows.Forms.Label labelUserID;
     }
 }

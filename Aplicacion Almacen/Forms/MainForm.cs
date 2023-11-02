@@ -1,4 +1,5 @@
-﻿using Aplicacion_Almacen.Properties;
+﻿using Aplicacion_Almacen.Login;
+using Aplicacion_Almacen.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,14 +17,22 @@ namespace Aplicacion_Almacen.Forms
     {
         private int m, x, y;
         public event Action LanguageChanged;
+        private ApiResponse userApiResponse;
 
-        public MainForm()
+        public MainForm(ApiResponse userData)
         {
             InitializeComponent();
             roundedCircleForm();
             LanguageManager.Initialize(typeof(Languages.Resource_language_spanish));
             UpdateUI();
             customMenus();
+            userApiResponse = userData;
+            getUserData();
+        }
+
+        private void getUserData()
+        {
+            labelUserID.Text = $"Tipo: {userApiResponse.tipo}";
         }
 
         private void roundedCircleForm()

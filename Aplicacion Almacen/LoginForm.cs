@@ -58,9 +58,18 @@ namespace Aplicacion_Almacen
 
         private void openPrincipalForm()
         {
-            MainForm mainForm = new MainForm();
-            mainForm.Show();
-            this.Hide();
+            ApiResponse apiResponse = authService.Authenticate(textBox1.Text, textBox2.Text);
+
+            if (apiResponse != null && apiResponse.resultado == "OK" && apiResponse.tipo == "operario")
+            {
+                MainForm mainForm = new MainForm(apiResponse);
+                mainForm.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Error de autenticación");
+            }
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
@@ -75,6 +84,7 @@ namespace Aplicacion_Almacen
                 }
                 else if (apiResponse.resultado == "OK" && apiResponse.tipo == "operario")
                 {
+                    apiResponse.tipo = "operario";
                     openPrincipalForm();
                 }
                 else
