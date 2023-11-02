@@ -33,7 +33,6 @@
             this.settingsManagerPanel = new System.Windows.Forms.Panel();
             this.buttonEnglishLanguage = new System.Windows.Forms.Button();
             this.buttonLanguageSpanish = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelProductsAndBatchsContainer = new System.Windows.Forms.Panel();
             this.buttonTruckerCarryBatch = new System.Windows.Forms.Button();
             this.buttonAssignProducts = new System.Windows.Forms.Button();
@@ -44,11 +43,17 @@
             this.buttonCloseMainMenu = new System.Windows.Forms.Button();
             this.buttonMinimize = new System.Windows.Forms.Button();
             this.labelUserID = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.labelUser = new System.Windows.Forms.Label();
+            this.labelUserJob = new System.Windows.Forms.Label();
+            this.labelWorkerName = new System.Windows.Forms.Label();
             this.leftPanelContainer.SuspendLayout();
             this.settingsManagerPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelProductsAndBatchsContainer.SuspendLayout();
             this.panelFormsLoader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // leftPanelContainer
@@ -119,17 +124,6 @@
             this.buttonLanguageSpanish.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonLanguageSpanish.UseVisualStyleBackColor = true;
             this.buttonLanguageSpanish.Click += new System.EventHandler(this.buttonLanguageSpanish_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Image = global::Aplicacion_Almacen.Properties.Resources.ZENNETLOGO;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(250, 80);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
             // 
             // panelProductsAndBatchsContainer
             // 
@@ -207,6 +201,10 @@
             // 
             this.panelFormsLoader.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelFormsLoader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(47)))), ((int)(((byte)(68)))));
+            this.panelFormsLoader.Controls.Add(this.labelWorkerName);
+            this.panelFormsLoader.Controls.Add(this.labelUserJob);
+            this.panelFormsLoader.Controls.Add(this.labelUser);
+            this.panelFormsLoader.Controls.Add(this.pictureBox2);
             this.panelFormsLoader.Controls.Add(this.labelUserID);
             this.panelFormsLoader.Location = new System.Drawing.Point(256, 41);
             this.panelFormsLoader.Name = "panelFormsLoader";
@@ -250,11 +248,63 @@
             // labelUserID
             // 
             this.labelUserID.AutoSize = true;
-            this.labelUserID.Location = new System.Drawing.Point(57, 39);
+            this.labelUserID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUserID.Location = new System.Drawing.Point(107, 172);
             this.labelUserID.Name = "labelUserID";
-            this.labelUserID.Size = new System.Drawing.Size(21, 13);
+            this.labelUserID.Size = new System.Drawing.Size(30, 20);
             this.labelUserID.TabIndex = 0;
             this.labelUserID.Text = "ID:";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Aplicacion_Almacen.Properties.Resources.usuario;
+            this.pictureBox2.Location = new System.Drawing.Point(111, 59);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(106, 110);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox1.Image = global::Aplicacion_Almacen.Properties.Resources.ZENNETLOGO;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(250, 80);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // labelUser
+            // 
+            this.labelUser.AutoSize = true;
+            this.labelUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.labelUser.Location = new System.Drawing.Point(129, 15);
+            this.labelUser.Name = "labelUser";
+            this.labelUser.Size = new System.Drawing.Size(74, 24);
+            this.labelUser.TabIndex = 2;
+            this.labelUser.Text = "Usuario";
+            // 
+            // labelUserJob
+            // 
+            this.labelUserJob.AutoSize = true;
+            this.labelUserJob.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUserJob.Location = new System.Drawing.Point(107, 230);
+            this.labelUserJob.Name = "labelUserJob";
+            this.labelUserJob.Size = new System.Drawing.Size(60, 20);
+            this.labelUserJob.TabIndex = 3;
+            this.labelUserJob.Text = "Sector:";
+            // 
+            // labelWorkerName
+            // 
+            this.labelWorkerName.AutoSize = true;
+            this.labelWorkerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelWorkerName.Location = new System.Drawing.Point(107, 199);
+            this.labelWorkerName.Name = "labelWorkerName";
+            this.labelWorkerName.Size = new System.Drawing.Size(69, 20);
+            this.labelWorkerName.TabIndex = 4;
+            this.labelWorkerName.Text = "Nombre:";
             // 
             // MainForm
             // 
@@ -273,10 +323,11 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.leftPanelContainer.ResumeLayout(false);
             this.settingsManagerPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelProductsAndBatchsContainer.ResumeLayout(false);
             this.panelFormsLoader.ResumeLayout(false);
             this.panelFormsLoader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -299,5 +350,9 @@
         private System.Windows.Forms.Button buttonCloseMainMenu;
         private System.Windows.Forms.Button buttonMinimize;
         private System.Windows.Forms.Label labelUserID;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label labelUser;
+        private System.Windows.Forms.Label labelUserJob;
+        private System.Windows.Forms.Label labelWorkerName;
     }
 }

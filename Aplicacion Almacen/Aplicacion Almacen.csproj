@@ -232,5 +232,8 @@
   <ItemGroup>
     <None Include="Resources\ZENNETLOGO.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuario.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

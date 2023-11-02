@@ -10,6 +10,6 @@ namespace Aplicacion_Almacen.Login
     {
         public string resultado { get; set; }
         public string tipo { get; set; }
-        public int userID { get; set; } 
+        public int id { get; set; } 
     }
 }

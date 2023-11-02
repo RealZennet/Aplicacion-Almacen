@@ -18,8 +18,9 @@ namespace Aplicacion_Almacen.Forms
         private int m, x, y;
         public event Action LanguageChanged;
         private ApiResponse userApiResponse;
+        private ApiRequest userInfo;
 
-        public MainForm(ApiResponse userData)
+        public MainForm(ApiResponse userData, ApiRequest usernameInfo)
         {
             InitializeComponent();
             roundedCircleForm();
@@ -27,12 +28,15 @@ namespace Aplicacion_Almacen.Forms
             UpdateUI();
             customMenus();
             userApiResponse = userData;
+            userInfo = usernameInfo;
             getUserData();
         }
 
         private void getUserData()
         {
-            labelUserID.Text = $"Tipo: {userApiResponse.tipo}";
+            labelUserID.Text = $"ID: {userApiResponse.id}";
+            labelUserJob.Text = $"Puesto: {userApiResponse.tipo}";
+            labelWorkerName.Text = $"{userInfo.Username}";
         }
 
         private void roundedCircleForm()

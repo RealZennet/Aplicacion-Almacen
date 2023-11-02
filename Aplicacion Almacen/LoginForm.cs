@@ -59,10 +59,12 @@ namespace Aplicacion_Almacen
         private void openPrincipalForm()
         {
             ApiResponse apiResponse = authService.Authenticate(textBox1.Text, textBox2.Text);
+            ApiRequest apiRequest = new ApiRequest();
 
             if (apiResponse != null && apiResponse.resultado == "OK" && apiResponse.tipo == "operario")
             {
-                MainForm mainForm = new MainForm(apiResponse);
+                apiRequest.Username = textBox1.Text;
+                MainForm mainForm = new MainForm(apiResponse, apiRequest);
                 mainForm.Show();
                 this.Hide();
             }
@@ -84,7 +86,6 @@ namespace Aplicacion_Almacen
                 }
                 else if (apiResponse.resultado == "OK" && apiResponse.tipo == "operario")
                 {
-                    apiResponse.tipo = "operario";
                     openPrincipalForm();
                 }
                 else
