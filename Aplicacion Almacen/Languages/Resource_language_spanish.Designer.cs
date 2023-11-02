@@ -259,6 +259,15 @@ namespace Aplicacion_Almacen.Languages {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Puesto.
+        /// </summary>
+        internal static string Job {
+            get {
+                return ResourceManager.GetString("Job", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Lote encontrado.
         /// </summary>
         internal static string LotFound {
@@ -327,6 +336,15 @@ namespace Aplicacion_Almacen.Languages {
         internal static string ManageShipments {
             get {
                 return ResourceManager.GetString("ManageShipments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nombre.
+        /// </summary>
+        internal static string Name {
+            get {
+                return ResourceManager.GetString("Name", resourceCulture);
             }
         }
         

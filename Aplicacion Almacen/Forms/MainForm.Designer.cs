@@ -33,28 +33,28 @@
             this.settingsManagerPanel = new System.Windows.Forms.Panel();
             this.buttonEnglishLanguage = new System.Windows.Forms.Button();
             this.buttonLanguageSpanish = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelProductsAndBatchsContainer = new System.Windows.Forms.Panel();
             this.buttonTruckerCarryBatch = new System.Windows.Forms.Button();
             this.buttonAssignProducts = new System.Windows.Forms.Button();
             this.buttonProductsManager = new System.Windows.Forms.Button();
             this.buttonBatchManager = new System.Windows.Forms.Button();
             this.panelFormsLoader = new System.Windows.Forms.Panel();
+            this.panelSeparator = new System.Windows.Forms.Panel();
+            this.labelWorkerName = new System.Windows.Forms.Label();
+            this.labelUserJob = new System.Windows.Forms.Label();
+            this.labelUser = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.labelUserID = new System.Windows.Forms.Label();
             this.panelSlidePanelMainForm = new System.Windows.Forms.Panel();
             this.buttonCloseMainMenu = new System.Windows.Forms.Button();
             this.buttonMinimize = new System.Windows.Forms.Button();
-            this.labelUserID = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.labelUser = new System.Windows.Forms.Label();
-            this.labelUserJob = new System.Windows.Forms.Label();
-            this.labelWorkerName = new System.Windows.Forms.Label();
-            this.panelSeparator = new System.Windows.Forms.Panel();
             this.leftPanelContainer.SuspendLayout();
             this.settingsManagerPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelProductsAndBatchsContainer.SuspendLayout();
             this.panelFormsLoader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // leftPanelContainer
@@ -125,6 +125,17 @@
             this.buttonLanguageSpanish.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonLanguageSpanish.UseVisualStyleBackColor = true;
             this.buttonLanguageSpanish.Click += new System.EventHandler(this.buttonLanguageSpanish_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox1.Image = global::Aplicacion_Almacen.Properties.Resources.ZENNETLOGO;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(250, 80);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // panelProductsAndBatchsContainer
             // 
@@ -213,6 +224,64 @@
             this.panelFormsLoader.Size = new System.Drawing.Size(773, 559);
             this.panelFormsLoader.TabIndex = 3;
             // 
+            // panelSeparator
+            // 
+            this.panelSeparator.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(84)))), ((int)(((byte)(112)))));
+            this.panelSeparator.Location = new System.Drawing.Point(385, 1);
+            this.panelSeparator.Name = "panelSeparator";
+            this.panelSeparator.Size = new System.Drawing.Size(3, 524);
+            this.panelSeparator.TabIndex = 82;
+            // 
+            // labelWorkerName
+            // 
+            this.labelWorkerName.AutoSize = true;
+            this.labelWorkerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelWorkerName.Location = new System.Drawing.Point(34, 205);
+            this.labelWorkerName.Name = "labelWorkerName";
+            this.labelWorkerName.Size = new System.Drawing.Size(69, 20);
+            this.labelWorkerName.TabIndex = 4;
+            this.labelWorkerName.Text = "Nombre:";
+            // 
+            // labelUserJob
+            // 
+            this.labelUserJob.AutoSize = true;
+            this.labelUserJob.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUserJob.Location = new System.Drawing.Point(34, 240);
+            this.labelUserJob.Name = "labelUserJob";
+            this.labelUserJob.Size = new System.Drawing.Size(60, 20);
+            this.labelUserJob.TabIndex = 3;
+            this.labelUserJob.Text = "Sector:";
+            // 
+            // labelUser
+            // 
+            this.labelUser.AutoSize = true;
+            this.labelUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.labelUser.Location = new System.Drawing.Point(129, 15);
+            this.labelUser.Name = "labelUser";
+            this.labelUser.Size = new System.Drawing.Size(74, 24);
+            this.labelUser.TabIndex = 2;
+            this.labelUser.Text = "Usuario";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Aplicacion_Almacen.Properties.Resources.usuario;
+            this.pictureBox2.Location = new System.Drawing.Point(112, 42);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(106, 110);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            // 
+            // labelUserID
+            // 
+            this.labelUserID.AutoSize = true;
+            this.labelUserID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUserID.Location = new System.Drawing.Point(34, 167);
+            this.labelUserID.Name = "labelUserID";
+            this.labelUserID.Size = new System.Drawing.Size(30, 20);
+            this.labelUserID.TabIndex = 0;
+            this.labelUserID.Text = "ID:";
+            // 
             // panelSlidePanelMainForm
             // 
             this.panelSlidePanelMainForm.Location = new System.Drawing.Point(256, 0);
@@ -247,75 +316,6 @@
             this.buttonMinimize.UseVisualStyleBackColor = true;
             this.buttonMinimize.Click += new System.EventHandler(this.buttonMinimize_Click);
             // 
-            // labelUserID
-            // 
-            this.labelUserID.AutoSize = true;
-            this.labelUserID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUserID.Location = new System.Drawing.Point(34, 158);
-            this.labelUserID.Name = "labelUserID";
-            this.labelUserID.Size = new System.Drawing.Size(30, 20);
-            this.labelUserID.TabIndex = 0;
-            this.labelUserID.Text = "ID:";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Aplicacion_Almacen.Properties.Resources.usuario;
-            this.pictureBox2.Location = new System.Drawing.Point(38, 45);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(106, 110);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Image = global::Aplicacion_Almacen.Properties.Resources.ZENNETLOGO;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(250, 80);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // labelUser
-            // 
-            this.labelUser.AutoSize = true;
-            this.labelUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.labelUser.Location = new System.Drawing.Point(129, 15);
-            this.labelUser.Name = "labelUser";
-            this.labelUser.Size = new System.Drawing.Size(74, 24);
-            this.labelUser.TabIndex = 2;
-            this.labelUser.Text = "Usuario";
-            // 
-            // labelUserJob
-            // 
-            this.labelUserJob.AutoSize = true;
-            this.labelUserJob.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUserJob.Location = new System.Drawing.Point(34, 216);
-            this.labelUserJob.Name = "labelUserJob";
-            this.labelUserJob.Size = new System.Drawing.Size(60, 20);
-            this.labelUserJob.TabIndex = 3;
-            this.labelUserJob.Text = "Sector:";
-            // 
-            // labelWorkerName
-            // 
-            this.labelWorkerName.AutoSize = true;
-            this.labelWorkerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelWorkerName.Location = new System.Drawing.Point(34, 185);
-            this.labelWorkerName.Name = "labelWorkerName";
-            this.labelWorkerName.Size = new System.Drawing.Size(69, 20);
-            this.labelWorkerName.TabIndex = 4;
-            this.labelWorkerName.Text = "Nombre:";
-            // 
-            // panelSeparator
-            // 
-            this.panelSeparator.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(84)))), ((int)(((byte)(112)))));
-            this.panelSeparator.Location = new System.Drawing.Point(385, 1);
-            this.panelSeparator.Name = "panelSeparator";
-            this.panelSeparator.Size = new System.Drawing.Size(3, 524);
-            this.panelSeparator.TabIndex = 82;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -333,11 +333,11 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.leftPanelContainer.ResumeLayout(false);
             this.settingsManagerPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelProductsAndBatchsContainer.ResumeLayout(false);
             this.panelFormsLoader.ResumeLayout(false);
             this.panelFormsLoader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

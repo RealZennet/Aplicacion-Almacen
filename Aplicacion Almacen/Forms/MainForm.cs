@@ -29,14 +29,14 @@ namespace Aplicacion_Almacen.Forms
             customMenus();
             userApiResponse = userData;
             userInfo = usernameInfo;
-            getUserData();
+            workerInfo();
         }
 
-        private void getUserData()
+        private void workerInfo()
         {
+            labelUserJob.Text = LanguageManager.GetString("Job") + ": " + userApiResponse.tipo;
             labelUserID.Text = $"ID: {userApiResponse.id}";
-            labelUserJob.Text = $"Puesto: {userApiResponse.tipo}";
-            labelWorkerName.Text = $"Nombre: {userInfo.Username}";
+            labelWorkerName.Text = LanguageManager.GetString("Name") + ": " + userInfo.Username;
         }
 
         private void roundedCircleForm()
@@ -179,6 +179,18 @@ namespace Aplicacion_Almacen.Forms
             buttonProductsManager.Text = LanguageManager.GetString("ManageProducts");
             buttonBatchManager.Text = LanguageManager.GetString("ManageLots");
             buttonTruckerCarryBatch.Text = LanguageManager.GetString("AssignLotToTrucker");
+            if (userApiResponse != null)
+            {
+                labelUserJob.Text = LanguageManager.GetString("Job") + ": " + userApiResponse.tipo;
+                labelUserID.Text = $"ID: {userApiResponse.id}";
+            }
+
+            if (userInfo != null)
+            {
+                labelWorkerName.Text = LanguageManager.GetString("Name") + ": " + userInfo.Username;
+            }
+
+
         }
 
         private void buttonCloseMainMenu_Click(object sender, EventArgs e)
