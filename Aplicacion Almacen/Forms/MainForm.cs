@@ -36,7 +36,7 @@ namespace Aplicacion_Almacen.Forms
         {
             labelUserID.Text = $"ID: {userApiResponse.id}";
             labelUserJob.Text = $"Puesto: {userApiResponse.tipo}";
-            labelWorkerName.Text = $"{userInfo.Username}";
+            labelWorkerName.Text = $"Nombre: {userInfo.Username}";
         }
 
         private void roundedCircleForm()

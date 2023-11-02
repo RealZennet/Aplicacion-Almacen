@@ -48,6 +48,7 @@
             this.labelUser = new System.Windows.Forms.Label();
             this.labelUserJob = new System.Windows.Forms.Label();
             this.labelWorkerName = new System.Windows.Forms.Label();
+            this.panelSeparator = new System.Windows.Forms.Panel();
             this.leftPanelContainer.SuspendLayout();
             this.settingsManagerPanel.SuspendLayout();
             this.panelProductsAndBatchsContainer.SuspendLayout();
@@ -201,6 +202,7 @@
             // 
             this.panelFormsLoader.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelFormsLoader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(47)))), ((int)(((byte)(68)))));
+            this.panelFormsLoader.Controls.Add(this.panelSeparator);
             this.panelFormsLoader.Controls.Add(this.labelWorkerName);
             this.panelFormsLoader.Controls.Add(this.labelUserJob);
             this.panelFormsLoader.Controls.Add(this.labelUser);
@@ -249,7 +251,7 @@
             // 
             this.labelUserID.AutoSize = true;
             this.labelUserID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUserID.Location = new System.Drawing.Point(107, 172);
+            this.labelUserID.Location = new System.Drawing.Point(34, 158);
             this.labelUserID.Name = "labelUserID";
             this.labelUserID.Size = new System.Drawing.Size(30, 20);
             this.labelUserID.TabIndex = 0;
@@ -258,7 +260,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Aplicacion_Almacen.Properties.Resources.usuario;
-            this.pictureBox2.Location = new System.Drawing.Point(111, 59);
+            this.pictureBox2.Location = new System.Drawing.Point(38, 45);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(106, 110);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -290,7 +292,7 @@
             // 
             this.labelUserJob.AutoSize = true;
             this.labelUserJob.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUserJob.Location = new System.Drawing.Point(107, 230);
+            this.labelUserJob.Location = new System.Drawing.Point(34, 216);
             this.labelUserJob.Name = "labelUserJob";
             this.labelUserJob.Size = new System.Drawing.Size(60, 20);
             this.labelUserJob.TabIndex = 3;
@@ -300,11 +302,19 @@
             // 
             this.labelWorkerName.AutoSize = true;
             this.labelWorkerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelWorkerName.Location = new System.Drawing.Point(107, 199);
+            this.labelWorkerName.Location = new System.Drawing.Point(34, 185);
             this.labelWorkerName.Name = "labelWorkerName";
             this.labelWorkerName.Size = new System.Drawing.Size(69, 20);
             this.labelWorkerName.TabIndex = 4;
             this.labelWorkerName.Text = "Nombre:";
+            // 
+            // panelSeparator
+            // 
+            this.panelSeparator.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(84)))), ((int)(((byte)(112)))));
+            this.panelSeparator.Location = new System.Drawing.Point(385, 1);
+            this.panelSeparator.Name = "panelSeparator";
+            this.panelSeparator.Size = new System.Drawing.Size(3, 524);
+            this.panelSeparator.TabIndex = 82;
             // 
             // MainForm
             // 
@@ -354,5 +364,6 @@
         private System.Windows.Forms.Label labelUser;
         private System.Windows.Forms.Label labelUserJob;
         private System.Windows.Forms.Label labelWorkerName;
+        private System.Windows.Forms.Panel panelSeparator;
     }
 }
