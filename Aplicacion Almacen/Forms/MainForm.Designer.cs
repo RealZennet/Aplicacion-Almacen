@@ -33,7 +33,6 @@
             this.settingsManagerPanel = new System.Windows.Forms.Panel();
             this.buttonEnglishLanguage = new System.Windows.Forms.Button();
             this.buttonLanguageSpanish = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelProductsAndBatchsContainer = new System.Windows.Forms.Panel();
             this.buttonTruckerCarryBatch = new System.Windows.Forms.Button();
             this.buttonAssignProducts = new System.Windows.Forms.Button();
@@ -44,17 +43,22 @@
             this.labelWorkerName = new System.Windows.Forms.Label();
             this.labelUserJob = new System.Windows.Forms.Label();
             this.labelUser = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.labelUserID = new System.Windows.Forms.Label();
             this.panelSlidePanelMainForm = new System.Windows.Forms.Panel();
             this.buttonCloseMainMenu = new System.Windows.Forms.Button();
             this.buttonMinimize = new System.Windows.Forms.Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.labelTotalBatchs = new System.Windows.Forms.Label();
+            this.labelTotalProducts = new System.Windows.Forms.Label();
             this.leftPanelContainer.SuspendLayout();
             this.settingsManagerPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelProductsAndBatchsContainer.SuspendLayout();
             this.panelFormsLoader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // leftPanelContainer
@@ -125,17 +129,6 @@
             this.buttonLanguageSpanish.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonLanguageSpanish.UseVisualStyleBackColor = true;
             this.buttonLanguageSpanish.Click += new System.EventHandler(this.buttonLanguageSpanish_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Image = global::Aplicacion_Almacen.Properties.Resources.ZENNETLOGO;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(250, 80);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
             // 
             // panelProductsAndBatchsContainer
             // 
@@ -213,6 +206,9 @@
             // 
             this.panelFormsLoader.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelFormsLoader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(47)))), ((int)(((byte)(68)))));
+            this.panelFormsLoader.Controls.Add(this.labelTotalProducts);
+            this.panelFormsLoader.Controls.Add(this.labelTotalBatchs);
+            this.panelFormsLoader.Controls.Add(this.pictureBox3);
             this.panelFormsLoader.Controls.Add(this.panelSeparator);
             this.panelFormsLoader.Controls.Add(this.labelWorkerName);
             this.panelFormsLoader.Controls.Add(this.labelUserJob);
@@ -262,16 +258,6 @@
             this.labelUser.TabIndex = 2;
             this.labelUser.Text = "Usuario";
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Aplicacion_Almacen.Properties.Resources.usuario;
-            this.pictureBox2.Location = new System.Drawing.Point(112, 42);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(106, 110);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
             // labelUserID
             // 
             this.labelUserID.AutoSize = true;
@@ -316,6 +302,57 @@
             this.buttonMinimize.UseVisualStyleBackColor = true;
             this.buttonMinimize.Click += new System.EventHandler(this.buttonMinimize_Click);
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::Aplicacion_Almacen.Properties.Resources.png_clipart_logistics_computer_icons_freight_transport_logistics_computer_icons_removebg_preview;
+            this.pictureBox3.Location = new System.Drawing.Point(509, 39);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(124, 113);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 83;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Aplicacion_Almacen.Properties.Resources.usuario;
+            this.pictureBox2.Location = new System.Drawing.Point(112, 42);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(113, 110);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox1.Image = global::Aplicacion_Almacen.Properties.Resources.ZENNETLOGO;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(250, 80);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // labelTotalBatchs
+            // 
+            this.labelTotalBatchs.AutoSize = true;
+            this.labelTotalBatchs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotalBatchs.Location = new System.Drawing.Point(422, 167);
+            this.labelTotalBatchs.Name = "labelTotalBatchs";
+            this.labelTotalBatchs.Size = new System.Drawing.Size(109, 20);
+            this.labelTotalBatchs.TabIndex = 84;
+            this.labelTotalBatchs.Text = "Lotes Totales:";
+            // 
+            // labelTotalProducts
+            // 
+            this.labelTotalProducts.AutoSize = true;
+            this.labelTotalProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotalProducts.Location = new System.Drawing.Point(422, 205);
+            this.labelTotalProducts.Name = "labelTotalProducts";
+            this.labelTotalProducts.Size = new System.Drawing.Size(141, 20);
+            this.labelTotalProducts.TabIndex = 85;
+            this.labelTotalProducts.Text = "Productos Totales:";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -333,11 +370,12 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.leftPanelContainer.ResumeLayout(false);
             this.settingsManagerPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelProductsAndBatchsContainer.ResumeLayout(false);
             this.panelFormsLoader.ResumeLayout(false);
             this.panelFormsLoader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -365,5 +403,8 @@
         private System.Windows.Forms.Label labelUserJob;
         private System.Windows.Forms.Label labelWorkerName;
         private System.Windows.Forms.Panel panelSeparator;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label labelTotalBatchs;
+        private System.Windows.Forms.Label labelTotalProducts;
     }
 }
