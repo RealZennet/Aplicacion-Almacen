@@ -157,6 +157,7 @@
             // 
             // buttonSearcher
             // 
+            this.buttonSearcher.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonSearcher.Location = new System.Drawing.Point(637, 440);
             this.buttonSearcher.Name = "buttonSearcher";
             this.buttonSearcher.Size = new System.Drawing.Size(92, 23);
@@ -190,6 +191,7 @@
             // 
             // buttonDestinationList
             // 
+            this.buttonDestinationList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonDestinationList.Location = new System.Drawing.Point(539, 440);
             this.buttonDestinationList.Name = "buttonDestinationList";
             this.buttonDestinationList.Size = new System.Drawing.Size(92, 23);
@@ -226,6 +228,7 @@
             // 
             // buttonViewMap
             // 
+            this.buttonViewMap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonViewMap.Location = new System.Drawing.Point(441, 440);
             this.buttonViewMap.Name = "buttonViewMap";
             this.buttonViewMap.Size = new System.Drawing.Size(92, 23);

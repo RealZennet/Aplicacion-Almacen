@@ -288,4 +288,10 @@
   <data name="ViewMap" xml:space="preserve">
     <value>View Map</value>
   </data>
+  <data name="Job" xml:space="preserve">
+    <value>Puesto</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
 </root>

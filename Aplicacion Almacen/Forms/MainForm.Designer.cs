@@ -40,13 +40,16 @@
             this.buttonProductsManager = new System.Windows.Forms.Button();
             this.buttonBatchManager = new System.Windows.Forms.Button();
             this.panelFormsLoader = new System.Windows.Forms.Panel();
-            this.panelSlidePanelMainForm = new System.Windows.Forms.Panel();
-            this.buttonCloseMainMenu = new System.Windows.Forms.Button();
-            this.buttonMinimize = new System.Windows.Forms.Button();
+            this.labelWorkerName = new System.Windows.Forms.Label();
+            this.labelUserJob = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.labelUserID = new System.Windows.Forms.Label();
             this.leftPanelContainer.SuspendLayout();
             this.settingsManagerPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelProductsAndBatchsContainer.SuspendLayout();
+            this.panelFormsLoader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // leftPanelContainer
@@ -80,6 +83,7 @@
             // 
             // settingsManagerPanel
             // 
+            this.settingsManagerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.settingsManagerPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
             this.settingsManagerPanel.Controls.Add(this.buttonEnglishLanguage);
             this.settingsManagerPanel.Controls.Add(this.buttonLanguageSpanish);
@@ -90,13 +94,14 @@
             // 
             // buttonEnglishLanguage
             // 
+            this.buttonEnglishLanguage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonEnglishLanguage.FlatAppearance.BorderSize = 0;
             this.buttonEnglishLanguage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEnglishLanguage.ForeColor = System.Drawing.Color.Gainsboro;
             this.buttonEnglishLanguage.Location = new System.Drawing.Point(0, 3);
             this.buttonEnglishLanguage.Name = "buttonEnglishLanguage";
             this.buttonEnglishLanguage.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.buttonEnglishLanguage.Size = new System.Drawing.Size(244, 29);
+            this.buttonEnglishLanguage.Size = new System.Drawing.Size(247, 29);
             this.buttonEnglishLanguage.TabIndex = 5;
             this.buttonEnglishLanguage.Text = "English";
             this.buttonEnglishLanguage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -105,6 +110,7 @@
             // 
             // buttonLanguageSpanish
             // 
+            this.buttonLanguageSpanish.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonLanguageSpanish.FlatAppearance.BorderSize = 0;
             this.buttonLanguageSpanish.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLanguageSpanish.ForeColor = System.Drawing.Color.Gainsboro;
@@ -203,46 +209,58 @@
             // 
             // panelFormsLoader
             // 
-            this.panelFormsLoader.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panelFormsLoader.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelFormsLoader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(47)))), ((int)(((byte)(68)))));
+            this.panelFormsLoader.Controls.Add(this.labelWorkerName);
+            this.panelFormsLoader.Controls.Add(this.labelUserJob);
+            this.panelFormsLoader.Controls.Add(this.pictureBox2);
+            this.panelFormsLoader.Controls.Add(this.labelUserID);
             this.panelFormsLoader.Location = new System.Drawing.Point(256, 41);
             this.panelFormsLoader.Name = "panelFormsLoader";
             this.panelFormsLoader.Size = new System.Drawing.Size(773, 559);
             this.panelFormsLoader.TabIndex = 3;
             // 
-            // panelSlidePanelMainForm
+            // labelWorkerName
             // 
-            this.panelSlidePanelMainForm.Location = new System.Drawing.Point(256, 0);
-            this.panelSlidePanelMainForm.Name = "panelSlidePanelMainForm";
-            this.panelSlidePanelMainForm.Size = new System.Drawing.Size(671, 35);
-            this.panelSlidePanelMainForm.TabIndex = 4;
-            this.panelSlidePanelMainForm.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelSlidePanelMainForm_MouseDown);
-            this.panelSlidePanelMainForm.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelSlidePanelMainForm_MouseMove);
-            this.panelSlidePanelMainForm.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panelSlidePanelMainForm_MouseUp);
+            this.labelWorkerName.AutoSize = true;
+            this.labelWorkerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelWorkerName.Location = new System.Drawing.Point(19, 16);
+            this.labelWorkerName.Name = "labelWorkerName";
+            this.labelWorkerName.Size = new System.Drawing.Size(69, 20);
+            this.labelWorkerName.TabIndex = 4;
+            this.labelWorkerName.Text = "Nombre:";
             // 
-            // buttonCloseMainMenu
+            // labelUserJob
             // 
-            this.buttonCloseMainMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCloseMainMenu.ForeColor = System.Drawing.Color.Olive;
-            this.buttonCloseMainMenu.Location = new System.Drawing.Point(963, 9);
-            this.buttonCloseMainMenu.Name = "buttonCloseMainMenu";
-            this.buttonCloseMainMenu.Size = new System.Drawing.Size(20, 23);
-            this.buttonCloseMainMenu.TabIndex = 57;
-            this.buttonCloseMainMenu.Text = "X";
-            this.buttonCloseMainMenu.UseVisualStyleBackColor = true;
-            this.buttonCloseMainMenu.Click += new System.EventHandler(this.buttonCloseMainMenu_Click);
+            this.labelUserJob.AutoSize = true;
+            this.labelUserJob.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUserJob.Location = new System.Drawing.Point(19, 190);
+            this.labelUserJob.Name = "labelUserJob";
+            this.labelUserJob.Size = new System.Drawing.Size(60, 20);
+            this.labelUserJob.TabIndex = 3;
+            this.labelUserJob.Text = "Sector:";
             // 
-            // buttonMinimize
+            // pictureBox2
             // 
-            this.buttonMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonMinimize.ForeColor = System.Drawing.Color.Olive;
-            this.buttonMinimize.Location = new System.Drawing.Point(989, 9);
-            this.buttonMinimize.Name = "buttonMinimize";
-            this.buttonMinimize.Size = new System.Drawing.Size(20, 23);
-            this.buttonMinimize.TabIndex = 58;
-            this.buttonMinimize.Text = "_";
-            this.buttonMinimize.UseVisualStyleBackColor = true;
-            this.buttonMinimize.Click += new System.EventHandler(this.buttonMinimize_Click);
+            this.pictureBox2.Image = global::Aplicacion_Almacen.Properties.Resources.usuario;
+            this.pictureBox2.Location = new System.Drawing.Point(23, 39);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(113, 110);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            // 
+            // labelUserID
+            // 
+            this.labelUserID.AutoSize = true;
+            this.labelUserID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUserID.Location = new System.Drawing.Point(19, 164);
+            this.labelUserID.Name = "labelUserID";
+            this.labelUserID.Size = new System.Drawing.Size(30, 20);
+            this.labelUserID.TabIndex = 0;
+            this.labelUserID.Text = "ID:";
             // 
             // MainForm
             // 
@@ -250,19 +268,19 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(47)))), ((int)(((byte)(68)))));
             this.ClientSize = new System.Drawing.Size(1021, 568);
-            this.Controls.Add(this.buttonMinimize);
-            this.Controls.Add(this.buttonCloseMainMenu);
-            this.Controls.Add(this.panelSlidePanelMainForm);
             this.Controls.Add(this.panelFormsLoader);
             this.Controls.Add(this.leftPanelContainer);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainForm";
             this.Text = "Aplicacion Almacen";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.leftPanelContainer.ResumeLayout(false);
             this.settingsManagerPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelProductsAndBatchsContainer.ResumeLayout(false);
+            this.panelFormsLoader.ResumeLayout(false);
+            this.panelFormsLoader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -281,8 +299,9 @@
         private System.Windows.Forms.Panel panelFormsLoader;
         private System.Windows.Forms.Button buttonTruckerCarryBatch;
         private System.Windows.Forms.Button buttonEnglishLanguage;
-        private System.Windows.Forms.Panel panelSlidePanelMainForm;
-        private System.Windows.Forms.Button buttonCloseMainMenu;
-        private System.Windows.Forms.Button buttonMinimize;
+        private System.Windows.Forms.Label labelUserID;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label labelUserJob;
+        private System.Windows.Forms.Label labelWorkerName;
     }
 }

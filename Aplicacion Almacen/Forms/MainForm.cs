@@ -1,4 +1,8 @@
-﻿using Aplicacion_Almacen.Properties;
+﻿using Aplicacion_Almacen.ApiRequests;
+using Aplicacion_Almacen.Login;
+using Aplicacion_Almacen.Properties;
+using Aplicacion_Almacen.StoreHouseRequests;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,32 +18,27 @@ namespace Aplicacion_Almacen.Forms
 {
     public partial class MainForm : Form
     {
-        private int m, x, y;
         public event Action LanguageChanged;
+        private ApiResponse userApiResponse;
+        private ApiRequest userInfo;
 
-        public MainForm()
+        public MainForm(ApiResponse userData, ApiRequest usernameInfo)
         {
             InitializeComponent();
-            roundedCircleForm();
             LanguageManager.Initialize(typeof(Languages.Resource_language_spanish));
             UpdateUI();
             customMenus();
+            userApiResponse = userData;
+            userInfo = usernameInfo;
+            workerInfo();
+
         }
 
-        private void roundedCircleForm()
+        private void workerInfo()
         {
-            int radiusBorder = 25;
-
-            Rectangle rectangleBorder = new Rectangle(0, 0, this.Width, this.Height);
-
-            GraphicsPath graphicBorder = new GraphicsPath();
-            graphicBorder.AddArc(rectangleBorder.X, rectangleBorder.Y, radiusBorder, radiusBorder, 180, 90);
-            graphicBorder.AddArc(rectangleBorder.Right - radiusBorder, rectangleBorder.Y, radiusBorder, radiusBorder, 270, 90);
-            graphicBorder.AddArc(rectangleBorder.Right - radiusBorder, rectangleBorder.Bottom - radiusBorder, radiusBorder, radiusBorder, 0, 90);
-            graphicBorder.AddArc(rectangleBorder.X, rectangleBorder.Bottom - radiusBorder, radiusBorder, radiusBorder, 90, 90);
-            graphicBorder.CloseAllFigures();
-
-            this.Region = new Region(graphicBorder);
+            labelUserJob.Text = LanguageManager.GetString("Job") + ": " + userApiResponse.tipo;
+            labelUserID.Text = $"ID: {userApiResponse.id}";
+            labelWorkerName.Text = LanguageManager.GetString("Name") + ": " + userInfo.Username;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -166,6 +165,18 @@ namespace Aplicacion_Almacen.Forms
             buttonProductsManager.Text = LanguageManager.GetString("ManageProducts");
             buttonBatchManager.Text = LanguageManager.GetString("ManageLots");
             buttonTruckerCarryBatch.Text = LanguageManager.GetString("AssignLotToTrucker");
+            if (userApiResponse != null)
+            {
+                labelUserJob.Text = LanguageManager.GetString("Job") + ": " + userApiResponse.tipo;
+                labelUserID.Text = $"ID: {userApiResponse.id}";
+            }
+
+            if (userInfo != null)
+            {
+                labelWorkerName.Text = LanguageManager.GetString("Name") + ": " + userInfo.Username;
+            }
+
+
         }
 
         private void buttonCloseMainMenu_Click(object sender, EventArgs e)
@@ -178,27 +189,11 @@ namespace Aplicacion_Almacen.Forms
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void panelSlidePanelMainForm_MouseMove(object sender, MouseEventArgs e)
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (m == 1)
-            {
-                this.SetDesktopLocation(MousePosition.X - x, MousePosition.Y - y);
-            }
-        }
-
-        private void panelSlidePanelMainForm_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                m = 1;
-                x = e.X;
-                y = e.Y;
-            }
-        }
-
-        private void panelSlidePanelMainForm_MouseUp(object sender, MouseEventArgs e)
-        {
-            m = 0;
+            this.Hide();
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
         }
     }
 }
