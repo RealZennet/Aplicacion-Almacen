@@ -80,6 +80,7 @@
             // 
             // buttonSearchByID
             // 
+            this.buttonSearchByID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonSearchByID.Location = new System.Drawing.Point(670, 485);
             this.buttonSearchByID.Name = "buttonSearchByID";
             this.buttonSearchByID.Size = new System.Drawing.Size(75, 23);
@@ -281,6 +282,7 @@
             // 
             // buttonViewMap
             // 
+            this.buttonViewMap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonViewMap.Location = new System.Drawing.Point(572, 485);
             this.buttonViewMap.Name = "buttonViewMap";
             this.buttonViewMap.Size = new System.Drawing.Size(92, 23);
