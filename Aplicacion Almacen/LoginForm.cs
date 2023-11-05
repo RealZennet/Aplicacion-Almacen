@@ -20,30 +20,11 @@ namespace Aplicacion_Almacen
     public partial class LoginForm : Form
     {
         private readonly ApiRequestLogin authService;
-        private int m, x, y;
 
         public LoginForm()
         {
             InitializeComponent();
-            roundedCircleForm();
             authService = new ApiRequestLogin("http://localhost:52231");
-
-        }
-
-        private void roundedCircleForm()
-        {
-            int radiusBorder = 25;
-
-            Rectangle rectangleBorder = new Rectangle(0, 0, this.Width, this.Height);
-
-            GraphicsPath graphicBorder = new GraphicsPath();
-            graphicBorder.AddArc(rectangleBorder.X, rectangleBorder.Y, radiusBorder, radiusBorder, 180, 90);
-            graphicBorder.AddArc(rectangleBorder.Right - radiusBorder, rectangleBorder.Y, radiusBorder, radiusBorder, 270, 90);
-            graphicBorder.AddArc(rectangleBorder.Right - radiusBorder, rectangleBorder.Bottom - radiusBorder, radiusBorder, radiusBorder, 0, 90);
-            graphicBorder.AddArc(rectangleBorder.X, rectangleBorder.Bottom - radiusBorder, radiusBorder, radiusBorder, 90, 90);
-            graphicBorder.CloseAllFigures();
-
-            this.Region = new Region(graphicBorder);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -99,32 +80,9 @@ namespace Aplicacion_Almacen
             }
         }
 
-        private void panelSlidePanelLoginForm_MouseUp(object sender, MouseEventArgs e)
+        private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            m = 0;
-        }
-
-        private void panelSlidePanelLoginForm_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (m == 1)
-            {
-                this.SetDesktopLocation(MousePosition.X - x, MousePosition.Y - y);
-            }
-        }
-
-        private void panelSlidePanelLoginForm_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                m = 1;
-                x = e.X;
-                y = e.Y;
-            }
-        }
-
-        private void buttonCloseMainMenu_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
+            Environment.Exit(0);
         }
 
         private void buttonMinimize_Click(object sender, EventArgs e)

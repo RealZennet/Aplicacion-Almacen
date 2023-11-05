@@ -81,6 +81,7 @@
     <Compile Include="ApiRequests\ApiRequestAssignProductToBatch.cs" />
     <Compile Include="ApiRequests\ApiRequestBatch.cs" />
     <Compile Include="ApiRequests\ApiRequestDestinationList.cs" />
+    <Compile Include="ApiRequests\ApiRequestGeneralInfo.cs" />
     <Compile Include="ApiRequests\ApiRequestLogin.cs" />
     <Compile Include="ApiRequests\ApiRequestProduct.cs" />
     <Compile Include="Forms\AssignBatchToTruckForm.cs">
@@ -163,6 +164,7 @@
     <Compile Include="StoreHouseRequests\AssignProductsToBatchInterface.cs" />
     <Compile Include="StoreHouseRequests\BatchInterface.cs" />
     <Compile Include="StoreHouseRequests\DestinationInterface.cs" />
+    <Compile Include="StoreHouseRequests\GeneralInfoInterface.cs" />
     <Compile Include="StoreHouseRequests\ProductInterface.cs" />
     <EmbeddedResource Include="Forms\AssignBatchToTruckForm.resx">
       <DependentUpon>AssignBatchToTruckForm.cs</DependentUpon>
@@ -234,6 +236,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\usuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-transparent-cargo-transport-logistics-computer-icons-cargo-angle-service-people.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-clipart-logistics-computer-icons-freight-transport-logistics-computer-icons-removebg-preview.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

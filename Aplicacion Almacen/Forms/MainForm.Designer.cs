@@ -33,32 +33,23 @@
             this.settingsManagerPanel = new System.Windows.Forms.Panel();
             this.buttonEnglishLanguage = new System.Windows.Forms.Button();
             this.buttonLanguageSpanish = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelProductsAndBatchsContainer = new System.Windows.Forms.Panel();
             this.buttonTruckerCarryBatch = new System.Windows.Forms.Button();
             this.buttonAssignProducts = new System.Windows.Forms.Button();
             this.buttonProductsManager = new System.Windows.Forms.Button();
             this.buttonBatchManager = new System.Windows.Forms.Button();
             this.panelFormsLoader = new System.Windows.Forms.Panel();
-            this.panelSeparator = new System.Windows.Forms.Panel();
             this.labelWorkerName = new System.Windows.Forms.Label();
             this.labelUserJob = new System.Windows.Forms.Label();
-            this.labelUser = new System.Windows.Forms.Label();
-            this.labelUserID = new System.Windows.Forms.Label();
-            this.panelSlidePanelMainForm = new System.Windows.Forms.Panel();
-            this.buttonCloseMainMenu = new System.Windows.Forms.Button();
-            this.buttonMinimize = new System.Windows.Forms.Button();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.labelTotalBatchs = new System.Windows.Forms.Label();
-            this.labelTotalProducts = new System.Windows.Forms.Label();
+            this.labelUserID = new System.Windows.Forms.Label();
             this.leftPanelContainer.SuspendLayout();
             this.settingsManagerPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelProductsAndBatchsContainer.SuspendLayout();
             this.panelFormsLoader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // leftPanelContainer
@@ -92,6 +83,7 @@
             // 
             // settingsManagerPanel
             // 
+            this.settingsManagerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.settingsManagerPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
             this.settingsManagerPanel.Controls.Add(this.buttonEnglishLanguage);
             this.settingsManagerPanel.Controls.Add(this.buttonLanguageSpanish);
@@ -102,13 +94,14 @@
             // 
             // buttonEnglishLanguage
             // 
+            this.buttonEnglishLanguage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonEnglishLanguage.FlatAppearance.BorderSize = 0;
             this.buttonEnglishLanguage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEnglishLanguage.ForeColor = System.Drawing.Color.Gainsboro;
             this.buttonEnglishLanguage.Location = new System.Drawing.Point(0, 3);
             this.buttonEnglishLanguage.Name = "buttonEnglishLanguage";
             this.buttonEnglishLanguage.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.buttonEnglishLanguage.Size = new System.Drawing.Size(244, 29);
+            this.buttonEnglishLanguage.Size = new System.Drawing.Size(247, 29);
             this.buttonEnglishLanguage.TabIndex = 5;
             this.buttonEnglishLanguage.Text = "English";
             this.buttonEnglishLanguage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -117,6 +110,7 @@
             // 
             // buttonLanguageSpanish
             // 
+            this.buttonLanguageSpanish.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonLanguageSpanish.FlatAppearance.BorderSize = 0;
             this.buttonLanguageSpanish.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLanguageSpanish.ForeColor = System.Drawing.Color.Gainsboro;
@@ -129,6 +123,17 @@
             this.buttonLanguageSpanish.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonLanguageSpanish.UseVisualStyleBackColor = true;
             this.buttonLanguageSpanish.Click += new System.EventHandler(this.buttonLanguageSpanish_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox1.Image = global::Aplicacion_Almacen.Properties.Resources.ZENNETLOGO;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(250, 80);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // panelProductsAndBatchsContainer
             // 
@@ -204,15 +209,12 @@
             // 
             // panelFormsLoader
             // 
-            this.panelFormsLoader.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panelFormsLoader.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelFormsLoader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(47)))), ((int)(((byte)(68)))));
-            this.panelFormsLoader.Controls.Add(this.labelTotalProducts);
-            this.panelFormsLoader.Controls.Add(this.labelTotalBatchs);
-            this.panelFormsLoader.Controls.Add(this.pictureBox3);
-            this.panelFormsLoader.Controls.Add(this.panelSeparator);
             this.panelFormsLoader.Controls.Add(this.labelWorkerName);
             this.panelFormsLoader.Controls.Add(this.labelUserJob);
-            this.panelFormsLoader.Controls.Add(this.labelUser);
             this.panelFormsLoader.Controls.Add(this.pictureBox2);
             this.panelFormsLoader.Controls.Add(this.labelUserID);
             this.panelFormsLoader.Location = new System.Drawing.Point(256, 41);
@@ -220,19 +222,11 @@
             this.panelFormsLoader.Size = new System.Drawing.Size(773, 559);
             this.panelFormsLoader.TabIndex = 3;
             // 
-            // panelSeparator
-            // 
-            this.panelSeparator.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(84)))), ((int)(((byte)(112)))));
-            this.panelSeparator.Location = new System.Drawing.Point(385, 1);
-            this.panelSeparator.Name = "panelSeparator";
-            this.panelSeparator.Size = new System.Drawing.Size(3, 524);
-            this.panelSeparator.TabIndex = 82;
-            // 
             // labelWorkerName
             // 
             this.labelWorkerName.AutoSize = true;
             this.labelWorkerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelWorkerName.Location = new System.Drawing.Point(34, 205);
+            this.labelWorkerName.Location = new System.Drawing.Point(19, 16);
             this.labelWorkerName.Name = "labelWorkerName";
             this.labelWorkerName.Size = new System.Drawing.Size(69, 20);
             this.labelWorkerName.TabIndex = 4;
@@ -242,116 +236,31 @@
             // 
             this.labelUserJob.AutoSize = true;
             this.labelUserJob.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUserJob.Location = new System.Drawing.Point(34, 240);
+            this.labelUserJob.Location = new System.Drawing.Point(19, 190);
             this.labelUserJob.Name = "labelUserJob";
             this.labelUserJob.Size = new System.Drawing.Size(60, 20);
             this.labelUserJob.TabIndex = 3;
             this.labelUserJob.Text = "Sector:";
             // 
-            // labelUser
-            // 
-            this.labelUser.AutoSize = true;
-            this.labelUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.labelUser.Location = new System.Drawing.Point(129, 15);
-            this.labelUser.Name = "labelUser";
-            this.labelUser.Size = new System.Drawing.Size(74, 24);
-            this.labelUser.TabIndex = 2;
-            this.labelUser.Text = "Usuario";
-            // 
-            // labelUserID
-            // 
-            this.labelUserID.AutoSize = true;
-            this.labelUserID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUserID.Location = new System.Drawing.Point(34, 167);
-            this.labelUserID.Name = "labelUserID";
-            this.labelUserID.Size = new System.Drawing.Size(30, 20);
-            this.labelUserID.TabIndex = 0;
-            this.labelUserID.Text = "ID:";
-            // 
-            // panelSlidePanelMainForm
-            // 
-            this.panelSlidePanelMainForm.Location = new System.Drawing.Point(256, 0);
-            this.panelSlidePanelMainForm.Name = "panelSlidePanelMainForm";
-            this.panelSlidePanelMainForm.Size = new System.Drawing.Size(671, 35);
-            this.panelSlidePanelMainForm.TabIndex = 4;
-            this.panelSlidePanelMainForm.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelSlidePanelMainForm_MouseDown);
-            this.panelSlidePanelMainForm.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelSlidePanelMainForm_MouseMove);
-            this.panelSlidePanelMainForm.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panelSlidePanelMainForm_MouseUp);
-            // 
-            // buttonCloseMainMenu
-            // 
-            this.buttonCloseMainMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCloseMainMenu.ForeColor = System.Drawing.Color.Olive;
-            this.buttonCloseMainMenu.Location = new System.Drawing.Point(963, 9);
-            this.buttonCloseMainMenu.Name = "buttonCloseMainMenu";
-            this.buttonCloseMainMenu.Size = new System.Drawing.Size(20, 23);
-            this.buttonCloseMainMenu.TabIndex = 57;
-            this.buttonCloseMainMenu.Text = "X";
-            this.buttonCloseMainMenu.UseVisualStyleBackColor = true;
-            this.buttonCloseMainMenu.Click += new System.EventHandler(this.buttonCloseMainMenu_Click);
-            // 
-            // buttonMinimize
-            // 
-            this.buttonMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonMinimize.ForeColor = System.Drawing.Color.Olive;
-            this.buttonMinimize.Location = new System.Drawing.Point(989, 9);
-            this.buttonMinimize.Name = "buttonMinimize";
-            this.buttonMinimize.Size = new System.Drawing.Size(20, 23);
-            this.buttonMinimize.TabIndex = 58;
-            this.buttonMinimize.Text = "_";
-            this.buttonMinimize.UseVisualStyleBackColor = true;
-            this.buttonMinimize.Click += new System.EventHandler(this.buttonMinimize_Click);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::Aplicacion_Almacen.Properties.Resources.png_clipart_logistics_computer_icons_freight_transport_logistics_computer_icons_removebg_preview;
-            this.pictureBox3.Location = new System.Drawing.Point(509, 39);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(124, 113);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 83;
-            this.pictureBox3.TabStop = false;
-            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Aplicacion_Almacen.Properties.Resources.usuario;
-            this.pictureBox2.Location = new System.Drawing.Point(112, 42);
+            this.pictureBox2.Location = new System.Drawing.Point(23, 39);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(113, 110);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
-            // pictureBox1
+            // labelUserID
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Image = global::Aplicacion_Almacen.Properties.Resources.ZENNETLOGO;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(250, 80);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // labelTotalBatchs
-            // 
-            this.labelTotalBatchs.AutoSize = true;
-            this.labelTotalBatchs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotalBatchs.Location = new System.Drawing.Point(422, 167);
-            this.labelTotalBatchs.Name = "labelTotalBatchs";
-            this.labelTotalBatchs.Size = new System.Drawing.Size(109, 20);
-            this.labelTotalBatchs.TabIndex = 84;
-            this.labelTotalBatchs.Text = "Lotes Totales:";
-            // 
-            // labelTotalProducts
-            // 
-            this.labelTotalProducts.AutoSize = true;
-            this.labelTotalProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotalProducts.Location = new System.Drawing.Point(422, 205);
-            this.labelTotalProducts.Name = "labelTotalProducts";
-            this.labelTotalProducts.Size = new System.Drawing.Size(141, 20);
-            this.labelTotalProducts.TabIndex = 85;
-            this.labelTotalProducts.Text = "Productos Totales:";
+            this.labelUserID.AutoSize = true;
+            this.labelUserID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUserID.Location = new System.Drawing.Point(19, 164);
+            this.labelUserID.Name = "labelUserID";
+            this.labelUserID.Size = new System.Drawing.Size(30, 20);
+            this.labelUserID.TabIndex = 0;
+            this.labelUserID.Text = "ID:";
             // 
             // MainForm
             // 
@@ -359,23 +268,19 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(47)))), ((int)(((byte)(68)))));
             this.ClientSize = new System.Drawing.Size(1021, 568);
-            this.Controls.Add(this.buttonMinimize);
-            this.Controls.Add(this.buttonCloseMainMenu);
-            this.Controls.Add(this.panelSlidePanelMainForm);
             this.Controls.Add(this.panelFormsLoader);
             this.Controls.Add(this.leftPanelContainer);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainForm";
             this.Text = "Aplicacion Almacen";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.leftPanelContainer.ResumeLayout(false);
             this.settingsManagerPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelProductsAndBatchsContainer.ResumeLayout(false);
             this.panelFormsLoader.ResumeLayout(false);
             this.panelFormsLoader.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -394,17 +299,9 @@
         private System.Windows.Forms.Panel panelFormsLoader;
         private System.Windows.Forms.Button buttonTruckerCarryBatch;
         private System.Windows.Forms.Button buttonEnglishLanguage;
-        private System.Windows.Forms.Panel panelSlidePanelMainForm;
-        private System.Windows.Forms.Button buttonCloseMainMenu;
-        private System.Windows.Forms.Button buttonMinimize;
         private System.Windows.Forms.Label labelUserID;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label labelUser;
         private System.Windows.Forms.Label labelUserJob;
         private System.Windows.Forms.Label labelWorkerName;
-        private System.Windows.Forms.Panel panelSeparator;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Label labelTotalBatchs;
-        private System.Windows.Forms.Label labelTotalProducts;
     }
 }
