@@ -44,6 +44,7 @@
             this.labelUserJob = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.labelUserID = new System.Windows.Forms.Label();
+            this.buttonEmail = new System.Windows.Forms.Button();
             this.leftPanelContainer.SuspendLayout();
             this.settingsManagerPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -138,13 +139,14 @@
             // panelProductsAndBatchsContainer
             // 
             this.panelProductsAndBatchsContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
+            this.panelProductsAndBatchsContainer.Controls.Add(this.buttonEmail);
             this.panelProductsAndBatchsContainer.Controls.Add(this.buttonTruckerCarryBatch);
             this.panelProductsAndBatchsContainer.Controls.Add(this.buttonAssignProducts);
             this.panelProductsAndBatchsContainer.Controls.Add(this.buttonProductsManager);
             this.panelProductsAndBatchsContainer.Controls.Add(this.buttonBatchManager);
             this.panelProductsAndBatchsContainer.Location = new System.Drawing.Point(0, 131);
             this.panelProductsAndBatchsContainer.Name = "panelProductsAndBatchsContainer";
-            this.panelProductsAndBatchsContainer.Size = new System.Drawing.Size(250, 135);
+            this.panelProductsAndBatchsContainer.Size = new System.Drawing.Size(250, 164);
             this.panelProductsAndBatchsContainer.TabIndex = 0;
             // 
             // buttonTruckerCarryBatch
@@ -262,6 +264,21 @@
             this.labelUserID.TabIndex = 0;
             this.labelUserID.Text = "ID:";
             // 
+            // buttonEmail
+            // 
+            this.buttonEmail.FlatAppearance.BorderSize = 0;
+            this.buttonEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEmail.ForeColor = System.Drawing.Color.Gainsboro;
+            this.buttonEmail.Location = new System.Drawing.Point(0, 135);
+            this.buttonEmail.Name = "buttonEmail";
+            this.buttonEmail.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.buttonEmail.Size = new System.Drawing.Size(240, 26);
+            this.buttonEmail.TabIndex = 7;
+            this.buttonEmail.Text = "Emails";
+            this.buttonEmail.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonEmail.UseVisualStyleBackColor = true;
+            this.buttonEmail.Click += new System.EventHandler(this.buttonEmail_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -303,5 +320,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label labelUserJob;
         private System.Windows.Forms.Label labelWorkerName;
+        private System.Windows.Forms.Button buttonEmail;
     }
 }
