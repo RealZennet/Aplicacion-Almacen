@@ -34,6 +34,7 @@
             this.labelMessage = new System.Windows.Forms.Label();
             this.buttonBackToMainMenu = new System.Windows.Forms.Button();
             this.buttonSendEmail = new System.Windows.Forms.Button();
+            this.buttonMsgTemplate = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelDestination
@@ -51,7 +52,7 @@
             this.richTextBoxContent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBoxContent.Location = new System.Drawing.Point(12, 201);
             this.richTextBoxContent.Name = "richTextBoxContent";
-            this.richTextBoxContent.Size = new System.Drawing.Size(341, 229);
+            this.richTextBoxContent.Size = new System.Drawing.Size(561, 229);
             this.richTextBoxContent.TabIndex = 78;
             this.richTextBoxContent.Text = "";
             // 
@@ -87,12 +88,26 @@
             // 
             this.buttonSendEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSendEmail.ForeColor = System.Drawing.Color.Olive;
-            this.buttonSendEmail.Location = new System.Drawing.Point(240, 170);
+            this.buttonSendEmail.Location = new System.Drawing.Point(142, 154);
             this.buttonSendEmail.Name = "buttonSendEmail";
             this.buttonSendEmail.Size = new System.Drawing.Size(113, 23);
             this.buttonSendEmail.TabIndex = 83;
             this.buttonSendEmail.Text = "Enviar";
             this.buttonSendEmail.UseVisualStyleBackColor = true;
+            this.buttonSendEmail.Click += new System.EventHandler(this.buttonSendEmail_Click);
+            // 
+            // buttonMsgTemplate
+            // 
+            this.buttonMsgTemplate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMsgTemplate.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.25F);
+            this.buttonMsgTemplate.ForeColor = System.Drawing.Color.Olive;
+            this.buttonMsgTemplate.Location = new System.Drawing.Point(579, 385);
+            this.buttonMsgTemplate.Name = "buttonMsgTemplate";
+            this.buttonMsgTemplate.Size = new System.Drawing.Size(50, 45);
+            this.buttonMsgTemplate.TabIndex = 84;
+            this.buttonMsgTemplate.Text = "✎";
+            this.buttonMsgTemplate.UseVisualStyleBackColor = true;
+            this.buttonMsgTemplate.Click += new System.EventHandler(this.buttonMsgTemplate_Click);
             // 
             // EmailForm
             // 
@@ -100,6 +115,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(47)))), ((int)(((byte)(68)))));
             this.ClientSize = new System.Drawing.Size(725, 442);
+            this.Controls.Add(this.buttonMsgTemplate);
             this.Controls.Add(this.buttonSendEmail);
             this.Controls.Add(this.buttonBackToMainMenu);
             this.Controls.Add(this.labelMessage);
@@ -122,5 +138,6 @@
         private System.Windows.Forms.Label labelMessage;
         private System.Windows.Forms.Button buttonBackToMainMenu;
         private System.Windows.Forms.Button buttonSendEmail;
+        private System.Windows.Forms.Button buttonMsgTemplate;
     }
 }

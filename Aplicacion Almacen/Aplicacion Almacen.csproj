@@ -81,6 +81,7 @@
     <Compile Include="ApiRequests\ApiRequestAssignProductToBatch.cs" />
     <Compile Include="ApiRequests\ApiRequestBatch.cs" />
     <Compile Include="ApiRequests\ApiRequestDestinationList.cs" />
+    <Compile Include="ApiRequests\ApiRequestEmailNotifier.cs" />
     <Compile Include="ApiRequests\ApiRequestGeneralInfo.cs" />
     <Compile Include="ApiRequests\ApiRequestLogin.cs" />
     <Compile Include="ApiRequests\ApiRequestProduct.cs" />
@@ -171,6 +172,7 @@
     <Compile Include="StoreHouseRequests\BatchInterface.cs" />
     <Compile Include="StoreHouseRequests\DestinationInterface.cs" />
     <Compile Include="StoreHouseRequests\GeneralInfoInterface.cs" />
+    <Compile Include="StoreHouseRequests\GmailNotifierInterface.cs" />
     <Compile Include="StoreHouseRequests\ProductInterface.cs" />
     <EmbeddedResource Include="Forms\AssignBatchToTruckForm.resx">
       <DependentUpon>AssignBatchToTruckForm.cs</DependentUpon>
