@@ -294,4 +294,13 @@
   <data name="Name" xml:space="preserve">
     <value>Nombre</value>
   </data>
+  <data name="Destination" xml:space="preserve">
+    <value>Destinatario (Email)</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>Mensaje</value>
+  </data>
+  <data name="SendEmail" xml:space="preserve">
+    <value>Enviar</value>
+  </data>
 </root>
