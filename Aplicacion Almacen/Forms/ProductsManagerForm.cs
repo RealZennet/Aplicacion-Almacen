@@ -29,6 +29,8 @@ namespace Aplicacion_Almacen.Forms
             comboBoxActivated.Items.Add("true");
             comboBoxActivated.Items.Add("false");
             comboBoxActivated.SelectedItem = "false";
+            comboBoxActivated.DropDownStyle = ComboBoxStyle.DropDownList;
+
             MainForm mainForm = Application.OpenForms.OfType<MainForm>().FirstOrDefault();
             if (mainForm != null)
             {
