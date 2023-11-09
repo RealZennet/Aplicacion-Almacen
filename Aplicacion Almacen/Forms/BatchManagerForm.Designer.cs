@@ -47,6 +47,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtBoxEmail = new System.Windows.Forms.TextBox();
             this.buttonViewMap = new System.Windows.Forms.Button();
+            this.comboBoxPosition = new System.Windows.Forms.ComboBox();
+            this.labelPosition = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBatch)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,7 +79,7 @@
             // 
             // buttonRefresh
             // 
-            this.buttonRefresh.Location = new System.Drawing.Point(14, 440);
+            this.buttonRefresh.Location = new System.Drawing.Point(138, 441);
             this.buttonRefresh.Name = "buttonRefresh";
             this.buttonRefresh.Size = new System.Drawing.Size(112, 23);
             this.buttonRefresh.TabIndex = 15;
@@ -87,7 +89,7 @@
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(73, 412);
+            this.buttonDelete.Location = new System.Drawing.Point(197, 413);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(53, 23);
             this.buttonDelete.TabIndex = 14;
@@ -97,7 +99,7 @@
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(14, 412);
+            this.buttonAdd.Location = new System.Drawing.Point(138, 413);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(53, 23);
             this.buttonAdd.TabIndex = 13;
@@ -237,12 +239,33 @@
             this.buttonViewMap.UseVisualStyleBackColor = true;
             this.buttonViewMap.Click += new System.EventHandler(this.buttonViewMap_Click);
             // 
+            // comboBoxPosition
+            // 
+            this.comboBoxPosition.FormattingEnabled = true;
+            this.comboBoxPosition.Location = new System.Drawing.Point(14, 440);
+            this.comboBoxPosition.Name = "comboBoxPosition";
+            this.comboBoxPosition.Size = new System.Drawing.Size(96, 21);
+            this.comboBoxPosition.TabIndex = 91;
+            // 
+            // labelPosition
+            // 
+            this.labelPosition.AutoSize = true;
+            this.labelPosition.BackColor = System.Drawing.Color.Transparent;
+            this.labelPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.labelPosition.Location = new System.Drawing.Point(11, 415);
+            this.labelPosition.Name = "labelPosition";
+            this.labelPosition.Size = new System.Drawing.Size(61, 17);
+            this.labelPosition.TabIndex = 90;
+            this.labelPosition.Text = "Posicion";
+            // 
             // BatchManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(47)))), ((int)(((byte)(68)))));
             this.ClientSize = new System.Drawing.Size(741, 481);
+            this.Controls.Add(this.comboBoxPosition);
+            this.Controls.Add(this.labelPosition);
             this.Controls.Add(this.buttonViewMap);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtBoxEmail);
@@ -293,5 +316,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtBoxEmail;
         private System.Windows.Forms.Button buttonViewMap;
+        private System.Windows.Forms.ComboBox comboBoxPosition;
+        private System.Windows.Forms.Label labelPosition;
     }
 }

@@ -303,4 +303,7 @@
   <data name="SendEmail" xml:space="preserve">
     <value>Enviar</value>
   </data>
+  <data name="Position" xml:space="preserve">
+    <value>Posicion</value>
+  </data>
 </root>

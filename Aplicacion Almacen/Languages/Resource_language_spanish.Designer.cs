@@ -376,6 +376,15 @@ namespace Aplicacion_Almacen.Languages {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Posicion.
+        /// </summary>
+        internal static string Position {
+            get {
+                return ResourceManager.GetString("Position", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Distribucion de productos y lotes.
         /// </summary>
         internal static string ProductAndLotDistribution {

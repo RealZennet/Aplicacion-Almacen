@@ -28,6 +28,14 @@ namespace Aplicacion_Almacen.Forms
             comboBoxActivated.Items.Add("true");
             comboBoxActivated.Items.Add("false");
             comboBoxActivated.SelectedItem = "false";
+            comboBoxActivated.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            comboBoxPosition.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxPosition.Items.Add("Adelante");
+            comboBoxPosition.Items.Add("Intermedio");
+            comboBoxPosition.Items.Add("Atras");
+            comboBoxPosition.SelectedItem = "Atras";
+
             MainForm mainForm = Application.OpenForms.OfType<MainForm>().FirstOrDefault();
             if (mainForm != null)
             {
@@ -50,7 +58,8 @@ namespace Aplicacion_Almacen.Forms
             labelEstimatedDate.Text = LanguageManager.GetString("EstimatedDate");
             labelLot.Text = LanguageManager.GetString("LotID");
             labelIDDestination.Text = LanguageManager.GetString("IDDestination");
-          
+            labelPosition.Text = LanguageManager.GetString("Position");
+
         }
 
         private void buttonBackToMainMenu_Click(object sender, EventArgs e)
@@ -69,17 +78,6 @@ namespace Aplicacion_Almacen.Forms
             return JsonConvert.DeserializeObject<List<BatchInterface>>(content);
         }
 
-        private static void fillDataTable(DataTable table, BatchInterface batch)
-        {
-            DataRow rows = table.NewRow();
-            rows["ID"] = batch.IDBatches;
-            rows["Email"] = batch.Email;
-            rows[LanguageManager.GetString("DateOfCreation")] = batch.DateOfCreation;
-            rows[LanguageManager.GetString("IDDestination")] = batch.IDShipp;
-            rows[LanguageManager.GetString("DateOfShipment")] = batch.ShippingDate;
-            rows[LanguageManager.GetString("Activated")] = batch.ActivedBatch;
-            table.Rows.Add(rows);
-        }
 
         private DataTable getDataTable()
         {
@@ -92,6 +90,7 @@ namespace Aplicacion_Almacen.Forms
             table.Columns.Add(LanguageManager.GetString("DateOfCreation"), typeof(DateTime));
             table.Columns.Add(LanguageManager.GetString("IDDestination"), typeof(int));
             table.Columns.Add(LanguageManager.GetString("DateOfShipment"), typeof(DateTime));
+            table.Columns.Add(LanguageManager.GetString("Position"), typeof(string));
             table.Columns.Add(LanguageManager.GetString("Activated"), typeof(bool));
 
             foreach (BatchInterface batch in batchCreated)
@@ -102,10 +101,24 @@ namespace Aplicacion_Almacen.Forms
                 row[LanguageManager.GetString("DateOfCreation")] = batch.DateOfCreation;
                 row[LanguageManager.GetString("IDDestination")] = batch.IDShipp;
                 row[LanguageManager.GetString("DateOfShipment")] = batch.ShippingDate;
+                row[LanguageManager.GetString("Position")] = batch.Position;
                 row[LanguageManager.GetString("Activated")] = batch.ActivedBatch;
                 table.Rows.Add(row);
             }
             return table;
+        }
+
+        private static void fillDataTable(DataTable table, BatchInterface batch)
+        {
+            DataRow rows = table.NewRow();
+            rows["ID"] = batch.IDBatches;
+            rows["Email"] = batch.Email;
+            rows[LanguageManager.GetString("DateOfCreation")] = batch.DateOfCreation;
+            rows[LanguageManager.GetString("IDDestination")] = batch.IDShipp;
+            rows[LanguageManager.GetString("DateOfShipment")] = batch.ShippingDate;
+            rows[LanguageManager.GetString("Position")] = batch.ShippingDate;
+            rows[LanguageManager.GetString("Activated")] = batch.ActivedBatch;
+            table.Rows.Add(rows);
         }
 
         private void refreshTable()
@@ -139,6 +152,7 @@ namespace Aplicacion_Almacen.Forms
                 IDShipp = Convert.ToInt32(txtBoxIDDestination.Text),
                 Email = txtBoxEmail.Text,
                 ShippingDate = Convert.ToDateTime(dateandtime),
+                Position = comboBoxPosition.SelectedItem.ToString(),
                 ActivedBatch = Convert.ToBoolean(statusValue)
             };
 
