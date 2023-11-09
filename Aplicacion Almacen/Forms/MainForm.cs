@@ -110,6 +110,11 @@ namespace Aplicacion_Almacen.Forms
             showForm(formAssignProducttoBatchCtl);
         }
 
+        private void showEmailsForm()
+        {
+            EmailForm emailForm = new EmailForm();
+            showForm(emailForm);
+        }
 
         private void showAssignedBatchToTruckForm()
         {
@@ -194,6 +199,11 @@ namespace Aplicacion_Almacen.Forms
             this.Hide();
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
+        }
+
+        private void buttonEmail_Click(object sender, EventArgs e)
+        {
+            showEmailsForm();
         }
     }
 }
