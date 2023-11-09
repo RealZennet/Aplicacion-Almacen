@@ -58,7 +58,7 @@
             this.webBrowser.Location = new System.Drawing.Point(5, 52);
             this.webBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser.Name = "webBrowser";
-            this.webBrowser.Size = new System.Drawing.Size(693, 274);
+            this.webBrowser.Size = new System.Drawing.Size(693, 361);
             this.webBrowser.TabIndex = 89;
             this.webBrowser.Url = new System.Uri("https://www.bing.com/maps", System.UriKind.Absolute);
             // 
@@ -67,7 +67,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(47)))), ((int)(((byte)(68)))));
-            this.ClientSize = new System.Drawing.Size(710, 338);
+            this.ClientSize = new System.Drawing.Size(711, 425);
             this.Controls.Add(this.webBrowser);
             this.Controls.Add(this.panelSlide);
             this.Controls.Add(this.buttonClose);

@@ -104,7 +104,6 @@ namespace Aplicacion_Almacen.Forms
             
         }
 
-
         private void panelSlide_Paint(object sender, PaintEventArgs e)
         {
 
@@ -122,7 +121,6 @@ namespace Aplicacion_Almacen.Forms
             rows[LanguageManager.GetString("Activated")] = batch.ActivedBatch;
             table.Rows.Add(rows);
         }
-
 
     }
 }
