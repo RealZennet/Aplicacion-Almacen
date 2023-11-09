@@ -79,7 +79,7 @@
             // 
             // buttonRefresh
             // 
-            this.buttonRefresh.Location = new System.Drawing.Point(138, 441);
+            this.buttonRefresh.Location = new System.Drawing.Point(12, 437);
             this.buttonRefresh.Name = "buttonRefresh";
             this.buttonRefresh.Size = new System.Drawing.Size(112, 23);
             this.buttonRefresh.TabIndex = 15;
@@ -89,7 +89,7 @@
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(197, 413);
+            this.buttonDelete.Location = new System.Drawing.Point(71, 409);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(53, 23);
             this.buttonDelete.TabIndex = 14;
@@ -99,7 +99,7 @@
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(138, 413);
+            this.buttonAdd.Location = new System.Drawing.Point(12, 409);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(53, 23);
             this.buttonAdd.TabIndex = 13;
@@ -141,7 +141,7 @@
             // 
             // txtBoxIDBatch
             // 
-            this.txtBoxIDBatch.Location = new System.Drawing.Point(14, 386);
+            this.txtBoxIDBatch.Location = new System.Drawing.Point(251, 273);
             this.txtBoxIDBatch.Name = "txtBoxIDBatch";
             this.txtBoxIDBatch.Size = new System.Drawing.Size(50, 20);
             this.txtBoxIDBatch.TabIndex = 42;
@@ -151,7 +151,7 @@
             this.labelLot.AutoSize = true;
             this.labelLot.BackColor = System.Drawing.Color.Transparent;
             this.labelLot.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.labelLot.Location = new System.Drawing.Point(11, 366);
+            this.labelLot.Location = new System.Drawing.Point(248, 253);
             this.labelLot.Name = "labelLot";
             this.labelLot.Size = new System.Drawing.Size(53, 17);
             this.labelLot.TabIndex = 43;
@@ -242,7 +242,7 @@
             // comboBoxPosition
             // 
             this.comboBoxPosition.FormattingEnabled = true;
-            this.comboBoxPosition.Location = new System.Drawing.Point(14, 440);
+            this.comboBoxPosition.Location = new System.Drawing.Point(12, 375);
             this.comboBoxPosition.Name = "comboBoxPosition";
             this.comboBoxPosition.Size = new System.Drawing.Size(96, 21);
             this.comboBoxPosition.TabIndex = 91;
@@ -252,7 +252,7 @@
             this.labelPosition.AutoSize = true;
             this.labelPosition.BackColor = System.Drawing.Color.Transparent;
             this.labelPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.labelPosition.Location = new System.Drawing.Point(11, 415);
+            this.labelPosition.Location = new System.Drawing.Point(12, 355);
             this.labelPosition.Name = "labelPosition";
             this.labelPosition.Size = new System.Drawing.Size(61, 17);
             this.labelPosition.TabIndex = 90;
