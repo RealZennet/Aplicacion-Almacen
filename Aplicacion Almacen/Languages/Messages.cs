@@ -22,6 +22,8 @@ namespace Aplicacion_Almacen.Languages
         public static string InvalidID => LanguageManager.GetString("InvalidID");
         public static string VerifyData => LanguageManager.GetString("VerifyData");
         public static string ViewMap => LanguageManager.GetString("ViewMap");
+        public static string Job => LanguageManager.GetString("Job");
+        public static string Name => LanguageManager.GetString("Name"); 
     }
 
 }

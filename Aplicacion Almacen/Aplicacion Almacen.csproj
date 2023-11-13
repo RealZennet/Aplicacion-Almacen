@@ -81,6 +81,8 @@
     <Compile Include="ApiRequests\ApiRequestAssignProductToBatch.cs" />
     <Compile Include="ApiRequests\ApiRequestBatch.cs" />
     <Compile Include="ApiRequests\ApiRequestDestinationList.cs" />
+    <Compile Include="ApiRequests\ApiRequestEmailNotifier.cs" />
+    <Compile Include="ApiRequests\ApiRequestGeneralInfo.cs" />
     <Compile Include="ApiRequests\ApiRequestLogin.cs" />
     <Compile Include="ApiRequests\ApiRequestProduct.cs" />
     <Compile Include="Forms\AssignBatchToTruckForm.cs">
@@ -107,11 +109,47 @@
     <Compile Include="Forms\BatchManagerSearcherForm.Designer.cs">
       <DependentUpon>BatchManagerSearcherForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\crudForms\AddBatchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\crudForms\AddBatchForm.Designer.cs">
+      <DependentUpon>AddBatchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\crudForms\AddProductForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\crudForms\AddProductForm.Designer.cs">
+      <DependentUpon>AddProductForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\crudForms\AssignBatchToTruckComponentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\crudForms\AssignBatchToTruckComponentForm.Designer.cs">
+      <DependentUpon>AssignBatchToTruckComponentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\crudForms\EditProductForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\crudForms\EditProductForm.Designer.cs">
+      <DependentUpon>EditProductForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\crudForms\IntegrateProductToBatchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\crudForms\IntegrateProductToBatchForm.Designer.cs">
+      <DependentUpon>IntegrateProductToBatchForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\DestinationListForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\DestinationListForm.Designer.cs">
       <DependentUpon>DestinationListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EmailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EmailForm.Designer.cs">
+      <DependentUpon>EmailForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
@@ -163,6 +201,8 @@
     <Compile Include="StoreHouseRequests\AssignProductsToBatchInterface.cs" />
     <Compile Include="StoreHouseRequests\BatchInterface.cs" />
     <Compile Include="StoreHouseRequests\DestinationInterface.cs" />
+    <Compile Include="StoreHouseRequests\GeneralInfoInterface.cs" />
+    <Compile Include="StoreHouseRequests\GmailNotifierInterface.cs" />
     <Compile Include="StoreHouseRequests\ProductInterface.cs" />
     <EmbeddedResource Include="Forms\AssignBatchToTruckForm.resx">
       <DependentUpon>AssignBatchToTruckForm.cs</DependentUpon>
@@ -176,8 +216,26 @@
     <EmbeddedResource Include="Forms\BatchManagerSearcherForm.resx">
       <DependentUpon>BatchManagerSearcherForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\crudForms\AddBatchForm.resx">
+      <DependentUpon>AddBatchForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\crudForms\AddProductForm.resx">
+      <DependentUpon>AddProductForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\crudForms\AssignBatchToTruckComponentForm.resx">
+      <DependentUpon>AssignBatchToTruckComponentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\crudForms\EditProductForm.resx">
+      <DependentUpon>EditProductForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\crudForms\IntegrateProductToBatchForm.resx">
+      <DependentUpon>IntegrateProductToBatchForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\DestinationListForm.resx">
       <DependentUpon>DestinationListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EmailForm.resx">
+      <DependentUpon>EmailForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -232,5 +290,15 @@
   <ItemGroup>
     <None Include="Resources\ZENNETLOGO.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-transparent-cargo-transport-logistics-computer-icons-cargo-angle-service-people.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-clipart-logistics-computer-icons-freight-transport-logistics-computer-icons-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

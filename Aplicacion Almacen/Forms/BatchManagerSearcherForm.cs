@@ -79,6 +79,7 @@ namespace Aplicacion_Almacen.Forms
                         table.Columns.Add(LanguageManager.GetString("DateOfCreation"), typeof(DateTime));
                         table.Columns.Add(LanguageManager.GetString("IDDestination"), typeof(int));
                         table.Columns.Add(LanguageManager.GetString("DateOfShipment"), typeof(DateTime));
+                        table.Columns.Add(LanguageManager.GetString("Position"), typeof(string));
                         table.Columns.Add(LanguageManager.GetString("Activated"), typeof(bool));
 
                         fillDataTable(table, batch);
@@ -103,7 +104,6 @@ namespace Aplicacion_Almacen.Forms
             
         }
 
-
         private void panelSlide_Paint(object sender, PaintEventArgs e)
         {
 
@@ -117,10 +117,10 @@ namespace Aplicacion_Almacen.Forms
             rows[LanguageManager.GetString("DateOfCreation")] = batch.DateOfCreation;
             rows[LanguageManager.GetString("IDDestination")] = batch.IDShipp;
             rows[LanguageManager.GetString("DateOfShipment")] = batch.ShippingDate;
+            rows[LanguageManager.GetString("Position")] = batch.Position;
             rows[LanguageManager.GetString("Activated")] = batch.ActivedBatch;
             table.Rows.Add(rows);
         }
-
 
     }
 }
