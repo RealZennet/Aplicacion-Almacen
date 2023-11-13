@@ -95,8 +95,6 @@ namespace Aplicacion_Almacen.Forms.crudForms
                 return;
             }
 
-            
-
             if (!validateInputsUser())
             {
                 MessageBox.Show(Messages.CompleteAllBoxAndStatus);
