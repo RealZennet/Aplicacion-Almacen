@@ -1,4 +1,5 @@
 ﻿using Aplicacion_Almacen.ApiRequests;
+using Aplicacion_Almacen.Forms.crudForms;
 using Aplicacion_Almacen.Languages;
 using Aplicacion_Almacen.StoreHouseRequests;
 using Newtonsoft.Json;
@@ -8,6 +9,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,6 +33,7 @@ namespace Aplicacion_Almacen.Forms
                 mainForm.LanguageChanged += UpdateLanguage;
             }
             apiRequests = new ApiRequestAssignProductToBatch("http://localhost:64191");
+            roundedCircleForm();
         }
 
         private void UpdateLanguage()
@@ -39,10 +42,22 @@ namespace Aplicacion_Almacen.Forms
             buttonDelete.Text = LanguageManager.GetString("Delete");
             buttonRefresh.Text = LanguageManager.GetString("Refresh");
             buttonBackToMainMenu.Text = LanguageManager.GetString("Back");
+        }
 
-            labelIDLotToAssign.Text = LanguageManager.GetString("LotIDToAssign");
-            labelAssignProductToLot.Text = LanguageManager.GetString("ProductIDToAssign");
+        private void roundedCircleForm()
+        {
+            int radiusBorder = 25;
 
+            Rectangle rectangleBorder = new Rectangle(0, 0, this.Width, this.Height);
+
+            GraphicsPath graphicBorder = new GraphicsPath();
+            graphicBorder.AddArc(rectangleBorder.X, rectangleBorder.Y, radiusBorder, radiusBorder, 180, 90);
+            graphicBorder.AddArc(rectangleBorder.Right - radiusBorder, rectangleBorder.Y, radiusBorder, radiusBorder, 270, 90);
+            graphicBorder.AddArc(rectangleBorder.Right - radiusBorder, rectangleBorder.Bottom - radiusBorder, radiusBorder, radiusBorder, 0, 90);
+            graphicBorder.AddArc(rectangleBorder.X, rectangleBorder.Bottom - radiusBorder, radiusBorder, radiusBorder, 90, 90);
+            graphicBorder.CloseAllFigures();
+
+            this.Region = new Region(graphicBorder);
         }
 
         private void buttonBackToMainMenu_Click(object sender, EventArgs e)
@@ -99,30 +114,27 @@ namespace Aplicacion_Almacen.Forms
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            jsonBody = "";
-
-            if (!validateInputsUser())
+            if (!IsFormOpen<IntegrateProductToBatchForm>())
             {
-                MessageBox.Show(Messages.CompleteAllBoxAndStatus);
-                return;
-            }
-
-            AssignProductsToBatchInterface batch = new AssignProductsToBatchInterface
-            {
-                IDProduct = Convert.ToInt32(txtBoxIDProduct.Text),
-                IDBatch = Convert.ToInt32(txtBoxIDBatch.Text)
-            };
-
-            if (apiRequests.AddAssignedProduct(batch))
-            {
-                refreshTable();
-                MessageBox.Show(Messages.Successful);
-                clearTxtBoxs();
+                IntegrateProductToBatchForm integrateproudcttobatchform = new IntegrateProductToBatchForm();
+                integrateproudcttobatchform.Show();
             }
             else
             {
-                MessageBox.Show(Messages.Error + ", " + Messages.CompleteAllBoxAndStatus);
+                MessageBox.Show(Messages.Error);
             }
+        }
+
+        private bool IsFormOpen<T>() where T : Form
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.GetType() == typeof(T))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         #endregion postAssignedProductToAPI
@@ -139,7 +151,6 @@ namespace Aplicacion_Almacen.Forms
                 {
                     refreshTable();
                     MessageBox.Show(Messages.Successful);
-                    clearTxtBoxs();
                 }
                 else
                 {
@@ -157,23 +168,7 @@ namespace Aplicacion_Almacen.Forms
 
         #region validationsAndUtils
 
-        private bool validateInputsUser()
-        {
-
-            if (string.IsNullOrWhiteSpace(txtBoxIDBatch.Text) ||
-                string.IsNullOrWhiteSpace(txtBoxIDProduct.Text))
-            {
-                return false;
-            }
-
-            return true;
-        }
-
-        private void clearTxtBoxs()
-        {
-            txtBoxIDBatch.Clear();
-            txtBoxIDProduct.Clear();
-        }
+        
 
         private void buttonRefresh_Click(object sender, EventArgs e)
         {

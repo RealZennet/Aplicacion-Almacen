@@ -1,4 +1,5 @@
 ﻿using Aplicacion_Almacen.ApiRequests;
+using Aplicacion_Almacen.Forms.crudForms;
 using Aplicacion_Almacen.Languages;
 using Aplicacion_Almacen.StoreHouseRequests;
 using Newtonsoft.Json;
@@ -25,9 +26,7 @@ namespace Aplicacion_Almacen.Forms
         {
             InitializeComponent();
             refreshTable();
-            comboBoxActivated.Items.Add("true");
-            comboBoxActivated.Items.Add("false");
-            comboBoxActivated.SelectedItem = "false";
+
             MainForm mainForm = Application.OpenForms.OfType<MainForm>().FirstOrDefault();
             if (mainForm != null)
             {
@@ -45,12 +44,6 @@ namespace Aplicacion_Almacen.Forms
             buttonBackToMainMenu.Text = LanguageManager.GetString("Back");
             buttonSearcher.Text = LanguageManager.GetString("Searcher");
             buttonViewMap.Text = LanguageManager.GetString("ViewMap");
-
-            labelEstatus.Text = LanguageManager.GetString("Status");
-            labelEstimatedDate.Text = LanguageManager.GetString("EstimatedDate");
-            labelLot.Text = LanguageManager.GetString("LotID");
-            labelIDDestination.Text = LanguageManager.GetString("IDDestination");
-          
         }
 
         private void buttonBackToMainMenu_Click(object sender, EventArgs e)
@@ -69,17 +62,6 @@ namespace Aplicacion_Almacen.Forms
             return JsonConvert.DeserializeObject<List<BatchInterface>>(content);
         }
 
-        private static void fillDataTable(DataTable table, BatchInterface batch)
-        {
-            DataRow rows = table.NewRow();
-            rows["ID"] = batch.IDBatches;
-            rows["Email"] = batch.Email;
-            rows[LanguageManager.GetString("DateOfCreation")] = batch.DateOfCreation;
-            rows[LanguageManager.GetString("IDDestination")] = batch.IDShipp;
-            rows[LanguageManager.GetString("DateOfShipment")] = batch.ShippingDate;
-            rows[LanguageManager.GetString("Activated")] = batch.ActivedBatch;
-            table.Rows.Add(rows);
-        }
 
         private DataTable getDataTable()
         {
@@ -92,6 +74,7 @@ namespace Aplicacion_Almacen.Forms
             table.Columns.Add(LanguageManager.GetString("DateOfCreation"), typeof(DateTime));
             table.Columns.Add(LanguageManager.GetString("IDDestination"), typeof(int));
             table.Columns.Add(LanguageManager.GetString("DateOfShipment"), typeof(DateTime));
+            table.Columns.Add(LanguageManager.GetString("Position"), typeof(string));
             table.Columns.Add(LanguageManager.GetString("Activated"), typeof(bool));
 
             foreach (BatchInterface batch in batchCreated)
@@ -102,10 +85,24 @@ namespace Aplicacion_Almacen.Forms
                 row[LanguageManager.GetString("DateOfCreation")] = batch.DateOfCreation;
                 row[LanguageManager.GetString("IDDestination")] = batch.IDShipp;
                 row[LanguageManager.GetString("DateOfShipment")] = batch.ShippingDate;
+                row[LanguageManager.GetString("Position")] = batch.Position;
                 row[LanguageManager.GetString("Activated")] = batch.ActivedBatch;
                 table.Rows.Add(row);
             }
             return table;
+        }
+
+        private static void fillDataTable(DataTable table, BatchInterface batch)
+        {
+            DataRow rows = table.NewRow();
+            rows["ID"] = batch.IDBatches;
+            rows["Email"] = batch.Email;
+            rows[LanguageManager.GetString("DateOfCreation")] = batch.DateOfCreation;
+            rows[LanguageManager.GetString("IDDestination")] = batch.IDShipp;
+            rows[LanguageManager.GetString("DateOfShipment")] = batch.ShippingDate;
+            rows[LanguageManager.GetString("Position")] = batch.ShippingDate;
+            rows[LanguageManager.GetString("Activated")] = batch.ActivedBatch;
+            table.Rows.Add(rows);
         }
 
         private void refreshTable()
@@ -119,41 +116,27 @@ namespace Aplicacion_Almacen.Forms
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            jsonBody = "";
-
-            string selectedStatus = comboBoxActivated.SelectedItem as string;
-            int statusValue = selectedStatus == "true" ? 1 : 0;
-
-            if (!validateInputsUser() && !string.IsNullOrWhiteSpace(selectedStatus))
+            if (!IsFormOpen<AddBatchForm>())
             {
-                MessageBox.Show(Messages.Error + " " + Messages.CompleteAllBoxAndStatus);
-                return;
-            }
-
-            DateTime separateddate = dateTimePickerBatchShippingDate.Value.Date;
-            DateTime separatedtime = dateTimePickerBatchManagementTime.Value;
-            DateTime dateandtime = separateddate.Add(separatedtime.TimeOfDay);
-
-            BatchInterface batch = new BatchInterface
-            {
-                IDShipp = Convert.ToInt32(txtBoxIDDestination.Text),
-                Email = txtBoxEmail.Text,
-                ShippingDate = Convert.ToDateTime(dateandtime),
-                ActivedBatch = Convert.ToBoolean(statusValue)
-            };
-
-            jsonBody = JsonConvert.SerializeObject(batch);
-
-            if (apiRequests.AddBatch(batch))
-            {
-                refreshTable();
-                MessageBox.Show(Messages.Successful);
-                clearTxtBoxs();
+                AddBatchForm addbatchcomponent = new AddBatchForm();
+                addbatchcomponent.Show();
             }
             else
             {
-                MessageBox.Show(Messages.Error + " " + Messages.CompleteAllBoxAndStatus);
+                MessageBox.Show(Messages.Error);
             }
+        }
+
+        private bool IsFormOpen<T>() where T : Form
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.GetType() == typeof(T))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         #endregion postBatchsToAPI
@@ -162,19 +145,24 @@ namespace Aplicacion_Almacen.Forms
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtBoxIDBatch.Text))
+            if (dataGridViewBatch.SelectedRows.Count == 0)
             {
                 MessageBox.Show(Messages.SelectAnIndex);
                 return;
             }
 
-            int batchIdToDelete = Convert.ToInt32(txtBoxIDBatch.Text);
+            DataGridViewRow selectedRow = dataGridViewBatch.SelectedRows[0];
+
+            if (selectedRow.Cells["ID"].Value == null || !int.TryParse(selectedRow.Cells["ID"].Value.ToString(), out int batchIdToDelete))
+            {
+                MessageBox.Show(Messages.InvalidID);
+                return;
+            }
 
             if (apiRequests.DeleteBatch(batchIdToDelete))
             {
                 refreshTable();
                 MessageBox.Show(Messages.Successful);
-                clearTxtBoxs();
             }
             else
             {
@@ -186,24 +174,6 @@ namespace Aplicacion_Almacen.Forms
 
         #region validationsAndUtils
 
-        private bool validateInputsUser()
-        {
-
-            if (string.IsNullOrWhiteSpace(txtBoxEmail.Text) ||
-                string.IsNullOrWhiteSpace(txtBoxIDDestination.Text))
-            {
-                return false;
-            }
-
-            return true;
-        }
-
-        private void clearTxtBoxs()
-        {
-            txtBoxIDBatch.Clear();
-            txtBoxIDDestination.Clear();
-        }
-
         private void buttonRefresh_Click(object sender, EventArgs e)
         {
             refreshTable();
@@ -211,13 +181,6 @@ namespace Aplicacion_Almacen.Forms
 
         private void dataGridViewBatch_SelectionChanged(object sender, EventArgs e)
         {
-            if (dataGridViewBatch.SelectedRows.Count > 0)
-            {
-
-                int batchIdFromDataGrid = Convert.ToInt32(dataGridViewBatch.SelectedRows[0].Cells["ID"].Value);
-
-                txtBoxIDBatch.Text = batchIdFromDataGrid.ToString();
-            }
         }
 
         #endregion validationsAndUtils

@@ -13,7 +13,6 @@ namespace Aplicacion_Almacen.StoreHouseRequests
         public DateTime DateOfCreation { get; set; }
         public DateTime ShippingDate { get; set; }
         public int IDShipp { get; set; }
-        public string Position { get; set; }
         public bool ActivedBatch { get; set; }
     }
 }

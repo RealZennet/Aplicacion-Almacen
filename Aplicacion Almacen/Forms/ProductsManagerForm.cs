@@ -1,4 +1,5 @@
 ﻿using Aplicacion_Almacen.APIRequests;
+using Aplicacion_Almacen.Forms.crudForms;
 using Aplicacion_Almacen.Languages;
 using Aplicacion_Almacen.StoreHouseRequests;
 using Newtonsoft.Json;
@@ -26,9 +27,7 @@ namespace Aplicacion_Almacen.Forms
         {
             InitializeComponent();
             refreshTable();
-            comboBoxActivated.Items.Add("true");
-            comboBoxActivated.Items.Add("false");
-            comboBoxActivated.SelectedItem = "false";
+
             MainForm mainForm = Application.OpenForms.OfType<MainForm>().FirstOrDefault();
             if (mainForm != null)
             {
@@ -47,14 +46,6 @@ namespace Aplicacion_Almacen.Forms
             buttonBackToMainMenu.Text = LanguageManager.GetString("Back");
             buttonSearchByID.Text = LanguageManager.GetString("Searcher");
             buttonViewMap.Text = LanguageManager.GetString("ViewMap");
-
-            labelActivated.Text = LanguageManager.GetString("Activated");
-            labelCorner.Text = LanguageManager.GetString("Corner");
-            labelCustomer.Text = LanguageManager.GetString("Customer");
-            labelNumber.Text = LanguageManager.GetString("Number");
-            labelStreet.Text = LanguageManager.GetString("Street");
-            labelVolume.Text = LanguageManager.GetString("Volume");
-            labelWeight.Text = LanguageManager.GetString("Weight");
 
         }
 
@@ -137,91 +128,34 @@ namespace Aplicacion_Almacen.Forms
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            jsonBody = "";
-
-            string selectedStatus = comboBoxActivated.SelectedItem as string;
-            int statusValue = selectedStatus == "true" ? 1 : 0;
-
-            if (!validateInputsUser() && !string.IsNullOrWhiteSpace(selectedStatus))
+            if (!IsFormOpen<AddProductForm>())
             {
-                MessageBox.Show(Messages.CompleteAllBoxAndStatus);
-                return;
-            }
-
-            ProductInterface product = new ProductInterface
-            {
-                ProductWeight = Convert.ToInt32(txtBoxWeight.Text),
-                Volume = Convert.ToInt32(txtBoxVolume.Text),
-                Street = txtBoxStreet.Text,
-                DoorNumber = Convert.ToInt32(txtBoxNumber.Text),
-                Corner = txtBoxCorner.Text,
-                Customer = txtBoxClient.Text,
-                ActivatedProduct = Convert.ToBoolean(statusValue)
-            };
-
-            if (apiRequests.AddProduct(product))
-            {
-                refreshTable();
-                MessageBox.Show(Messages.Successful);
-                clearTxtBoxs();
+                AddProductForm addproductcomponent = new AddProductForm();
+                addproductcomponent.Show();
             }
             else
             {
-                MessageBox.Show(Messages.Error + " " + Messages.CompleteAllBoxAndStatus);
+                MessageBox.Show(Messages.Error);
             }
         }
 
+        private bool IsFormOpen<T>() where T : Form
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.GetType() == typeof(T))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
         #endregion postProductsToAPI
 
         private void buttonEdit_Click(object sender, EventArgs e)
         {
-            jsonBody = "";
-
-            if (string.IsNullOrEmpty(textBoxID.Text))
-            {
-                MessageBox.Show(Messages.SelectAnIndex);
-                return;
-            }
-
-            int productIdToEdit = Convert.ToInt32(textBoxID.Text);
-
-            if (!validateInputsUser())
-            {
-                MessageBox.Show(Messages.CompleteAllBoxAndStatus);
-                return;
-            }
-
-            string selectedStatus = comboBoxActivated.SelectedItem as string;
-            int statusValue = selectedStatus == "true" ? 1 : 0;
-
-            ProductInterface product = productFromTxtBox(productIdToEdit, statusValue);
-
-            if (apiRequests.UpdateProduct(product))
-            {
-                refreshTable();
-                MessageBox.Show(Messages.Successful);
-                clearTxtBoxs();
-            }
-            else
-            {
-                MessageBox.Show(Messages.Error + ", " + Messages.CompleteAllBoxAndStatus);
-            }
-
-        }
-
-        private ProductInterface productFromTxtBox(int productIdToEdit, int statusValue)
-        {
-            return new ProductInterface
-            {
-                IDProduct = productIdToEdit,
-                ProductWeight = Convert.ToInt32(txtBoxWeight.Text),
-                Volume = Convert.ToInt32(txtBoxVolume.Text),
-                Street = txtBoxStreet.Text,
-                DoorNumber = Convert.ToInt32(txtBoxNumber.Text),
-                Corner = txtBoxCorner.Text,
-                Customer = txtBoxClient.Text,
-                ActivatedProduct = Convert.ToBoolean(statusValue)
-            };
+            EditProductForm editproductcomponent = new EditProductForm();
+            editproductcomponent.Show();
         }
 
         #region deleteProductsFromAPI
@@ -252,25 +186,28 @@ namespace Aplicacion_Almacen.Forms
                 return false;
             }
         }
+
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(textBoxID.Text))
+            if (dataGridViewProducts.SelectedRows.Count > 0)
             {
-                MessageBox.Show(Messages.SelectAnIndex);
-                return;
-            }
+                DataGridViewRow selectedRow = dataGridViewProducts.SelectedRows[0];
 
-            int productIdToDelete = Convert.ToInt32(textBoxID.Text);
+                int productIdToDelete = Convert.ToInt32(selectedRow.Cells["ID"].Value);
 
-            if (deleteProductFromApi(productIdToDelete))
-            {
-                refreshTable();
-                MessageBox.Show(Messages.Successful);
-                clearTxtBoxs();
+                if (deleteProductFromApi(productIdToDelete))
+                {
+                    refreshTable();
+                    MessageBox.Show(Messages.Successful);
+                }
+                else
+                {
+                    MessageBox.Show(Messages.Error + " " + Messages.CompleteAllBoxAndStatus);
+                }
             }
             else
             {
-                MessageBox.Show(Messages.Error + " " + Messages.CompleteAllBoxAndStatus);
+                MessageBox.Show(Messages.SelectAnIndex);
             }
         }
 
@@ -282,41 +219,8 @@ namespace Aplicacion_Almacen.Forms
             refreshTable();
         }
 
-        private bool validateInputsUser()
-        {
-
-            if (string.IsNullOrWhiteSpace(txtBoxWeight.Text) ||
-                string.IsNullOrWhiteSpace(txtBoxVolume.Text) ||
-                string.IsNullOrWhiteSpace(txtBoxStreet.Text) ||
-                string.IsNullOrWhiteSpace(txtBoxNumber.Text) ||
-                string.IsNullOrWhiteSpace(txtBoxCorner.Text) ||
-                string.IsNullOrWhiteSpace(txtBoxClient.Text))
-            {
-                return false;
-            }
-
-            return true;
-        }
-
-        private void clearTxtBoxs()
-        {
-            txtBoxWeight.Clear();
-            txtBoxVolume.Clear();
-            txtBoxStreet.Clear();
-            txtBoxNumber.Clear();
-            txtBoxCorner.Clear();
-            txtBoxClient.Clear();
-            textBoxID.Clear();
-        }
-
         private void dataGridViewProducts_SelectionChanged(object sender, EventArgs e)
         {
-            if (dataGridViewProducts.SelectedRows.Count > 0)
-            {
-
-                int productIdFromDataGrid = Convert.ToInt32(dataGridViewProducts.SelectedRows[0].Cells["ID"].Value);
-                textBoxID.Text = productIdFromDataGrid.ToString();
-            }
         }
         #endregion validationsAndUtils
 

@@ -1,4 +1,5 @@
 ﻿using Aplicacion_Almacen.ApiRequests;
+using Aplicacion_Almacen.Forms.crudForms;
 using Aplicacion_Almacen.Languages;
 using Aplicacion_Almacen.StoreHouseRequests;
 using Newtonsoft.Json;
@@ -40,10 +41,6 @@ namespace Aplicacion_Almacen.Forms
             buttonDelete.Text = LanguageManager.GetString("Delete");
             buttonRefresh.Text = LanguageManager.GetString("Refresh");
             buttonBackToMainMenu.Text = LanguageManager.GetString("Back");
-
-            labelTruckID.Text = LanguageManager.GetString("IDTruck");
-            labelEstimatedDate.Text = LanguageManager.GetString("EstimatedDate");
-            labelIDBatch.Text = LanguageManager.GetString("LotID");
 
         }
 
@@ -98,35 +95,27 @@ namespace Aplicacion_Almacen.Forms
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            jsonBody = "";
-
-            if (!validateInputsUser())
+            if (!IsFormOpen<AssignBatchToTruckComponentForm>())
             {
-                MessageBox.Show(Messages.CompleteAllBoxAndStatus);
-                return;
-            }
-
-            DateTime separateddate = dateTimePickerBatchShippingDate.Value.Date;
-            DateTime separatedtime = dateTimePickerAssignBatchToTruckManagementTime.Value;
-            DateTime dateandtime = separateddate.Add(separatedtime.TimeOfDay);
-
-            AssignedBatchToTruckInterface batchAssigned = new AssignedBatchToTruckInterface
-            {
-                IDBatch = Convert.ToInt32(txtBoxIDBatch.Text),
-                IDTruck = Convert.ToInt32(txtBoxIDTruck.Text),
-                ShippDate = dateandtime
-            };
-
-            if (apiRequests.AddAssignedBatchToTruck(batchAssigned))
-            {
-                refreshTable();
-                MessageBox.Show(Messages.Successful);
-                clearTxtsBoxes();
+                AssignBatchToTruckComponentForm assignbatchtotruckcomponent = new AssignBatchToTruckComponentForm();
+                assignbatchtotruckcomponent.Show();
             }
             else
             {
-                MessageBox.Show(Messages.Error + " " + Messages.CompleteAllBoxAndStatus);
+                MessageBox.Show(Messages.Error);
             }
+        }
+
+        private bool IsFormOpen<T>() where T : Form
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.GetType() == typeof(T))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         #endregion postAssignedBatchToAPI
@@ -135,19 +124,24 @@ namespace Aplicacion_Almacen.Forms
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtBoxIDBatch.Text))
+            if (dataGridViewAssignedBatchToTruck.SelectedRows.Count == 0)
             {
                 MessageBox.Show(Messages.SelectAnIndex);
                 return;
             }
 
-            int batchIdToDelete = Convert.ToInt32(txtBoxIDBatch.Text);
+            DataGridViewRow selectedRow = dataGridViewAssignedBatchToTruck.SelectedRows[0];
+
+            if (selectedRow.Cells["ID Lote"].Value == null || !int.TryParse(selectedRow.Cells["ID Lote"].Value.ToString(), out int batchIdToDelete))
+            {
+                MessageBox.Show(Messages.InvalidID);
+                return;
+            }
 
             if (apiRequests.DeleteAssignedBatch(batchIdToDelete))
             {
                 refreshTable();
                 MessageBox.Show(Messages.Successful);
-                clearTxtsBoxes();
             }
             else
             {
@@ -158,39 +152,14 @@ namespace Aplicacion_Almacen.Forms
         #endregion deleteAssignedBatchToAPI
 
         #region utils
-        private void clearTxtsBoxes()
-        {
-            txtBoxIDBatch.Clear();
-            txtBoxIDTruck.Clear();
-        }
-
         private void refreshTable()
         {
             DataTable table = getDataTable();
             dataGridViewAssignedBatchToTruck.DataSource = table;
         }
 
-        private bool validateInputsUser()
-        {
-
-            if (string.IsNullOrWhiteSpace(txtBoxIDBatch.Text) ||
-                string.IsNullOrWhiteSpace(txtBoxIDTruck.Text))
-            {
-                return false;
-            }
-
-            return true;
-        }
-
         private void dataGridViewAssignedBatchToTruck_SelectionChanged(object sender, EventArgs e)
         {
-            if (dataGridViewAssignedBatchToTruck.SelectedRows.Count > 0)
-            {
-
-                int batchIdFromDataGrid = Convert.ToInt32(dataGridViewAssignedBatchToTruck.SelectedRows[0].Cells["ID Lote"].Value);
-
-                txtBoxIDBatch.Text = batchIdFromDataGrid.ToString();
-            }
         }
 
         private void buttonRefresh_Click(object sender, EventArgs e)

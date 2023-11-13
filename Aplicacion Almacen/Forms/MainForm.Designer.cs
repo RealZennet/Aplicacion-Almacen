@@ -35,6 +35,7 @@
             this.buttonLanguageSpanish = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelProductsAndBatchsContainer = new System.Windows.Forms.Panel();
+            this.buttonEmail = new System.Windows.Forms.Button();
             this.buttonTruckerCarryBatch = new System.Windows.Forms.Button();
             this.buttonAssignProducts = new System.Windows.Forms.Button();
             this.buttonProductsManager = new System.Windows.Forms.Button();
@@ -44,7 +45,6 @@
             this.labelUserJob = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.labelUserID = new System.Windows.Forms.Label();
-            this.buttonEmail = new System.Windows.Forms.Button();
             this.leftPanelContainer.SuspendLayout();
             this.settingsManagerPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -149,6 +149,21 @@
             this.panelProductsAndBatchsContainer.Size = new System.Drawing.Size(250, 164);
             this.panelProductsAndBatchsContainer.TabIndex = 0;
             // 
+            // buttonEmail
+            // 
+            this.buttonEmail.FlatAppearance.BorderSize = 0;
+            this.buttonEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEmail.ForeColor = System.Drawing.Color.Gainsboro;
+            this.buttonEmail.Location = new System.Drawing.Point(0, 135);
+            this.buttonEmail.Name = "buttonEmail";
+            this.buttonEmail.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.buttonEmail.Size = new System.Drawing.Size(240, 26);
+            this.buttonEmail.TabIndex = 7;
+            this.buttonEmail.Text = "Emails";
+            this.buttonEmail.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonEmail.UseVisualStyleBackColor = true;
+            this.buttonEmail.Click += new System.EventHandler(this.buttonEmail_Click);
+            // 
             // buttonTruckerCarryBatch
             // 
             this.buttonTruckerCarryBatch.FlatAppearance.BorderSize = 0;
@@ -221,7 +236,7 @@
             this.panelFormsLoader.Controls.Add(this.labelUserID);
             this.panelFormsLoader.Location = new System.Drawing.Point(256, 41);
             this.panelFormsLoader.Name = "panelFormsLoader";
-            this.panelFormsLoader.Size = new System.Drawing.Size(773, 559);
+            this.panelFormsLoader.Size = new System.Drawing.Size(753, 503);
             this.panelFormsLoader.TabIndex = 3;
             // 
             // labelWorkerName
@@ -263,21 +278,6 @@
             this.labelUserID.Size = new System.Drawing.Size(30, 20);
             this.labelUserID.TabIndex = 0;
             this.labelUserID.Text = "ID:";
-            // 
-            // buttonEmail
-            // 
-            this.buttonEmail.FlatAppearance.BorderSize = 0;
-            this.buttonEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonEmail.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonEmail.Location = new System.Drawing.Point(0, 135);
-            this.buttonEmail.Name = "buttonEmail";
-            this.buttonEmail.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.buttonEmail.Size = new System.Drawing.Size(240, 26);
-            this.buttonEmail.TabIndex = 7;
-            this.buttonEmail.Text = "Emails";
-            this.buttonEmail.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonEmail.UseVisualStyleBackColor = true;
-            this.buttonEmail.Click += new System.EventHandler(this.buttonEmail_Click);
             // 
             // MainForm
             // 
