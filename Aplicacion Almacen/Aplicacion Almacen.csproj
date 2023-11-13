@@ -109,6 +109,12 @@
     <Compile Include="Forms\BatchManagerSearcherForm.Designer.cs">
       <DependentUpon>BatchManagerSearcherForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\crudForms\AddBatchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\crudForms\AddBatchForm.Designer.cs">
+      <DependentUpon>AddBatchForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\crudForms\AddProductForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\BatchManagerSearcherForm.resx">
       <DependentUpon>BatchManagerSearcherForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\crudForms\AddBatchForm.resx">
+      <DependentUpon>AddBatchForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\crudForms\AddProductForm.resx">
       <DependentUpon>AddProductForm.cs</DependentUpon>
