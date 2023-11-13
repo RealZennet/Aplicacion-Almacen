@@ -116,8 +116,27 @@ namespace Aplicacion_Almacen.Forms
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            AddBatchForm addbatchcomponent = new AddBatchForm();
-            addbatchcomponent.Show();
+            if (!IsFormOpen<AddBatchForm>())
+            {
+                AddBatchForm addbatchcomponent = new AddBatchForm();
+                addbatchcomponent.Show();
+            }
+            else
+            {
+                MessageBox.Show(Messages.Error);
+            }
+        }
+
+        private bool IsFormOpen<T>() where T : Form
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.GetType() == typeof(T))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         #endregion postBatchsToAPI

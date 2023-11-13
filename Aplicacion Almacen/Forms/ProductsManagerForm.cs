@@ -128,10 +128,28 @@ namespace Aplicacion_Almacen.Forms
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            AddProductForm addproductcomponent = new AddProductForm();
-            addproductcomponent.Show();
+            if (!IsFormOpen<AddProductForm>())
+            {
+                AddProductForm addproductcomponent = new AddProductForm();
+                addproductcomponent.Show();
+            }
+            else
+            {
+                MessageBox.Show(Messages.Error);
+            }
         }
 
+        private bool IsFormOpen<T>() where T : Form
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.GetType() == typeof(T))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
         #endregion postProductsToAPI
 
         private void buttonEdit_Click(object sender, EventArgs e)
