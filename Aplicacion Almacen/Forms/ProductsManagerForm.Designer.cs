@@ -65,7 +65,7 @@
             // buttonSearchByID
             // 
             this.buttonSearchByID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSearchByID.Location = new System.Drawing.Point(670, 485);
+            this.buttonSearchByID.Location = new System.Drawing.Point(670, 477);
             this.buttonSearchByID.Name = "buttonSearchByID";
             this.buttonSearchByID.Size = new System.Drawing.Size(75, 23);
             this.buttonSearchByID.TabIndex = 43;
@@ -75,7 +75,7 @@
             // 
             // buttonEdit
             // 
-            this.buttonEdit.Location = new System.Drawing.Point(7, 458);
+            this.buttonEdit.Location = new System.Drawing.Point(14, 448);
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Size = new System.Drawing.Size(112, 23);
             this.buttonEdit.TabIndex = 27;
@@ -85,7 +85,7 @@
             // 
             // buttonRefresh
             // 
-            this.buttonRefresh.Location = new System.Drawing.Point(7, 487);
+            this.buttonRefresh.Location = new System.Drawing.Point(14, 477);
             this.buttonRefresh.Name = "buttonRefresh";
             this.buttonRefresh.Size = new System.Drawing.Size(112, 23);
             this.buttonRefresh.TabIndex = 26;
@@ -95,7 +95,7 @@
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(66, 426);
+            this.buttonDelete.Location = new System.Drawing.Point(73, 416);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(53, 23);
             this.buttonDelete.TabIndex = 25;
@@ -105,7 +105,7 @@
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(7, 425);
+            this.buttonAdd.Location = new System.Drawing.Point(14, 415);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(53, 23);
             this.buttonAdd.TabIndex = 24;
@@ -116,7 +116,7 @@
             // buttonViewMap
             // 
             this.buttonViewMap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonViewMap.Location = new System.Drawing.Point(572, 485);
+            this.buttonViewMap.Location = new System.Drawing.Point(572, 477);
             this.buttonViewMap.Name = "buttonViewMap";
             this.buttonViewMap.Size = new System.Drawing.Size(92, 23);
             this.buttonViewMap.TabIndex = 90;
