@@ -96,11 +96,11 @@
             // 
             // buttonEdit
             // 
-            this.buttonEdit.Location = new System.Drawing.Point(284, 352);
+            this.buttonEdit.Location = new System.Drawing.Point(7, 458);
             this.buttonEdit.Name = "buttonEdit";
-            this.buttonEdit.Size = new System.Drawing.Size(75, 23);
+            this.buttonEdit.Size = new System.Drawing.Size(112, 23);
             this.buttonEdit.TabIndex = 27;
-            this.buttonEdit.Text = "Edit";
+            this.buttonEdit.Text = "Editar";
             this.buttonEdit.UseVisualStyleBackColor = true;
             this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
@@ -116,7 +116,7 @@
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(66, 458);
+            this.buttonDelete.Location = new System.Drawing.Point(66, 426);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(53, 23);
             this.buttonDelete.TabIndex = 25;
@@ -126,7 +126,7 @@
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(7, 457);
+            this.buttonAdd.Location = new System.Drawing.Point(7, 425);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(53, 23);
             this.buttonAdd.TabIndex = 24;
