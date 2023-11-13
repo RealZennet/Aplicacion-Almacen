@@ -1,7 +1,6 @@
 ﻿using Aplicacion_Almacen.ApiRequests;
 using Aplicacion_Almacen.Languages;
 using Aplicacion_Almacen.StoreHouseRequests;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,45 +14,23 @@ using System.Windows.Forms;
 
 namespace Aplicacion_Almacen.Forms.crudForms
 {
-    public partial class AddBatchForm : Form
+    public partial class IntegrateProductToBatchForm : Form
     {
+        private int x, y, m;
         public event Action LanguageChanged;
         private string jsonBody;
-        private ApiRequestBatch apiRequests;
-        private int x, y, m;
+        private ApiRequestAssignProductToBatch apiRequests;
 
-        public AddBatchForm()
+        public IntegrateProductToBatchForm()
         {
             InitializeComponent();
-            comboBoxActivated.Items.Add("true");
-            comboBoxActivated.Items.Add("false");
-            comboBoxActivated.SelectedItem = "false";
-            comboBoxActivated.DropDownStyle = ComboBoxStyle.DropDownList;
-
-            comboBoxPosition.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxPosition.Items.Add("Adelante");
-            comboBoxPosition.Items.Add("Intermedio");
-            comboBoxPosition.Items.Add("Atras");
-            comboBoxPosition.SelectedItem = "Atras";
-
-            roundedCircleForm();
-
             MainForm mainForm = Application.OpenForms.OfType<MainForm>().FirstOrDefault();
             if (mainForm != null)
             {
                 mainForm.LanguageChanged += UpdateLanguage;
             }
-            apiRequests = new ApiRequestBatch("http://localhost:64191");
-        }
-
-        private void buttonCancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void buttonClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
+            apiRequests = new ApiRequestAssignProductToBatch("http://localhost:64191");
+            roundedCircleForm();
         }
 
         private void roundedCircleForm()
@@ -68,28 +45,33 @@ namespace Aplicacion_Almacen.Forms.crudForms
             graphicBorder.AddArc(rectangleBorder.Right - radiusBorder, rectangleBorder.Bottom - radiusBorder, radiusBorder, radiusBorder, 0, 90);
             graphicBorder.AddArc(rectangleBorder.X, rectangleBorder.Bottom - radiusBorder, radiusBorder, radiusBorder, 90, 90);
             graphicBorder.CloseAllFigures();
-
             this.Region = new Region(graphicBorder);
         }
 
         private void UpdateLanguage()
         {
 
-            labelEstatus.Text = LanguageManager.GetString("Status");
-            labelEstimatedDate.Text = LanguageManager.GetString("EstimatedDate");
-            labelIDDestination.Text = LanguageManager.GetString("IDDestination");
-            labelPosition.Text = LanguageManager.GetString("Position");
-
+            labelIDLotToAssign.Text = LanguageManager.GetString("LotIDToAssign");
+            labelAssignProductToLot.Text = LanguageManager.GetString("ProductIDToAssign");
             buttonSave.Text = LanguageManager.GetString("Save");
             buttonCancel.Text = LanguageManager.GetString("Cancel");
+        }
 
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private bool validateInputsUser()
         {
 
-            if (string.IsNullOrWhiteSpace(txtBoxEmail.Text) ||
-                string.IsNullOrWhiteSpace(txtBoxIDDestination.Text))
+            if (string.IsNullOrWhiteSpace(txtBoxIDBatch.Text) ||
+                string.IsNullOrWhiteSpace(txtBoxIDProduct.Text))
             {
                 return false;
             }
@@ -97,48 +79,42 @@ namespace Aplicacion_Almacen.Forms.crudForms
             return true;
         }
 
+        private void clearTxtBoxs()
+        {
+            txtBoxIDBatch.Clear();
+            txtBoxIDProduct.Clear();
+        }
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
             jsonBody = "";
 
-            string selectedStatus = comboBoxActivated.SelectedItem as string;
-            int statusValue = selectedStatus == "true" ? 1 : 0;
-
-            if (!validateInputsUser() || string.IsNullOrWhiteSpace(selectedStatus))
+            if (!validateInputsUser())
             {
-                MessageBox.Show(Messages.Error + " " + Messages.CompleteAllBoxAndStatus);
+                MessageBox.Show(Messages.CompleteAllBoxAndStatus);
                 return;
             }
 
-            if (!int.TryParse(txtBoxIDDestination.Text, out int idDestination))
+            if (!int.TryParse(txtBoxIDProduct.Text, out int idProduct) || !int.TryParse(txtBoxIDBatch.Text, out int idBatch))
             {
                 MessageBox.Show(Messages.InvalidID);
                 return;
             }
 
-            DateTime separateddate = dateTimePickerBatchShippingDate.Value.Date;
-            DateTime separatedtime = dateTimePickerBatchManagementTime.Value;
-            DateTime dateandtime = separateddate.Add(separatedtime.TimeOfDay);
-
-            BatchInterface batch = new BatchInterface
+            AssignProductsToBatchInterface batch = new AssignProductsToBatchInterface
             {
-                IDShipp = idDestination,
-                Email = txtBoxEmail.Text,
-                ShippingDate = Convert.ToDateTime(dateandtime),
-                Position = comboBoxPosition.SelectedItem?.ToString(),
-                ActivedBatch = Convert.ToBoolean(statusValue)
+                IDProduct = idProduct,
+                IDBatch = idBatch
             };
 
-            jsonBody = JsonConvert.SerializeObject(batch);
-
-            if (apiRequests.AddBatch(batch))
+            if (apiRequests.AddAssignedProduct(batch))
             {
                 MessageBox.Show(Messages.Successful);
+                clearTxtBoxs();
             }
             else
             {
-                MessageBox.Show(Messages.Error + " " + Messages.CompleteAllBoxAndStatus);
+                MessageBox.Show(Messages.Error + ", " + Messages.CompleteAllBoxAndStatus);
             }
         }
 
@@ -161,6 +137,6 @@ namespace Aplicacion_Almacen.Forms.crudForms
                 this.SetDesktopLocation(MousePosition.X - x, MousePosition.Y - y);
             }
         }
-        
+
     }
 }
