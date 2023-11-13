@@ -1,4 +1,5 @@
 ﻿using Aplicacion_Almacen.APIRequests;
+using Aplicacion_Almacen.Forms.crudForms;
 using Aplicacion_Almacen.Languages;
 using Aplicacion_Almacen.StoreHouseRequests;
 using Newtonsoft.Json;
@@ -26,10 +27,6 @@ namespace Aplicacion_Almacen.Forms
         {
             InitializeComponent();
             refreshTable();
-            comboBoxActivated.Items.Add("true");
-            comboBoxActivated.Items.Add("false");
-            comboBoxActivated.SelectedItem = "false";
-            comboBoxActivated.DropDownStyle = ComboBoxStyle.DropDownList;
 
             MainForm mainForm = Application.OpenForms.OfType<MainForm>().FirstOrDefault();
             if (mainForm != null)
@@ -49,14 +46,6 @@ namespace Aplicacion_Almacen.Forms
             buttonBackToMainMenu.Text = LanguageManager.GetString("Back");
             buttonSearchByID.Text = LanguageManager.GetString("Searcher");
             buttonViewMap.Text = LanguageManager.GetString("ViewMap");
-
-            labelActivated.Text = LanguageManager.GetString("Activated");
-            labelCorner.Text = LanguageManager.GetString("Corner");
-            labelCustomer.Text = LanguageManager.GetString("Customer");
-            labelNumber.Text = LanguageManager.GetString("Number");
-            labelStreet.Text = LanguageManager.GetString("Street");
-            labelVolume.Text = LanguageManager.GetString("Volume");
-            labelWeight.Text = LanguageManager.GetString("Weight");
 
         }
 
@@ -139,44 +128,15 @@ namespace Aplicacion_Almacen.Forms
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            jsonBody = "";
-
-            string selectedStatus = comboBoxActivated.SelectedItem as string;
-            int statusValue = selectedStatus == "true" ? 1 : 0;
-
-            if (!validateInputsUser() && !string.IsNullOrWhiteSpace(selectedStatus))
-            {
-                MessageBox.Show(Messages.CompleteAllBoxAndStatus);
-                return;
-            }
-
-            ProductInterface product = new ProductInterface
-            {
-                ProductWeight = Convert.ToInt32(txtBoxWeight.Text),
-                Volume = Convert.ToInt32(txtBoxVolume.Text),
-                Street = txtBoxStreet.Text,
-                DoorNumber = Convert.ToInt32(txtBoxNumber.Text),
-                Corner = txtBoxCorner.Text,
-                Customer = txtBoxClient.Text,
-                ActivatedProduct = Convert.ToBoolean(statusValue)
-            };
-
-            if (apiRequests.AddProduct(product))
-            {
-                refreshTable();
-                MessageBox.Show(Messages.Successful);
-                clearTxtBoxs();
-            }
-            else
-            {
-                MessageBox.Show(Messages.Error + " " + Messages.CompleteAllBoxAndStatus);
-            }
+            AddProductForm addproductcomponent = new AddProductForm();
+            addproductcomponent.Show();
         }
 
         #endregion postProductsToAPI
 
         private void buttonEdit_Click(object sender, EventArgs e)
         {
+            /*
             jsonBody = "";
 
             if (string.IsNullOrEmpty(textBoxID.Text))
@@ -207,12 +167,14 @@ namespace Aplicacion_Almacen.Forms
             else
             {
                 MessageBox.Show(Messages.Error + ", " + Messages.CompleteAllBoxAndStatus);
-            }
+            }*/
 
         }
 
+        /*
         private ProductInterface productFromTxtBox(int productIdToEdit, int statusValue)
         {
+
             return new ProductInterface
             {
                 IDProduct = productIdToEdit,
@@ -224,7 +186,7 @@ namespace Aplicacion_Almacen.Forms
                 Customer = txtBoxClient.Text,
                 ActivatedProduct = Convert.ToBoolean(statusValue)
             };
-        }
+        }*/
 
         #region deleteProductsFromAPI
 
@@ -268,7 +230,6 @@ namespace Aplicacion_Almacen.Forms
             {
                 refreshTable();
                 MessageBox.Show(Messages.Successful);
-                clearTxtBoxs();
             }
             else
             {
@@ -284,32 +245,7 @@ namespace Aplicacion_Almacen.Forms
             refreshTable();
         }
 
-        private bool validateInputsUser()
-        {
-
-            if (string.IsNullOrWhiteSpace(txtBoxWeight.Text) ||
-                string.IsNullOrWhiteSpace(txtBoxVolume.Text) ||
-                string.IsNullOrWhiteSpace(txtBoxStreet.Text) ||
-                string.IsNullOrWhiteSpace(txtBoxNumber.Text) ||
-                string.IsNullOrWhiteSpace(txtBoxCorner.Text) ||
-                string.IsNullOrWhiteSpace(txtBoxClient.Text))
-            {
-                return false;
-            }
-
-            return true;
-        }
-
-        private void clearTxtBoxs()
-        {
-            txtBoxWeight.Clear();
-            txtBoxVolume.Clear();
-            txtBoxStreet.Clear();
-            txtBoxNumber.Clear();
-            txtBoxCorner.Clear();
-            txtBoxClient.Clear();
-            textBoxID.Clear();
-        }
+        
 
         private void dataGridViewProducts_SelectionChanged(object sender, EventArgs e)
         {

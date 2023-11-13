@@ -109,6 +109,12 @@
     <Compile Include="Forms\BatchManagerSearcherForm.Designer.cs">
       <DependentUpon>BatchManagerSearcherForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\crudForms\AddProductForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\crudForms\AddProductForm.Designer.cs">
+      <DependentUpon>AddProductForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\DestinationListForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,6 +192,9 @@
     <EmbeddedResource Include="Forms\BatchManagerSearcherForm.resx">
       <DependentUpon>BatchManagerSearcherForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\crudForms\AddProductForm.resx">
+      <DependentUpon>AddProductForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\DestinationListForm.resx">
       <DependentUpon>DestinationListForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -254,5 +263,6 @@
   <ItemGroup>
     <None Include="Resources\png-clipart-logistics-computer-icons-freight-transport-logistics-computer-icons-removebg-preview.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

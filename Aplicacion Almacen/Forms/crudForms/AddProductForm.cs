@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Aplicacion_Almacen.APIRequests;
+using Aplicacion_Almacen.Languages;
+using Aplicacion_Almacen.StoreHouseRequests;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +16,8 @@ namespace Aplicacion_Almacen.Forms.crudForms
 {
     public partial class AddProductForm : Form
     {
+        private ApiRequestProduct apiRequests;
+        private string jsonBody;
         public event Action LanguageChanged;
         private int x, y, m;
 
@@ -26,6 +31,7 @@ namespace Aplicacion_Almacen.Forms.crudForms
             }
             LanguageManager.Initialize(typeof(Languages.Resource_language_spanish));
             LanguageManager.Initialize(typeof(Languages.Resource_language_english));
+            apiRequests = new ApiRequestProduct("http://localhost:64191");
             roundedCircleForm();
 
             comboBoxActivated.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -61,6 +67,67 @@ namespace Aplicacion_Almacen.Forms.crudForms
             labelWeight.Text = LanguageManager.GetString("Weight");
             buttonSave.Text = LanguageManager.GetString("Save");
             buttonCancel.Text = LanguageManager.GetString("Cancel");
+        }
+
+        private bool validateInputsUser()
+        {
+
+            if (string.IsNullOrWhiteSpace(txtBoxWeight.Text) ||
+                string.IsNullOrWhiteSpace(txtBoxVolume.Text) ||
+                string.IsNullOrWhiteSpace(txtBoxStreet.Text) ||
+                string.IsNullOrWhiteSpace(txtBoxNumber.Text) ||
+                string.IsNullOrWhiteSpace(txtBoxCorner.Text) ||
+                string.IsNullOrWhiteSpace(txtBoxClient.Text))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        private void clearTxtBoxs()
+        {
+            txtBoxWeight.Clear();
+            txtBoxVolume.Clear();
+            txtBoxStreet.Clear();
+            txtBoxNumber.Clear();
+            txtBoxCorner.Clear();
+            txtBoxClient.Clear();
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            jsonBody = "";
+
+            string selectedStatus = comboBoxActivated.SelectedItem as string;
+            int statusValue = selectedStatus == "true" ? 1 : 0;
+
+            if (!validateInputsUser() && !string.IsNullOrWhiteSpace(selectedStatus))
+            {
+                MessageBox.Show(Messages.CompleteAllBoxAndStatus);
+                return;
+            }
+
+            ProductInterface product = new ProductInterface
+            {
+                ProductWeight = Convert.ToInt32(txtBoxWeight.Text),
+                Volume = Convert.ToInt32(txtBoxVolume.Text),
+                Street = txtBoxStreet.Text,
+                DoorNumber = Convert.ToInt32(txtBoxNumber.Text),
+                Corner = txtBoxCorner.Text,
+                Customer = txtBoxClient.Text,
+                ActivatedProduct = Convert.ToBoolean(statusValue)
+            };
+
+            if (apiRequests.AddProduct(product))
+            {
+                MessageBox.Show(Messages.Successful);
+                clearTxtBoxs();
+            }
+            else
+            {
+                MessageBox.Show(Messages.Error + " " + Messages.CompleteAllBoxAndStatus);
+            }
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
