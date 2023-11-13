@@ -31,8 +31,6 @@
             this.buttonBackToMainMenu = new System.Windows.Forms.Button();
             this.dataGridViewProducts = new System.Windows.Forms.DataGridView();
             this.buttonSearchByID = new System.Windows.Forms.Button();
-            this.labelID = new System.Windows.Forms.Label();
-            this.textBoxID = new System.Windows.Forms.TextBox();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonRefresh = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
@@ -74,25 +72,6 @@
             this.buttonSearchByID.Text = "Buscador";
             this.buttonSearchByID.UseVisualStyleBackColor = true;
             this.buttonSearchByID.Click += new System.EventHandler(this.buttonSearchByID_Click);
-            // 
-            // labelID
-            // 
-            this.labelID.AutoSize = true;
-            this.labelID.Location = new System.Drawing.Point(281, 307);
-            this.labelID.Name = "labelID";
-            this.labelID.Size = new System.Drawing.Size(18, 13);
-            this.labelID.TabIndex = 42;
-            this.labelID.Text = "ID";
-            // 
-            // textBoxID
-            // 
-            this.textBoxID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(47)))), ((int)(((byte)(68)))));
-            this.textBoxID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxID.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxID.Location = new System.Drawing.Point(284, 326);
-            this.textBoxID.Name = "textBoxID";
-            this.textBoxID.Size = new System.Drawing.Size(75, 23);
-            this.textBoxID.TabIndex = 41;
             // 
             // buttonEdit
             // 
@@ -153,8 +132,6 @@
             this.ClientSize = new System.Drawing.Size(757, 520);
             this.Controls.Add(this.buttonViewMap);
             this.Controls.Add(this.buttonSearchByID);
-            this.Controls.Add(this.labelID);
-            this.Controls.Add(this.textBoxID);
             this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.buttonDelete);
@@ -167,7 +144,6 @@
             this.Load += new System.EventHandler(this.ProductsManagerForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProducts)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -176,8 +152,6 @@
         private System.Windows.Forms.Button buttonBackToMainMenu;
         private System.Windows.Forms.DataGridView dataGridViewProducts;
         private System.Windows.Forms.Button buttonSearchByID;
-        private System.Windows.Forms.Label labelID;
-        private System.Windows.Forms.TextBox textBoxID;
         private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.Button buttonRefresh;
         private System.Windows.Forms.Button buttonDelete;

@@ -136,57 +136,9 @@ namespace Aplicacion_Almacen.Forms
 
         private void buttonEdit_Click(object sender, EventArgs e)
         {
-            /*
-            jsonBody = "";
-
-            if (string.IsNullOrEmpty(textBoxID.Text))
-            {
-                MessageBox.Show(Messages.SelectAnIndex);
-                return;
-            }
-
-            int productIdToEdit = Convert.ToInt32(textBoxID.Text);
-
-            if (!validateInputsUser())
-            {
-                MessageBox.Show(Messages.CompleteAllBoxAndStatus);
-                return;
-            }
-
-            string selectedStatus = comboBoxActivated.SelectedItem as string;
-            int statusValue = selectedStatus == "true" ? 1 : 0;
-
-            ProductInterface product = productFromTxtBox(productIdToEdit, statusValue);
-
-            if (apiRequests.UpdateProduct(product))
-            {
-                refreshTable();
-                MessageBox.Show(Messages.Successful);
-                clearTxtBoxs();
-            }
-            else
-            {
-                MessageBox.Show(Messages.Error + ", " + Messages.CompleteAllBoxAndStatus);
-            }*/
-
+            EditProductForm editproductcomponent = new EditProductForm();
+            editproductcomponent.Show();
         }
-
-        /*
-        private ProductInterface productFromTxtBox(int productIdToEdit, int statusValue)
-        {
-
-            return new ProductInterface
-            {
-                IDProduct = productIdToEdit,
-                ProductWeight = Convert.ToInt32(txtBoxWeight.Text),
-                Volume = Convert.ToInt32(txtBoxVolume.Text),
-                Street = txtBoxStreet.Text,
-                DoorNumber = Convert.ToInt32(txtBoxNumber.Text),
-                Corner = txtBoxCorner.Text,
-                Customer = txtBoxClient.Text,
-                ActivatedProduct = Convert.ToBoolean(statusValue)
-            };
-        }*/
 
         #region deleteProductsFromAPI
 
@@ -216,24 +168,28 @@ namespace Aplicacion_Almacen.Forms
                 return false;
             }
         }
+
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(textBoxID.Text))
+            if (dataGridViewProducts.SelectedRows.Count > 0)
             {
-                MessageBox.Show(Messages.SelectAnIndex);
-                return;
-            }
+                DataGridViewRow selectedRow = dataGridViewProducts.SelectedRows[0];
 
-            int productIdToDelete = Convert.ToInt32(textBoxID.Text);
+                int productIdToDelete = Convert.ToInt32(selectedRow.Cells["ID"].Value);
 
-            if (deleteProductFromApi(productIdToDelete))
-            {
-                refreshTable();
-                MessageBox.Show(Messages.Successful);
+                if (deleteProductFromApi(productIdToDelete))
+                {
+                    refreshTable();
+                    MessageBox.Show(Messages.Successful);
+                }
+                else
+                {
+                    MessageBox.Show(Messages.Error + " " + Messages.CompleteAllBoxAndStatus);
+                }
             }
             else
             {
-                MessageBox.Show(Messages.Error + " " + Messages.CompleteAllBoxAndStatus);
+                MessageBox.Show(Messages.SelectAnIndex);
             }
         }
 
@@ -245,16 +201,8 @@ namespace Aplicacion_Almacen.Forms
             refreshTable();
         }
 
-        
-
         private void dataGridViewProducts_SelectionChanged(object sender, EventArgs e)
         {
-            if (dataGridViewProducts.SelectedRows.Count > 0)
-            {
-
-                int productIdFromDataGrid = Convert.ToInt32(dataGridViewProducts.SelectedRows[0].Cells["ID"].Value);
-                textBoxID.Text = productIdFromDataGrid.ToString();
-            }
         }
         #endregion validationsAndUtils
 

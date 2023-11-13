@@ -90,6 +90,7 @@
             this.buttonSave.TabIndex = 127;
             this.buttonSave.Text = "Guardar";
             this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // labelCustomer
             // 
