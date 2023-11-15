@@ -33,6 +33,7 @@
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.dataGridViewAssignedBatchToTruck = new System.Windows.Forms.DataGridView();
+            this.buttonViewActivedTrucks = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAssignedBatchToTruck)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,7 +51,7 @@
             // 
             // buttonRefresh
             // 
-            this.buttonRefresh.Location = new System.Drawing.Point(356, 432);
+            this.buttonRefresh.Location = new System.Drawing.Point(357, 401);
             this.buttonRefresh.Name = "buttonRefresh";
             this.buttonRefresh.Size = new System.Drawing.Size(147, 26);
             this.buttonRefresh.TabIndex = 55;
@@ -60,7 +61,7 @@
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(435, 400);
+            this.buttonDelete.Location = new System.Drawing.Point(436, 369);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(68, 26);
             this.buttonDelete.TabIndex = 54;
@@ -70,7 +71,7 @@
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(356, 400);
+            this.buttonAdd.Location = new System.Drawing.Point(357, 369);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(68, 26);
             this.buttonAdd.TabIndex = 53;
@@ -89,12 +90,23 @@
             this.dataGridViewAssignedBatchToTruck.TabIndex = 48;
             this.dataGridViewAssignedBatchToTruck.SelectionChanged += new System.EventHandler(this.dataGridViewAssignedBatchToTruck_SelectionChanged);
             // 
+            // buttonViewActivedTrucks
+            // 
+            this.buttonViewActivedTrucks.Location = new System.Drawing.Point(357, 433);
+            this.buttonViewActivedTrucks.Name = "buttonViewActivedTrucks";
+            this.buttonViewActivedTrucks.Size = new System.Drawing.Size(147, 26);
+            this.buttonViewActivedTrucks.TabIndex = 57;
+            this.buttonViewActivedTrucks.Text = "Camiones Disponibles";
+            this.buttonViewActivedTrucks.UseVisualStyleBackColor = true;
+            this.buttonViewActivedTrucks.Click += new System.EventHandler(this.buttonViewActivedTrucks_Click);
+            // 
             // AssignBatchToTruckForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(47)))), ((int)(((byte)(68)))));
             this.ClientSize = new System.Drawing.Size(741, 481);
+            this.Controls.Add(this.buttonViewActivedTrucks);
             this.Controls.Add(this.buttonBackToMainMenu);
             this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.buttonDelete);
@@ -114,5 +126,6 @@
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.DataGridView dataGridViewAssignedBatchToTruck;
+        private System.Windows.Forms.Button buttonViewActivedTrucks;
     }
 }

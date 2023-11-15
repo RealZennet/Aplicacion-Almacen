@@ -33,7 +33,6 @@
             this.settingsManagerPanel = new System.Windows.Forms.Panel();
             this.buttonEnglishLanguage = new System.Windows.Forms.Button();
             this.buttonLanguageSpanish = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelProductsAndBatchsContainer = new System.Windows.Forms.Panel();
             this.buttonEmail = new System.Windows.Forms.Button();
             this.buttonTruckerCarryBatch = new System.Windows.Forms.Button();
@@ -43,14 +42,15 @@
             this.panelFormsLoader = new System.Windows.Forms.Panel();
             this.labelWorkerName = new System.Windows.Forms.Label();
             this.labelUserJob = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.labelUserID = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.leftPanelContainer.SuspendLayout();
             this.settingsManagerPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelProductsAndBatchsContainer.SuspendLayout();
             this.panelFormsLoader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // leftPanelContainer
@@ -72,7 +72,7 @@
             this.buttonStoreHouse.FlatAppearance.BorderSize = 0;
             this.buttonStoreHouse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonStoreHouse.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonStoreHouse.Location = new System.Drawing.Point(0, 80);
+            this.buttonStoreHouse.Location = new System.Drawing.Point(0, 110);
             this.buttonStoreHouse.Name = "buttonStoreHouse";
             this.buttonStoreHouse.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonStoreHouse.Size = new System.Drawing.Size(250, 45);
@@ -125,17 +125,6 @@
             this.buttonLanguageSpanish.UseVisualStyleBackColor = true;
             this.buttonLanguageSpanish.Click += new System.EventHandler(this.buttonLanguageSpanish_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Image = global::Aplicacion_Almacen.Properties.Resources.ZENNETLOGO;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(250, 80);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
             // panelProductsAndBatchsContainer
             // 
             this.panelProductsAndBatchsContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
@@ -144,7 +133,7 @@
             this.panelProductsAndBatchsContainer.Controls.Add(this.buttonAssignProducts);
             this.panelProductsAndBatchsContainer.Controls.Add(this.buttonProductsManager);
             this.panelProductsAndBatchsContainer.Controls.Add(this.buttonBatchManager);
-            this.panelProductsAndBatchsContainer.Location = new System.Drawing.Point(0, 131);
+            this.panelProductsAndBatchsContainer.Location = new System.Drawing.Point(0, 154);
             this.panelProductsAndBatchsContainer.Name = "panelProductsAndBatchsContainer";
             this.panelProductsAndBatchsContainer.Size = new System.Drawing.Size(250, 164);
             this.panelProductsAndBatchsContainer.TabIndex = 0;
@@ -259,6 +248,16 @@
             this.labelUserJob.TabIndex = 3;
             this.labelUserJob.Text = "Sector:";
             // 
+            // labelUserID
+            // 
+            this.labelUserID.AutoSize = true;
+            this.labelUserID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUserID.Location = new System.Drawing.Point(19, 164);
+            this.labelUserID.Name = "labelUserID";
+            this.labelUserID.Size = new System.Drawing.Size(30, 20);
+            this.labelUserID.TabIndex = 0;
+            this.labelUserID.Text = "ID:";
+            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Aplicacion_Almacen.Properties.Resources.usuario;
@@ -269,15 +268,16 @@
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
-            // labelUserID
+            // pictureBox1
             // 
-            this.labelUserID.AutoSize = true;
-            this.labelUserID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUserID.Location = new System.Drawing.Point(19, 164);
-            this.labelUserID.Name = "labelUserID";
-            this.labelUserID.Size = new System.Drawing.Size(30, 20);
-            this.labelUserID.TabIndex = 0;
-            this.labelUserID.Text = "ID:";
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox1.Image = global::Aplicacion_Almacen.Properties.Resources.Zblanca__1_;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(250, 110);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // MainForm
             // 
@@ -293,11 +293,11 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.leftPanelContainer.ResumeLayout(false);
             this.settingsManagerPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelProductsAndBatchsContainer.ResumeLayout(false);
             this.panelFormsLoader.ResumeLayout(false);
             this.panelFormsLoader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

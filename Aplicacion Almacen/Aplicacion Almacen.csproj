@@ -85,6 +85,7 @@
     <Compile Include="ApiRequests\ApiRequestGeneralInfo.cs" />
     <Compile Include="ApiRequests\ApiRequestLogin.cs" />
     <Compile Include="ApiRequests\ApiRequestProduct.cs" />
+    <Compile Include="ApiRequests\ApiRequestTruckList.cs" />
     <Compile Include="Forms\AssignBatchToTruckForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +139,12 @@
     </Compile>
     <Compile Include="Forms\crudForms\IntegrateProductToBatchForm.Designer.cs">
       <DependentUpon>IntegrateProductToBatchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\crudForms\ViewTrucksForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\crudForms\ViewTrucksForm.Designer.cs">
+      <DependentUpon>ViewTrucksForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\DestinationListForm.cs">
       <SubType>Form</SubType>
@@ -204,6 +211,7 @@
     <Compile Include="StoreHouseRequests\GeneralInfoInterface.cs" />
     <Compile Include="StoreHouseRequests\GmailNotifierInterface.cs" />
     <Compile Include="StoreHouseRequests\ProductInterface.cs" />
+    <Compile Include="StoreHouseRequests\TruckInterface.cs" />
     <EmbeddedResource Include="Forms\AssignBatchToTruckForm.resx">
       <DependentUpon>AssignBatchToTruckForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -230,6 +238,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\crudForms\IntegrateProductToBatchForm.resx">
       <DependentUpon>IntegrateProductToBatchForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\crudForms\ViewTrucksForm.resx">
+      <DependentUpon>ViewTrucksForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DestinationListForm.resx">
       <DependentUpon>DestinationListForm.cs</DependentUpon>
@@ -299,6 +310,8 @@
   <ItemGroup>
     <None Include="Resources\png-clipart-logistics-computer-icons-freight-transport-logistics-computer-icons-removebg-preview.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Zblanca %281%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
