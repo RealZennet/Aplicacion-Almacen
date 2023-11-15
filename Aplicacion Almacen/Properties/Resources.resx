@@ -121,6 +121,9 @@
   <data name="png-transparent-cargo-transport-logistics-computer-icons-cargo-angle-service-people" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\png-transparent-cargo-transport-logistics-computer-icons-cargo-angle-service-people.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="png-clipart-logistics-computer-icons-freight-transport-logistics-computer-icons-removebg-preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\png-clipart-logistics-computer-icons-freight-transport-logistics-computer-icons-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="logoAzulZennet" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logoAzulZennet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -130,7 +133,7 @@
   <data name="usuario" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\usuario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="png-clipart-logistics-computer-icons-freight-transport-logistics-computer-icons-removebg-preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\png-clipart-logistics-computer-icons-freight-transport-logistics-computer-icons-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Zblanca (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Zblanca (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

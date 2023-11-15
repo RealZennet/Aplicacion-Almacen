@@ -299,6 +299,8 @@
   <ItemGroup>
     <None Include="Resources\png-clipart-logistics-computer-icons-freight-transport-logistics-computer-icons-removebg-preview.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Zblanca %281%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
