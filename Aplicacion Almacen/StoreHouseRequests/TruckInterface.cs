@@ -8,7 +8,7 @@ namespace Aplicacion_Almacen.StoreHouseRequests
 {
     public class TruckInterface
     {
-        public int IDTruck { get; set; }
+        public int TruckID { get; set; }
         public int TruckVolume { get; set; }
         public int TruckWeight { get; set; }
     }

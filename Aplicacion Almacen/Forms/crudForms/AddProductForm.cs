@@ -108,26 +108,33 @@ namespace Aplicacion_Almacen.Forms.crudForms
                 return;
             }
 
-            ProductInterface product = new ProductInterface
+            try
             {
-                ProductWeight = Convert.ToInt32(txtBoxWeight.Text),
-                Volume = Convert.ToInt32(txtBoxVolume.Text),
-                Street = txtBoxStreet.Text,
-                DoorNumber = Convert.ToInt32(txtBoxNumber.Text),
-                Corner = txtBoxCorner.Text,
-                Customer = txtBoxClient.Text,
-                ActivatedProduct = Convert.ToBoolean(statusValue)
-            };
+                ProductInterface product = new ProductInterface
+                {
+                    ProductWeight = Convert.ToInt32(txtBoxWeight.Text),
+                    Volume = Convert.ToInt32(txtBoxVolume.Text),
+                    Street = txtBoxStreet.Text,
+                    DoorNumber = Convert.ToInt32(txtBoxNumber.Text),
+                    Corner = txtBoxCorner.Text,
+                    Customer = txtBoxClient.Text,
+                    ActivatedProduct = Convert.ToBoolean(statusValue)
+                };
 
-            if (apiRequests.AddProduct(product))
+                if (apiRequests.AddProduct(product))
+                {
+                    MessageBox.Show(Messages.Successful);
+                    clearTxtBoxs();
+                }
+                else
+                {
+                    MessageBox.Show(Messages.Error + " " + Messages.CompleteAllBoxAndStatus);
+                }
+            }catch(Exception ex)
             {
-                MessageBox.Show(Messages.Successful);
-                clearTxtBoxs();
+                MessageBox.Show(Messages.Error);
             }
-            else
-            {
-                MessageBox.Show(Messages.Error + " " + Messages.CompleteAllBoxAndStatus);
-            }
+
         }
 
         private void panelSlide_MouseUp(object sender, MouseEventArgs e)
@@ -159,5 +166,6 @@ namespace Aplicacion_Almacen.Forms.crudForms
         {
             this.Close();
         }
+
     }
 }

@@ -169,5 +169,18 @@ namespace Aplicacion_Almacen.Forms
 
         #endregion utils
 
+        private void buttonViewActivedTrucks_Click(object sender, EventArgs e)
+        {
+            if (!IsFormOpen<ViewTrucksForm>())
+            {
+                ViewTrucksForm viewtruckslistcomponent = new ViewTrucksForm();
+                viewtruckslistcomponent.Show();
+            }
+            else
+            {
+                MessageBox.Show(Messages.Error);
+            }
+        }
+
     }
 }

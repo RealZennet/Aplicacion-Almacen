@@ -18,7 +18,7 @@ namespace Aplicacion_Almacen.ApiRequests
             this.baseUrl = baseUrl;
         }
 
-        public List<TruckInterface> GetBatchs()
+        public List<TruckInterface> GetTrucks()
         {
             try
             {

@@ -98,6 +98,7 @@
             this.buttonViewActivedTrucks.TabIndex = 57;
             this.buttonViewActivedTrucks.Text = "Camiones Disponibles";
             this.buttonViewActivedTrucks.UseVisualStyleBackColor = true;
+            this.buttonViewActivedTrucks.Click += new System.EventHandler(this.buttonViewActivedTrucks_Click);
             // 
             // AssignBatchToTruckForm
             // 
